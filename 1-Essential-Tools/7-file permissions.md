@@ -168,3 +168,193 @@ Change: 2023-05-13 02:49:19.438679888 +0000
 ```
 
 ________________________________________________________________________________________________
+
+
+
+### SUID
+
+when it is set on a file it means that whenever the file is executed, it's going to be executed with the UserID of the owner of the file instead of the UserID of the person who is running that file
+
+
+________________________________________________________________________________________________
+
+
+```bash
+[bob@centos-host ~]$ touch myfile
+
+[bob@centos-host ~]$ ls -l myfile
+-rw-rw-r-- 1 bob bob 0 May 13 11:39 myfile
+```
+
+
+to set it we add 4 in the front of the permission:
+
+
+```bash
+[bob@centos-host ~]$ chmod 4664 myfile
+
+[bob@centos-host ~]$ ls -l myfile
+-rwSrw-r-- 1 bob bob 0 May 13 11:39 myfile
+```
+
+in this way, everybody is able to execute this file with the permissions of the user bob, instead of his own user
+
+
+________________________________________________________________________________________________
+
+
+right now it's in Capital S:
+
+because the owner it has not the permission to execute
+
+```bash
+[bob@centos-host ~]$ ls -l myfile
+-rwSrw-r-- 1 bob bob 0 May 13 11:39 myfile
+```
+
+but if the owner itself has the permission of execute, so it will be lowercase s:
+
+```bash
+[bob@centos-host ~]$ ls -l myfile
+-rwsrw-r-- 1 bob bob 0 May 13 11:39 myfile
+```
+
+________________________________________________________________________________________________
+
+
+
+
+### GUID
+
+when it is set on a file it means that whenever the file is executed, it's going to be executed with the GroupID of the owner of the file instead of the GroupID of the person who is running that file
+
+
+
+________________________________________________________________________________________________
+
+
+
+```bash
+[bob@centos-host ~]$ touch myNewFile
+
+[bob@centos-host ~]$ ls -l myNewFile 
+-rw-rw-r-- 1 bob bob 0 May 13 11:48 myNewFile
+```
+
+to set it we add 2 in the front of the permission:
+
+
+```bash
+[bob@centos-host ~]$ chmod 2664 myNewFile
+
+[bob@centos-host ~]$ ls -l myNewFile 
+-rw-rwSr-- 1 bob bob 0 May 13 11:48 myNewFile
+```
+
+
+________________________________________________________________________________________________
+
+
+
+right now it's in Capital S:
+
+because the group it has not the permission to execute
+
+
+```bash
+[bob@centos-host ~]$ ls -l myNewFile 
+-rw-rwSr-- 1 bob bob 0 May 13 11:48 myNewFile
+```
+
+
+```bash
+[bob@centos-host ~]$ chmod g+x myNewFile
+
+[bob@centos-host ~]$ ls -l myNewFile 
+-rw-rwsr-- 1 bob bob 0 May 13 11:48 myNewFile
+```
+
+
+________________________________________________________________________________________________
+
+
+### find files with SUID and GUID set
+
+```bash
+[bob@centos-host ~]$ find . -perm /4000
+./myfile
+```
+
+```bash
+[bob@centos-host ~]$ find . -perm /2000
+./myNewFile
+```
+
+________________________________________________________________________________________________
+
+
+### set both GUID and SUID on a file
+
+```bash
+[bob@centos-host ~]$ touch fileWithBothPermissions
+
+[bob@centos-host ~]$ chmod 6664 fileWithBothPermissions
+
+[bob@centos-host ~]$ ls -l  fileWithBothPermissions 
+-rwSrwSr-- 1 bob bob 0 May 13 11:56 fileWithBothPermissions
+```
+
+________________________________________________________________________________________________
+
+
+### Sticky bit
+
+it's usually set on directories that is shared between people,
+
+and only the owner of each file is able to remove that file in that directory
+
+
+________________________________________________________________________________________________
+
+
+
+
+```bash
+[bob@centos-host ~]$ mkdir stickyDirectory
+
+[bob@centos-host ~]$ ls -ld stickyDirectory/
+drwxrwxr-x 2 bob bob 4096 May 13 12:01 stickyDirectory/
+```
+
+
+________________________________________________________________________________________________
+
+
+
+we can set sticky bit in 2 ways:
+
+- chmod +t stickyDirectory
+- chmod 1777 stickyDirectory
+
+```bash
+[bob@centos-host ~]$ chmod +t stickyDirectory/
+
+[bob@centos-host ~]$ ls -ld stickyDirectory/
+drwxrwxr-t 2 bob bob 4096 May 13 12:01 stickyDirectory/
+```
+
+________________________________________________________________________________________________
+
+
+
+```bash
+[bob@centos-host ~]$ chmod o-x stickyDirectory/
+
+[bob@centos-host ~]$ ls -ld stickyDirectory/
+drwxrwxr-T 2 bob bob 4096 May 13 12:01 stickyDirectory/
+```
+
+now it's a capital T !
+
+________________________________________________________________________________________________
+
