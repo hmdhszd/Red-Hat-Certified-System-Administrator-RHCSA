@@ -51,3 +51,15 @@ star -xv file=/home/hamid/archive.star.gz file.txt
 ```
 
 ________________________________________________________________________________________________
+
+
+
+Use star to create an archive containing the files 1.txt through 10.txt. 
+
+
+```bash
+[bob@centos-host ~]$ star -cv file=/home/bob/archive1.star {1..10}.txt
+```
+
+
+
