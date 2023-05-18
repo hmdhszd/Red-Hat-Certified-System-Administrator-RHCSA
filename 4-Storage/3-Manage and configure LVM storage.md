@@ -1,4 +1,14 @@
 
+pv        physical volume           disk/partition
+vg        volume group
+lv        logical volume
+ 
+
+
+________________________________________________________________________________________________
+
+
+
 install LVM
 
 
@@ -27,28 +37,43 @@ to see overal physical disk status
 ________________________________________________________________________________________________
 
 
-
+create pv
 
 ```bash
+[bob@centos-host ~]$ sudo pvcreate /dev/vdc /dev/vdd /dev/vde /dev/vdb
 
+  Physical volume "/dev/vdc" successfully created.
+  Physical volume "/dev/vdd" successfully created.
+  Physical volume "/dev/vde" successfully created.
+  Physical volume "/dev/vdb" successfully created.
 ```
 
 ________________________________________________________________________________________________
 
 
-
-
 ```bash
+[bob@centos-host ~]$ sudo pvscan
 
+  PV /dev/vdb                      lvm2 [1.00 GiB]
+  PV /dev/vdc                      lvm2 [1.00 GiB]
+  PV /dev/vdd                      lvm2 [1.00 GiB]
+  PV /dev/vde                      lvm2 [1.00 GiB]
+  Total: 4 [4.00 GiB] / in use: 0 [0   ] / in no VG: 4 [4.00 GiB]
 ```
 
 ________________________________________________________________________________________________
 
 
-
+pvs — Display information about physical volumes
 
 ```bash
+[bob@centos-host ~]$ sudo pvs
 
+  PV         VG Fmt  Attr PSize PFree
+  /dev/vdb      lvm2 ---  1.00g 1.00g
+  /dev/vdc      lvm2 ---  1.00g 1.00g
+  /dev/vdd      lvm2 ---  1.00g 1.00g
+  /dev/vde      lvm2 ---  1.00g 1.00g
 ```
 
 ________________________________________________________________________________________________
