@@ -45,10 +45,10 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-
+Edit disk quotas for the user called john. Set a soft limit of 100 megabytes and hard limit of 500 megabytes on /mnt partition.
 
 ```bash
-
+[bob@centos-host ~]$ sudo xfs_quota -x -c 'limit bsoft=100m bhard=500m john' /mnt/
 ```
 
 ________________________________________________________________________________________________
