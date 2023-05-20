@@ -63,12 +63,41 @@ not redundant
 ________________________________________________________________________________________________
 
 
-to have raid, first we should get rid of vg and ps 
-
-create raid 0
+install mdadm
 
 ```bash
-mdadm --create 
+[bob@centos-host ~]$ sudo yum install mdadm -y 
+```
+
+________________________________________________________________________________________________
+
+
+to have raid, first we should get rid of vg and ps 
+
+create raid 1
+
+```bash
+[bob@centos-host ~]$ sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/vdc /dev/vdd
+
+mdadm: Note: this array has metadata at the start and
+    may not be suitable as a boot device.  If you plan to
+    store '/boot' on this device please ensure that
+    your boot-loader understands md/v1.x metadata, or use
+    --metadata=0.90
+Continue creating array? yes
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md0 started.
+```
+
+________________________________________________________________________________________________
+
+
+Add another device, /dev/vde, to the previously created array, /dev/md0 
+
+```bash
+[bob@centos-host ~]$ sudo mdadm --manage /dev/md0 --add /dev/vde
+
+mdadm: added /dev/vde
 ```
 
 ________________________________________________________________________________________________
