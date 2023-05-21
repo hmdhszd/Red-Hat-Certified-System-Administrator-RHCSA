@@ -113,3 +113,27 @@ ff02::2 ip6-allrouters
 ```
 
 ________________________________________________________________________________________________
+
+
+
+
+```bash
+[bob@centos-host ~]$ hostnamectl
+
+   Static hostname: centos-host
+Transient hostname: dev-host01
+         Icon name: computer-container
+           Chassis: container
+        Machine ID: 959f802d50f145f3a6ae26318ab619a1
+           Boot ID: b5ddf1c745d7465d9c7b51d3aef25c75
+    Virtualization: container-other
+  Operating System: CentOS Stream 8
+       CPE OS Name: cpe:/o:centos:centos:8
+            Kernel: Linux 5.4.0-1104-gcp
+      Architecture: x86-64
+```
+
+________________________________________________________________________________________________
+
+
+
