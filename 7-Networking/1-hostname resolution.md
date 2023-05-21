@@ -92,7 +92,7 @@ ________________________________________________________________________________
 to apply the changes:
 
 ```bash
-[bob@centos-host ~]$ sudo nmtui device reapply enp0s 3
+[bob@centos-host ~]$ sudo nmcli device reapply enp0s 3
 ```
 
 ________________________________________________________________________________________________
