@@ -136,4 +136,10 @@ Transient hostname: dev-host01
 ________________________________________________________________________________________________
 
 
+### ADD extra IP to an interface:
+
+```bash
+[bob@centos-host ~]$ sudo ip address add 10.0.0.50/24 dev eth1
+```
+
 
