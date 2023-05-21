@@ -126,6 +126,16 @@ period in days      -->     can be numbers like 3 / can be @weekly / @monthly
 ________________________________________________________________________________________________
 
 
+force to run anacron jobs NOW
+
+```bash
+anacron -n
+```
+
+________________________________________________________________________________________________
+
+
+
 test to see if the file edited correctly
 
 ```bash
