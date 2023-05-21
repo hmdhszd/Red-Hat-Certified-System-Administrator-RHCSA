@@ -81,7 +81,7 @@ active (running)
 
 Main PID: 917 (sshd)
 
-
+loaded: full path of the service file
 
 ________________________________________________________________________________________________
 
@@ -175,3 +175,45 @@ ________________________________________________________________________________
 ```
 
 ________________________________________________________________________________________________
+
+
+```bash
+
+
+[bob@centos-host ~]$ cat /usr/lib/systemd/system/httpd.service
+
+# See httpd.service(8) for more information on using the httpd service.
+
+# Modifying this file in-place is not recommended, because changes
+# will be overwritten during package upgrades.  To customize the
+# behaviour, run "systemctl edit httpd" to create an override unit.
+
+# For example, to pass additional options (such as -D definitions) to
+# the httpd binary at startup, create an override unit (as is done by
+# systemctl edit) and enter the following:
+
+#       [Service]
+#       Environment=OPTIONS=-DMY_DEFINE
+
+[Unit]
+Description=The Apache HTTP Server
+Wants=httpd-init.service
+After=network.target remote-fs.target nss-lookup.target httpd-init.service
+Documentation=man:httpd.service(8)
+
+[Service]
+Type=notify
+Environment=LANG=C
+
+ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND
+ExecReload=/usr/sbin/httpd $OPTIONS -k graceful
+# Send SIGWINCH for graceful stop
+KillSignal=SIGWINCH
+KillMode=mixed
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+ 
+ ```
+ 
