@@ -67,6 +67,8 @@ ________________________________________________________________________________
 
 ## to see what programs are running and waiting for incoming network connections --> ss and netstat
 
+(always use with sudo)
+
 ```bash
 [bob@centos-host ~]$ sudo ss -tulpn
 
