@@ -51,7 +51,24 @@ ________________________________________________________________________________
 check info of time zone  of the server
 
 ```bash
-[bob@centos-host ~]$ timadatectl
+[bob@centos-host ~]$ timedatectl
+
+               Local time: Mon 2023-05-22 02:28:55 IST
+           Universal time: Sun 2023-05-21 20:58:55 UTC
+                 RTC time: Sun 2023-05-21 20:58:55
+                Time zone: Asia/Kolkata (IST, +0530)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+```
+
+________________________________________________________________________________________________
+
+
+### List of timezones
+
+```bash
+[bob@centos-host ~]$ timedatectl list-timezones 
 ```
 
 ________________________________________________________________________________________________
@@ -63,6 +80,7 @@ ________________________________________________________________________________
 [bob@centos-host ~]$ sudo timedatectl set-timezone "America/Toronto"
 ```
 
+
 ________________________________________________________________________________________________
 
 
@@ -70,6 +88,15 @@ ________________________________________________________________________________
 
 ```bash
 [bob@centos-host ~]$ sudo systemctl set-ntp true
+```
+
+________________________________________________________________________________________________
+
+
+### Set system to use RTC
+
+```bash
+[bob@centos-host ~]$ sudo timedatectl set-local-rtc 1
 ```
 
 ________________________________________________________________________________________________
