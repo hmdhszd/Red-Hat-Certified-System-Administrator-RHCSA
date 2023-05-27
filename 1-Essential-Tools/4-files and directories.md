@@ -4,7 +4,9 @@
 ls ---> list files
 
 -l  list
+
 -h  human readable
+
 -a  include hidden files
 
 
