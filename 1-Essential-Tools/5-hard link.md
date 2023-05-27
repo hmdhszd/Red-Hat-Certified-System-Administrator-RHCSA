@@ -60,11 +60,9 @@ ln target-file original-file
 we can see the same inode
 
 
- pictures/dog.jpg \     
- 
-                   |-->       Inode: 108178360      -->       blocks of data on the disk
+ pictures/dog.jpg      -->       Inode: 108178360      -->       same blocks of data on the disk
                    
-  photos/dog.jpg  /
+ photos/dog.jpg        -->       Inode: 108178360      -->       same blocks of data on the disk
 
 
 ________________________________________________________________________________________________
