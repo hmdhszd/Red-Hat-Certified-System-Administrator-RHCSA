@@ -57,11 +57,13 @@ ln target-file original-file
 ```
 
 
-we can se the same inode
+we can see the same inode
 
 
  pictures/dog.jpg \     
+ 
                    |-->       Inode: 108178360      -->       blocks of data on the disk
+                   
   photos/dog.jpg  /
 
 
