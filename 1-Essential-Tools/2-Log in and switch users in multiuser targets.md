@@ -1,7 +1,7 @@
 
 
 # user account
-every user in linux hat an associated account!
+every user in linux has an associated account!
 
 a user account maintains informations such as username and password
 
@@ -253,3 +253,12 @@ the third field is the user or group that the user in the first field can run th
 the forth field is the command that can be run ( /bin/ls , ALL(default) )
 
 ________________________________________________________________________________________________
+
+
+for example, user hamid has only permission to user shutdown command:
+
+
+
+```bash
+hamid localhost=/usr/bin/shutdown -r now
+```
