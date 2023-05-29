@@ -45,6 +45,7 @@ ________________________________________________________________________________
 replace a word in a file:
 
 s: search and replace
+
 g: global (change all values) if we don't use g, it will change the first match only
 
 ```bash
@@ -105,6 +106,7 @@ ________________________________________________________________________________
 ### cut extract from a file
 
 d: delimiter
+
 f: field
 
 ```bash
