@@ -224,3 +224,10 @@ Filter out the lines that contain any word that starts with a capital letter and
 ```
 
 ________________________________________________________________________________________________
+
+
+###   Basic vs Extended Regular Expressions
+
+       In basic regular expressions the meta-characters ?, +, {, |, ( and ) lose their special meaning;
+       
+       instead use the backslashed versions \?, \+, \{, \|, \(, and \).
