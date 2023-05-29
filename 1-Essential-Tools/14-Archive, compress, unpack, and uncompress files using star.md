@@ -54,6 +54,18 @@ ________________________________________________________________________________
 
 
 
+decompress 8in a new directory
+
+use -C  OR  --directory
+
+```bash
+star -xv file=/home/hamid/archive.star.gz file.txt -C /tmp
+```
+
+________________________________________________________________________________________________
+
+
+
 Use star to create an archive containing the files 1.txt through 10.txt. 
 
 
