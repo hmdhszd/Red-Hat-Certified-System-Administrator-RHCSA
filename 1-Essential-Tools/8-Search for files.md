@@ -29,11 +29,15 @@ find files bigger that 10 Gig
 ```
 
    bigger than  +
+   
    smaller than -
 
 c   bytes
+
 k   kilobytes
+
 M   megabytes
+
 G   gigabytes
 
 ________________________________________________________________________________________________
