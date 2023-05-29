@@ -72,3 +72,9 @@ REDHAT_SUPPORT_PRODUCT="Red Hat Enterprise Linux 8"
 ```
 
 ________________________________________________________________________________________________
+
+
+### -o    --only-matching
+
+it only shows the matching item, not the whole line
+
