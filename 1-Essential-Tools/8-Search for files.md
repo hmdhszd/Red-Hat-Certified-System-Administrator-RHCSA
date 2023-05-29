@@ -28,8 +28,8 @@ find files bigger that 10 Gig
 [bob@centos-host ~]$ find /tmp -size +10G
 ```
 
-+   bigger than
--   smaller than
+   bigger than  +
+   smaller than -
 
 c   bytes
 k   kilobytes
