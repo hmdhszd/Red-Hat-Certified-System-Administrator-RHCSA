@@ -93,7 +93,9 @@ the permissions are evaluated from left to right
 
 
  rwx     rwx     rwx
+ 
   |       |       |
+  
 owner   group   others
 
 
@@ -101,13 +103,17 @@ owner   group   others
 for files:
 
 r: read
+
 w: write
+
 x: execute
 
 for directories:
 
 r: ls my-directory/
+
 w: touch my-directory/my-file
+
 x: cd my-directory/
 
 
@@ -117,7 +123,9 @@ ________________________________________________________________________________
 change permission of a file
 
 u: user (owner)
+
 g: group
+
 o: other
 
 ```bash
@@ -334,6 +342,7 @@ ________________________________________________________________________________
 we can set sticky bit in 2 ways:
 
 - chmod +t stickyDirectory
+
 - chmod 1777 stickyDirectory
 
 ```bash
