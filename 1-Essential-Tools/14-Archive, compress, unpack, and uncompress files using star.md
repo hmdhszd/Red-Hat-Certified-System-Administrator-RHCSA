@@ -34,11 +34,11 @@ ________________________________________________________________________________
 compress and archive
 
 ```bash
-star -cv file=/home/hamid/archive.star.gz file.txt
+star -cv -z file=/home/hamid/archive.star.gz file.txt
 ```
 
 ```bash
-star -cv file=/home/hamid/archive.star.bz2 file.txt
+star -cv -bz file=/home/hamid/archive.star.bz2 file.txt
 ```
 
 ________________________________________________________________________________________________
