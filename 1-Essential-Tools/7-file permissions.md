@@ -367,3 +367,5 @@ now it's a capital T !
 
 ________________________________________________________________________________________________
 
+### note that the permissions are applied left to right
+
