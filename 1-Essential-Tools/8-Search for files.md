@@ -213,6 +213,10 @@ Find files/directories under /var/log/ directory that the group can write to, bu
 sudo find /var/log/ -perm -g=w ! -perm /o=rw
 ```
 
+the "-" means that "at least" : Permissions for the group have to be at least w
+
+the "/" means "OR" : Permissions for others have not to be r or w. That means, if any of these two permissions, r or w match for others, the result has to be excluded.
+
 ________________________________________________________________________________________________
 
 
