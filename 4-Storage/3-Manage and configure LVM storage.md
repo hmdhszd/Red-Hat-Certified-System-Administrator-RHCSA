@@ -278,7 +278,7 @@ ________________________________________________________________________________
 Resize Logical Volume
 
 ```bash
-[bob@centos-host ~]$ sudo lvresize --size 1G /dev/volume1/smalldata
+[bob@centos-host ~]$ sudo lvresize --resizefs --size 1G /dev/volume1/smalldata
 
   WARNING: Reducing active logical volume to 1.00 GiB.
   THIS MAY DESTROY YOUR DATA (filesystem etc.)
