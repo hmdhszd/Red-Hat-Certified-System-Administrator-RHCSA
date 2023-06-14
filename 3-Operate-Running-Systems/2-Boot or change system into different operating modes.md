@@ -42,11 +42,11 @@ ________________________________________________________________________________
 
 2 - Multi-user mode with no networking
 
-3 - Multi-user mode with networking
+3 - Multi-user mode with networking (without GUI)
 
 4 - Not used/User-definable
 
-5 - Graphical user interface (GUI) mode with networking
+5 - Graphical user interface (with GUI) mode with networking
 
 6 - Reboot state
 
