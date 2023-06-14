@@ -40,7 +40,7 @@ ________________________________________________________________________________
 
 1 - Single user mode
 
-2 - Multi-user mode with no networking
+2 - Multi-user mode without networking
 
 3 - Multi-user mode with networking (without GUI)
 
@@ -76,7 +76,7 @@ in rescue target, more programms will be loaded than the emergency target
 ________________________________________________________________________________________________
 
 
-2 - Multi-user mode with no networking
+2 - Multi-user mode without networking
 
 
 ```bash
