@@ -83,6 +83,8 @@ ________________________________________________________________________________
 
 # Create a swap file to use permanently
 
+use file instead for swap of partition
+
 
 ```bash
 bob@centos-host ~]$ sudo dd if=/dev/zero of=/swap bs=1M count=128 status=progress
