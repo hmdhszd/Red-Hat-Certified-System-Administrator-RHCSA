@@ -1,7 +1,10 @@
 
 pv        physical volume           disk/partition
+
 vg        volume group
+
 lv        logical volume
+
 pe        physical extend
 
 
