@@ -106,7 +106,7 @@ ________________________________________________________________________________
 
 
 ```bash
-mkfs
+[bob@centos-host ~]$ sudo mkfs /dev/md0
 ```
 
 ________________________________________________________________________________________________
@@ -115,7 +115,7 @@ ________________________________________________________________________________
 Stop / Deactivate array
 
 ```bash
-adadm --stop 
+[bob@centos-host ~]$ sudo mdadm --stop /dev/md0
 ```
 
 ________________________________________________________________________________________________
@@ -125,7 +125,7 @@ By using "--zero-superblock," you can erase the RAID metadata from a device, eff
 This is useful when you want to repurpose a disk or troubleshoot RAID-related issues.
 
 ```bash
-mdadm --zero-superblock /dev/sdb
+[bob@centos-host ~]$ sudo mdadm --zero-superblock /dev/sdb
 ```
 
 ________________________________________________________________________________________________
@@ -134,16 +134,7 @@ ________________________________________________________________________________
 add spare disk to an array
 
 ```bash
---spare-device
-```
-
-________________________________________________________________________________________________
-
-
-
-
-```bash
-manage --add
+[bob@centos-host ~]$ sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/vdc /dev/vdd --spare-device /dev/vde
 ```
 
 ________________________________________________________________________________________________
