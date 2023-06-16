@@ -17,7 +17,7 @@ ________________________________________________________________________________
 A    B    C    D    E    command and arguments
 
 
-filed		Meaning			       values
+filed			Meaning			       values
 A			  minute			       0-59
 B			  hour		           0-23
 C			  day of month	     1-31
