@@ -8,7 +8,7 @@
 
 user and group hamid will be created, the primary group of this user will be hamid
 
-the home directory /home/john will be created
+the home directory /home/hamid will be created
 
  default shell /bin/bash
  
