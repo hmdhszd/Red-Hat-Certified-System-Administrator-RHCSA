@@ -65,7 +65,11 @@ nodejs      18          common, development, minimal, s2i          Javascript ru
 ```
 
 
+the default version (nodejs 10) will be installed by this command:
 
+```bash
+[bob@centos-host ~]$ yum install nodejs
+```
 
 ________________________________________________________________________________________________
 
