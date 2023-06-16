@@ -99,7 +99,7 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 ________________________________________________________________________________________________
 
 
-to reset module to the default version
+to reset module to the default version (and common profile)
 
 ```bash
 [bob@centos-host ~]$ sudo yum module reset nodejs
