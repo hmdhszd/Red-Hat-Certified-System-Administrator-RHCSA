@@ -80,7 +80,7 @@ then use the connection name:
 the apply the changes:
 
 ```bash
-[bob@centos-host ~]$ sudo nmcli device reapply eth0
+[bob@centos-host ~]$ sudo nmcli device reapply System\ eth0
 ```
 
 ________________________________________________________________________________________________
