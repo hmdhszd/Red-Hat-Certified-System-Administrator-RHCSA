@@ -6,8 +6,23 @@
 - Deduplication
 - Compression
 
+________________________________________________________________________________________________
+
+
+
+install VDO
+
 ```bash
-vdo create --name=vdo_storage --device=/dev/vdb --VdoLogicalSize=1-G
+yum install vdo
+systemctl enable --now vdo.service
+```
+
+________________________________________________________________________________________________
+
+
+
+```bash
+vdo create --name=vdo_storage --device=/dev/vdb --VdoLogicalSize=10G
 ```
 
 the size can be bigger than the real storage size
@@ -51,7 +66,7 @@ sudo vdostats --human-readable
 ________________________________________________________________________________________________
 
 
-
+we create a new directory to mount the vdo storage:
 
 ```bash
 mkdir /mnt/myvdo
@@ -64,6 +79,9 @@ add mount at startup
 
 ```bash
 vi /etc/fstab
+
+/dev/mapper/vdo_storage        /mnt/myvdo                    xfs
+ _netdev,x-systemd.device-timeout=0,x-systemd.requires=vdo.service      0 0
 ```
 
 (should be memorized)
@@ -91,12 +109,11 @@ ________________________________________________________________________________
 
 ### test the VDO
 
+put random data into a file
 
 ```bash
 head -c 50M dev/urandom > mydata.txt
 ```
-
-________________________________________________________________________________________________
 
 
 
@@ -105,8 +122,6 @@ ________________________________________________________________________________
 mkdir /mnt/myvdo/dir{1..10}
 ```
 
-________________________________________________________________________________________________
-
 
 
 
@@ -114,8 +129,7 @@ ________________________________________________________________________________
 for i in `seq 1 10`; do sudo mkdir $i && sudo cp myData.txt /mnt/myvdo/dir$i; done;
 ```
 
-________________________________________________________________________________________________
-
+verify:
 
 
 
@@ -150,10 +164,11 @@ vgcreate vdo_volume /dev/vdb
 ```
 
 
-
 ```bash
 lvcreate --type vdo -n vdo_storage -L 100%FREE -V 10G vdo_volume/vdo_pool1
 ```
+
+name --> -n
 
 
 ```bash
@@ -183,6 +198,8 @@ add mount at startup
 
 ```bash
 vi /etc/fstab
+
+/dev/vdo_volume/vdo_storage  /mnt/myvdo  xfs  default  0  0
 ```
 
 
@@ -204,7 +221,7 @@ ________________________________________________________________________________
 df -h /mnt/myvdo
 ```
 
-
+________________________________________________________________________________________________
 
 
 ```bash
@@ -212,21 +229,3 @@ man lvmvdo
 ```
 
 ________________________________________________________________________________________________
-
-
-
-```bash
-
-```
-
-________________________________________________________________________________________________
-
-
-
-
-```bash
-
-```
-
-________________________________________________________________________________________________
-
