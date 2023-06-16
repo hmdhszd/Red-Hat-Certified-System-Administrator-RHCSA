@@ -147,7 +147,7 @@ anacron -T
 ________________________________________________________________________________________________
 
 
-
+the job-identifier can be cron.daily / cron.weekly / cron.monthly
 
 
 ```bash
@@ -163,7 +163,7 @@ MAILTO=root
 # the jobs will be started during the following hours only
 START_HOURS_RANGE=3-22
  
-#period in days   delay in minutes   job-identifier   command
+#period in days   delay in minutes   job-identifier	      	     command
 1	      	    5		      cron.daily		nice run-parts /etc/cron.daily
 7	      	    25		      cron.weekly		nice run-parts /etc/cron.weekly
 @monthly 	    45		      cron.monthly		nice run-parts /etc/cron.monthly
