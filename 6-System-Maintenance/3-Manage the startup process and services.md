@@ -55,6 +55,13 @@ edit service
 [bob@centos-host ~]$ sudo systemctl edit --full sshd.service
 ```
 
+and to revert our changes:
+
+
+```bash
+[bob@centos-host ~]$ sudo systemctl revert sshd.service
+```
+
 ________________________________________________________________________________________________
 
 
@@ -175,6 +182,11 @@ ________________________________________________________________________________
 ```
 
 ________________________________________________________________________________________________
+
+
+ExecStart specifies the full path of a command that will be executed to start a service. 
+
+ExecReload. Specifies commands or scripts to be executed when the unit is reloaded. 
 
 
 ```bash
