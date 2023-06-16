@@ -19,7 +19,7 @@ A    B    C    D    E    command and arguments
 
 filed			  Meaning			  values
 A			  minute			  0-59
-B			  hour				 0-23
+B			  hour				  0-23
 C			  day of month			  1-31
 D			  month			          1-12 (or names, see below)
 E			  day of week			  0-7 (0 or 7 is Sunday, or use names)
@@ -147,8 +147,11 @@ anacron -T
 ________________________________________________________________________________________________
 
 
-the job-identifier can be cron.daily / cron.weekly / cron.monthly
+The job-identifier variable specifies a unique name of a job which is used in the log files.
 
+The command variable specifies the command to execute.
+
+The command can either be a command such as "ls /proc >> /tmp/proc" or a command to execute a custom script.
 
 ```bash
 # /etc/anacrontab: configuration file for anacron
@@ -164,9 +167,9 @@ MAILTO=root
 START_HOURS_RANGE=3-22
  
 #period in days   delay in minutes   job-identifier	      	     command
-1	      	    5		      cron.daily		nice run-parts /etc/cron.daily
-7	      	    25		      cron.weekly		nice run-parts /etc/cron.weekly
-@monthly 	    45		      cron.monthly		nice run-parts /etc/cron.monthly
+1	      	    5		      cron.daily		  nice run-parts /etc/cron.daily
+7	      	    25		      cron.weekly		  nice run-parts /etc/cron.weekly
+@monthly 	    45		      cron.monthly		  nice run-parts /etc/cron.monthly
 ```
 
 
