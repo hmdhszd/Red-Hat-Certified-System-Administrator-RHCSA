@@ -27,7 +27,7 @@ hamid:x:1002:1002::/home/hamid:/bin/bash
 ________________________________________________________________________________________________
 
 
-and these files from /etc/skel will be copied to the /home/john
+and these files from /etc/skel will be copied to the /home/hamid
 
 ```bash
 [bob@centos-host ~]$ ls -a /etc/skel
