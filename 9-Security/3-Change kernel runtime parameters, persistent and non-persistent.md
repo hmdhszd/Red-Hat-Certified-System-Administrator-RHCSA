@@ -36,7 +36,7 @@ ________________________________________________________________________________
 every line that starts with "net." is related to network
 
 
-every line that starts with "vn." is related to memory
+every line that starts with "vm." is related to virtual memory
 
 
 every line that starts with "fs." is related to file system
