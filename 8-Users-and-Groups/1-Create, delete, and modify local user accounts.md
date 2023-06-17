@@ -231,8 +231,15 @@ ________________________________________________________________________________
 change the home dir
 
 ```bash
-[bob@centos-host ~]$ sudo usermod  --home /home/hamid --move-home  /home/OTHERDIR hamid
+[bob@centos-host ~]$ sudo usermod  --home /home/OTHERDIR --move-home hamid
 ```
+
+OR
+
+```bash
+[bob@centos-host ~]$ sudo usermod  --d /home/OTHERDIR -m hamid
+```
+
 
 ________________________________________________________________________________________________
 
