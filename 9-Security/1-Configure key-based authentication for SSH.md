@@ -20,7 +20,11 @@ ________________________________________________________________________________
 ipv4 or ipv6 or any
 
 
-ipv4    inet
+for ipv4      -->      inet
+
+for ipv6      -->      inet6
+
+for both      -->      any
 
 
 ```bash
