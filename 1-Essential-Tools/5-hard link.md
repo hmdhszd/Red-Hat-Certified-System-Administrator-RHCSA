@@ -1,15 +1,15 @@
 
 
-the inode of each file remembers where each piece of a file stored in the disk
+the inode of each file remembers where each piece of a file is stored in the disk
 
 and also tracks of metadata such as Permissions, Access Time
 
-a file points to the inode, and an inode points to the all blocks of data on the disk
+a file points to the inode, and an inode points to all blocks of data on the disk
 
 pictures/dog.jpg      -->       Inode: 108178360      -->       blocks of data on the disk
 
 
-if one of the hard links deletes, the file still remains, it will be deleted when all of the hard links is removed
+if one of the hard links deletes, the file still remains, it will be deleted when all of the hard links are removed
 
 
 ```bash
@@ -92,9 +92,9 @@ ________________________________________________________________________________
 
 - only can hard link to file in the same file system, (not possible in external hard disk)
 
-- make sure you have the permission to create hard link in the destination path
+- make sure you have permission to create a hard link in the destination path
 
-- make sure all users habe the permissions to have access to that file
+- make sure all users have the permission to have access that file
 
 
 
