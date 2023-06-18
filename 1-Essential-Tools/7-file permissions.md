@@ -92,11 +92,11 @@ ________________________________________________________________________________
 the permissions are evaluated from left to right
 
 
- rwx     rwx     rwx
+ rwx|----------|rwx|----------|rwx
  
-  |       |       |
+  |----------||----------||----------|
   
-owner   group   others
+user(owner)|----------|group|----------|others
 
 
 
