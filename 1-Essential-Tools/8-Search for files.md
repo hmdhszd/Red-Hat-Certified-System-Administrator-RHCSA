@@ -112,14 +112,31 @@ search for files that are modified from 48 hours ago to 24 hours ago:
 ________________________________________________________________________________________________
 
 
-### Modified time != Changed time
+### Modified != Changed 
 
-Modified time: when the contents of a file have been modified
+Modified : when the contents of a file have been modified
 
-Changed time:  when the Metadata of a file has been changed
-```bash
+Changed :  when the Metadata of a file has been changed
 
-```
+
+
+----------
+
+
+min --> minute
+
+mmin
+
+mtime
+
+
+
+time --> day
+
+cmin
+
+ctime
+
 
 ________________________________________________________________________________________________
 
