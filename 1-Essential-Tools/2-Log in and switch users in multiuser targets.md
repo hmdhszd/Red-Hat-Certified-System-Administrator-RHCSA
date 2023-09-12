@@ -1,18 +1,19 @@
 
 
 # user account
-every user in linux has an associated account!
 
-a user account maintains informations such as username and password
+`every` `user` in linux has `an` `account`!
 
-a user account containt an identifier called uid (unique for each user in the system)
+a user account maintains informations such as `username` and `password`
+
+`each` `user` an identifier called `uid` (unique for each user in the system)
 
 user account is for individuals who needs access to the linux system
 
 ________________________________________________________________________________________________
 
 
-the information of a user account is stored in /etc/passswd :
+the information of a user account is stored in `/etc/passswd` :
 
 ```bash
 [bob@centos-host ~]$ cat /etc/passwd
@@ -51,9 +52,9 @@ ________________________________________________________________________________
 
 # group
 
-a linux group is a collection of users,
+a linux `group` is a `collection of users`,
  
-the information of the groups is stored at /etc/group :
+the information of the groups is stored at `/etc/group` :
 
 ```bash
 [bob@centos-host ~]$ cat /etc/group
@@ -73,22 +74,25 @@ bob:x:1000:
 
 ________________________________________________________________________________________________
 
-each group has a unique identifier called gid,
+`each` `group` has a unique identifier called `gid`,
 
-a user can be part of multiple groups
+`a user` can be part of `multiple groups`
 
-at the time of the user creation, if no groups is specified, the user will be assigned to the group with the same id and name as the user id (the primary gid of the user)
+at the time of the `user creation`, if `no groups` is specified, the user will be assigned to the `group` with the `same id` and name as the `user id` (the `primary` `gid` of the user)
 
 ________________________________________________________________________________________________
 
 
-the user account also stores the info of the home directory and the default shell of the user,
+the `user account` also stores the info of the `home directory` and the `default shell` of the user,
 
-you can check it by running id command:
+you can check it by running `id` and `whoami` command:
 
 ```bash
 [bob@centos-host ~]$ whoami
 bob
+```
+
+```bash
 [bob@centos-host ~]$ id bob
 uid=1000(bob) gid=1000(bob) groups=1000(bob)
 ```
@@ -106,20 +110,20 @@ bob:x:1000:1000::/home/bob:/bin/bash
 ________________________________________________________________________________________________
 
 
-# super user account
+# `super user account`
 
-a super user account is the root (uid = 0)
+a super user account is the `root` (`uid = 0`)
 
-it has unrestricted access to the system
+it has `unrestricted` `access` to the system
 
 ________________________________________________________________________________________________
 
 
-# system accounts
+# `system accounts`
 
 system accounts are usually created during the system instalation,
 
-they are used by softwares and services that will not run as user user (ssh / mail)
+they are `used by` `softwares` and `services` that will not run as user user (ssh / mail)
 
 uid < 100  OR   between 500-1000
 
