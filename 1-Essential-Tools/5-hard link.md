@@ -1,12 +1,12 @@
 
 
-the inode of each file remembers where each piece of a file is stored in the disk
+the `inode` of each file remembers where each piece of a file is stored in the disk
 
-and also tracks of metadata such as Permissions, Access Time
+and also tracks of `metadata` such as `Permissions`, `Access Time`
 
 a file points to the inode, and an inode points to all blocks of data on the disk
 
-pictures/dog.jpg      -->       Inode: 108178360      -->       blocks of data on the disk
+`File`: pictures/dog.jpg      -->       `Inode`: 108178360      -->       blocks of `data` on the `disk`
 
 
 if one of the hard links deletes, the file still remains, it will be deleted when all of the hard links are removed
@@ -15,6 +15,7 @@ if one of the hard links deletes, the file still remains, it will be deleted whe
 ```bash
 [bob@centos-host ~]$ echo "this is my data" > pictures/dog.jpg
 ```
+## `ls -il`
 
 ```bash
 [bob@centos-host ~]$ ls -il pictures/dog.jpg 
@@ -23,6 +24,7 @@ if one of the hard links deletes, the file still remains, it will be deleted whe
 
 ________________________________________________________________________________________________
 
+## `stat`
 
 ```bash
 [bob@centos-host ~]$ stat pictures/dog.jpg 
@@ -42,9 +44,14 @@ Links: 1      --->      the number of hard links to this inode from files
 ________________________________________________________________________________________________
 
 
-### create hard link
+### hard link --> `ln`
 
-ln target-file original-file
+### soft link --> `ln -s`
+
+________________________________________________________________________________________________
+
+
+### create hard link
 
 ```bash
 [bob@centos-host ~]$ ln pictures/dog.jpg photos/dog.jpg
@@ -57,7 +64,7 @@ ln target-file original-file
 ```
 
 
-we can see the same inode
+### `same inode`
 
 
  pictures/dog.jpg      -->       Inode: 108178360      -->       same blocks of data on the disk
@@ -88,20 +95,20 @@ ________________________________________________________________________________
 ### hard link limitations
 
 
-- only can hard link to a file, not a directory
+- `only` can hard link to a `file`, `NOT` a `directory`
 
-- only can hard link to file in the same file system, (not possible in external hard disk)
+- only can hard link to file in the `same` `file system`, (not possible in external hard disk)
 
-- make sure you have permission to create a hard link in the destination path
+- make sure you have `permission` to `create` a hard link in the destination path
 
-- make sure all users have the permission to have access that file
+- make sure all `users` have the `permission` to have `access` that file
 
 
 
 ________________________________________________________________________________________________
 
 
-if you change the permission on one of them, it will be changed on the other one as well
+if you `change` the `permission` on `one` of them, it will be changed on the `other` one as well
 
 ```bash
 [bob@centos-host ~]$ ls -il pictures/dog.jpg 
