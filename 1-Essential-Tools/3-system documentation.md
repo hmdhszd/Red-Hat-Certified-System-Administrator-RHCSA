@@ -1,4 +1,5 @@
 
+## `--help`
 
 The help command provides information on built-in commands
 
@@ -24,6 +25,7 @@ Mandatory arguments to long options are mandatory for short options too.
 
 ________________________________________________________________________________________________
 
+## `man`
 
 man command in Linux is used to display the user manual of any command that we can run on the terminal. 
 
@@ -33,6 +35,7 @@ man command in Linux is used to display the user manual of any command that we c
 
 ________________________________________________________________________________________________
 
+## `man man`
 
 some commands have more than one manual pages
 
@@ -65,6 +68,7 @@ we can call each of them seperately:
 
 ________________________________________________________________________________________________
 
+## `mandb`
 
 for search a word in the man page of all commands, in order to find out the command, use apropos
 
@@ -90,6 +94,10 @@ Processing manual pages under /usr/local/share/man...
 ```
 
 
+
+## `apropos`
+
+
 ```bash
 [bob@centos-host ~]$ apropos directory
 
@@ -112,6 +120,7 @@ closedir (3)         - close a directory
 
 ________________________________________________________________________________________________
 
+## `info`
 
 Command info display information in the document format. 
 
@@ -121,6 +130,7 @@ Command info display information in the document format.
 
 ________________________________________________________________________________________________
 
+## `/usr/share/doc`
 
 documents of each software package:
 
