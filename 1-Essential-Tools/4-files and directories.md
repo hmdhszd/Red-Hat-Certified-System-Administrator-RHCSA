@@ -54,8 +54,9 @@ rm: cannot remove '1/2/3/4/5/': Is a directory
 
 ________________________________________________________________________________________________
 
+## `cp -a`
 
-copy with attributes:
+copy with `attributes`:
 
 ```bash
 cp -a
@@ -63,6 +64,8 @@ cp -a
 
 ________________________________________________________________________________________________
 
+
+## ` ls --full-time`
 
 show the exact time of the last modified
 
