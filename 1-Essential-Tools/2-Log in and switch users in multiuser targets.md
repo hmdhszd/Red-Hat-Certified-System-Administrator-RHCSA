@@ -121,9 +121,9 @@ ________________________________________________________________________________
 
 # `system accounts`
 
-system accounts are usually created during the system instalation,
+system accounts are usually created `during` the `OS` `instalation`,
 
-they are `used by` `softwares` and `services` that will not run as user user (ssh / mail)
+they are `used by` `softwares` and `services` that will not run as user user (`ssh` / mail)
 
 uid < 100  OR   between 500-1000
 
@@ -133,12 +133,13 @@ they usually don't have home directory
 ________________________________________________________________________________________________
 
 
-# service accounts
+# `service accounts`
 
-service accounts are similar to system accounts, and are created when services are installed in linux (nginx)
+service accounts are similar to system accounts, and are created when `services` are `installed` in linux (`nginx`)
 
 ________________________________________________________________________________________________
 
+## `who` --> list of logged in users
 
 list of users who are logged in:
 
@@ -149,8 +150,9 @@ pts/1      Nov  9 00:20   long_username_greater_than_eight_characters  (localhos
 
 ________________________________________________________________________________________________
 
+## `last` --> logs of logged in users
 
-display the logs of all logged in users: (with the date and time when the system is rebooted)
+display the logs of all logged in users: (with the `date` and `time` when the system is `rebooted`)
 
 ```bash
 [bob@centos-host ~]$ last
@@ -162,7 +164,7 @@ wtmp begins Fri May 12 18:34:11 2023
 ________________________________________________________________________________________________
 
 
-switch to the root user:
+`switch` to the `root` `user`:
 
 ```bash
 [bob@centos-host ~]$ su -
@@ -172,7 +174,7 @@ Password:
 ________________________________________________________________________________________________
 
 
-run a command with the root previlages:
+`run` a `command` with the `root` `previlages`:
 
 ```bash
 [bob@centos-host ~]$ su -c "whoami"
@@ -191,6 +193,8 @@ root
 
 ________________________________________________________________________________________________
 
+
+## `/etc/sudoers` --> `visudo`
 
 the default configuration of the sudo is in /etc/sudoers
 
@@ -232,6 +236,7 @@ bob    ALL=(ALL)   NOPASSWD:ALL
 
 ________________________________________________________________________________________________
 
+## `/sbin/nologin`
 
 we can ban the root user from login, for security reasons:
 
