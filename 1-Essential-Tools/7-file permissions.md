@@ -1,4 +1,5 @@
 
+### `Change Permission` : `root` / `owner`
 
 only root and the file owner can change the file permission
 
@@ -11,6 +12,7 @@ only root and the file owner can change the file permission
 
 ________________________________________________________________________________________________
 
+## `groupadd`
 
 create a group
 
@@ -23,6 +25,7 @@ family:x:1001:
 
 ________________________________________________________________________________________________
 
+## `chgrp`
 
 change group
 
@@ -37,8 +40,9 @@ we can only change to groups that our user is part of
 
 ________________________________________________________________________________________________
 
+## `groups`
 
-to see which group the current user belongs to
+to see `current` `group` that user belongs to
 
 ```bash
 [bob@centos-host ~]$ groups
@@ -47,8 +51,9 @@ bob
 
 ________________________________________________________________________________________________
 
+## `chown` (only root)
 
-change owner of a file
+`change` `owner` of a file
 
 only root can change the owner of a file
 
@@ -76,15 +81,20 @@ ________________________________________________________________________________
 
 The first character in this column represents the file type, and it can have one of the following values:
 
-```bash
-"-" (hyphen) represents a regular file
-"d" represents a directory
-"l" represents a symbolic link
-"c" represents a character device
-"b" represents a block device
-"p" represents a named pipe (FIFO)
-"s" represents a socket
-```
+- `-` (hyphen) regular file
+
+- `d` directory
+
+- `l` symbolic link
+
+- `c` character device
+
+- `b` block device
+
+- `p` named pipe (FIFO)
+
+- `s` socket
+
 
 ________________________________________________________________________________________________
 
@@ -92,40 +102,37 @@ ________________________________________________________________________________
 the permissions are evaluated from left to right
 
 
- |rwx|------------------|rwx|------------|rwx|
- 
-  
-|user(owner)|----------|group|----------|others|
+
+| User (File Owner) | Group     | Others                |
+| :-------- | :------- | :------------------------- |
+| `rwx` | `rwx` | `rwx` |
 
 
 
-for files:
 
-r: read
+for `files`:
 
-w: write
+| r | w     | x                |
+| :-------- | :------- | :------------------------- |
+| `read` | `write` | `execute` |
 
-x: execute
 
-for directories:
+for `directories`:
 
-r: ls my-directory/
 
-w: touch my-directory/my-file
 
-x: cd my-directory/
+| r | w     | x                |
+| :-------- | :------- | :------------------------- |
+| `ls my-directory/` | `touch my-directory/my-file` | `cd my-directory/` |
+
 
 
 ________________________________________________________________________________________________
 
+## `chmod` u+rwx,g+rw,o+r
 
 change permission of a file
 
-u: user (owner)
-
-g: group
-
-o: other
 
 ```bash
 [bob@centos-host ~]$ ls -l myfile
@@ -139,6 +146,7 @@ o: other
 
 ________________________________________________________________________________________________
 
+## `chmod` u=r,g=w,o=x
 
 ```bash
 [bob@centos-host ~]$ chmod u=r,g=w,o=x myfile
@@ -149,6 +157,7 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________
 
+## `chmod` o=
 
 ```bash
 [bob@centos-host ~]$ chmod o= myfile
@@ -159,6 +168,7 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________
 
+## `stat`
 
 0420/-r---w----
 
@@ -178,12 +188,25 @@ ________________________________________________________________________________
 
 
 
-### SUID
+## `SUID` (`4`)
 
 when it is set on a file it means that whenever the file is executed, it's going to be executed with the UserID of the owner of the file instead of the UserID of the person who is running that file
 
 
 ________________________________________________________________________________________________
+
+
+### set SUID
+
+```bash
+[bob@centos-host ~]$ chmod u+s myfile
+```
+
+
+
+________________________________________________________________________________________________
+
+
 
 
 ```bash
@@ -194,7 +217,7 @@ ________________________________________________________________________________
 ```
 
 
-to set it we add 4 in the front of the permission:
+to set it we add `4` in the front of the permission:
 
 
 ```bash
@@ -231,9 +254,20 @@ ________________________________________________________________________________
 
 
 
-### GUID
+## `GUID` (`2`)
 
 when it is set on a file it means that whenever the file is executed, it's going to be executed with the GroupID of the owner of the file instead of the GroupID of the person who is running that file
+
+
+
+________________________________________________________________________________________________
+
+
+### set GUID
+
+```bash
+[bob@centos-host ~]$ chmod g+s myfile
+```
 
 
 
@@ -248,7 +282,7 @@ ________________________________________________________________________________
 -rw-rw-r-- 1 bob bob 0 May 13 11:48 myNewFile
 ```
 
-to set it we add 2 in the front of the permission:
+to set it we add `2` in the front of the permission:
 
 
 ```bash
@@ -285,6 +319,8 @@ because the group it has not the permission to execute
 ________________________________________________________________________________________________
 
 
+## `find . -perm /4000`
+
 ### find files with SUID and GUID set
 
 ```bash
@@ -300,7 +336,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### set both GUID and SUID on a file
+### set both GUID and SUID on a file (`6`)
 
 ```bash
 [bob@centos-host ~]$ touch fileWithBothPermissions
@@ -314,11 +350,21 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### Sticky bit
+## `Sticky bit` (`1`)
 
 it's usually set on directories that is shared between people,
 
-and only the owner of each file is able to remove that file in that directory
+and `only` the `owner` of each file is able to `remove` that file in that directory
+
+
+________________________________________________________________________________________________
+
+
+we can set sticky bit in 2 ways:
+
+- chmod o+t stickyDirectory
+
+- chmod 1777 stickyDirectory
 
 
 ________________________________________________________________________________________________
@@ -327,8 +373,6 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ mkdir stickyDirectory
-
 [bob@centos-host ~]$ ls -ld stickyDirectory/
 drwxrwxr-x 2 bob bob 4096 May 13 12:01 stickyDirectory/
 ```
@@ -338,14 +382,8 @@ ________________________________________________________________________________
 
 
 
-we can set sticky bit in 2 ways:
-
-- chmod +t stickyDirectory
-
-- chmod 1777 stickyDirectory
-
 ```bash
-[bob@centos-host ~]$ chmod +t stickyDirectory/
+[bob@centos-host ~]$ chmod o+t stickyDirectory/
 
 [bob@centos-host ~]$ ls -ld stickyDirectory/
 drwxrwxr-t 2 bob bob 4096 May 13 12:01 stickyDirectory/
