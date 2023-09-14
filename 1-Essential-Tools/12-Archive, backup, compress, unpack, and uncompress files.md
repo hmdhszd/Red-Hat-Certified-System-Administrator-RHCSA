@@ -1,9 +1,9 @@
 
 
 
-# tar
+## `tar -tf`
 
-to display the content of an archive
+to `display` the `content` of an archive
 
 ```bash
 [bob@centos-host ~]$ tar -tf archive.tar
@@ -15,8 +15,9 @@ to display the content of an archive
 
 ________________________________________________________________________________________________
 
+## `tar -cf`
 
-create tar archive from a file
+`create` tar `archive` from a file
 
 ```bash
 [bob@centos-host ~]$ tar -cf archive.tar file1
@@ -34,17 +35,21 @@ create tar archive from a directory
 ________________________________________________________________________________________________
 
 
-append/add a file to an existing tar archive
+## `tar -rf`
+
+`-r`      `--append`
+
+`append`/`add` a file to an existing tar archive
 
 ```bash
 [bob@centos-host ~]$ tar -rf archive.tar file1
 ```
--r      --append
 
 ________________________________________________________________________________________________
 
+## `tar -xf`
 
-extrant archive
+`extrant` archive
 
 ```bash
 [bob@centos-host ~]$ tar -xf archive.tar
@@ -55,10 +60,11 @@ ________________________________________________________________________________
 
 extrant archive to other directory
 
+`-C`    -->   `--directory`
+
 ```bash
 [bob@centos-host ~]$ tar -xf archive.tar --directory /tmp/
 ```
 
--C    -->   --directory
 
 ________________________________________________________________________________________________
