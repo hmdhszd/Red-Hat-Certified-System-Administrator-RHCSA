@@ -1,6 +1,7 @@
 
+`^`
 
-everythin that starts with R
+everythin that `starts` `with` R
 
 ```bash
 [bob@centos-host ~]$ grep '^R' myfile.txt 
@@ -9,8 +10,9 @@ Resolving rpmfind.net (rpmfind.net)... 195.220.108.108
 
 ________________________________________________________________________________________________
 
+`$`
 
-everythin that ends with rpm
+everythin that `ends` `with` rpm
 
 ```bash
 [bob@centos-host ~]$ grep 'rpm$' myfile.txt 
@@ -19,9 +21,9 @@ everythin that ends with rpm
 
 ________________________________________________________________________________________________
 
+`.`
 
-dot (.) matchs any character (each dot only one char)
-
+dot (.) matchs `any` `character` (each dot `only` `one` char)
 ```bash
 [bob@centos-host ~]$ grep 'c.t' myfile.txt
 cat sdf asdf asdf
@@ -39,8 +41,9 @@ HOME_URL="https://centos.org/"
 
 ________________________________________________________________________________________________
 
+`\`
 
-look for a . with escape character
+look for a . with `escape` `character`
 
 ```bash
 [bob@centos-host ~]$ sudo grep '\.' /etc/os-release 
@@ -50,9 +53,9 @@ BUG_REPORT_URL="https://bugzilla.redhat.com/"
 
 ________________________________________________________________________________________________
 
+`*`
 
-
-### * match previous element 0 or more times
+### * match `previous` `element` `0 or more times`
 
 ```bash
 [bob@centos-host ~]$ sudo grep -r 'let*' /etc/ 
@@ -69,8 +72,9 @@ starts and ends with / and 0 or more chars between them:
 
 ________________________________________________________________________________________________
 
+`+`
 
-### + match previous element 1 or more times
+### + match `previous` `element` `1 or more times`
 
 ```bash
 [bob@centos-host ~]$ sudo grep -r 'let\+' /etc/ 
@@ -83,15 +87,18 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________
 
+## `grep -E`
 
- #### + match previous element 1 or more times
+## `egrep`
+
 
 ```bash
-[bob@centos-host ~]$ sudo grep -Er 'let+' /etc/ 
+[bob@centos-host ~]$ sudo grep -Er 'let+' /etc/
 ```
 
 ________________________________________________________________________________________________
 
+`{1,5}`
 
 at least 3 zeros
 
@@ -99,7 +106,7 @@ at least 3 zeros
 [bob@centos-host ~]$ sudo egrep -r '0{3,}' /etc/ 
 ```
 
-we use {} to determine the number of repetitions
+we use {} to determine the `number` of `repetitions`
 
 ________________________________________________________________________________________________
 
@@ -112,8 +119,9 @@ at most 3 zeros
 
 ________________________________________________________________________________________________
 
+`?`
 
- #### ? match previous element 0 or 1 time (make it optional)
+ ### ? match `previous` `element` `0 or 1 times` (make it optional)
 
 ```bash
 [bob@centos-host ~]$ sudo grep -Er '0?' /etc/ 
@@ -131,7 +139,9 @@ it matches "disable" and "disabled"
 ________________________________________________________________________________________________
 
 
-### OR |
+`|`
+
+OR
 
 ```bash
 [bob@centos-host ~]$ sudo egrep -r 'disabled?|enabled?' /etc/
@@ -140,13 +150,13 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-[a-z]  match any lowercase char
+- [a-z]      match any `lowercase` char
 
-[A-Z]       match any uppercase char
+- [A-Z]       match any `uppercase` char
 
-[0-9]       match any number
+- [0-9]       match any `number`
 
-[hs3nmg]    match any one character of them
+- [hs3nmg]    match any `one` `character` of them
 
 
 ________________________________________________________________________________________________
@@ -170,9 +180,11 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-links without encryption
+`[^]` --> `NOT`
 
-[^s]      --->      not followed by s
+`[^s]` --> `not` `followed` `by` s
+
+links without encryption
 
 ```bash
 [bob@centos-host ~]$ sudo egrep -r 'http[^s]' /etc/
@@ -211,6 +223,10 @@ ________________________________________________________________________________
 Replace all occurrence of string #%$2jh//238720//31223 with $2//23872031223 in /home/bob/data.txt file.
 
 ```bash
+sed -i `s~<FIRST-EXPRESSION>~<SECOND-EXPRESSION>~g`
+```
+
+```bash
 [bob@centos-host ~]$ sed -i 's~#%$2jh//238720//31223~$2//23872031223~g' /home/bob/data.txt
 ```
 
@@ -228,28 +244,28 @@ ________________________________________________________________________________
 
 ###   Basic vs Extended Regular Expressions
 
-       In basic regular expressions the meta-characters ?, +, {, |, ( and ) lose their special meaning;
+In basic regular expressions the meta-characters `?`, `+`, `{`, `|`, `(` and `)` lose their special meaning;
        
-       instead use the backslashed versions \?, \+, \{, \|, \(, and \).
+instead use the backslashed versions `\?`, `\+`, `\{`, `\|`, `\(`, and `\)`.
 
 
 
 ________________________________________________________________________________________________
 
 
-Period (.) - Matches any single character except a newline. To match a literal period, escape it with a backslash ().
+Period (`.`) - Matches any single character except a newline. To match a literal period, escape it with a backslash ().
 
-Dollar sign ($) - Matches the end of a line. To match a literal dollar sign, escape it with a backslash ().
+Dollar sign (`$`) - Matches the end of a line. To match a literal dollar sign, escape it with a backslash ().
 
-Caret (^) - Matches the beginning of a line. To match a literal caret, escape it with a backslash ().
+Caret (`^`) - Matches the beginning of a line. To match a literal caret, escape it with a backslash ().
 
-Asterisk (*) - Matches zero or more occurrences of the preceding character. To match a literal asterisk, escape it with a backslash ().
+Asterisk (`*`) - Matches zero or more occurrences of the preceding character. To match a literal asterisk, escape it with a backslash ().
 
-Plus sign (+) - Matches one or more occurrences of the preceding character. To match a literal plus sign, escape it with a backslash ().
+Plus sign (`+`) - Matches one or more occurrences of the preceding character. To match a literal plus sign, escape it with a backslash ().
 
-Question mark (?) - Matches zero or one occurrence of the preceding character. To match a literal question mark, escape it with a backslash ().
+Question mark (`?`) - Matches zero or one occurrence of the preceding character. To match a literal question mark, escape it with a backslash ().
 
-Square brackets ([ ]) - Used to define a character class, matching any one of the characters inside the brackets. To match a literal square bracket, escape it with a backslash ().
+Square brackets (`[ ]`) - Used to define a character class, matching any one of the characters inside the brackets. To match a literal square bracket, escape it with a backslash ().
 
-Backslash () - Escape character itself. To match a literal backslash, escape it with another backslash (\).
+Backslash (`\`) - Escape character itself. To match a literal backslash, escape it with another backslash (\).
 
