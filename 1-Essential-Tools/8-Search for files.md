@@ -33,17 +33,20 @@ find files bigger that 10 Gig
 [bob@centos-host ~]$ find /tmp -size +10G
 ```
 
-   bigger than  +
+   `bigger` than  `+`
    
-   smaller than -
+   `smaller` than `-`
 
-c   bytes
+- `c`   `bytes`
 
-k   kilobytes
 
-M   megabytes
+- `k`   `kilobytes`
 
-G   gigabytes
+
+- `M`   `megabytes`
+
+
+- `G`   `gigabytes`
 
 ________________________________________________________________________________________________
 
@@ -86,7 +89,7 @@ ________________________________________________________________________________
 
 Search by the time `modified`:
 
-search for files that modified in exact 5 mins ago (only on that on minute)
+search for files that modified in `exact` 5 `minutes` ago (only on that on minute)
 
 ```bash
 bob@centos-host ~]$ find -mmin 5
@@ -95,7 +98,7 @@ bob@centos-host ~]$ find -mmin 5
 ________________________________________________________________________________________________
 
 
-search for the files which are modified in less than 5 minutes (from 5 mins ago until now)
+search for the files which are modified in `less than` 5 `minutes` (from 5 mins ago until now)
 
 ```bash
 bob@centos-host ~]$ find -mmin -5
@@ -110,9 +113,9 @@ ________________________________________________________________________________
 
 
 
-search by time of modified in the last days!
+search by time of modified in the `last` `day`!
 
-search for files that are modified in last 24 hours:
+search for files that are modified in `last` `24 hours`:
 
 ```bash
 [bob@centos-host ~]$ find -mtime 0
@@ -142,19 +145,19 @@ ________________________________________________________________________________
 ----------
 
 
-min --> minute
+min --> Minute
 
-mmin
+- mmin --> Modified Minute
 
-mtime
+- cmin --> Changed Minute
 
 
 
 time --> day
 
-cmin
+- mtime --> Modified Day
 
-ctime
+- ctime --> Changed Day
 
 
 ________________________________________________________________________________________________
@@ -167,7 +170,7 @@ ________________________________________________________________________________
 
 Search by the changed time:
 
-search for files that is changed in the last 5 mins
+search for files that is changed in `less than` 5 `minutes` (from 5 mins ago until now)
 
 ```bash
 bob@centos-host ~]$ find -cmin -5
@@ -178,13 +181,13 @@ ________________________________________________________________________________
 
 ### multiple parameters:
 
-by default it's AND operator:
+by default it's `AND` operator:
 
 ```bash
 [bob@centos-host ~]$ find -name "h*" -size +10M
 ```
 
-but, we can use  -o   for OR operator:
+but, we can use  `-o`  for `OR` operator:
 
 ```bash
 [bob@centos-host ~]$ find -name "h*" -o -size +10M
@@ -196,6 +199,13 @@ ________________________________________________________________________________
 
 find all files that their name does NOT start with h :
 
+`NOT`:
+
+- `-not`
+
+- `\!` and `!`
+
+
 ```bash
 [bob@centos-host ~]$ find -not -name "h*"
 ```
@@ -206,10 +216,11 @@ find all files that their name does NOT start with h :
 
 ________________________________________________________________________________________________
 
+## `find -perm`
 
 ### search based of the permission of a file:
 
-search for the exact permission:
+search for the `exact` `permission`:
 
 ```bash
 [bob@centos-host ~]$ find -perm 644
@@ -222,7 +233,7 @@ search for the exact permission:
 ________________________________________________________________________________________________
 
 
-search for the at least (minimum) permission: (this permission or higher)
+search for the at least (`minimum`) `permission`: `-` (this permission or higher)
 
 ```bash
 [bob@centos-host ~]$ find -perm -644
@@ -237,7 +248,7 @@ search for the at least (minimum) permission: (this permission or higher)
 ________________________________________________________________________________________________
 
 
-search for the any of these permissions: (it will be shown in the search if any of these permissions match)
+search for the `ANY` of these `permissions`: `/` (it will be shown in the search if any of these permissions match)
 
 ```bash
 [bob@centos-host ~]$ find -perm /644
@@ -255,7 +266,7 @@ sudo find /var/log/ -perm -g=w ! -perm /o=rw
 
 the "-" means that "at least" : Permissions for the group have to be at least w
 
-the "/" means "OR" : Permissions for others have not to be r or w. That means, if any of these two permissions, r or w match for others, the result has to be excluded.
+the "/" means "ANY" and "!" means "NOT": Permissions for others have not to be neither r nor w. That means, if any of these two permissions, r or w match for others, the result has to be excluded.
 
 ________________________________________________________________________________________________
 
@@ -268,15 +279,11 @@ find /home/bob -size 213k -o -perm 402
 
 ________________________________________________________________________________________________
 
+## `find -type`
 
-add SUID, GUID, StickyBit to a directory:
+- f file
 
-```bash
-[bob@centos-host ~]$ chmod u+s,g+s,o+t /home/bob/datadir
-```
-
-________________________________________________________________________________________________
-
+- d directory
 
 Find all the files whose permissions are 0777 in /var directory.
 
