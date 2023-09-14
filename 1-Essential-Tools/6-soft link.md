@@ -2,13 +2,14 @@
 
 soft link is like a text file, inside of that you can find the path to the file or directory
 
-soft-link   ----->    file    ---hard-link-->   inode   ----->    blocks of disk
 
+`soft-link`  -->  `File`: pictures/dog.jpg  -->  `Inode`: 108178360  -->  blocks of `data` on the `disk`
 
 ________________________________________________________________________________________________
 
+### create soft link (`ln -s`)
 
-ln -n target-file soft-link-file
+ln -s target-file soft-link-file
 
 ```bash
 [bob@centos-host ~]$ ls -il pictures/dog.jpg
@@ -22,6 +23,7 @@ ln -n target-file soft-link-file
 
 ________________________________________________________________________________________________
 
+## `readlink`
 
 use readlink command to see where a file is linked to
 
@@ -32,14 +34,15 @@ pictures/dog.jpg
 
 ________________________________________________________________________________________________
 
+### soft link limitations
 
-the permission of the soft link do not matter, so it's lrwxrwxrwx
+the `permission` of the soft link do not matter, so it's `lrwxrwxrwx`
 
 the permission of the target file is important
 
-the inode is different in soft link
+the `inode` is `different` in soft link
 
-you can use soft link for the directories and also in other file systems
+you can use soft link for the `directories` and also in `other file systems`
 
 
 ________________________________________________________________________________________________
