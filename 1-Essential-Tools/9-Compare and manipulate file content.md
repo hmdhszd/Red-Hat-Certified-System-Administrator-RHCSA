@@ -10,8 +10,9 @@
 5
 6
 7
+```
 
-
+```bash
 [bob@centos-host ~]$ tac myfile 
 7
 6
@@ -40,13 +41,13 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### sed command (stream editor)
+## `sed` (stream editor)
 
-replace a word in a file:
+`replace` a `word` in a file:
 
-s: search and replace
+`s`: `search` and replace
 
-g: global (change all values) if we don't use g, it will change the first match only
+`g`: `global` (change all values) if we don't use g, it will change the first match only
 
 ```bash
 [bob@centos-host ~]$ cat myfile 
@@ -85,7 +86,7 @@ ________________________________________________________________________________
 
 by default, it will not change the file, it only shows a preview
 
-by using -i it will write the changes on the file:
+by using `-i` it will write the `changes` `in place` on the file:
 
 ```bash
 [bob@centos-host ~]$ sed -i 's/hamid/Hamid/g' myfile
@@ -103,11 +104,11 @@ by using -i it will write the changes on the file:
 ________________________________________________________________________________________________
 
 
-### cut extract from a file
+## `cut` extract from a file
 
-d: delimiter
+`d`: `delimiter`
 
-f: field
+`f`: `field`
 
 ```bash
 [bob@centos-host ~]$ cut -d$'\t' -f 2 myfile 
@@ -175,7 +176,7 @@ reza
 ________________________________________________________________________________________________
 
 
-### diff
+## `diff`
 
 ```bash
 [bob@centos-host ~]$ cat namefile
@@ -211,6 +212,8 @@ Hamid
 ________________________________________________________________________________________________
 
 
+## `diff -c`
+
 
 ```bash
 [bob@centos-host ~]$ diff -c namefile namefile-old 
@@ -233,6 +236,8 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________
 
+
+## `diff -y`
 
 side by side diff
 
