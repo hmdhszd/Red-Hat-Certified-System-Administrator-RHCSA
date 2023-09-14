@@ -1,5 +1,7 @@
 
-### -i
+## `grep -i`
+
+key `insensitive`
 
 ```bash
 [bob@centos-host ~]$ grep centos /etc/os-release 
@@ -30,7 +32,9 @@ REDHAT_SUPPORT_PRODUCT_VERSION="CentOS Stream"
 ________________________________________________________________________________________________
 
 
-### -r search in all sub-directories and sub-files
+## `grep -r`
+
+search in all sub-directories and sub-files `recursively`
 
 ```bash
 [bob@centos-host ~]$ sudo grep -r CentOS /etc/
@@ -44,7 +48,9 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-# -V invert match
+## `grep -V`
+
+`invert` match
 
 ```bash
 [bob@centos-host ~]$ cat /etc/ssh/ssh_config | grep -V #
@@ -58,7 +64,9 @@ There is NO WARRANTY, to the extent permitted by law.
 ________________________________________________________________________________________________
 
 
-### -w match only words
+## `grep -w`
+
+match `only` `words`
 
 ```bash
 [bob@centos-host ~]$ grep -i 'red' /etc/os-release 
@@ -74,7 +82,7 @@ REDHAT_SUPPORT_PRODUCT="Red Hat Enterprise Linux 8"
 ________________________________________________________________________________________________
 
 
-### -o    --only-matching
+##  `grep -o`    --only-matching
 
 it only shows the matching item, not the whole line
 
