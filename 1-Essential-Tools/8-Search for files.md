@@ -1,5 +1,7 @@
 
 
+## `find`
+
 find [path] [parameters]
 
 without the "path" it will search in the current directory
@@ -7,6 +9,7 @@ without the "path" it will search in the current directory
 
 ________________________________________________________________________________________________
 
+## `find -name`
 
 
 find by name and regex
@@ -21,6 +24,8 @@ find by name and regex
 
 ________________________________________________________________________________________________
 
+
+## `find -size`
 
 find files bigger that 10 Gig
 
@@ -41,6 +46,10 @@ M   megabytes
 G   gigabytes
 
 ________________________________________________________________________________________________
+
+
+## `find -iname`
+
 
 
 find with name (key insensitive) -i
@@ -71,7 +80,11 @@ it can be any charachter or nothing!
 ________________________________________________________________________________________________
 
 
-Search by the time modified:
+## `find -mmin`
+
+
+
+Search by the time `modified`:
 
 search for files that modified in exact 5 mins ago (only on that on minute)
 
@@ -89,6 +102,12 @@ bob@centos-host ~]$ find -mmin -5
 ```
 
 ________________________________________________________________________________________________
+
+
+
+## `find -mtime`
+
+
 
 
 search by time of modified in the last days!
@@ -114,9 +133,9 @@ ________________________________________________________________________________
 
 ### Modified != Changed 
 
-Modified : when the contents of a file have been modified
+`Modified` : when the `Contents` of a file have been modified
 
-Changed :  when the Metadata of a file has been changed
+`Changed` :  when the `Metadata` of a file has been changed
 
 
 
@@ -139,6 +158,10 @@ ctime
 
 
 ________________________________________________________________________________________________
+
+
+
+## `find -cmin`
 
 
 
