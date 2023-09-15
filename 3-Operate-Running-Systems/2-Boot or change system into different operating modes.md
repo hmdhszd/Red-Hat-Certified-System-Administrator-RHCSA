@@ -1,4 +1,6 @@
-
+ ## ``
+ 
+ ## `systemctl get-default`
 
 to see default boot target
 
@@ -9,6 +11,7 @@ multi-user.target
 
 ________________________________________________________________________________________________
 
+ ## `systemctl set-default`
 
 change default boot target
 
@@ -22,6 +25,7 @@ Created symlink /etc/systemd/system/default.target → /usr/lib/systemd/system/g
 
 ________________________________________________________________________________________________
 
+ ## `systemctl isolate`
 
 switch target without rebooting
 
@@ -38,21 +42,22 @@ ________________________________________________________________________________
 
 0 - Power-off state
 
-1 - Single user mode
+1 - `Single` user mode
 
-2 - Multi-user mode without networking
+2 - `Multi`-user mode without networking (without GUI)
 
-3 - Multi-user mode with networking (without GUI)
+3 - `Multi`-user mode with `networking` (without GUI)
 
 4 - Not used/User-definable
 
-5 - Graphical user interface (with GUI) mode with networking
+5 - `Multi`-user `Graphical` user interface (with GUI) mode with `networking`
 
 6 - Reboot state
 
 
 ________________________________________________________________________________________________
 
+ ## `systemctl poweroff`
 
 0 - Power-off state:
 
@@ -63,6 +68,7 @@ sudo systemctl poweroff
 
 ________________________________________________________________________________________________
 
+ ## `systemctl rescue`
 
 1 - Single user mode
 
@@ -75,6 +81,7 @@ in rescue target, more programms will be loaded than the emergency target
 
 ________________________________________________________________________________________________
 
+ ## `systemctl isolate multi-user.target`
 
 2 - Multi-user mode without networking
 
@@ -85,8 +92,9 @@ sudo systemctl isolate multi-user.target
 
 ________________________________________________________________________________________________
 
+ ## `systemctl isolate ??????`
 
-3 - Multi-user mode with networking
+3 - Multi-user mode with networking ??????????????
 
 
 ```bash
@@ -104,6 +112,7 @@ The fourth target is not defined by default. It is available for users to define
 
 ________________________________________________________________________________________________
 
+ ## `systemctl isolate graphical.target`
 
 5 - Graphical user interface (GUI) mode with networking
 
@@ -115,6 +124,7 @@ sudo systemctl isolate graphical.target
 ________________________________________________________________________________________________
 
 
+ ## `systemctl reboot`
 
 6 - Reboot state
 
@@ -124,10 +134,11 @@ sudo systemctl reboot
 
 ________________________________________________________________________________________________
 
+## `systemctl isolate emergency.target`
 
-The emergency target is a special boot target in Linux that is used for troubleshooting and system recovery.
+The `emergency` `target` is a special boot target in Linux that is used for troubleshooting and system recovery.
 
-It is similar to runlevel 1 (single-user mode) but provides a minimal environment with only essential services running. 
+It is `similar` to `runlevel 1` (`single-user` mode) but `provides` a `minimal` `environment` with only `essential` `services` running. 
 
 The emergency target is usually used when the system cannot boot into any other target, and the user needs to troubleshoot and fix the system manually.
 
