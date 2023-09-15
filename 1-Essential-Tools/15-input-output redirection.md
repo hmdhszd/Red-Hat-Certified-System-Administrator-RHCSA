@@ -1,6 +1,6 @@
 
 
-standard-output
+`standard-output` `1`
 
 ```bash
 [bob@centos-host ~]$ date 1>standard-output.txt 2>standard-error.txt
@@ -12,7 +12,7 @@ Sat May 13 21:06:35 UTC 2023
 ________________________________________________________________________________________________
 
 
-standard-error
+`standard-error` `2`
 
 ```bash
 [bob@centos-host ~]$ ping 5555 1>standard-output.txt 2>standard-error.txt
@@ -23,6 +23,7 @@ standard-error
 
 ________________________________________________________________________________________________
 
+`2>&1`
 
 ```bash
 [bob@centos-host ~]$ ping 5555 > /dev/null 2>&1
@@ -31,7 +32,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-redirect input
+`redirect input` `<`
 
 ```bash
 sendmail hamid@hszd.ir < email.txt
@@ -40,7 +41,7 @@ sendmail hamid@hszd.ir < email.txt
 ________________________________________________________________________________________________
 
 
-
+`<<EOF`
 
 ```bash
 [bob@centos-host ~]$ cat <<EOF
@@ -68,11 +69,10 @@ drh
 ________________________________________________________________________________________________
 
 
-
+`| column -t`
 
 ```bash
-[bob@centos-host ~]$ 
-```cat file 
+[bob@centos-host ~]$ cat file 
 asdf sdfhdfh
 sdgf 3245sdfg
 asdf t346234623
@@ -82,7 +82,9 @@ s dfghsrdfg se
 sdfh54hsbxrreb4
 g 4ybntyhsg g4 
 g424h hw43
+```
 
+```bash
 [bob@centos-host ~]$ cat file  | column -t
 asdf             sdfhdfh         
 sdgf             3245sdfg        
@@ -97,6 +99,7 @@ g424h            hw43
 
 ________________________________________________________________________________________________
 
+`<<<`
 
 calculate
 
