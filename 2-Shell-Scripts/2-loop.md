@@ -1,8 +1,5 @@
 
-________________________________________________________________________________________________
-
-
-# for
+# `for`
 
 ```bash
 [bob@centos-host ~]$ nano loop-script.sh
@@ -42,6 +39,7 @@ done
 
 ________________________________________________________________________________________________
 
+## `$(cat names.txt)`
 
 ```bash
 [bob@centos-host ~]$ nano loop-script.sh
@@ -57,6 +55,7 @@ done
 ________________________________________________________________________________________________
 
 
+## `{1..100}`
 
 ```bash
 [bob@centos-host ~]$ nano loop-script.sh
@@ -72,7 +71,7 @@ done
 ________________________________________________________________________________________________
 
 
-
+## `(( x = 0 ; x <= 10 ; x++ ))`
 
 ```bash
 [bob@centos-host ~]$ nano loop-script.sh
@@ -102,7 +101,7 @@ done
 ________________________________________________________________________________________________
 
 
-# while
+# `while`
 
 ```bash
 [bob@centos-host ~]$ nano loop-script.sh
@@ -146,17 +145,33 @@ ________________________________________________________________________________
 
 ### Command-line arguments 
 
+- `$0` --> Script Name
+
+- `$1` --> First Argument
+
+- `$2` --> Second Argument
+
+- `$@` --> List of Arguments
+
+- `$#` --> Total Number of Arguments
+
+- `$$` --> Process ID
+
+- `$?` --> Exit Code of the script
+
+________________________________________________________________________________________________
+
 
 ```bash
 [bob@centos-host ~]$ cat my-script.sh
 
 #!/bin/sh
 echo "Script Name: $0"
-echo "First Parameter of the script is $1"
-echo "The second Parameter is $2"
-echo "The complete list of arguments is $@"
-echo "Total Number of Parameters: $#"
-echo "The process ID is $$"
-echo "Exit code for the script: $?"
+echo "First Argument of the script is $1"
+echo "The second Argument is $2"
+echo "The complete list of Arguments is $@"
+echo "Total Number of Arguments: $#"
+echo "The Process ID is $$"
+echo "Exit Code of the script: $?"
 ```
 
