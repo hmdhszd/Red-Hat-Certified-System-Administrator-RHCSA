@@ -1,4 +1,3 @@
- ## ``
  
  ## `systemctl get-default`
 
@@ -40,19 +39,19 @@ ________________________________________________________________________________
 
 
 
-0 - Power-off state
+0 - `Power-off` state
 
 1 - `Single` user mode
 
-2 - `Multi`-user mode without networking (without GUI)
+2 - `Multi`-user mode `without` `networking` (`without` `GUI`)
 
-3 - `Multi`-user mode with `networking` (without GUI)
+3 - `Multi`-user mode with `networking` (`without` `GUI`)
 
 4 - Not used/User-definable
 
 5 - `Multi`-user `Graphical` user interface (with GUI) mode with `networking`
 
-6 - Reboot state
+6 - `Reboot` state
 
 
 ________________________________________________________________________________________________
@@ -136,9 +135,9 @@ ________________________________________________________________________________
 
 ## `systemctl isolate emergency.target`
 
-The `emergency` `target` is a special boot target in Linux that is used for troubleshooting and system recovery.
+The `emergency` `target` is a special boot target in Linux that is used for `troubleshooting` and `system recovery`.
 
-It is `similar` to `runlevel 1` (`single-user` mode) but `provides` a `minimal` `environment` with only `essential` `services` running. 
+It is `similar` to `runlevel 1` (`single-user` mode) but provides a `minimal environment` with only `essential services` running. 
 
 The emergency target is usually used when the system cannot boot into any other target, and the user needs to troubleshoot and fix the system manually.
 
