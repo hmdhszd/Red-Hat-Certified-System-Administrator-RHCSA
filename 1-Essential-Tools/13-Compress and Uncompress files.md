@@ -43,6 +43,7 @@ ________________________________________________________________________________
 
 OR
 
+## `--decompress`
 
 ```bash
 [bob@centos-host ~]$ gzip --decompress file1
@@ -65,6 +66,9 @@ ________________________________________________________________________________
 
 
 
+## `gunzip --keep`, `bunzip2 --keep`, `unxz --keep`
+
+
 #### by default they remove the original file after zip the file, to keep the original file we can use `-k` OR `--keep` 
 
 
@@ -78,7 +82,7 @@ ________________________________________________________________________________
 
 ## `zip`
 
-#### only zip compress directory
+#### only zip compress `directory`
 
 ```bash
 [bob@centos-host ~]$ zip -r archive.zip Pictures/
@@ -101,7 +105,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### compress with tar
+### compress with `tar`
 
 
 
@@ -111,7 +115,6 @@ ________________________________________________________________________________
 
 - `-J`        `--zx`
 
-- `-a`        --autocompress.  (based on file extention)
 
 
 
@@ -130,9 +133,10 @@ Pictures/file3
 
 ________________________________________________________________________________________________
 
+### decompress with `tar`
 
-  use -a  OR  --auto-compress
-  
+- `-a`    OR    `--autocompress`  (based on file extention)
+
   
 ```bash
 [bob@centos-host ~]$ tar caf archive.tar.gz file1
