@@ -1,8 +1,35 @@
 
 
-to check if a file exists
+## if statement
 
-test -f myfile
+`if` TEST-COMMAND1
+
+`then`
+
+  STATEMENTS1
+
+`elif` TEST-COMMAND2
+
+`then`
+
+  STATEMENTS2
+
+`else`
+
+  STATEMENTS3
+
+`fi`
+
+
+
+________________________________________________________________________________________________
+
+
+
+## `test -f myfile`
+
+to check if a `file` `exists`
+
 
 ```bash
 [bob@centos-host ~]$ nano my-script.sh
@@ -30,17 +57,17 @@ ________________________________________________________________________________
 ### conditional statement
 
 
-[ "abc" = "abc" ]
+- [ "abc" = "abc" ]
 
-[ "abc" != "abc" ]
+- [ "abc" != "abc" ]
 
-[ 5 -eq 5 ]
+- [ 5 -eq 5 ]
 
-[ 5 -ne 5 ]
+- [ 5 -ne 5 ]
 
-[ 5 -gt 4 ]
+- [ 5 -gt 4 ]
 
-[ 5 -lt 6 ]
+- [ 5 -lt 6 ]
 
 
 
@@ -50,40 +77,40 @@ ________________________________________________________________________________
 
 
 
-[[ "abcd" = *bc* ]]
+- [[ "abcd" = *bc* ]]
 
-[[ "abc" = ab[cd] ]]
+- [[ "abc" = ab[cd] ]]
 
-[[ "abc" = ab[cd] ]]
+- [[ "abc" = ab[cd] ]]
 
-[[ "abc" < "bcd" ]]
+- [[ "abc" < "bcd" ]]
 
-[ cond1 ] && [ cond2 ]
+- [ cond1 ] && [ cond2 ]
 
-[[ cond1 && cond2 ]]
+- [[ cond1 && cond2 ]]
 
-[ cond1 ] || [ cond2 ]
+- [ cond1 ] || [ cond2 ]
 
-[[ cond1 || cond2 ]]
+- [[ cond1 || cond2 ]]
 
 
 
 ________________________________________________________________________________________________
 
 
-[ -e FILE ]         if the file exists
+- `[ -e FILE ]`         if the `file` exists
 
 
-[ -d FILE ]         if the directory exists
+- `[ -d DIRECROTY ]`         if the `directory` exists
 
 
-[ -s FILE ]         if the file exists and it's size is bigger that 0
+- `[ -s FILE ]`         if the `file` exists and it's `size` is `bigger` that `0`
 
 
-[ -x FILE ]         if the file is executable
+- `[ -x FILE ]`         if the `file` is `executable`
 
 
-[ -w FILE ]         if the is writable
+- `[ -w FILE ]`         if the `file` is `writable`
 
 
 
@@ -131,8 +158,9 @@ fi
 
 ________________________________________________________________________________________________
 
+## `read -p`
 
-#### read / input
+`input` value
 
 ```bash
 read -p "Enter your name: " name
