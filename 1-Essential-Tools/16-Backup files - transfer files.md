@@ -1,6 +1,6 @@
 
 
-## rsync
+## `rsync -a`
 
 ```bash
 [bob@centos-host ~]$ rsync -a myDirectory/ user@1.2.3.4:/home/hamid/pictures/
@@ -26,7 +26,9 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-## dd      backup a disk or partition
+## `dd if= of= bs= status=`
+
+backup a disk or partition
 
 ```bash
 sudo dd if=/dev/sda of=diskimage.raw bs=1M status=progress
@@ -45,7 +47,7 @@ ________________________________________________________________________________
 
 
 
-## scp
+## `scp`
 
 ```bash
 [bob@centos-host ~]$ scp myDirectory/ user@1.2.3.4:/home/hamid/pictures/
@@ -73,7 +75,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-## sftp
+## `sftp`
 
 ```bash
 [bob@centos-host ~]$ sftp user@1.2.3.4
