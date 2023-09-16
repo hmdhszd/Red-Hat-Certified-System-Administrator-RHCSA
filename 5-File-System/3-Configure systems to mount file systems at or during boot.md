@@ -1,6 +1,6 @@
 
 
-
+## `fdisk`
 
 ```bash
 sudo fdisk /dev/vdb
@@ -12,6 +12,9 @@ ________________________________________________________________________________
 
 
 
+## `mkfs`
+
+
 ```bash
 sudo mkfs /dev/vdb1
 ```
@@ -21,6 +24,9 @@ ________________________________________________________________________________
 
 
 
+
+## `mount`
+
 ```bash
 sudo mount /dev/vdb1 /mnt
 ```
@@ -28,6 +34,9 @@ sudo mount /dev/vdb1 /mnt
 ________________________________________________________________________________________________
 
 
+
+
+## `lsblk`
 
 
 ```bash
@@ -46,6 +55,9 @@ vde    253:64   0    1G  0 disk
 ________________________________________________________________________________________________
 
 
+
+## `/etc/fstab`
+
 make it permanent
 
 ```bash
@@ -54,7 +66,6 @@ make it permanent
 [root@centos-host bob]# mount -a
 
 [root@centos-host bob]# systemctl daemon-reload
-
 ```
 
 default       -->     mount option
@@ -68,6 +79,9 @@ next 0        -->     what happens if the file system get corrupted (0=never sca
 
 ________________________________________________________________________________________________
 
+
+
+## `blkid`
 
 we can use UUID instead of /dev/vdb1
 
