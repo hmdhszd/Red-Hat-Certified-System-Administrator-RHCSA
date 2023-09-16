@@ -1,4 +1,4 @@
-
+## `/var/log/cron`
 
 to see cron logs
 
@@ -27,15 +27,17 @@ sudo grep anacron /var/log/cron
 ________________________________________________________________________________________________
 
 
-in the /etc/crontab you can find MAILTO=root
+in the `/etc/crontab` you can find `MAILTO=root`
 
-it sends emails to root if it's successfully run or not!
+it sends emails to root if it runs `Successful` or `UnSuccessful`!
 
 we can specify an external email address as well
 
 
 ________________________________________________________________________________________________
 
+
+## `| systemd-cat --identifier=`
 
 in the "anacron" and "at" you can not see a lot of info in the logs, you should add this at the end of your command
 
@@ -45,8 +47,9 @@ in the "anacron" and "at" you can not see a lot of info in the logs, you should 
 
 ________________________________________________________________________________________________
 
+## `anacron -n -f`
 
-force to run anacron now
+`force` to run anacron `now`
 
 ```bash
 sudo anacron -n -f
@@ -62,6 +65,8 @@ sudo grep atd /ver/log/cron
 ```
 
 ________________________________________________________________________________________________
+
+## `/var/log/syslog`
 
 the logs also can be find here
 
