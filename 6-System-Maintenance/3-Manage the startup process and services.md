@@ -1,17 +1,17 @@
 
+## systemd.service
 
-
-startup the apps and manage rerun them is the responsibility of init system
+`startup` the `apps` and manage rerun them is the responsibility of `init system`
 
 it consist of units (some text files that describe logics)
 
 
-unit has various types such as, Service, Socket, Device, Timer,...
+`unit` has various `types` such as, `Service`, `Socket`, `Device`, `Timer`,...
 
 
 service units have instructions about : what command to issue to start a program, what to do if a program crashes or restarted,...
 
-totally a service unit has info of how to manage the entire lifecycle of an application
+totally a `service unit` has info of how to `manage` the entire `lifecycle` of an `application`
 
 ```bash
 man systemd.service
@@ -19,8 +19,9 @@ man systemd.service
 
 ________________________________________________________________________________________________
 
+## `systemctl cat sshd.service`
 
-see info of a service
+### see info of a service
 
 ```bash
 [bob@centos-host ~]$ systemctl cat sshd.service
@@ -48,12 +49,15 @@ WantedBy=multi-user.target
 
 ________________________________________________________________________________________________
 
+## `systemctl edit --full sshd.service`
 
 edit service
 
 ```bash
 [bob@centos-host ~]$ sudo systemctl edit --full sshd.service
 ```
+
+## `systemctl revert sshd.service`
 
 and to revert our changes:
 
@@ -65,7 +69,7 @@ and to revert our changes:
 ________________________________________________________________________________________________
 
 
-status
+### status
 
 ```bash
 [bob@centos-host ~]$ systemctl status sshd.service
@@ -98,44 +102,77 @@ ________________________________________________________________________________
 ```bash
 [bob@centos-host ~]$ systemctl enable sshd.service
 ```
-enable and start
+
+________________________________________________________________________________________________
+
+
+## `systemctl enable --now`
+
+`enable` and `start`
 
 ```bash
 [bob@centos-host ~]$ systemctl enable --now sshd.service
 ```
 
-disable and stop
+________________________________________________________________________________________________
+
+
+## `systemctl disable --now`
+
+`disable` and `stop`
 
 ```bash
 [bob@centos-host ~]$ systemctl disable --now sshd.service
 ```
 
+________________________________________________________________________________________________
+
+
+## `systemctl is-enable`
+
 ```bash
 [bob@centos-host ~]$ systemctl is-enable sshd.service
 ```
+
+________________________________________________________________________________________________
+
 
 ```bash
 [bob@centos-host ~]$ systemctl disable sshd.service
 ```
 
+________________________________________________________________________________________________
+
+
 ```bash
 [bob@centos-host ~]$ systemctl stop sshd.service
 ```
+
+________________________________________________________________________________________________
+
 
 
 ```bash
 [bob@centos-host ~]$ systemctl start sshd.service
 ```
 
+________________________________________________________________________________________________
+
+
 
 ```bash
 [bob@centos-host ~]$ systemctl restart sshd.service
 ```
 
+________________________________________________________________________________________________
+
+
 
 ```bash
 [bob@centos-host ~]$ systemctl reload sshd.service
 ```
+
+## `systemctl reload-or-restart`
 
 try to reload / restart if reload is not supported
 
@@ -145,6 +182,8 @@ try to reload / restart if reload is not supported
 
 ________________________________________________________________________________________________
 
+
+## `systemctl mask`
 
 some of the services can start another services (even if we stopped them)
 
@@ -156,7 +195,7 @@ to disable them from starting other services, we can mask them
 
 after that, if you wanna enable or start them, it wont work
 
-unmask:
+## `systemctl unmask`
 
 
 ```bash
@@ -167,6 +206,8 @@ ________________________________________________________________________________
 
 
 # to see all services of a system
+
+## `systemctl list-units --type service --all`
 
 ```bash
 [bob@centos-host ~]$ sudo systemctl list-units --type service --all
@@ -184,14 +225,12 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-ExecStart specifies the full path of a command that will be executed to start a service. 
+`ExecStart` specifies the full `path` of a `command` that will be executed to `start` a service. 
 
-ExecReload. Specifies commands or scripts to be executed when the unit is reloaded. 
+`ExecReload` Specifies `commands` or `scripts` to be executed when the `unit is reloaded`. 
 
 
 ```bash
-
-
 [bob@centos-host ~]$ cat /usr/lib/systemd/system/httpd.service
 
 # See httpd.service(8) for more information on using the httpd service.
