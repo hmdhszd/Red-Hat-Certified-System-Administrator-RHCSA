@@ -1,22 +1,23 @@
 
+# `cryptsetup`
 
-to encrypt data on disk we use Crypt Setup
+to `encrypt` `data` on `disk` we use Crypt Setup
 
-2 modes on encryption:
+2 `modes` on encryption:
 
-- plane
-- lux
+- `plane`
+- `lux`
 
 
 
 ________________________________________________________________________________________________
 
 
-### plain
+# `plain`
 
---verify-passphrase    ask the passphrase twice 
+## `cryptsetup open --type plain`
 
-open              open this device for read the encrypt data from it and write the encrypted data to it
+`open`              open this device for `read` the encrypt data from it and `write` the encrypted data to it
 
 ```bash
 [bob@centos-host ~]$ sudo cryptsetup open --type plain /dev/vde secretdisk
@@ -26,6 +27,11 @@ Enter passphrase for /dev/vde:
 
 OR
 
+
+
+## `cryptsetup --verify-passphrase open --type plain`
+
+--verify-passphrase    ask the passphrase twice 
 
 ```bash
 [bob@centos-host ~]$ sudo cryptsetup --verify-passphrase open --type plain /dev/vde secretdisk
@@ -38,6 +44,8 @@ ________________________________________________________________________________
 
 
 
+
+## `mkfs.xfs`
 
 
 ```bash
@@ -59,6 +67,7 @@ ________________________________________________________________________________
 
 
 
+## `mount`
 
 
 ```bash
@@ -71,6 +80,8 @@ ________________________________________________________________________________
 
 
 
+## `umount`
+
 ```bash
 sudo umount /mnt
 ```
@@ -79,6 +90,8 @@ ________________________________________________________________________________
 
 
 
+
+## `cryptsetup close`
 
 
 ```bash
@@ -90,7 +103,11 @@ ________________________________________________________________________________
 
 
 
-### luksformat
+# `luksformat`
+
+
+## `cryptsetup luksFormat`
+
 
 ```bash
 [bob@centos-host ~]$ sudo cryptsetup luksFormat /dev/vde
@@ -108,18 +125,9 @@ ________________________________________________________________________________
 
 
 
-
+## `cryptsetup open`
 
 ```bash
-[bob@centos-host ~]$ sudo cryptsetup luksFormat /dev/vde
-
-WARNING!
-========
-This will overwrite data on /dev/vde irrevocably.
-
-Are you sure? (Type 'yes' in capital letters): YES
-Enter passphrase for /dev/vde: 
-Verify passphrase: 
 [bob@centos-host ~]$ sudo cryptsetup open /dev/vde secretdisk
 Enter passphrase for /dev/vde: 
 ```
@@ -131,8 +139,10 @@ Enter passphrase for /dev/vde:
 ________________________________________________________________________________________________
 
 
+## `cryptsetup luksChangeKey`
 
-change the key
+
+`change` the `key`
 
 ```bash
 [bob@centos-host ~]$ sudo cryptsetup luksChangeKey /dev/vde
@@ -144,8 +154,10 @@ ________________________________________________________________________________
 
 
 
+## `cryptsetup open`
 
-we don't need to specify the format of encryption
+
+we `don't` need to `specify` the `format` of encryption
 
 
 ```bash
@@ -157,9 +169,7 @@ ________________________________________________________________________________
 
 
 
-
-
-
+## `mkfs.xfs`
 
 
 ```bash
@@ -171,6 +181,8 @@ ________________________________________________________________________________
 
 
 
+## `cryptsetup close`
+
 
 ```bash
 [bob@centos-host ~]$ sudo cryptsetup close mysecretdisk
@@ -180,9 +192,11 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
+## `cryptsetup luksChangeKey`
 
 
-and also we can encrypt only a partition instead of the entire disk
+
+and also we can `encrypt` only a `partition` instead of the entire disk
 
 
 
