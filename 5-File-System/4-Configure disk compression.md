@@ -1,10 +1,10 @@
 
 
-### VDO   Virtual Data Optimizer
+# VDO   Virtual Data Optimizer
 
-- Zero-Block Elimination
-- Deduplication
-- Compression
+- `Zero-Block` `Elimination`
+- `Deduplication`
+- `Compression`
 
 ________________________________________________________________________________________________
 
@@ -19,7 +19,7 @@ systemctl enable --now vdo.service
 
 ________________________________________________________________________________________________
 
-
+## `vdo create --name= --device= --VdoLogicalSize=`
 
 ```bash
 vdo create --name=vdo_storage --device=/dev/vdb --VdoLogicalSize=10G
@@ -31,6 +31,8 @@ ________________________________________________________________________________
 
 
 
+## `vdostats --human-readable`
+
 
 ```bash
 sudo vdostats --human-readable
@@ -38,6 +40,8 @@ sudo vdostats --human-readable
 
 ________________________________________________________________________________________________
 
+
+## `mkfs.xfs -K`
 
 format the volume
 
@@ -48,19 +52,12 @@ sudo mkfs.xfs -K /dev/mapper/vdo_storage
 ________________________________________________________________________________________________
 
 
+## `udevadm settle`
+
 to ensure that everything is updated
 
 ```bash
 udevadm settle
-```
-
-________________________________________________________________________________________________
-
-
-
-
-```bash
-sudo vdostats --human-readable
 ```
 
 ________________________________________________________________________________________________
@@ -149,19 +146,26 @@ sudo vdostats --human-readable
 ________________________________________________________________________________________________
 
 
-### in RHEL 9 , VDO is integrated into LVM
+## in RHEL 9 , VDO is integrated into LVM
 
 to create a new VDO volume in RHEL9,  you will treat like LVM and add VDO options to it
+
+
+## `pvcreate`
 
 ```bash
 pvcreate /dev/vdb
 ``` 
 
 
+## `vgcreate`
+
 
 ```bash
 vgcreate vdo_volume /dev/vdb
 ```
+
+## `lvcreate --type vdo`
 
 
 ```bash
@@ -171,11 +175,15 @@ lvcreate --type vdo -n vdo_storage -L 100%FREE -V 10G vdo_volume/vdo_pool1
 name --> -n
 
 
+## `mkfs.xfs -K`
+
 ```bash
 sudo mkfs.xfs -K /dev/vdo_volume/vdo_storage
 ```
 
 OR
+
+## ``
 
 ```bash
 sudo mkfs.ext4 -E nodiscard /dev/vdo_volume/vdo_storage
