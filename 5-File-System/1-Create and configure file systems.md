@@ -1,6 +1,6 @@
 
 
-
+## `mkfs`
 
 ```bash
 [bob@centos-host ~]$ mkfs
@@ -10,8 +10,11 @@ mkfs.cramfs  mkfs.ext3    mkfs.minix
 
 ________________________________________________________________________________________________
 
--L      Label
--i      inode size
+## `mkfs.xfs`
+
+`-L`   -->   `set Label`
+
+`-i size=`   -->   `inode size`
 
 
 ```bash
@@ -21,6 +24,10 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________
 
+
+## `xfs_`
+
+## ``
 
 xfs utilities
 
@@ -35,7 +42,12 @@ xfs_db         xfs_growfs     xfs_mdrestore  xfs_quota
 ________________________________________________________________________________________________
 
 
+## `xfs_admin -l`
+
 xfs_admin for modify filesystem
+
+`-l` --> `show current label`
+
 
 ```bash
 [bob@centos-host ~]$ sudo xfs_admin -l /dev/vdb
@@ -47,6 +59,9 @@ ________________________________________________________________________________
 
 
 
+## `xfs_admin -L`
+
+`-L`   -->   `set Label`
 
 ```bash
 [bob@centos-host ~]$ sudo xfs_admin -L "MyNewLabel" /dev/vdb
@@ -58,9 +73,11 @@ new label = "MyNewLabel"
 ________________________________________________________________________________________________
 
 
+## `mkfs.ext4 -N`
+
 ### mke2fs - create an ext2/ext3/ext4 filesystem    =   mkfs.ext4
 
--N      number of inodes
+-N      number of `inodes`
 
 ```bash
 [bob@centos-host ~]$ sudo mkfs.ext4 -N 500000 /dev/vdd
@@ -80,10 +97,12 @@ Writing superblocks and filesystem accounting information: done
 ________________________________________________________________________________________________
 
 
+## `tune2fs -l`
+
 ### tune2fs - adjust tunable filesystem parameters on ext2/ext3/ext4 filesystems
 
 
--l        list attributes of a file system
+`-l`   -->     `list` `attributes` of a file system
 
 ```bash
 [bob@centos-host ~]$ sudo tune2fs -l /dev/vdd
@@ -140,7 +159,9 @@ Checksum:                 0xd5a13ce3
 ________________________________________________________________________________________________
 
 
-change label
+## `tune2fs -L`
+
+`-L`  -->  `set/change label`
 
 ```bash
 [bob@centos-host ~]$ sudo tune2fs -L "NewLabel" /dev/vdd
