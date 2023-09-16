@@ -1,10 +1,10 @@
 
 
-cron vs anacron
+`cron` vs `anacron`
 
-anacron will run the command if the computer is turned off, whenever it's on again. cron don't!
+anacron will run the command if the computer is `turned off`, whenever it's on again. cron don't!
 
-the smallest unit in anacron is DAY.
+the smallest unit in `anacron` is `DAY`.
 
 
 
@@ -26,11 +26,11 @@ E			  day of week			  0-7 (0 or 7 is Sunday, or use names)
 ```
 
 
-use comma , to have multiple values
+use `comma` `,` to have `multiple values`
 
-use dash - to specify a range of the values
+use `dash` `-` to specify a `range` of the values
  
-use slash / to specify steps
+use `slash` `/` to specify `steps`
 
 
 
@@ -48,7 +48,7 @@ in the cronjob we should use full path
 ________________________________________________________________________________________________
 
 
-edit 
+`e` --> edit 
 
 ```bash
 crontab -e
@@ -57,7 +57,7 @@ crontab -e
 ________________________________________________________________________________________________
 
 
-list
+`l` --> list
 
 ```bash
 crontab -l
@@ -65,8 +65,9 @@ crontab -l
 
 ________________________________________________________________________________________________
 
+## `crontab -e -u`
 
-if you wanna edit cron of another user:
+if you wanna edit cron of `another user`:
 
 - login to this user then edit crontab
 
@@ -82,7 +83,9 @@ crontab -e -u hamid
 ________________________________________________________________________________________________
 
 
-remove crontab entirely
+## `crontab -r`
+
+remove/`erase` crontab entirely
 
 ```bash
 crontab -r
@@ -93,24 +96,29 @@ ________________________________________________________________________________
 
 ### Daily, Hourly, Monthly, Weekly
 
-put your shellscript here:
+put your shell `script` here:
 
-it should not have any extentions
+it should have `NO extentions`
 
-the script should have the permission of R and X
+the script should have the `permission` of `R` and `X`
 
-```bash
-/etc/cron.daily/
-/etc/cron.hourly/
-/etc/cron.monthly/
-/etc/cron.weekly
-```
+- `/etc/cron.daily/`
+
+- `/etc/cron.hourly/`
+
+- `/etc/cron.monthly/`
+
+- `/etc/cron.weekly`
+
 
 
 ________________________________________________________________________________________________
 
 
 # AnaCron
+
+
+## `/etc/anacrontab`
 
 in anacron we don't care when it's run, we just want it to run daily, weekly, monthly...
 
@@ -126,7 +134,9 @@ period in days      -->     can be numbers like 3 / can be @weekly / @monthly
 ________________________________________________________________________________________________
 
 
-force to run anacron jobs NOW
+## `anacron -n`
+
+force to run anacron jobs `NOW`
 
 ```bash
 anacron -n
@@ -136,7 +146,9 @@ ________________________________________________________________________________
 
 
 
-test to see if the file edited correctly
+## `anacron -T`
+
+`test` to see if the file edited correctly
 
 ```bash
 anacron -T
@@ -152,6 +164,8 @@ The job-identifier variable specifies a unique name of a job which is used in th
 The command variable specifies the command to execute.
 
 The command can either be a command such as "ls /proc >> /tmp/proc" or a command to execute a custom script.
+
+
 
 ```bash
 # /etc/anacrontab: configuration file for anacron
@@ -186,7 +200,7 @@ at 15:00
 ```
 
 
-press  CTRL + D  to save the job
+press  `CTRL + D`  to save the job
 
 
 
@@ -256,6 +270,9 @@ at 'now + 30 months'
 ________________________________________________________________________________________________
 
 
+## ``
+
+
 to check what jobs are scheduled to run
 
 ```bash
@@ -267,6 +284,8 @@ the first number is JobNumber
 ________________________________________________________________________________________________
 
 
+## ``
+
 to see what job 20 contains
 
 ```bash
@@ -275,6 +294,8 @@ at -c 20
 
 ________________________________________________________________________________________________
 
+
+## ``
 
 to remove the job
 
