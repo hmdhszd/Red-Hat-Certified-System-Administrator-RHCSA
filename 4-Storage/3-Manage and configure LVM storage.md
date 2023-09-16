@@ -1,11 +1,11 @@
 
-pv        physical volume           disk/partition
+`pv`    --->    physical volume      --->     disk/partition
 
-vg        volume group
+`vg`    --->    volume group
 
-lv        logical volume
+`lv`    --->    logical volume
 
-pe        physical extend
+`pe`    --->    physical extend
 
 
 ________________________________________________________________________________________________
