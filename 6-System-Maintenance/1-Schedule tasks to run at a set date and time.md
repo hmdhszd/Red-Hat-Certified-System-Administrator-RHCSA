@@ -129,7 +129,7 @@ period in days     delay in minutes(for run jubs)    job-identifier    command
 ```
 
 
-period in days      -->     can be numbers like 3 / can be @weekly / @monthly
+`period in days`      -->     can be `numbers` like 3 / can be `@weekly` / `@monthly`
 
 ________________________________________________________________________________________________
 
@@ -181,6 +181,7 @@ MAILTO=root
 START_HOURS_RANGE=3-22
  
 #period in days   delay in minutes   job-identifier	      	     command
+
 1	      	    5		      cron.daily		  nice run-parts /etc/cron.daily
 7	      	    25		      cron.weekly		  nice run-parts /etc/cron.weekly
 @monthly 	    45		      cron.monthly		  nice run-parts /etc/cron.monthly
@@ -270,7 +271,7 @@ at 'now + 30 months'
 ________________________________________________________________________________________________
 
 
-## ``
+## `atq`
 
 
 to check what jobs are scheduled to run
@@ -279,14 +280,14 @@ to check what jobs are scheduled to run
 atq
 ```
 
-the first number is JobNumber
+the first number is `JobNumber`
 
 ________________________________________________________________________________________________
 
 
-## ``
+## `at -c`
 
-to see what job 20 contains
+to see what job 20 `contains`
 
 ```bash
 at -c 20
@@ -295,9 +296,9 @@ at -c 20
 ________________________________________________________________________________________________
 
 
-## ``
+## `atrm`
 
-to remove the job
+to `remove` the job
 
 ```bash
 atrm 20
