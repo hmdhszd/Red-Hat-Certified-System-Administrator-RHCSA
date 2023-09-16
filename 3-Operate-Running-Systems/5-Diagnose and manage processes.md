@@ -1,5 +1,5 @@
 
-
+## `ps`
 
 
 ```bash
@@ -13,6 +13,7 @@
 ________________________________________________________________________________________________
 
 
+## `top`
 
 
 ```bash
@@ -70,8 +71,8 @@ bob         1644  0.0  0.0  54824  3912 pts/0    R+   13:31   0:00 ps -aux
 
 ________________________________________________________________________________________________
 
+## `ps <Process ID>`
 
-ps with the process ID
 
 ```bash
 [bob@centos-host ~]$ ps 1
@@ -81,6 +82,7 @@ ps with the process ID
 ```
 
 
+## `ps <User ID>`
 
 ```bash
 [bob@centos-host ~]$ ps u 1
@@ -91,6 +93,7 @@ root           1  0.0  0.0  90348 10580 ?        Ss   12:31   0:00 /sbin/init --
 
 ________________________________________________________________________________________________
 
+## `ps <User Name>`
 
 user orientation format
 
@@ -103,6 +106,9 @@ bob         1604  0.0  0.0  51892  3780 pts/0    R+   13:45   0:00 ps u -U bob
 ```
 
 ________________________________________________________________________________________________
+
+
+## `pgrep -a`
 
 
 #### search for a process with a specific word in it's name ex: proxy
@@ -124,6 +130,7 @@ lower   -->   less nice   -->   higher priority
 
 ________________________________________________________________________________________________
 
+## `nice -n`
 
 change nice value for bash
 
@@ -171,8 +178,9 @@ ps -faux
 
 ________________________________________________________________________________________________
 
+## `renice`
 
-when there is an existing process and you wanna change it's niceness (process ID)
+when there is an existing process and you wanna change it's niceness (`process ID`)
 
 ```bash
 renice 7 1184
@@ -220,7 +228,7 @@ SIGTTOU - Terminal output signal, sent to a background process that tries to wri
 
 ________________________________________________________________________________________________
 
-
+## `signal -L`
 
 ```bash
 [bob@centos-host ~]$ signal -L
@@ -246,20 +254,25 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________
 
+## `kill -SIGHUP`
 
-kill a process with a specific signal (process ID)
+kill a process with a `specific signal` (`process ID`)
 
 ```bash
 [bob@centos-host ~]$ kill -SIGHUP 3214
 ```
 
-also we can use the signal number
+## `kill -9`
+
+kill a process with `signal number` (`process ID`)
 
 ```bash
 [bob@centos-host ~]$ kill -9 3214
 ```
 
-or with the process name
+## `pkill -KILL`
+
+kill a process (`process Name`)
 
 ```bash
 [bob@centos-host ~]$ pkill -KILL bash
@@ -268,7 +281,7 @@ or with the process name
 ________________________________________________________________________________________________
 
 
-## run program in background
+## run program in background `&`
 
 
 
@@ -279,6 +292,8 @@ sleep 300 &
 ________________________________________________________________________________________________
 
 
+## `jobs`
+
 to see processes running in the background
 
 ```bash
@@ -287,8 +302,9 @@ jobs
 
 ________________________________________________________________________________________________
 
+## `fg`
 
-bring the process from background to foreground (use jod number)
+bring the process from background to foreground (`job number`)
 
 ```bash
 fg 1
@@ -296,6 +312,7 @@ fg 1
 
 ________________________________________________________________________________________________
 
+## `pgrep -a bash`
 
 to see which file and directories a process is using. ex: bash
 
@@ -304,6 +321,8 @@ to see which file and directories a process is using. ex: bash
 
 8401  bash
 ```
+
+## `lsof -p 8401`
 
 ```bash
 [bob@centos-host ~]$ lsof -p 8401
@@ -314,6 +333,7 @@ ________________________________________________________________________________
 
 to see what processes are using a file or directory
 
+## `lsof /var/lib/messages`
 
 ```bash
 [bob@centos-host ~]$ lsof /var/lib/messages
