@@ -1,7 +1,7 @@
 
 
 
-### stratisd = local storage management tool
+## `stratisd` = local storage management tool
 
 it manages pools of physical storages and helps simplify storage management
 
@@ -11,19 +11,19 @@ volumes can be created on top of pools
 
 features:
 
-- Filesystem Snapshots
+- Filesystem `Snapshots`
 
-- Thin Provisioning
+- Thin `Provisioning`
 
-- Tiering
+- `Tiering`
 
 
 ________________________________________________________________________________________________
 
 
-stratis is similar to LVM, but it's designed to be easier to config
+`stratis` is `similar` to `LVM`, but it's designed to be easier to config
 
-it uses XFS file system
+it uses `XFS` file system
 
 ________________________________________________________________________________________________
 
@@ -39,6 +39,7 @@ sudo systemctl enable --now stratisd.service
 ________________________________________________________________________________________________
 
 
+## `stratis pool create`
 
 create stratis pool
 
@@ -50,6 +51,9 @@ ________________________________________________________________________________
 
 
 
+
+## `stratis pool list`
+
 ```bash
 [bob@centos-host ~]$ stratis pool list
 
@@ -60,6 +64,8 @@ my-pool   1 GiB / 37.63 MiB / 986.37 MiB      ~Ca,~Cr   eadb142d-9400-491f-87a6-
 ________________________________________________________________________________________________
 
 
+
+## `stratis blockdev`
 
 
 
@@ -74,6 +80,9 @@ ________________________________________________________________________________
 
 
 
+## `stratis filesystem create`
+
+
 create a filesystem on top of stratis pool
 
 ```bash
@@ -83,6 +92,9 @@ create a filesystem on top of stratis pool
 ________________________________________________________________________________________________
 
 
+
+
+## `stratis fs`
 
 
 
@@ -122,7 +134,10 @@ ________________________________________________________________________________
 
 
 
-if you need mode space, you can add new devices to stratis pool
+## `stratis pool add-data`
+
+
+if you need mode space, you can `add` new `devices` to stratis `pool`
 
 ```bash
 [bob@centos-host ~]$ sudo stratis pool add-data my-pool /dev/vde
@@ -131,6 +146,9 @@ if you need mode space, you can add new devices to stratis pool
 ________________________________________________________________________________________________
 
 
+
+
+## `stratis pool`
 
 ```bash
 [bob@centos-host ~]$ stratis pool
@@ -141,6 +159,9 @@ my-pool   2 GiB / 587.65 MiB / 1.43 GiB      ~Ca,~Cr   eadb142d-9400-491f-87a6-7
 
 ________________________________________________________________________________________________
 
+
+
+## `stratis filesystem snapshot`
 
 
 ### save a snapshot of the filesystem
@@ -155,6 +176,9 @@ ________________________________________________________________________________
 
 
 
+## `stratis filesystem`
+
+
 ```bash
 [bob@centos-host ~]$ sudo stratis filesystem
 
@@ -165,6 +189,9 @@ my-pool     mypooool-myfs1-snapshot   546 MiB   May 20 2023 23:17   /dev/stratis
 
 ________________________________________________________________________________________________
 
+
+
+## `stratis filesystem rename`
 
 recover from snapshot
 
