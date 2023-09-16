@@ -3,7 +3,7 @@ Tuned is a daemon in Red Hat Enterprise Linux that dynamically tunes system sett
 
 It is a part of the Red Hat Performance Tuning Toolkit and is designed to improve system performance, stability, and reliability.
 
-Tuned monitors various system parameters, such as CPU utilization, memory usage, I/O load, and network traffic, and adjusts system settings accordingly.
+Tuned monitors various system parameters, such as `CPU utilization`, `memory usage`, `I/O load`, and `network traffic`, and adjusts system settings accordingly.
 
 For example, it can adjust the CPU frequency scaling governor, disk I/O scheduler, network packet size, and other parameters to optimize system performance for a given workload.
 
@@ -16,16 +16,14 @@ ________________________________________________________________________________
 
 2 main profiles:
 
-power saving profiles
+- `power saving` profiles
 
-performance boosting profiles
+- `performance boosting` profiles
 
-default profile: balanced profile 
+- `default` profile: `balanced` profile 
 
 
 ________________________________________________________________________________________________
-
-
 
 
 ```bash
@@ -35,15 +33,13 @@ yum install tuned
 ________________________________________________________________________________________________
 
 
-
-
 ```bash
 systemctl enable --now tuned
 ```
 
 ________________________________________________________________________________________________
 
-
+## `tuned-adm active`
 
 show active profile
 
@@ -55,6 +51,7 @@ Current active profile: virtual-guest
 ________________________________________________________________________________________________
 
 
+## `tuned-adm verify`
 
 checks that the current system settings match the current tuned profile
 
@@ -71,7 +68,6 @@ See TuneD log file ('/var/log/tuned/tuned.log') for details.
 ```
 
 ________________________________________________________________________________________________
-
 
 
 to see TuneD profiles on the system
@@ -103,6 +99,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
+## `tuned-adm list`
 
 list the available profiles
 
@@ -132,6 +129,7 @@ ________________________________________________________________________________
 
 
 
+## `tuned-adm profile`
 
 
 ```bash
@@ -158,7 +156,7 @@ Current active profile: virtual-guest
 ________________________________________________________________________________________________
 
 
-
+## `tuned-adm profile balanced`
 
 switch the profile
 
@@ -173,6 +171,8 @@ ________________________________________________________________________________
 
 
 
+
+## `tuned-adm profile_info`
 
 info of current profile
 
@@ -192,6 +192,8 @@ ________________________________________________________________________________
 
 
 
+## `tuned-adm recommend`
+
 
 see the recommended profile
 
@@ -205,6 +207,8 @@ ________________________________________________________________________________
 
 
 
+## `tuned-adm auto_profile`
+
 
 enable automatic profile selection
 
@@ -217,6 +221,8 @@ ________________________________________________________________________________
 
 
 
+
+## `tuned-adm profile_mode`
 
 
 ```bash
