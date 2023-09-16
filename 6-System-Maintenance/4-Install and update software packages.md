@@ -1,7 +1,9 @@
 
+## ``
 
+## `subscription-manager register --username  --password `
 
-login to your subscription
+`login` to your subscription
 
 ```bash
 [bob@centos-host ~]$ sudo subscription-manager register --username XXXXXXX --password YYYYYYY
@@ -9,6 +11,8 @@ login to your subscription
 
 ________________________________________________________________________________________________
 
+
+## `subscription-manager attach --auto`
 
 attach the machine to your subscription
 
@@ -18,6 +22,8 @@ attach the machine to your subscription
 
 ________________________________________________________________________________________________
 
+
+## `yum repolist`
 
 see list of repo available on your machine
 
@@ -33,6 +39,8 @@ extras-common                  CentOS Stream 8 - Extras common packages
 
 ________________________________________________________________________________________________
 
+
+## `yum repolist -v`
 
 see list of addresses of the online repositories that your machine uses
 
@@ -58,6 +66,8 @@ Repo-filename      : /etc/yum.repos.d/CentOS-Stream-AppStream.repo
 
 ________________________________________________________________________________________________
 
+
+## `yum repolist --all`
 
 show status of all repos
 
@@ -90,11 +100,15 @@ rt-source                     CentOS Stream 8 - RT - Source                     
 ________________________________________________________________________________________________
 
 
+## `subscription-manager repos --enable`
+
 to enable/disable a repo by subscription-manager
 
 ```bash
 [bob@centos-host ~]$ sudo subscription-manager repos --enable appstream-source
 ```
+
+## `subscription-manager repos --disable`
 
 ```bash
 [bob@centos-host ~]$ sudo subscription-manager repos --disable appstream-source
@@ -103,11 +117,15 @@ to enable/disable a repo by subscription-manager
 ________________________________________________________________________________________________
 
 
+## `yum-config-manager repos --enable`
+
 to enable/disable a repo by yum
 
 ```bash
 [bob@centos-host ~]$ sudo yum-config-manager repos --enable appstream-source
 ```
+
+## `yum-config-manager repos --disable`
 
 ```bash
 [bob@centos-host ~]$ sudo yum-config-manager repos --disable appstream-source
@@ -125,6 +143,8 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
+## `yum-config-manager --add-repo`
+
 add repo by yum
 
 ```bash
@@ -134,6 +154,8 @@ add repo by yum
 ________________________________________________________________________________________________
 
 
+
+## `yum repolist -v`
 
 ```bash
 [bob@centos-host ~]$ sudo yum repolist -v | grep filename
@@ -147,6 +169,8 @@ Repo-filename      : /etc/yum.repos.d/CentOS-Stream-Extras-common.repo
 
 ________________________________________________________________________________________________
 
+
+## `/etc/yum.repos.d/`
 
 to remove the repo, we can remove the file
 
@@ -164,6 +188,8 @@ gpgkey=https://download.docker.com/linux/centos/gpg
 ________________________________________________________________________________________________
 
 
+## `yum search`
+
 ### search for a package
 
 ```bash
@@ -179,6 +205,8 @@ pcp-pmda-weblog.x86_64 : Performance Co-Pilot (PCP) metrics from web server logs
 ________________________________________________________________________________________________
 
 
+
+## `yum info`
 
 
 ```bash
@@ -205,6 +233,8 @@ Description  : Nginx is a web server and a reverse proxy server for HTTP, SMTP, 
 ________________________________________________________________________________________________
 
 
+## `yum install`
+
 ### install package
 
 ```bash
@@ -223,6 +253,8 @@ if we accidently deleted the config files, we can re install the package
 ________________________________________________________________________________________________
 
 
+## `yum remove`
+
 remove a package
 
 ```bash
@@ -231,6 +263,8 @@ remove a package
 
 ________________________________________________________________________________________________
 
+
+## `yum group list`
 
 ### Group: install several software components at once
 
@@ -263,6 +297,8 @@ Available Groups:
 ________________________________________________________________________________________________
 
 
+## `group list --hidden`
+
 to see all groups include the hidden ones
 
 ```bash
@@ -272,11 +308,15 @@ to see all groups include the hidden ones
 ________________________________________________________________________________________________
 
 
-install / remove package group
+## `yum group install`
+
+install/remove ‍‍`package group`
 
 ```bash
 [bob@centos-host ~]$ sudo yum group install 'Server with GUI'
 ```
+
+## `yum group remove`
 
 ```bash
 [bob@centos-host ~]$ sudo yum group remove 'Server with GUI'
@@ -308,16 +348,21 @@ OR
 ________________________________________________________________________________________________
 
 
+## `yum remove nomachine`
+
 remove the package 
 
-then
 
-remove the dependencies
 
 ```bash
 [bob@centos-host ~]$ sudo yum remove nomachine
 ```
 
+## `yum autoremove`
+
+then
+
+remove the dependencies
 
 ```bash
 [bob@centos-host ~]$ sudo yum autoremove
@@ -326,6 +371,8 @@ remove the dependencies
 
 ________________________________________________________________________________________________
 
+
+## `yum check-upgrade`
 
 ### update
 
@@ -337,6 +384,8 @@ to see which packages can be updated on the system
 
 ________________________________________________________________________________________________
 
+
+## `yum update`
 
 update all packages to the latest version in the repositories
 
