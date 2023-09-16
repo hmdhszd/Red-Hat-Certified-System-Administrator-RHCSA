@@ -1,4 +1,5 @@
 
+## `lsblk`
 
 
 
@@ -15,6 +16,8 @@ vde    253:64   0   1G  0 disk
 
 ________________________________________________________________________________________________
 
+
+## `fdisk --list`
 
 list partitions
 
@@ -35,7 +38,9 @@ Device     Boot Start      End  Sectors Size Id Type
 ________________________________________________________________________________________________
 
 
-for managing disks with GUI
+## `cfdisk`
+
+for managing disks with `GUI`
 
 ```bash
 [bob@centos-host ~]$ sudo cfdisk /dev/vdb
