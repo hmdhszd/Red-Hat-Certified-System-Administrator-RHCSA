@@ -1,7 +1,8 @@
 
 
 
-Raid 0: (add 2 disks)
+## `Raid 0`:
+(`sum` `2` disks)
 
 1TB + 1TB = 2 TB
 
@@ -14,7 +15,8 @@ ________________________________________________________________________________
 
 
 
-Raid 1: (mirror 2 disks)
+## `Raid 1`:
+(`mirror` `2` disks)
 
 1TB + 1TB = 1 TB
 
@@ -23,15 +25,15 @@ Raid 1: (mirror 2 disks)
 ________________________________________________________________________________________________
 
 
-Raid 5:
- (minimum 3 disks) (parity)
+## `Raid 5`:
+(minimum `3` disks) (`parity`)
  
 1TB + 1TB + 1TB = 2 TB
 
 
 10 disks, 9 usable disks
 
-if we loose 1 disk of 10, we can still recover it
+if we `lose 1` disk of 10, we can still recover it
 
 
 
@@ -39,12 +41,12 @@ if we loose 1 disk of 10, we can still recover it
 ________________________________________________________________________________________________
 
 
-Raid 6:
- (minimum 4 disks) (parity)
+`Raid 6`:
+ (minimum `4` disks) (`parity`)
  
  
  
-if we loose 2 disk of 4, we can still recover it
+if we `lose 2` disk of 4, we can still recover it
 
 
 
@@ -52,9 +54,9 @@ if we loose 2 disk of 4, we can still recover it
 ________________________________________________________________________________________________
 
 
-Raid 10 (1+0): combination of 1 and 0
+## `Raid 10` (1+0): combination of 1 and 0
 
-Raid 0 ( 2 disks (RAID1) + 2 disks (RAID1) )
+Raid 0 ( `2 disks (RAID1)` + `2 disks (RAID1)` )
 
 
 not redundant
@@ -74,6 +76,10 @@ ________________________________________________________________________________
 
 to have raid, first we should get rid of vg and ps 
 
+________________________________________________________________________________________________
+
+## `mdadm --create /dev/md0 --level=1 --raid-devices=2`
+
 create raid 1
 
 ```bash
@@ -92,6 +98,8 @@ mdadm: array /dev/md0 started.
 ________________________________________________________________________________________________
 
 
+## `mdadm --manage /dev/md0 --add`
+
 Add another device, /dev/vde, to the previously created array, /dev/md0 
 
 ```bash
@@ -104,6 +112,8 @@ ________________________________________________________________________________
 
 
 
+## `mkfs`
+
 
 ```bash
 [bob@centos-host ~]$ sudo mkfs /dev/md0
@@ -112,7 +122,9 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-Stop / Deactivate array
+## `mdadm --stop`
+
+`Stop` / `Deactivate` array
 
 ```bash
 [bob@centos-host ~]$ sudo mdadm --stop /dev/md0
@@ -120,8 +132,12 @@ Stop / Deactivate array
 
 ________________________________________________________________________________________________
 
+## `mdadm --zero-superblock`
+
+## erase the RAID metadata from a device
 
 By using "--zero-superblock," you can erase the RAID metadata from a device, effectively making it available for other purposes or for creating a new RAID array.
+
 This is useful when you want to repurpose a disk or troubleshoot RAID-related issues.
 
 ```bash
@@ -130,8 +146,9 @@ This is useful when you want to repurpose a disk or troubleshoot RAID-related is
 
 ________________________________________________________________________________________________
 
+## `--spare-device`
 
-add spare disk to an array
+add `spare disk` to an array
 
 ```bash
 [bob@centos-host ~]$ sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/vdc /dev/vdd --spare-device /dev/vde
@@ -139,6 +156,7 @@ add spare disk to an array
 
 ________________________________________________________________________________________________
 
+## `/proc/mdstat`
 
 check raid on the system
 
