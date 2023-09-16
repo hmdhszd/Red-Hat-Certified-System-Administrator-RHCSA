@@ -1,20 +1,20 @@
 
 
-module packages:    group multiple version of software packages together
+`module packages`:    group `multiple version` of `software packages` together
 
-profile: a set of packages meant to be installed together for a specific purpose or usecase 
+`profile`: a `set of packages` meant to be installed together for a specific purpose or usecase 
 
-
-module streams: -->  Active / InActive
-
+`module streams`: -->  `Active` / `InActive`
 
 *** Only one version of any module stream can be enabled at any time ( only one version of a package can be installed ad any time )
 
-Modules and their dependencies are handled by yum
+`Modules` and their dependencies are handled by `yum`
 
 
 ________________________________________________________________________________________________
 
+
+## `yum module list`
 
 to see available modules on the system
 
@@ -44,6 +44,8 @@ nodejs               12              common [ Javascript runtime
 ________________________________________________________________________________________________
 
 
+## `yum module list nodejs`
+
 to see info of a specific module ( ex: nodejs )
 
 stream = version
@@ -68,11 +70,13 @@ nodejs      18          common, development, minimal, s2i          Javascript ru
 the default version (nodejs 10) will be installed by this command:
 
 ```bash
-[bob@centos-host ~]$ yum install nodejs
+[bob@centos-host ~]$ yum module install nodejs
 ```
 
 ________________________________________________________________________________________________
 
+
+## `yum module install`
 
 when we install a module, it will install the default version, but you can specify the exact version and profile
 
@@ -84,6 +88,8 @@ ________________________________________________________________________________
 
 
 
+
+## `yum module list --installed`
 
 
 
@@ -99,7 +105,9 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 ________________________________________________________________________________________________
 
 
-to reset module to the default version (and common profile)
+## `yum module reset`
+
+to reset module to the `default version` (and `common profile`)
 
 ```bash
 [bob@centos-host ~]$ sudo yum module reset nodejs
