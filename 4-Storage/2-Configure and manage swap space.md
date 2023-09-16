@@ -1,4 +1,5 @@
 
+## `swapon --show`
 
 to see info of the swap partition
 
@@ -12,6 +13,8 @@ NAME      TYPE SIZE USED PRIO
 ________________________________________________________________________________________________
 
 
+## `cfdisk /dev/vdb`
+
 to add swap, first we make a new partition
 
 ```bash
@@ -21,6 +24,8 @@ to add swap, first we make a new partition
 ________________________________________________________________________________________________
 
 
+
+## `lsblk`
 
 
 ```bash
@@ -35,6 +40,8 @@ vdb    253:16   0    1G  0 disk
 ________________________________________________________________________________________________
 
 
+## `mkswap /dev/vdb1`
+
 then change the partition to become a swap
 
 ```bash
@@ -46,11 +53,18 @@ no label, UUID=c58dd8d2-f61d-48a7-88de-2c6d7076c836
 ________________________________________________________________________________________________
 
 
+## `swapon /dev/vdb1`
+
 finally, add that partition to the machine
 
 ```bash
 [bob@centos-host ~]$ sudo swapon /dev/vdb1
+```
 
+## `swapon --show`
+
+
+```bash
 [bob@centos-host ~]$ sudo swapon --show
  
 NAME      TYPE       SIZE USED PRIO
@@ -64,12 +78,16 @@ this swap will be used until restart of the machine
 ________________________________________________________________________________________________
 
 
+## `swapoff /dev/vdb1`
+
 swapon, swapoff - enable/disable devices and files for paging and swapping
 
 ```bash
 [bob@centos-host ~]$ sudo swapoff /dev/vdb1
 ```
 
+
+## `swapon --show`
 
 ```bash
 [bob@centos-host ~]$ sudo swapon --show
@@ -85,6 +103,8 @@ ________________________________________________________________________________
 
 use file instead for swap of partition
 
+
+## `dd`
 
 ```bash
 bob@centos-host ~]$ sudo dd if=/dev/zero of=/swap bs=1M count=128 status=progress
@@ -113,6 +133,8 @@ ________________________________________________________________________________
 
 
 
+
+## `mkswap /swap`
 
 ```bash
 [bob@centos-host ~]$ sudo mkswap /swap
