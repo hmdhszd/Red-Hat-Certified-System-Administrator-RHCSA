@@ -1,7 +1,7 @@
 
 
 
-wheel group     -->     root permission
+‍`wheel` group     -->     `root` `permission`
 
 docker group    -->     manage docker containers 
 
@@ -21,8 +21,10 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### add a user to a group
+# add a user to a group
 
+
+## `gpasswd --add`
 
 ```bash
 [bob@centos-host ~]$ sudo gpasswd --add hamid developers
@@ -31,6 +33,8 @@ Adding user hamid to group developers
 ```
 
 OR
+
+## `gpasswd -a`
 
 ```bash
 [bob@centos-host ~]$ sudo gpasswd -a hamid developers
@@ -41,6 +45,8 @@ Adding user hamid to group developers
 
 OR
 
+## `usermod -aG`
+
 append new secondary group to the list of groups of a user
 
 ```bash
@@ -48,6 +54,8 @@ append new secondary group to the list of groups of a user
 ```
 
 OR
+
+## `usermod -g`
 
 change the primary group
 
@@ -59,6 +67,8 @@ ________________________________________________________________________________
 
 
 
+
+## `groups`
 
 
 ```bash
@@ -72,9 +82,11 @@ ________________________________________________________________________________
 
 
 
-### remove a user from a group
+# `remove` a user from a group
 
 
+
+## `gpasswd --delete`
 
 
 ```bash
@@ -85,6 +97,8 @@ Removing user hamid from group developers
 
 OR
 
+## `gpasswd -r`
+
 
 ```bash
 [bob@centos-host ~]$ sudo gpasswd -r hamid developers
@@ -94,6 +108,8 @@ Removing user hamid from group developers
 
 ________________________________________________________________________________________________
 
+
+## `groupmod --new-name`
 
 ### change the name of a group
 
@@ -113,6 +129,8 @@ programers:x:1004:hamid
 ________________________________________________________________________________________________
 
 
+
+## `groupdel`
 
 delete a primary group
 
