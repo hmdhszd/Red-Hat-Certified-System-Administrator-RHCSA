@@ -174,6 +174,18 @@ Password:
 ________________________________________________________________________________________________
 
 
+`run` a `command` with the `hamid` `previlages`:
+
+```bash
+[bob@centos-host ~]$ su hamid -c "whoami"
+Password:
+
+hamid
+```
+
+________________________________________________________________________________________________
+
+
 `run` a `command` with the `root` `previlages`:
 
 ```bash
