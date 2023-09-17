@@ -67,7 +67,7 @@ ________________________________________________________________________________
 
 ## ` ls --full-time`
 
-show the exact time of the last modified
+show the `exact time` of the `last modified`
 
 ```bash
 [bob@centos-host ~]$ ls --full-time important_file 
