@@ -1,5 +1,9 @@
 
-# sshd config on the server
+# sshd config on the `server`
+
+
+## `/etc/ssh/sshd_config`
+
 
 ```bash
 [bob@centos-host ~]$ sudo cat /etc/ssh/sshd_config 
@@ -17,14 +21,17 @@ the port number that the sshd expect ssh connections
 ________________________________________________________________________________________________
 
 
+## `AddressFamily`
+
+
 ipv4 or ipv6 or any
 
 
-for ipv4      -->      inet
+for `ipv4`      -->      `inet`
 
-for ipv6      -->      inet6
+for `ipv6`      -->      `inet6`
 
-for both      -->      any
+for `both`      -->      `any`
 
 
 ```bash
@@ -32,6 +39,9 @@ for both      -->      any
 ```
 
 ________________________________________________________________________________________________
+
+
+## `ListenAddress`
 
 
 who can ssh to this server (default 0.0.0.0 = any)
@@ -43,6 +53,9 @@ who can ssh to this server (default 0.0.0.0 = any)
 ________________________________________________________________________________________________
 
 
+## `PermitRootLogin`
+
+
 enable / disable login with root user
 
 ```bash
@@ -52,7 +65,10 @@ PermitRootLogin yes
 ________________________________________________________________________________________________
 
 
-login with password or only ssh key
+## `PasswordAuthentication`
+
+
+login with `password` or only `ssh key`
 
 ```bash
 PasswordAuthentication yes
@@ -73,11 +89,11 @@ Match User Hamid
 ________________________________________________________________________________________________
 
 
+## `X11Forwarding`
 
+`X11 forwarding` is a feature in the SSH (Secure Shell) protocol that allows graphical applications running on a remote server to be displayed on a local machine.
 
-X11 forwarding is a feature in the SSH (Secure Shell) protocol that allows graphical applications running on a remote server to be displayed on a local machine.
-
-It enables users to run GUI-based applications on a remote server and have their graphical output redirected to their local machine.
+It enables users to run `GUI-based` `applications` on a `remote server` and have their graphical output redirected to their local machine.
 
 ```bash
 X11Forwarding yes
@@ -85,6 +101,8 @@ X11Forwarding yes
 
 ________________________________________________________________________________________________
 
+
+## `systemctl reload sshd.service`
 
 after changing the configuration, we should reload the service
 
@@ -95,7 +113,9 @@ after changing the configuration, we should reload the service
 ________________________________________________________________________________________________
 
 
-# ssh client config on the client
+# ssh client config on the `client`
+
+## `ssh-keygen`
 
 create ssh key
 
@@ -129,6 +149,9 @@ ________________________________________________________________________________
 
 
 
+## `/home/bob/.ssh/`
+
+`Public` and `Private` keys
 
 ```bash
 [bob@centos-host ~]$ ls /home/bob/.ssh/
@@ -139,7 +162,9 @@ id_rsa  id_rsa.pub
 ________________________________________________________________________________________________
 
 
-### ssh client config file should be created manually
+## `.ssh/config`
+
+### ssh `client` config file should be `created` `manually`
 
 ```bash
 [bob@centos-host ~]$ sudo vi .ssh/config
@@ -163,8 +188,10 @@ Host my-server1
 
 ________________________________________________________________________________________________
 
+## `ssh-copy-id` --> `~/.ssh/authorized_keys` (on the server side)
 
-#### in this case, the public key of the client will be copied to the server (~/.ssh/authorized_keys)
+
+#### in this case, the public key of the client will be copied to the `server` (~/.ssh/authorized_keys)
 
 ```bash
 [bob@centos-host ~]$ ssh-copy-id hamid@127.0.0.1
@@ -183,11 +210,12 @@ and check to make sure that only the key(s) you wanted were added.
 ________________________________________________________________________________________________
 
 
+
 Also you can do it manually!
 
-you can log into the server and copy the public key into that path
+you can log into the `server` and copy the public key into that path
 
-this file should have 600 permission
+this file should have `600` `permission`
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
@@ -196,7 +224,7 @@ chmod 600 ~/.ssh/authorized_keys
 ________________________________________________________________________________________________
 
 
-###  known_hosts
+## '.ssh/known_hosts' (on the Client side)
 
 when we ssh to a server for the first time, the fingerprint of the server will save at this file on the ssh client
 
@@ -210,7 +238,7 @@ to remove it use -R
 
 
 
-
+## `ssh-keygen -R`
 
 ```bash
 [bob@centos-host ~]$ ssh-keygen -R 127.0.0.1
@@ -222,8 +250,9 @@ Original contents retained as /home/bob/.ssh/known_hosts.old
 
 ________________________________________________________________________________________________
 
+## `/etc/ssh/ssh_config`
 
-### Default configurations of SSH Client
+### `Default` configurations of `SSH` `Client`
 
 ```bash
 [bob@centos-host ~]$ cat /etc/ssh/ssh_config
