@@ -47,7 +47,7 @@ OR
 
 ## `usermod -aG`
 
-append new secondary group to the list of groups of a user
+append new `secondary` group to the list of groups of a user
 
 ```bash
 [bob@centos-host ~]$ sudo usermod -aG developers hamid
@@ -57,7 +57,7 @@ OR
 
 ## `usermod -g`
 
-change the primary group
+change the `primary` group
 
 ```bash
 [bob@centos-host ~]$ sudo usermod -g developers hamid
