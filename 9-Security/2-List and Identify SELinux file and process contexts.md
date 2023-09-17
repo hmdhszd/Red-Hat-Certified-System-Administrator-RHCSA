@@ -1,12 +1,13 @@
 
 
-### SELinux is enabled by default on CentOS stream
+### `SELinux` is `enabled` by `default` on CentOS stream
 
 
 ### it can protect against hijacked program.
 
 ________________________________________________________________________________________________
 
+## ``
 
 ### use -Z to see selinux permissions of a file (SELinux Context Label)
 
@@ -22,9 +23,9 @@ user:role:type:level
 ________________________________________________________________________________________________
 
 
-#### every user that logs into a system, is mapped into a selinux user, as part of a selinux policy configuration
+#### `every user` that logs into a system, is `mapped` into a `selinux user`, as part of a selinux policy configuration
 
-each user can only assume a predefined set of roles
+each user can only assume a `predefined set of roles`
 
 ________________________________________________________________________________________________
 
@@ -51,7 +52,7 @@ ________________________________________________________________________________
 
 1- only certain users can enter certain roles and certain types.
 
-2-  it lets authorized users and processes to do their jobs, by granting the permissions they need.
+2- it lets authorized users and processes to do their jobs, by granting the permissions they need.
 
 3- Authorized users and processes are allowed ONLY a limited set of actions.
 
