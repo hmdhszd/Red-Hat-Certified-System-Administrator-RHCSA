@@ -1,6 +1,6 @@
 
 
-
+## NetworkManager
 
 
 ```bash
@@ -55,6 +55,7 @@ Wired connection 2  524c655b-2df1-3e4c-9038-d45b2c1ba4f8  ethernet  --
 
 ________________________________________________________________________________________________
 
+## ``
 
 initialize a connection at the boot time
 
@@ -65,7 +66,9 @@ initialize a connection at the boot time
 ________________________________________________________________________________________________
 
 
-## to see what programs are running and waiting for incoming network connections --> ss and netstat
+## `ss -tulpn`
+
+### to see what programs are running and waiting for `incoming network connections` (open ports) --> `ss` and `netstat`
 
 (always use with sudo)
 
@@ -85,6 +88,8 @@ the process ID of the service               -->   1262
 ________________________________________________________________________________________________
 
 
+## `ps`
+
 
 check the process of the previous service
 
@@ -98,6 +103,8 @@ check the process of the previous service
 
 ________________________________________________________________________________________________
 
+
+## `lsof -p`
 
 see the files that this process is using
 
@@ -114,6 +121,8 @@ dnsmasq 1262 dnsmasq NOFD                            /proc/1262/fd (opendir: Per
 ________________________________________________________________________________________________
 
 
+
+## `netstat -tulpn`
 
 
 ```bash
