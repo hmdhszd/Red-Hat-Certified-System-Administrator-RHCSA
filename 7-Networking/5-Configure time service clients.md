@@ -1,6 +1,6 @@
 
 
-## chronyd is used to adjust the system clock that runs in the kernel to synchronize with the NTP clock server.
+## `chronyd` is used to adjust the `system clock` that runs in the kernel to `synchronize` with the `NTP` clock server.
 
 ________________________________________________________________________________________________
 
@@ -28,6 +28,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
+## `systemctl status chronyd.service`
 
 
 ```bash
@@ -48,6 +49,8 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
+## `timedatectl`
+
 check info of time zone  of the server
 
 ```bash
@@ -65,7 +68,8 @@ System clock synchronized: yes
 ________________________________________________________________________________________________
 
 
-### List of timezones
+## `timedatectl list-timezones`
+
 
 ```bash
 [bob@centos-host ~]$ timedatectl list-timezones 
@@ -74,7 +78,8 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### Set timezone
+
+## `timedatectl set-timezone`
 
 ```bash
 [bob@centos-host ~]$ sudo timedatectl set-timezone "America/Toronto"
@@ -84,7 +89,10 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### Enable time synchronization 
+## `systemctl set-ntp true`
+
+
+`Enable` time `synchronization` 
 
 ```bash
 [bob@centos-host ~]$ sudo systemctl set-ntp true
@@ -93,7 +101,9 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### Set system to use RTC
+## `timedatectl set-local-rtc 1`
+
+Set system to use RTC
 
 ```bash
 [bob@centos-host ~]$ sudo timedatectl set-local-rtc 1
