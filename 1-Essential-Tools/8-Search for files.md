@@ -281,9 +281,9 @@ ________________________________________________________________________________
 
 ## `find -type`
 
-- f file
+- `f` file
 
-- d directory
+- `d` directory
 
 Find all the files whose permissions are 0777 in /var directory.
 
