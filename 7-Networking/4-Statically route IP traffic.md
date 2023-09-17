@@ -1,7 +1,6 @@
 
+## `ip route add`
 
-
-### Add route
 
 
 
@@ -32,8 +31,9 @@ ________________________________________________________________________________
 
 
 
+## `ip route del`
 
-### Delete route
+
 
 ```bash
 [bob@centos-host ~]$ sudo ip route del 1.2.3.0/24
@@ -44,7 +44,8 @@ ________________________________________________________________________________
 
 
 
-### Add default route
+
+## `ip route add default`
 
 ```bash
 [bob@centos-host ~]$ sudo ip route add default via 192.168.121.1
@@ -55,7 +56,9 @@ ________________________________________________________________________________
 
 # these routes are temporary!
 
-### ADD routes permanently
+### ADD routes permanently:
+
+## `nmcli connection show`
 
 ```bash
 [bob@centos-host ~]$ nmcli connection show
@@ -69,12 +72,16 @@ System eth1         9c92fad9-6ecb-3e6c-eb4d-8a47c6f50c04  ethernet  eth1
 ```
 
 
+## `nmcli connection modify` (+ipv4.routes)
+
 then use the connection name:
 
 ```bash
 [bob@centos-host ~]$ sudo nmcli connection modify System\ eth0 +ipv4.routes "1.2.3.0/24 192.168.121.1"
 ```
 
+
+## `nmcli device reapply`
 
 
 the apply the changes:
@@ -84,6 +91,8 @@ the apply the changes:
 ```
 
 ________________________________________________________________________________________________
+
+## `nmcli connection modify` (-ipv4.routes)
 
 
 ### Remove routes permanently
