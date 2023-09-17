@@ -1,15 +1,17 @@
 
 
 
-### login as root user
+# login as root user
 
-
+## `sudo --login`
 
 ```bash
 [bob@centos-host ~]$ sudo --login
 ```
 
 OR
+
+## `sudo -i`
 
 ```bash
 [bob@centos-host ~]$ sudo -i
@@ -18,10 +20,12 @@ OR
 ________________________________________________________________________________________________
 
 
-### su      switch user
+# `su`   -->   switch user
 
 if the user does not have the SUDO priviledges, but knows the root password:
 
+
+## `su -`
 
 ```bash
 [bob@centos-host ~]$ su -
@@ -31,6 +35,8 @@ Password:
 
 OR
 
+## `su -l`
+
 ```bash
 [bob@centos-host ~]$ su -l
 Password:
@@ -38,6 +44,8 @@ Password:
 
 
 OR
+
+## `su --login`
 
 ```bash
 [bob@centos-host ~]$ su --login
@@ -58,12 +66,16 @@ ________________________________________________________________________________
 
 
 
+## `passwd --unlock`
+
 unlock the root user
 
 
 ```bash
 [bob@centos-host ~]$ sudo passwd --unlock root
 ```
+
+## `passwd -u`
 
 ```bash
 [bob@centos-host ~]$ sudo passwd -u root
@@ -74,7 +86,9 @@ ________________________________________________________________________________
 
 
 
-### prevent users to login as root user
+# prevent users to `login` as `root user`
+
+## `passwd --lock`
 
 lock root user
 
@@ -92,8 +106,6 @@ ________________________________________________________________________________
 
 ### with neither sudo nor root login, you can do nothing!
 
-```bash
 
-```
 
 ________________________________________________________________________________________________
