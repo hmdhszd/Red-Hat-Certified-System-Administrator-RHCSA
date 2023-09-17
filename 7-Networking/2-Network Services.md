@@ -41,6 +41,9 @@ ________________________________________________________________________________
 
 
 
+## `nmcli connection show`
+
+`list` the `interfaces`
 
 ```bash
 [bob@centos-host ~]$ nmcli connection show
@@ -55,9 +58,9 @@ Wired connection 2  524c655b-2df1-3e4c-9038-d45b2c1ba4f8  ethernet  --
 
 ________________________________________________________________________________________________
 
-## ``
+## `nmcli connection modify`
 
-initialize a connection at the boot time
+initialize a connection at the boot time (`autoconnect`)
 
 ```bash
 [bob@centos-host ~]$ sudo nmcli connection modify enp0s3 autoconnect yes
