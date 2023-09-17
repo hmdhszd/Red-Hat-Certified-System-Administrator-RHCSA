@@ -2,18 +2,18 @@
 
 we can use Firewalld to filter packets,
 
-and put each interface to a zone (which is a set of rules)
+and put `each interface` to a `zone` (which is a `set of rules`)
 
-normally the default zone is "public"
+normally the `default` zone is `public`
 
-in this zone every INCOMMING Connection es Blocked, except what we choose to allow
+in this zone every `INCOMMING` Connection is `Blocked`, except what we choose to allow
 
 ### in PUBLIC ZONE ---> default deny all
 
 ________________________________________________________________________________________________
 
 
-### check default zone
+## `--get-default-zone`
 
 ```bash
 [bob@centos-host ~]$ firewall-cmd --get-default-zone
@@ -26,7 +26,7 @@ ________________________________________________________________________________
 
 
 
-### change default zone
+## `--set-default-zone=`
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --set-default-zone=public
@@ -37,7 +37,9 @@ success
 ________________________________________________________________________________________________
 
 
-### to see current firewall rules
+## `--list-all`
+
+to see current firewall rules
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --list-all
@@ -57,14 +59,15 @@ public (active)
   rich rules:
 ```
 
-in the "services" you can see that incomming connection for these services are allow
+in the "services" you can see that `incomming connection` for these `services` are `allow`
 
-in the "ports" you can see that incomming connection for these ports are allow
+in the "ports" you can see that `incomming connection` for these `ports` are `allow`
 
 ________________________________________________________________________________________________
 
+## `--info-service=`
 
-### to see what port is using each service (ex: cockpit)
+### to see what `port` is using each `service` (ex: cockpit)
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --info-service=cockpit
@@ -79,6 +82,8 @@ ________________________________________________________________________________
 ex: if we want to allow incomming traffic to NGINX we have 2 ways:
 
 
+## `--add-service=`
+
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --add-service=http
@@ -88,6 +93,8 @@ success
 OR
 
 
+## `--add-port=`
+
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --add-port=80/tcp
 success
@@ -96,7 +103,8 @@ success
 ________________________________________________________________________________________________
 
 
-### remove rule
+
+## `--remove-service=`
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --remove-service=http
@@ -106,6 +114,8 @@ success
 OR
 
 
+## `--remove-port=`
+
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --remove-port=80/tcp
 success
@@ -114,9 +124,11 @@ success
 ________________________________________________________________________________________________
 
 
-# Allow incomming connections based on SOURCE
+# Allow incomming connections based on `SOURCE`
 
 IF traffic that is comming from any ip of this network, then filter and process it according to the policy and rules of the trusted zone
+
+## `--add-source= --zone=`
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --add-source=1.2.3.4/24 --zone=trusted
@@ -128,8 +140,7 @@ By Default, the trusted zone allows every incomming connection, so we allow ever
 ________________________________________________________________________________________________
 
 
-### to check what zones are actively filtering traffic
-
+## `--get-active-zones`
 
 
 ```bash
@@ -145,8 +156,10 @@ ________________________________________________________________________________
 
 
 
+## `--list-all --zone=`
 
-### see rules of a zone
+
+### list all `rules` of a zone
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --list-all --zone=trusted 
@@ -170,7 +183,7 @@ ________________________________________________________________________________
 
 
 
-
+## `--remove-source= --zone=`
 
 
 ```bash
@@ -184,6 +197,9 @@ ________________________________________________________________________________
 
 # all these rules are not permanent!
 
+
+## `--runtime-to-permanent`
+
 to make all rules permanent:
 
 ```bash
@@ -193,6 +209,8 @@ success
 
 OR make them permanent at the creation
 
+
+## `--permanent`
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --add-port=1234/tcp --permanent 
