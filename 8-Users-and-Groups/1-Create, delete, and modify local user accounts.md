@@ -1,6 +1,6 @@
 
 
-### add new user
+## `useradd`
 
 ```bash
 [bob@centos-host ~]$ sudo useradd hamid
@@ -17,6 +17,9 @@ the home directory /home/hamid will be created
 ________________________________________________________________________________________________
 
 
+
+## `/etc/passwd`
+
 the info of users will be saved at /etc/passwd
 
 ```bash
@@ -27,7 +30,10 @@ hamid:x:1002:1002::/home/hamid:/bin/bash
 ________________________________________________________________________________________________
 
 
-and these files from /etc/skel will be copied to the /home/hamid
+
+## `/etc/skel`
+
+and these files from /etc/skel will be copied to the `home directory` of new users (/home/hamid)
 
 ```bash
 [bob@centos-host ~]$ ls -a /etc/skel
@@ -47,7 +53,10 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### default options for the new users
+
+## `useradd --defaults`
+
+### show default options for the new users
 
 ```bash
 [bob@centos-host ~]$ useradd --defaults
@@ -64,7 +73,10 @@ CREATE_MAIL_SPOOL=yes
 ________________________________________________________________________________________________
 
 
-other default configurations related to new users
+## `/etc/login.defs`
+
+
+other `default configurations` related to `new users`
 
 
 ```bash
@@ -84,7 +96,11 @@ other default configurations related to new users
 ________________________________________________________________________________________________
 
 
-### by default, the accounts does not have any passwords, to set password:
+
+
+## `passwd`
+
+by default, the accounts does not have any passwords, to set password:
 
 ```bash
 [bob@centos-host ~]$ sudo passwd hamid
@@ -99,7 +115,9 @@ passwd: all authentication tokens updated successfully.
 ________________________________________________________________________________________________
 
 
-### delete a user
+
+
+## `userdel`
 
 be default, this command does not remove home directory
 
@@ -110,11 +128,17 @@ be default, this command does not remove home directory
 ________________________________________________________________________________________________
 
 
-to remove home directory as well
+
+## `userdel --remove`
+
+to `remove` `home directory` as well (by default, it does not remove the home directory)
 
 ```bash
 [bob@centos-host ~]$ sudo userdel --remove hamid
 ```
+
+
+## `userdel -r`
 
 ```bash
 [bob@centos-host ~]$ sudo userdel -r hamid
@@ -123,7 +147,11 @@ to remove home directory as well
 ________________________________________________________________________________________________
 
 
-### define other shell and home dir at user creation
+
+
+## `useradd --shell --home-dir`
+
+define other shell and home dir at user creation
 
 ```bash
 [bob@centos-host ~]$ sudo useradd --shell /bin/OTHERSHELL --home-dir /home/OTHERDIR hamid
@@ -132,7 +160,11 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### define other UID at user creation
+
+
+## `useradd --uid`
+
+define other UID at user creation
 
 ```bash
 [bob@centos-host ~]$ sudo useradd --uid 1100 hamid
@@ -141,7 +173,10 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-### info of the current user
+
+## `id`
+
+info of the `current user`
 
 ```bash
 [bob@centos-host ~]$ id
@@ -154,6 +189,11 @@ ________________________________________________________________________________
 
 
 
+
+## `whoami`
+
+see the current user
+
 ```bash
 [bob@centos-host ~]$ whoami
 
@@ -163,12 +203,15 @@ bob
 ________________________________________________________________________________________________
 
 
-### Create a System Account
+# Create a System Account
 
 
-system accounts will not have any home dir
 
-usually daemons will use system accounts
+## `useradd --system`
+
+system accounts will hame `NO` `home` `directory`
+
+it's usually used by `daemons` 
  
 
 ```bash
@@ -228,6 +271,9 @@ Options:
 ________________________________________________________________________________________________
 
 
+
+## `usermod  --home  --move-home`
+
 change the home dir
 
 ```bash
@@ -235,6 +281,9 @@ change the home dir
 ```
 
 OR
+
+
+## `usermod  --d  -m`
 
 ```bash
 [bob@centos-host ~]$ sudo usermod  --d /home/OTHERDIR -m hamid
@@ -244,7 +293,11 @@ OR
 ________________________________________________________________________________________________
 
 
-change the username from hamid to mrx
+
+
+## `usermod --login`
+
+change the `username` from hamid to mrx
 
 ```bash
 [bob@centos-host ~]$ sudo usermod --login mrx hamid
@@ -252,6 +305,9 @@ change the username from hamid to mrx
 
 OR
 
+
+
+## `usermod -l`
 
 
 ```bash
@@ -273,6 +329,9 @@ mrx:x:1002:1002::/home/hamid:/bin/bash
 ________________________________________________________________________________________________
 
 
+
+## `usermod --shell`
+
 change the login shell
 
 ```bash
@@ -283,12 +342,18 @@ OR
 
 
 
+
+## `usermod -s`
+
 ```bash
 [bob@centos-host ~]$ sudo usermod -s /bin/OTHERSHELL hamid
 ```
 
 ________________________________________________________________________________________________
 
+
+
+## `usermod --lock`
 
 ### Lock / Disable account
 
@@ -300,6 +365,9 @@ ________________________________________________________________________________
 
 
 
+
+## `usermod --unlock`
+
 ### Un Lock / Enable account
 
 ```bash
@@ -310,7 +378,10 @@ ________________________________________________________________________________
 
 
 
-### Set expire date
+## `usermod --expiredate`
+
+
+### Set `USER` `expiration` date
 
 ```bash
 [bob@centos-host ~]$ sudo usermod --expiredate 2023-11-12 hamid
@@ -319,7 +390,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-remove expiration date
+`remove` expiration date
 
 
 ```bash
@@ -330,7 +401,10 @@ ________________________________________________________________________________
 
 
 
-### set password expiration
+
+## `chage --lastday`
+
+### set `Password` `expiration`
 
 
 expire right now
@@ -343,7 +417,7 @@ ________________________________________________________________________________
 
 
 
-unexpire password
+unexpire password (`-1`)
 
 ```bash
 [bob@centos-host ~]$ sudo chage --lastday -1 hamid
@@ -352,8 +426,10 @@ unexpire password
 ________________________________________________________________________________________________
 
 
+## `chage --maxdays`
 
-expire in maximum 30 days
+
+`Password` `expiration` in `maximum` 30 days
 
 ```bash
 [bob@centos-host ~]$ sudo chage --maxdays 30 hamid
@@ -362,8 +438,9 @@ expire in maximum 30 days
 ________________________________________________________________________________________________
 
 
+## `chage --list`
 
-#### see the password expiration policies of a user
+#### see the `expiration` `policies` of a user
 
 ```bash
 [bob@centos-host ~]$ sudo chage --list mrx
