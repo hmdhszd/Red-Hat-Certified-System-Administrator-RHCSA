@@ -253,6 +253,8 @@ reza                                                            reza
 Hamid                                                           Hamid
 ```
 
+## `sdiff`
+
 ```bash
 [bob@centos-host ~]$ sdiff namefile namefile-old 
 ali                                                             ali
