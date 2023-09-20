@@ -253,19 +253,19 @@ instead use the backslashed versions `\?`, `\+`, `\{`, `\|`, `\(`, and `\)`.
 ________________________________________________________________________________________________
 
 
-Period (`.`) - Matches any single character except a newline. To match a literal period, escape it with a backslash ().
+Period (`.`) - Matches any `single` `character` except a newline. To match a literal period, escape it with a backslash ().
 
-Dollar sign (`$`) - Matches the end of a line. To match a literal dollar sign, escape it with a backslash ().
+Dollar sign (`$`) - Matches the `end of a line`. To match a literal dollar sign, escape it with a backslash ().
 
-Caret (`^`) - Matches the beginning of a line. To match a literal caret, escape it with a backslash ().
+Caret (`^`) - Matches the `beginning of a line`. To match a literal caret, escape it with a backslash ().
 
-Asterisk (`*`) - Matches zero or more occurrences of the preceding character. To match a literal asterisk, escape it with a backslash ().
+Asterisk (`*`) - Matches `zero or more` occurrences of the preceding character. To match a literal asterisk, escape it with a backslash ().
 
-Plus sign (`+`) - Matches one or more occurrences of the preceding character. To match a literal plus sign, escape it with a backslash ().
+Plus sign (`+`) - Matches `one or more` occurrences of the preceding character. To match a literal plus sign, escape it with a backslash ().
 
-Question mark (`?`) - Matches zero or one occurrence of the preceding character. To match a literal question mark, escape it with a backslash ().
+Question mark (`?`) - Matches `zero or one` occurrence of the preceding character. To match a literal question mark, escape it with a backslash ().
 
-Square brackets (`[ ]`) - Used to define a character class, matching any one of the characters inside the brackets. To match a literal square bracket, escape it with a backslash ().
+Square brackets (`[ ]`) - Used to define a character class, matching `any` one of the `characters` `inside` the `brackets`. To match a literal square bracket, escape it with a backslash ().
 
-Backslash (`\`) - Escape character itself. To match a literal backslash, escape it with another backslash (\).
+Backslash (`\`) - `Escape` `character` itself. To match a literal backslash, escape it with another backslash (\).
 
