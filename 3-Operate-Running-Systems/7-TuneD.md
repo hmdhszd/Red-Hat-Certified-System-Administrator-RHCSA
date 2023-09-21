@@ -7,14 +7,14 @@ Tuned monitors various system parameters, such as `CPU utilization`, `memory usa
 
 For example, it can adjust the CPU frequency scaling governor, disk I/O scheduler, network packet size, and other parameters to optimize system performance for a given workload.
 
-Tuned comes with a set of pre-defined profiles, each designed for a specific workload or usage pattern, such as virtualization, database servers, desktop systems, and so on.
+Tuned comes with a set of `pre-defined` `profiles`, each designed for a specific workload or usage pattern, such as virtualization, database servers, desktop systems, and so on.
 
-Users can also create their own custom profiles and configure Tuned to use them.
+Users can also `create` their own `custom` `profiles` and configure Tuned to use them.
 
 ________________________________________________________________________________________________
 
 
-2 main profiles:
+3 main profiles:
 
 - `power saving` profiles
 
@@ -70,7 +70,7 @@ See TuneD log file ('/var/log/tuned/tuned.log') for details.
 ________________________________________________________________________________________________
 
 
-to see TuneD profiles on the system
+to see TuneD `profiles` on the system
 
 ```bash
 ls /usr/lib/tuned
@@ -80,7 +80,7 @@ ________________________________________________________________________________
 
 
 
-the configuration
+the `configuration`
 
 ```bash
 [bob@centos-host ~]$ cat /etc/tuned/tuned-main.conf
