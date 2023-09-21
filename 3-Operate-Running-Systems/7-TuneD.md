@@ -14,13 +14,15 @@ Users can also `create` their own `custom` `profiles` and configure Tuned to use
 ________________________________________________________________________________________________
 
 
-3 main profiles:
+`2` main profiles:
 
 - `power saving` profiles
 
 - `performance boosting` profiles
 
-- `default` profile: `balanced` profile 
+
+
+`default` profile: `balanced` profile 
 
 
 ________________________________________________________________________________________________
