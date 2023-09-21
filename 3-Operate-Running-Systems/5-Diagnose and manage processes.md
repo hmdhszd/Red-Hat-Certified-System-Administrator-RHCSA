@@ -111,7 +111,7 @@ ________________________________________________________________________________
 ## `pgrep -a`
 
 
-#### search for a process with a specific word in it's name ex: proxy
+#### search for a process with a specific word in it's `name` ex: proxy
 
 ```bash
 [bob@centos-host ~]$ pgrep -a proxy
@@ -141,7 +141,7 @@ change nice value for bash
 ________________________________________________________________________________________________
 
 
-use -l to see nice value
+use `-l` to see nice value
 
 ```bash
 [bob@centos-host ~]$ ps -l  | grep bash
@@ -153,8 +153,6 @@ use -l to see nice value
 ________________________________________________________________________________________________
 
 
-
-
 ```bash
 ps alx
 ```
@@ -162,7 +160,7 @@ ps alx
 ________________________________________________________________________________________________
 
 
-f   -->   forest (show child processes)
+`f`   -->   forest (show `child` `processes`)
 
 ```bash
 ps fax
