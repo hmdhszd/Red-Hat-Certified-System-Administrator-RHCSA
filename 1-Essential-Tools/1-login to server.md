@@ -1,5 +1,5 @@
 
-press CTRL + ALT + F2 to to to the Virtual Terminal
+press `CTRL` + `ALT` + `F2` to to to the Virtual Terminal
 
 ________________________________________________________________________________________________
 
