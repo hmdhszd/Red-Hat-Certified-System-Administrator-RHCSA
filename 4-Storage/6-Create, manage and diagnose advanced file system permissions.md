@@ -132,8 +132,24 @@ ________________________________________________________________________________
 
 ### `effective`   -->     the `actual` `effective` permission
 
+
+## `getfacl`
+
 ```bash
-getfacl myfile
+[bob@centos-host ~]$ ls -l
+total 0
+-rw-r--r--+ 1 bob bob 0 Sep 23 19:41 archive
+
+
+[bob@centos-host ~]$ getfacl archive 
+# file: archive
+# owner: bob
+# group: bob
+user::rw-
+user:john:r--
+group::r--
+mask::r--
+other::r--
 ```
 
 ________________________________________________________________________________________________
