@@ -1,4 +1,18 @@
 
+
+
+## Comparison Between `Swap File` and `Swap Partition`
+
+Space Utilization: Swapfiles are more space-efficient since they only consume as much disk space as necessary and can be easily grown or shrunk.
+
+Conversely, swap partitions may either waste space or be insufficient for memory demands.
+
+
+
+________________________________________________________________________________________________
+
+# `Swap Partition`
+
 ## `swapon --show`
 
 to see info of the swap partition
@@ -99,7 +113,7 @@ NAME      TYPE       SIZE USED PRIO
 ________________________________________________________________________________________________
 
 
-# Create a swap file to use permanently
+# `Swap File`
 
 use file instead for swap of partition
 
@@ -143,11 +157,13 @@ Setting up swapspace version 1, size = 128 MiB (134213632 bytes)
 no label, UUID=4bf780ab-4324-4afd-adfe-892748f4787e
 ```
 
+## `swapon /swap`
 
 ```bash
 [bob@centos-host ~]$ sudo swapon /swap
 ```
 
+## `swapon --show`
 
 ```bash
 [bob@centos-host ~]$ sudo swapon --show
