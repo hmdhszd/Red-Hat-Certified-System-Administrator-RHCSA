@@ -5,8 +5,8 @@ to `encrypt` `data` on `disk` we use Crypt Setup
 
 2 `modes` on encryption:
 
-- `plane`
-- `lux`
+- `plain`
+- `LUKS`
 
 
 
@@ -17,7 +17,7 @@ ________________________________________________________________________________
 
 ## `cryptsetup open --type plain`
 
-`open`              open this device for `read` the encrypt data from it and `write` the encrypted data to it
+`open` this device for `read` the encrypt data from it and `write` the encrypted data to it
 
 ```bash
 [bob@centos-host ~]$ sudo cryptsetup open --type plain /dev/vde secretdisk
@@ -31,7 +31,7 @@ OR
 
 ## `cryptsetup --verify-passphrase open --type plain`
 
---verify-passphrase    ask the passphrase twice 
+`--verify-passphrase`  -->  ask the passphrase twice 
 
 ```bash
 [bob@centos-host ~]$ sudo cryptsetup --verify-passphrase open --type plain /dev/vde secretdisk
@@ -105,6 +105,8 @@ ________________________________________________________________________________
 
 # `luksformat`
 
+
+for luks type, you should first format the device, then open it:
 
 ## `cryptsetup luksFormat`
 
