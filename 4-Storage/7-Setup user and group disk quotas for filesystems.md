@@ -8,6 +8,7 @@ dnf install quota
 
 ________________________________________________________________________________________________
 
+# Enable Quota:
 
 ## `nano /etc/fstab`
 
@@ -24,7 +25,7 @@ and then reboot
 
 
 ```bash
-systemcto reboot 
+systemctl reboot 
 ```
 
 ________________________________________________________________________________________________
@@ -123,7 +124,7 @@ for limiting the number of files and directories, we can limit the number of ino
 
 ________________________________________________________________________________________________
 
-## ``
+## `quota --edit-period`
 
 edit the grace period:
 
@@ -141,6 +142,9 @@ edit the quota of a group:
 ```bash
 edquota --group adm
 ```
+
+________________________________________________________________________________________________
+
 
 
 verify the auota of a group:
