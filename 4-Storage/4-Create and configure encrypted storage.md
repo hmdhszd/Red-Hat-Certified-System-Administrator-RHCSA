@@ -171,6 +171,27 @@ ________________________________________________________________________________
 
 
 
+## `cryptsetup status`
+
+
+```bash
+[bob@centos-host ~]$ sudo cryptsetup status secretdisk 
+/dev/mapper/secretdisk is active.
+  type:    LUKS2
+  cipher:  aes-xts-plain64
+  keysize: 512 bits
+  key location: keyring
+  device:  /dev/vde
+  sector size:  512
+  offset:  32768 sectors
+  size:    2064384 sectors
+  mode:    read/write
+```
+
+
+________________________________________________________________________________________________
+
+
 ## `mkfs.xfs`
 
 
