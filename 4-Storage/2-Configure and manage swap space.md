@@ -174,3 +174,32 @@ NAME      TYPE SIZE USED PRIO
 ```
 
 ________________________________________________________________________________________________
+
+
+
+## Increase the size of an existing swap file:
+
+
+```bash
+sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 oflag=append conv=notrunc
+```
+
+
+```bash
+sudo swapoff /swapfile
+```
+
+
+```bash
+sudo mkswap /swapfile
+```
+
+
+```bash
+sudo swapon /swapfile
+```
+
+________________________________________________________________________________________________
+
+
+
