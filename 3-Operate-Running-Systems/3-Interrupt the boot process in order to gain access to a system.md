@@ -67,10 +67,49 @@ ________________________________________________________________________________
 
 ## RedHat 9
 
-the process is almost the same
+
+when system is booting up, press "e" to edit default kernel lines
+
+
+________________________________________________________________________________________________
+
+
+
+password recovery:
+
+add "init=/bin/bash" after "quiet"
+
+then press CTRL + X
+
+________________________________________________________________________________________________
+
+
+
+
+now we can change root password
 
 ```bash
-
+passwd root
 ```
 
 ________________________________________________________________________________________________
+
+
+
+set a flag so that SELinux relabels the system as needed on the next boot
+
+```bash
+touch /.autorelabel
+```
+
+________________________________________________________________________________________________
+
+then reboot the system:
+
+
+```bash
+exec /sbin/init
+```
+
+________________________________________________________________________________________________
+
