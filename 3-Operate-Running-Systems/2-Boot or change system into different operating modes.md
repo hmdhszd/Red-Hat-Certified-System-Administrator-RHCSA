@@ -1,4 +1,7 @@
- 
+# Boot Target in Linux
+
+________________________________________________________________________________________________
+
  ## `systemctl get-default`
 
 to see default boot target
