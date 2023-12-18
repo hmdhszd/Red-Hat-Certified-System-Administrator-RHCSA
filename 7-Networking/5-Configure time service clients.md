@@ -49,6 +49,48 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
+
+
+
+## Add a time server ip to Chrony configuration:
+
+```bash
+nano /etc/chrony.conf
+```
+
+we should comment the line that starts with: pool....
+
+and add the server ip address:
+
+
+
+```bash
+server <IP of Server> iburst
+```
+
+after changing the configuration, we should restart the Chronyd service:
+
+
+```bash
+sudo systemctl restart chronyd
+```
+
+the verity the sources:
+
+
+
+```bash
+chrony sources -v
+```
+
+
+
+
+________________________________________________________________________________________________
+
+then we check if the `NTP service: active` is `active` or `inactive`
+
+
 ## `timedatectl`
 
 check info of time zone  of the server
@@ -63,6 +105,28 @@ check info of time zone  of the server
 System clock synchronized: yes
               NTP service: active
           RTC in local TZ: no
+```
+
+________________________________________________________________________________________________
+
+
+if it was inactive, the we should active it
+
+## `systemctl set-ntp true`
+
+
+`Enable` time `synchronization` 
+
+```bash
+[bob@centos-host ~]$ sudo systemctl set-ntp true
+```
+
+OR
+
+## `timedatectl set-ntp true`
+
+```bash
+[bob@centos-host ~]$ sudo timedatectl set-ntp true
 ```
 
 ________________________________________________________________________________________________
@@ -85,18 +149,6 @@ ________________________________________________________________________________
 [bob@centos-host ~]$ sudo timedatectl set-timezone "America/Toronto"
 ```
 
-
-________________________________________________________________________________________________
-
-
-## `systemctl set-ntp true`
-
-
-`Enable` time `synchronization` 
-
-```bash
-[bob@centos-host ~]$ sudo systemctl set-ntp true
-```
 
 ________________________________________________________________________________________________
 
