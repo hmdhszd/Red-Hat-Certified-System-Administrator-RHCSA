@@ -73,6 +73,14 @@ unlock the root user
 
 ```bash
 [bob@centos-host ~]$ sudo passwd --unlock root
+
+Unlocking password for user root.
+passwd: Success
+```
+
+```bash
+[bob@centos-host ~]$ sudo passwd -S root
+root LK 2023-12-23 0 99999 7 -1 (Password locked.)
 ```
 
 ## `passwd -u`
@@ -94,6 +102,15 @@ lock root user
 
 ```bash
 [bob@centos-host ~]$ sudo passwd --lock root
+
+Locking password for user root.
+passwd: Success
+```
+
+```bash
+[bob@centos-host ~]$ sudo passwd -S root
+
+root LK 2023-12-23 0 99999 7 -1 (Password locked.)
 ```
 
 when we lock the user, it cannot login with password, but can login with ssh key
