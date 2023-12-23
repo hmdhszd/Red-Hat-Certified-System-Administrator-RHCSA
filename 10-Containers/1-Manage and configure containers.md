@@ -12,25 +12,44 @@ ________________________________________________________________________________
 search for an image
 
 ```bash
-[bob@centos-host ~]$ docker search nginx
+[bob@centos-host ~]$ podman search nginx
 
-NAME                                              DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
-nginx                                             Official build of Nginx.                        18530     [OK]       
+INDEX              NAME                                                          DESCRIPTION                                      STARS       OFFICIAL    AUTOMATED
+docker.io          docker.io/library/nginx                                       Official build of Nginx.                         19397       [OK]        
+docker.io          docker.io/library/unit                                        Official build of NGINX Unit: Universal Web ...  19          [OK]        
+docker.io          docker.io/nginxproxy/acme-companion                           Automated ACME SSL certificate generation fo...  127                     
+docker.io          docker.io/bitnami/nginx                                       Bitnami nginx Docker Image                       180                     [OK]
+docker.io          docker.io/bitnami/nginx-ingress-controller                    Bitnami Docker Image for NGINX Ingress Contr...  32                      [OK]
 ```
 
 ________________________________________________________________________________________________
 
 
-Docker pull
+podman pull
 
 ```bash
-[bob@centos-host ~]$ docker pull nginx
+[bob@centos-host ~]$ podman pull nginx
+
+✔ docker.io/library/nginx:latest
+Trying to pull docker.io/library/nginx:latest...
+Getting image source signatures
+Copying blob 8c37d2ff6efa done  
+Copying blob 336ba1f05c3e done  
+Copying blob 5e99d351b073 done  
+Copying blob 51d6357098de done  
+Copying blob 782f1ecce57d done  
+Copying blob af107e978371 done  
+Copying blob 7b73345df136 done  
+Copying config d453dd892d done  
+Writing manifest to image destination
+Storing signatures
+d453dd892d9357f3559b967478ae9cbc417b52de66b53142f6c16c8a275486b9
 ```
 
 OR
 
 ```bash
-[bob@centos-host ~]$ docker pull nginx:1.20.2
+[bob@centos-host ~]$ podman pull nginx:1.20.2
 ```
 
 ________________________________________________________________________________________________
@@ -39,7 +58,7 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ docker images
+[bob@centos-host ~]$ podman images
 
 REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
 mariadb      latest    4af0c16be4b1   11 days ago     403MB
@@ -53,13 +72,13 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ docker rmi nginx:1.20.2
+[bob@centos-host ~]$ podman rmi nginx:1.20.2
 ```
 
 OR
 
 ```bash
-[bob@centos-host ~]$ docker rmi 0584b370e957
+[bob@centos-host ~]$ podman rmi 0584b370e957
 ```
 
 
@@ -69,7 +88,7 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ docker run -d nginx
+[bob@centos-host ~]$ podman run -d nginx
 
 3d85773a48f6e40888847811a262d47824954066d141198a90c40cf357ca7859
 ```
@@ -80,7 +99,7 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ docker ps
+[bob@centos-host ~]$ podman ps
 
 CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
 3d85773a48f6   nginx     "/docker-entrypoint.…"   4 seconds ago   Up 2 seconds   80/tcp    zealous_hugle
@@ -92,7 +111,7 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ docker stop zealous_hugle
+[bob@centos-host ~]$ podman stop zealous_hugle
 ```
 
 ________________________________________________________________________________________________
@@ -101,7 +120,7 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ docker ps -a
+[bob@centos-host ~]$ podman ps -a
 CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                      PORTS     NAMES
 3d85773a48f6   nginx     "/docker-entrypoint.…"   About a minute ago   Exited (0) 11 seconds ago             zealous_hugle
 ```
@@ -112,7 +131,7 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ docker rm zealous_hugle
+[bob@centos-host ~]$ podman rm zealous_hugle
 zealous_hugle
 ```
 
@@ -122,7 +141,18 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ docker run -d -p 800:80 --name my-web-server nginx
+[bob@centos-host ~]$ sudo podman run -d -p 1234:80 --name my-web-server nginx
 ```
+
+
+
+```bash
+[bob@centos-host ~]$ sudo podman ps 
+CONTAINER ID  IMAGE                           COMMAND               CREATED             STATUS                 PORTS                 NAMES
+66a7ccb8bbf9  docker.io/library/nginx:latest  nginx -g daemon o...  About a minute ago  Up About a minute ago  0.0.0.0:1234->80/tcp  website
+1f4b6cdf0730  docker.io/library/nginx:latest  nginx -g daemon o...  5 seconds ago       Up 5 seconds ago       0.0.0.0:800->80/tcp   my-web-server
+```
+
+
 
 ________________________________________________________________________________________________
