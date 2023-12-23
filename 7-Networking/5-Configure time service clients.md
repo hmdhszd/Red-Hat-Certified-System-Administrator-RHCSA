@@ -58,10 +58,9 @@ ________________________________________________________________________________
 nano /etc/chrony.conf
 ```
 
-we should comment the line that starts with: pool....
+we should `comment` the line: pool 2.centos.pool.ntp.org iburst
 
 and add the server ip address:
-
 
 
 ```bash
@@ -75,20 +74,51 @@ after changing the configuration, we should restart the Chronyd service:
 sudo systemctl restart chronyd
 ```
 
-the verity the sources:
+
+Verify the ntp server:
 
 
 
 ```bash
-chrony sources -v
-```
+[bob@centos-host ~]$ chronyc sources
 
-
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^? 192.75.96.196                 0   7     0     -     +0ns[   +0ns] +/-    0ns```
 
 
 ________________________________________________________________________________________________
 
 then we check if the `NTP service: active` is `active` or `inactive`
+
+
+
+```bash
+[bob@centos-host ~]$ sudo timedatectl status
+
+               Local time: Sat 2023-12-23 20:43:32 UTC
+           Universal time: Sat 2023-12-23 20:43:32 UTC
+                 RTC time: Sat 2023-12-23 20:43:31
+                Time zone: UTC (UTC, +0000)
+System clock synchronized: yes
+              NTP service: inactive
+          RTC in local TZ: no
+```
+
+________________________________________________________________________________________________
+
+
+if it was inactive, the we should active it
+
+
+`Enable` time `synchronization` 
+
+## `timedatectl set-ntp true`
+
+```bash
+[bob@centos-host ~]$ sudo timedatectl set-ntp true
+```
+
 
 
 ## `timedatectl`
@@ -107,27 +137,6 @@ System clock synchronized: yes
           RTC in local TZ: no
 ```
 
-________________________________________________________________________________________________
-
-
-if it was inactive, the we should active it
-
-## `systemctl set-ntp true`
-
-
-`Enable` time `synchronization` 
-
-```bash
-[bob@centos-host ~]$ sudo systemctl set-ntp true
-```
-
-OR
-
-## `timedatectl set-ntp true`
-
-```bash
-[bob@centos-host ~]$ sudo timedatectl set-ntp true
-```
 
 ________________________________________________________________________________________________
 
