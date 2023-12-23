@@ -81,6 +81,7 @@ loginctl enable-linger
 ```
 
 ```bash
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
 systemctl --user daemon-reload
 systemctl --user enable --now container-container_service.service
 ```
