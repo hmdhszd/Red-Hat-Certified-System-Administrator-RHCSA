@@ -78,10 +78,6 @@ Unlocking password for user root.
 passwd: Success
 ```
 
-```bash
-[bob@centos-host ~]$ sudo passwd -S root
-root LK 2023-12-23 0 99999 7 -1 (Password locked.)
-```
 
 ## `passwd -u`
 
@@ -90,6 +86,10 @@ root LK 2023-12-23 0 99999 7 -1 (Password locked.)
 ```
 
 
+```bash
+[bob@centos-host ~]$ sudo passwd -S root
+root PS 2023-07-04 0 99999 7 -1 (Password set, SHA512 crypt.)
+```
 ________________________________________________________________________________________________
 
 
