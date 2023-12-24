@@ -311,12 +311,25 @@ Available Groups:
 ________________________________________________________________________________________________
 
 
-## `group list --hidden`
+## `yum group list --hidden`
 
-to see all groups include the hidden ones
 
 ```bash
 [bob@centos-host ~]$ yum group list --hidden
+```
+
+________________________________________________________________________________________________
+
+
+
+## `yum group list --installed`
+
+
+```bash
+[bob@centos-host ~]$ yum group list --installed
+Last metadata expiration check: 0:09:38 ago on Sun Dec 24 16:04:29 2023.
+Installed Groups:
+   Development Tools
 ```
 
 ________________________________________________________________________________________________
