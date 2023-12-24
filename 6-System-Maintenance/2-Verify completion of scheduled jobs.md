@@ -45,6 +45,21 @@ in the "anacron" and "at" you can not see a lot of info in the logs, you should 
 . . . | systemd-cat --identifier=test_job
 ```
 
+ex:
+
+
+```bash
+at "now + 1 minute"
+
+echo "this is my at job" | systemd-cat --identifier=test_job
+```
+
+
+```bash
+journalctl | grep test_job
+```
+
+
 ________________________________________________________________________________________________
 
 ## `anacron -n -f`
