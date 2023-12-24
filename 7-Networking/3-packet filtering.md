@@ -13,6 +13,60 @@ in this zone every `INCOMMING` Connection is `Blocked`, except what we choose to
 ________________________________________________________________________________________________
 
 
+## `--get-zones`
+
+```bash
+[bob@centos-host ~]$ firewall-cmd --get-zones
+
+block dmz drop external home internal nm-shared public trusted work
+```
+
+________________________________________________________________________________________________
+
+
+## `--get-active-zones`
+
+```bash
+[bob@centos-host ~]$ firewall-cmd --get-active-zones
+
+public
+  interfaces: eth0 eth1
+```
+
+
+
+________________________________________________________________________________________________
+
+
+## `--list-all --zone=public`
+
+```bash
+[bob@centos-host ~]$ sudo firewall-cmd --list-all --zone=public
+
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: eth0 eth1
+  sources: 
+  services: cockpit dhcpv6-client ssh
+  ports: 8080/tcp 22/tcp
+  protocols: 
+  forward: no
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+```
+
+
+
+
+
+
+________________________________________________________________________________________________
+
+
 ## `--get-default-zone`
 
 ```bash
