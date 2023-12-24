@@ -25,7 +25,7 @@ ________________________________________________________________________________
 
 ## `yum repolist`
 
-see list of repo available on your machine
+see list of repo available on your machine (ONLY ENABLED)
 
 ```bash
 [bob@centos-host ~]$ sudo yum repolist
@@ -35,6 +35,18 @@ appstream                      CentOS Stream 8 - AppStream
 baseos                         CentOS Stream 8 - BaseOS
 extras                         CentOS Stream 8 - Extras
 extras-common                  CentOS Stream 8 - Extras common packages
+```
+
+
+```bash
+[bob@centos-host ~]$ sudo yum repolist --enabled
+```
+
+
+
+
+```bash
+[bob@centos-host ~]$ sudo yum repolist --disabled
 ```
 
 ________________________________________________________________________________________________
@@ -67,9 +79,11 @@ Repo-filename      : /etc/yum.repos.d/CentOS-Stream-AppStream.repo
 ________________________________________________________________________________________________
 
 
+
+
 ## `yum repolist --all`
 
-show status of all repos
+show status of all repos (ENABLED & DISABLED)
 
 ```bash
 [bob@centos-host ~]$ sudo yum repolist --all
