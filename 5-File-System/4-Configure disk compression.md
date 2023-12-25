@@ -183,7 +183,7 @@ sudo mkfs.xfs -K /dev/vdo_volume/vdo_storage
 
 OR
 
-## ``
+## `mkfs.ext4 -E nodiscard`
 
 ```bash
 sudo mkfs.ext4 -E nodiscard /dev/vdo_volume/vdo_storage
