@@ -44,6 +44,7 @@ ________________________________________________________________________________
 
 ```bash
 [bob@centos-host ~]$ lsblk
+
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 vda    253:0    0   11G  0 disk 
 └─vda1 253:1    0   10G  0 part /
@@ -60,9 +61,19 @@ then change the partition to become a swap
 
 ```bash
 [bob@centos-host ~]$ sudo mkswap /dev/vdb1
+
 Setting up swapspace version 1, size = 1023 MiB (1072668672 bytes)
 no label, UUID=c58dd8d2-f61d-48a7-88de-2c6d7076c836
 ```
+
+`blkid`
+
+```bash
+[bob@centos-host ~]$ sudo blkid /dev/vdb2
+
+/dev/vdb2: UUID="d8994ff1-6878-4e69-9fa8-bc0a7b488cd0" TYPE="swap" PARTUUID="c6d9a5d8-02"
+```
+
 
 ________________________________________________________________________________________________
 
@@ -131,6 +142,7 @@ bob@centos-host ~]$ sudo dd if=/dev/zero of=/swap bs=1M count=128 status=progres
 
 ```bash
 [bob@centos-host ~]$ ls -ltrh /swap
+
 -rw-r--r--. 1 root root 128M May 15 01:04 /swap
 ```
 
