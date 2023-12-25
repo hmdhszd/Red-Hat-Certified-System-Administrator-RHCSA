@@ -70,9 +70,9 @@ make it permanent
 
 default       -->     mount option
 
-next 0        -->     backup (0=disable/1=enable)
+next 0        -->     `Backup` --> (`0`=disable/`1`=enable)
 
-next 0        -->     what happens if the file system get corrupted (0=never scan for errors/2=check it at the boot)
+next 0        -->     `Scan` file system at boot --> (`0`=disable/`2`=enable)
 
 
 
