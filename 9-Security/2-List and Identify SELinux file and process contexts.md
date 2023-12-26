@@ -235,7 +235,7 @@ ________________________________________________________________________________
 
 # change SELinux Status
 
-Temporarily change the SELinux status to Permissive on this system.
+Temporarily change the SELinux status to `Permissive` on this system.
 
 
 
