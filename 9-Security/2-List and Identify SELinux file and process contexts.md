@@ -7,7 +7,7 @@
 
 ________________________________________________________________________________________________
 
-## ``
+## `ls -Z`
 
 ### use -Z to see selinux permissions of a file (SELinux Context Label)
 
@@ -17,7 +17,7 @@ ________________________________________________________________________________
 system_u:object_r:user_home_t:s0 myfile
 ```
 
-user:role:type:level 
+`user`:`role`:`type`:`level` 
 
 
 ________________________________________________________________________________________________
@@ -43,7 +43,7 @@ ________________________________________________________________________________
 type is like protective software jail
 
 
-for files it's type, for processes it's domain
+for `files` it's `type`, for `processes` it's `domain`
 
 
 ________________________________________________________________________________________________
@@ -61,11 +61,12 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________
 
+## `ps -axZ`
 
 ### see processes with SELinux
 
 ```bash
-[bob@centos-host ~]$ ps axZ
+[bob@centos-host ~]$ ps -axZ
 
 LABEL                               PID TTY      STAT   TIME COMMAND
 system_u:system_r:init_t:s0           1 ?        Ss     0:03 /usr/lib/syst
@@ -108,7 +109,7 @@ system_u:object_r:sshd_exec_t:s0 /usr/sbin/sshd
 ________________________________________________________________________________________________
 
 
-### anything labeled with unconfined_t is running unrestricted
+### anything labeled with `unconfined_t` is running `unrestricted`
 
 ```bash
 unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 24215 ? Ss   0:00 /usr/lib/systemd/
@@ -117,8 +118,8 @@ unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 24215 ? Ss   0:00 /usr/lib
 ________________________________________________________________________________________________
 
 
+## `security context` of the `current user` --> `id -Z`
 
-### to see the security context assigned to the current user 
 
 ```bash
 [bob@centos-host ~]$ id -Z
@@ -128,10 +129,10 @@ system_u:system_r:initrc_t:s0
 
 ________________________________________________________________________________________________
 
+## `semanage login -l` (`mapping` of the `current user`)
 
 when we login, our user is automatically mapped to a SELinux user
 
-to see the mapping of the current user:
 
 ```bash
 [bob@centos-host ~]$ sudo semanage login -l
@@ -144,6 +145,9 @@ root                 unconfined_u         s0-s0:c0.c1023       *
 
 ________________________________________________________________________________________________
 
+
+
+## `semanage user -l`  (`mapping` of the `all users`)
 
 to see mapping of other users:
 
@@ -165,6 +169,7 @@ xguest_u        user       s0         s0                             xguest_r
 
 ________________________________________________________________________________________________
 
+## `getenforce`
 
 to see if SELinux is enabled:
 
@@ -184,7 +189,7 @@ Disabled      -->     not denying / not logging
 ________________________________________________________________________________________________
 
 
-
+## `sestatus`
 
 ```bash
 [bob@centos-host ~]$ sestatus
@@ -205,7 +210,7 @@ ________________________________________________________________________________
 
 
 
-#        chcon - change file SELinux security context
+#        `chcon` - change file SELinux security context
 
 
 Change the SELinux context of /var/index.html file to httpd_sys_content_t
@@ -235,6 +240,7 @@ Temporarily change the SELinux status to Permissive on this system.
 
 
 
+## `setenforce`
 
 
 ```bash
