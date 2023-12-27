@@ -12,7 +12,7 @@
 ________________________________________________________________________________________________
 
 
-
+## `skopeo inspect`
 
 ```bash
 skopeo inspect docker://nginx:latest
@@ -115,6 +115,8 @@ ________________________________________________________________________________
 
 
 
+## `skopeo inspect --config`
+
 
 ```bash
 skopeo inspect --config docker://nginx:latest | jq
@@ -123,13 +125,17 @@ skopeo inspect --config docker://nginx:latest | jq
 ________________________________________________________________________________________________
 
 
-### copy an image from a registry to another
+## `skopeo copy`
+
+### copy an image from `one registry` to `another registry`
 
 ```bash
 skopeo copy docker://internal.registry/myimage:latest docker://production.registry/myimage:v1.0
 ```
 
 ________________________________________________________________________________________________
+
+## `skopeo delete`
 
 
 ### Delete an image from out local machine
@@ -140,6 +146,8 @@ skopeo delete docker://localhost:5000/myimage:v1.0
 
 ________________________________________________________________________________________________
 
+
+## `skopeo sync --src docker --dest dir`
 
 ### Synchronizing from remot registry to a local directory
 
