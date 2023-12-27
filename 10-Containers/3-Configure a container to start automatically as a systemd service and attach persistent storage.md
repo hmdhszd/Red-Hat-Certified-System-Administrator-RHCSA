@@ -14,6 +14,8 @@ sudo yum module install container-tools:3.0
 ________________________________________________________________________________________________
 
 
+## `~/.config/systemd/user`
+
 running a container, at boot time, as a rootless systemd service
 
 (container runs as a service under a regular user rather that root user)
@@ -22,17 +24,17 @@ FIRST, we need to create a directory in the user's home directory in order to ho
 
 ```bash
 mkdir -p ~/.config/systemd/user
-mkdir -p ~/container_storage
 ```
 
 
 ________________________________________________________________________________________________
 
 
-
+create the storage for the container:
 
 ```bash
-echo "This is a Test web Page" > ~/container_storage/kodekloud.html
+mkdir -p ~/container_storage
+echo "This is a Test web Page" > ~/container_storage/index.html
 ```
 
 ________________________________________________________________________________________________
@@ -46,7 +48,7 @@ podman -d --name container-service -p 1025:8080 -v ~/container_storage:/var/www/
 ________________________________________________________________________________________________
 
 
-
+## `podman generate systemd`
 
 ```bash
 cd ~/.config/systemd/user
@@ -72,6 +74,7 @@ podman rm container_service
 
 ________________________________________________________________________________________________
 
+## `loginctl enable-linger`
 
 Next, in order to make sure that the user can lunch the systemd services, we need to enable a login setting for a user called `linger`:
 
