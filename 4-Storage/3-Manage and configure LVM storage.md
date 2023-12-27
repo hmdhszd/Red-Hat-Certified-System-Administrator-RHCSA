@@ -418,3 +418,179 @@ ________________________________________________________________________________
 ```
 
 ________________________________________________________________________________________________
+
+
+# Add another volume to the existing volume:
+
+
+current situation:
+
+```bash
+[bob@centos-host ~]$ lsblk
+
+NAME                MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+vda                 253:0    0  11G  0 disk 
+└─vda1              253:1    0  10G  0 part /
+vdb                 253:16   0   1G  0 disk 
+└─volume1-smalldata 252:0    0   1G  0 lvm  /my-lvm
+vdc                 253:32   0   1G  0 disk 
+└─volume1-smalldata 252:0    0   1G  0 lvm  /my-lvm
+vdd                 253:48   0   1G  0 disk 
+vde                 253:64   0   1G  0 disk 
+```
+
+
+
+```bash
+[bob@centos-host ~]$ sudo pvs
+
+  PV         VG      Fmt  Attr PSize    PFree   
+  /dev/vdb   volume1 lvm2 a--  1020.00m       0 
+  /dev/vdc   volume1 lvm2 a--  1020.00m 1016.00m
+```
+
+
+
+```bash
+[bob@centos-host ~]$ sudo vgs
+
+  VG      #PV #LV #SN Attr   VSize VFree   
+  volume1   2   1   0 wz--n- 1.99g 1016.00m
+```
+
+
+
+```bash
+[bob@centos-host ~]$ sudo lvs
+
+  LV        VG      Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  smalldata volume1 -wi-a----- 1.00g   
+```
+
+
+### Create a new Physical Volume: /dev/vdd
+
+```bash
+[bob@centos-host ~]$ sudo pvcreate /dev/vdd
+
+  Physical volume "/dev/vdd" successfully created.
+```
+
+
+
+```bash
+[bob@centos-host ~]$ sudo pvs
+
+  PV         VG      Fmt  Attr PSize    PFree   
+  /dev/vdb   volume1 lvm2 a--  1020.00m       0 
+  /dev/vdc   volume1 lvm2 a--  1020.00m 1016.00m
+  /dev/vdd           lvm2 ---     1.00g    1.00g
+```
+
+### extend the Volume Group and add the new Physical Volume
+
+```bash
+[bob@centos-host ~]$ sudo vgextend volume1 /dev/vdd
+
+  Volume group "volume1" successfully extended
+```
+
+
+```bash
+[bob@centos-host ~]$ sudo pvs
+
+  PV         VG      Fmt  Attr PSize    PFree   
+  /dev/vdb   volume1 lvm2 a--  1020.00m       0 
+  /dev/vdc   volume1 lvm2 a--  1020.00m 1016.00m
+  /dev/vdd   volume1 lvm2 a--  1020.00m 1020.00m
+```
+
+
+
+### Resize (Extend) the Logical Volume to 2.5G
+
+```bash
+bob@centos-host ~]$ sudo lvextend --resizefs --size 2.5G /dev/volume1/smalldata
+
+  Size of logical volume volume1/smalldata changed from 1.00 GiB (256 extents) to 2.50 GiB (640 extents).
+  Logical volume volume1/smalldata successfully resized.
+meta-data=/dev/mapper/volume1-smalldata isize=512    agcount=4, agsize=65536 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=1, sparse=1, rmapbt=0
+         =                       reflink=1
+data     =                       bsize=4096   blocks=262144, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+data blocks changed from 262144 to 655360
+```
+
+
+
+```bash
+[bob@centos-host ~]$ sudo lvs
+
+  LV        VG      Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  smalldata volume1 -wi-ao---- 2.50g                                                    
+```
+
+
+
+```bash                                                  
+[bob@centos-host ~]$ sudo pvs
+
+  PV         VG      Fmt  Attr PSize    PFree  
+  /dev/vdb   volume1 lvm2 a--  1020.00m      0 
+  /dev/vdc   volume1 lvm2 a--  1020.00m      0 
+  /dev/vdd   volume1 lvm2 a--  1020.00m 500.00m
+```
+
+
+
+
+### Resize (Extend) the Logical Volume to 100% of the Volume Group
+
+
+```bash
+[bob@centos-host ~]$ sudo lvresize --resizefs --extents 100%VG /dev/volume1/smalldata
+
+  Size of logical volume volume1/smalldata changed from 2.50 GiB (640 extents) to <2.99 GiB (765 extents).
+  Logical volume volume1/smalldata successfully resized.
+meta-data=/dev/mapper/volume1-smalldata isize=512    agcount=10, agsize=65536 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=1, sparse=1, rmapbt=0
+         =                       reflink=1
+data     =                       bsize=4096   blocks=655360, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+data blocks changed from 655360 to 783360
+```
+
+
+
+```bash
+[bob@centos-host ~]$ sudo lvs
+
+  LV        VG      Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  smalldata volume1 -wi-ao---- <2.99g                                                    
+```
+
+
+
+```bash
+[bob@centos-host ~]$ sudo pvs
+
+  PV         VG      Fmt  Attr PSize    PFree
+  /dev/vdb   volume1 lvm2 a--  1020.00m    0 
+  /dev/vdc   volume1 lvm2 a--  1020.00m    0 
+  /dev/vdd   volume1 lvm2 a--  1020.00m    0 
+```
+
+
+
+
