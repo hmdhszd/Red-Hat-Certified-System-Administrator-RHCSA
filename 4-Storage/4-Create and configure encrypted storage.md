@@ -45,6 +45,31 @@ ________________________________________________________________________________
 
 
 
+
+## `cryptsetup status`
+
+
+```bash
+[bob@centos-host ~]$ sudo cryptsetup status secretdisk 
+
+/dev/mapper/secretdisk is active.
+  type:    PLAIN
+  cipher:  aes-cbc-essiv:sha256
+  keysize: 256 bits
+  key location: dm-crypt
+  device:  /dev/vde
+  sector size:  512
+  offset:  0 sectors
+  size:    2097152 sectors
+  mode:    read/write
+```
+
+________________________________________________________________________________________________
+
+
+
+
+
 ## `mkfs.xfs`
 
 
@@ -72,6 +97,20 @@ ________________________________________________________________________________
 
 ```bash
 sudo mount /dev/mapper/secretdisk /mnt
+```
+
+
+```bash
+[bob@centos-host ~]$ lsblk
+
+NAME         MAJ:MIN RM SIZE RO TYPE  MOUNTPOINT
+vda          253:0    0  11G  0 disk  
+└─vda1       253:1    0  10G  0 part  /
+vdb          253:16   0   1G  0 disk  
+vdc          253:32   0   1G  0 disk  
+vdd          253:48   0   1G  0 disk  
+vde          253:64   0   1G  0 disk  
+└─secretdisk 252:0    0   1G  0 crypt /mnt
 ```
 
 ________________________________________________________________________________________________
@@ -129,6 +168,8 @@ ________________________________________________________________________________
 
 ## `cryptsetup open`
 
+we `don't` need to `specify` the `format` of encryption
+
 ```bash
 [bob@centos-host ~]$ sudo cryptsetup open /dev/vde secretdisk
 Enter passphrase for /dev/vde: 
@@ -155,27 +196,12 @@ ________________________________________________________________________________
 
 
 
-
-## `cryptsetup open`
-
-
-we `don't` need to `specify` the `format` of encryption
-
-
-```bash
-[bob@centos-host ~]$ sudo cryptsetup open /dev/vde mysecretdisk
-```
-
-
-________________________________________________________________________________________________
-
-
-
 ## `cryptsetup status`
 
 
 ```bash
-[bob@centos-host ~]$ sudo cryptsetup status secretdisk 
+[bob@centos-host ~]$ sudo cryptsetup status secretdisk
+
 /dev/mapper/secretdisk is active.
   type:    LUKS2
   cipher:  aes-xts-plain64
