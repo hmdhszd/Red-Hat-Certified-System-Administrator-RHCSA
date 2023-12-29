@@ -242,3 +242,59 @@ add `spare disk` to an array
 ```
 
 ________________________________________________________________________________________________
+
+
+# Replace a raide device:
+
+
+### first we should add the new device into the raid:
+
+```bash
+[bob@centos-host ~]$ sudo mdadm --manage /dev/md0 --add /dev/vde
+
+mdadm: added /dev/vde
+```
+
+### them replace that with the old one
+
+```bash
+[bob@centos-host ~]$ sudo mdadm --manage /dev/md0 --replace /dev/vdd --with /dev/vde
+
+mdadm: Marked /dev/vdd (device 1 in /dev/md0) for replacement
+mdadm: Marked /dev/vde in /dev/md0 as replacement for device 1
+```
+
+
+```bash
+[bob@centos-host ~]$ sudo mdadm --detail /dev/md0
+
+/dev/md0:
+           Version : 1.2
+     Creation Time : Fri Dec 29 19:29:28 2023
+        Raid Level : raid1
+        Array Size : 1046528 (1022.00 MiB 1071.64 MB)
+     Used Dev Size : 1046528 (1022.00 MiB 1071.64 MB)
+      Raid Devices : 2
+     Total Devices : 3
+       Persistence : Superblock is persistent
+
+       Update Time : Fri Dec 29 19:34:12 2023
+             State : clean 
+    Active Devices : 2
+   Working Devices : 2
+    Failed Devices : 1
+     Spare Devices : 0
+
+Consistency Policy : resync
+
+              Name : centos-host:0  (local to host centos-host)
+              UUID : 7906a082:44c26f04:a1e6b459:878cf886
+            Events : 22
+
+    Number   Major   Minor   RaidDevice State
+       0     253       32        0      active sync   /dev/vdc
+       2     253       64        1      active sync   /dev/vde
+
+       1     253       48        -      faulty   /dev/vdd
+```
+
