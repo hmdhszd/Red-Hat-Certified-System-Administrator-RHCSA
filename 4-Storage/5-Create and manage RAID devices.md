@@ -95,8 +95,95 @@ mdadm: Defaulting to version 1.2 metadata
 mdadm: array /dev/md0 started.
 ```
 
+Verify:
+
+```bash
+[bob@centos-host ~]$ lsblk
+
+NAME   MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT
+vda    253:0    0   11G  0 disk  
+└─vda1 253:1    0   10G  0 part  /
+vdb    253:16   0    1G  0 disk  
+vdc    253:32   0    1G  0 disk  
+└─md0    9:0    0 1022M  0 raid1 
+vdd    253:48   0    1G  0 disk  
+└─md0    9:0    0 1022M  0 raid1 
+vde    253:64   0    1G  0 disk 
+```
+
 ________________________________________________________________________________________________
 
+
+## `/proc/mdstat`
+
+check raid on the system
+
+```bash
+[bob@centos-host ~]$ cat /proc/mdstat
+
+Personalities : [raid6] [raid5] [raid4] [raid1] 
+md0 : active raid1 vdd[1] vdc[0]
+      1046528 blocks super 1.2 [2/2] [UU]
+      
+unused devices: <none>
+```
+
+________________________________________________________________________________________________
+
+
+
+
+
+## `mdadm /dev/md0`
+
+```bash
+[bob@centos-host ~]$ sudo mdadm /dev/md0
+
+/dev/md0: 1022.00MiB raid1 2 devices, 0 spares. Use mdadm --detail for more detail.
+```
+
+
+________________________________________________________________________________________________
+
+
+
+## `mdadm --detail /dev/md0`
+
+
+
+```bash
+[bob@centos-host ~]$ sudo mdadm --detail /dev/md0
+/dev/md0:
+           Version : 1.2
+     Creation Time : Sat Sep 23 19:49:26 2023
+        Raid Level : raid1
+        Array Size : 1046528 (1022.00 MiB 1071.64 MB)
+     Used Dev Size : 1046528 (1022.00 MiB 1071.64 MB)
+      Raid Devices : 2
+     Total Devices : 2
+       Persistence : Superblock is persistent
+
+       Update Time : Sat Sep 23 19:49:32 2023
+             State : clean 
+    Active Devices : 2
+   Working Devices : 2
+    Failed Devices : 0
+     Spare Devices : 0
+
+Consistency Policy : resync
+
+              Name : centos-host:0  (local to host centos-host)
+              UUID : e8714ac6:213c25ad:de734b50:4b8ff0d7
+            Events : 17
+
+    Number   Major   Minor   RaidDevice State
+       0     253       32        0      active sync   /dev/vdc
+       1     253       48        1      active sync   /dev/vdd
+```
+
+
+
+________________________________________________________________________________________________
 
 ## `mdadm --manage /dev/md0 --add`
 
@@ -155,91 +242,3 @@ add `spare disk` to an array
 ```
 
 ________________________________________________________________________________________________
-
-## `/proc/mdstat`
-
-check raid on the system
-
-```bash
-cat /proc/mdstat
-```
-
-________________________________________________________________________________________________
-
-
-## `mdadm /dev/md0`
-
-```bash
-[bob@centos-host ~]$ sudo mdadm /dev/md0
-
-/dev/md0: 1022.00MiB raid1 2 devices, 0 spares. Use mdadm --detail for more detail.
-```
-
-
-________________________________________________________________________________________________
-
-
-
-## `mdadm --detail /dev/md0`
-
-
-
-```bash
-[bob@centos-host ~]$ sudo mdadm --detail /dev/md0
-/dev/md0:
-           Version : 1.2
-     Creation Time : Sat Sep 23 19:49:26 2023
-        Raid Level : raid1
-        Array Size : 1046528 (1022.00 MiB 1071.64 MB)
-     Used Dev Size : 1046528 (1022.00 MiB 1071.64 MB)
-      Raid Devices : 2
-     Total Devices : 2
-       Persistence : Superblock is persistent
-
-       Update Time : Sat Sep 23 19:49:32 2023
-             State : clean 
-    Active Devices : 2
-   Working Devices : 2
-    Failed Devices : 0
-     Spare Devices : 0
-
-Consistency Policy : resync
-
-              Name : centos-host:0  (local to host centos-host)
-              UUID : e8714ac6:213c25ad:de734b50:4b8ff0d7
-            Events : 17
-
-    Number   Major   Minor   RaidDevice State
-       0     253       32        0      active sync   /dev/vdc
-       1     253       48        1      active sync   /dev/vdd
-```
-
-
-
-________________________________________________________________________________________________
-
-
-
-## ``
-
-
-
-```bash
-
-```
-
-
-________________________________________________________________________________________________
-
-
-
-## ``
-
-
-```bash
-
-```
-
-
-
-
