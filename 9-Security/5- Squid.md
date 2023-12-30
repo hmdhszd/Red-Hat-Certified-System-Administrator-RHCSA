@@ -39,7 +39,7 @@ ________________________________________________________________________________
 
 # add rule:
 
-##  `deny` `http access` to the IP addresses defined in the `ACL` called test-acl.
+##  `deny` `incoming` `http access` to the IP addresses defined in the `ACL` called test-acl.
 
 
 ```bash
@@ -50,11 +50,11 @@ ________________________________________________________________________________
 
 
 
-##  `allow` `http access` to the IP addresses defined in the `ACL` called test-acl.
+##  `allow` `incoming` `http access` to the IP addresses defined in the `ACL` called test-acl.
 
 
 ```bash
-http_access deny test-acl
+http_access allow test-acl
 ```
 
 ________________________________________________________________________________________________
