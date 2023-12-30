@@ -73,7 +73,9 @@ net.ipv6.conf.default.disable_ipv6 = 1
 ________________________________________________________________________________________________ 
 
 
-to make the changes permanent, we should create a file:
+### change a kernel parameter (Permanently)
+
+to make the changes permanently, we should create a file:
 
 ```bash
 [bob@centos-host ~]$ vi /etc/sysctl.d/99-sysctl.conf
