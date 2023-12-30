@@ -224,7 +224,7 @@ chmod 600 ~/.ssh/authorized_keys
 ________________________________________________________________________________________________
 
 
-## '.ssh/known_hosts' (on the Client side)
+## `.ssh/known_hosts` (on the Client side)
 
 when we ssh to a server for the first time, the fingerprint of the server will save at this file on the ssh client
 
