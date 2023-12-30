@@ -233,18 +233,91 @@ ________________________________________________________________________________
 
 
 
-# change SELinux Status
+# Temporarily change SELinux Status
 
-Temporarily change the SELinux status to `Permissive` on this system.
+- Use `Permissive` or `0` to put SELinux in permissive mode
 
+- Use `Enforcing` or `1` to put SELinux in enforcing mode
 
-
-
+       
 ## `setenforce`
 
+Set to Permissive:
 
 ```bash
-[bob@centos-host ~]$ sudo setenforce 0
+[bob@centos-host ~]$ sudo setenforce Permissive
+```
+
+```bash
+[bob@centos-host ~]$ getenforce
+Permissive
+```
+
+```bash
+[bob@centos-host ~]$ sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   permissive
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Memory protection checking:     actual (secure)
+Max kernel policy version:      32
+```
+
+Set to Enforcing:
+
+```bash
+[bob@centos-host ~]$ sudo setenforce Enforcing
+```
+
+```bash
+[bob@centos-host ~]$ getenforce
+Enforcing
+```
+
+```bash
+[bob@centos-host ~]$ sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Memory protection checking:     actual (secure)
+Max kernel policy version:      32
 ```
 
 ________________________________________________________________________________________________
+
+
+# Permanently change SELinux Status
+
+## `/etc/selinux/config`
+
+
+
+```bash
+sudo vi /etc/selinux/config
+```
+
+Then change SELINUX to one of these values:
+
+- SELINUX=permissive
+
+OR
+
+- SELINUX=enforcing
+
+OR
+
+- SELINUX=disabled
+
+Finally reboot the system to apply the changes
+
+________________________________________________________________________________________________
+
