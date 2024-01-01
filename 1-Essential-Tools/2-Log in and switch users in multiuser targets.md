@@ -12,6 +12,7 @@ user account is for individuals who needs access to the linux system
 
 ________________________________________________________________________________________________
 
+## `/etc/passswd`
 
 the information of a user account is stored in `/etc/passswd` :
 
@@ -51,6 +52,8 @@ ________________________________________________________________________________
 
 
 # group
+
+## `/etc/group`
 
 a linux `group` is a `collection of users`,
  
@@ -248,17 +251,6 @@ bob    ALL=(ALL)   NOPASSWD:ALL
 
 ________________________________________________________________________________________________
 
-## `/sbin/nologin`
-
-we can ban the root user from login, for security reasons:
-
-```bash
-[bob@centos-host ~]$ grep -i root /etc/passwd
-root:x:0:0:root:/root:/sbin/nologin
-```
-
-________________________________________________________________________________________________
-
 
 in the sudoers file:
 
@@ -283,3 +275,18 @@ for example, user hamid has only permission to user shutdown command:
 ```bash
 hamid localhost=/usr/bin/shutdown -r now
 ```
+
+
+________________________________________________________________________________________________
+
+
+## `/sbin/nologin`
+
+we can ban the root user from login, for security reasons:
+
+```bash
+[bob@centos-host ~]$ grep -i root /etc/passwd
+root:x:0:0:root:/root:/sbin/nologin
+```
+
+________________________________________________________________________________________________
