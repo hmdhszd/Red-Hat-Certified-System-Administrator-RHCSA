@@ -123,7 +123,7 @@ ________________________________________________________________________________
 
 system accounts are usually created `during` the `OS` `instalation`,
 
-they are `used by` `softwares` and `services` that will not run as user user (`ssh` / mail)
+they are `used by` `softwares` and `services` that will not run as usual user (`ssh` / mail)
 
 uid < 100  OR   between 500-1000
 
