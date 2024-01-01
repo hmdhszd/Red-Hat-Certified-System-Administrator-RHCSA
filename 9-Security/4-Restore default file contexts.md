@@ -24,7 +24,7 @@ OR
 it will autorelabel files at the next boot:
 
 ```bash
-ausorelabel=1
+autorelabel=1
 ```
 
 ________________________________________________________________________________________________
