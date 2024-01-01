@@ -301,18 +301,3 @@ Find all files between 5mb and 10mb in the /usr directory
 ```
 
 ________________________________________________________________________________________________
-
-
-Create a directory named LFCS under bob's home directory and update its user owner permissions to only x (execute),
-and group and others should not have any permissions.
-
-```bash
-[bob@centos-host ~]$ mkdir LFCS
-
-[bob@centos-host ~]$ sudo chmod u=x,g=,o= LFCS/
-
-[bob@centos-host ~]$ ls -ld LFCS/
-d--x------ 2 100 bob 4096 May 13 13:29 LFCS/
-```
-
-________________________________________________________________________________________________
