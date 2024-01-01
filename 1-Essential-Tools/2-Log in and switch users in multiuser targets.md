@@ -257,13 +257,13 @@ in the sudoers file:
 bob    ALL=(ALL)   NOPASSWD:ALL
 
 
-the first field is the user or group, (group begin with percentage %    ex:   %admin)
+the first field is the `user` or `group`, (group begin with percentage %    ex:   %admin)
 
-the second field is the host, (ex: localhost, ALL(default) )
+the second field is the `host`, (ex: localhost, ALL(default) )
 
-the third field is the user or group that the user in the first field can run the command as (ex: ALL(default) )
+the third field is the `user or group` that the user in the first field `can run the command as` (ex: ALL(default) )
 
-the forth field is the command that can be run ( /bin/ls , ALL(default) )
+the forth field is the `command` that can be run ( /bin/ls , ALL(default) )
 
 ________________________________________________________________________________________________
 
