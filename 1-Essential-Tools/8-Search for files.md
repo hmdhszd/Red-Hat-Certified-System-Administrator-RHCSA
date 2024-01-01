@@ -301,3 +301,18 @@ Find all files between 5mb and 10mb in the /usr directory
 ```
 
 ________________________________________________________________________________________________
+
+
+Find cats.txt file under bob's home directory and copy it into /opt directory.
+
+
+
+
+```bash
+[bob@centos-host ~]$ sudo find /home/bob -type f -name cats.txt -exec cp {} /opt/ \;
+```
+
+________________________________________________________________________________________________
+
+
+
