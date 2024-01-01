@@ -209,13 +209,13 @@ root
 ________________________________________________________________________________________________
 
 
-## `/etc/sudoers` --> `visudo`
+## `/etc/sudoers` --> `sudo visudo`
 
 the default configuration of the sudo is in /etc/sudoers
 
 only users defined in this file can use the sudo command
 
-this file can be updated using "visudo" command.
+this file can be updated using `sudo visudo` command
 
 ```bash
 [bob@centos-host ~]$ sudo cat /etc/sudoers | grep -v "#"
@@ -290,3 +290,25 @@ root:x:0:0:root:/root:/sbin/nologin
 ```
 
 ________________________________________________________________________________________________
+
+
+
+see the permissions of the current user:
+
+
+```bash
+[bob@centos-host ~]$ sudo -l
+
+Matching Defaults entries for bob on centos-host:
+    !visiblepw, always_set_home, match_group_by_gid, always_query_group_plugin, env_reset, env_keep="COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS",
+    env_keep+="MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE", env_keep+="LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES", env_keep+="LC_MONETARY
+    LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE", env_keep+="LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY", secure_path=/sbin\:/bin\:/usr/sbin\:/usr/bin
+
+User bob may run the following commands on centos-host:
+    (ALL) NOPASSWD: ALL
+```
+
+________________________________________________________________________________________________
+
+
+
