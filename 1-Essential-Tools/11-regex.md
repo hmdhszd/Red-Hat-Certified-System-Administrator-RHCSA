@@ -229,7 +229,7 @@ Change all values enabled to disabled in /home/bob/values.conf config file from 
 ________________________________________________________________________________________________
 
 
-Replace all occurrence of string #%$2jh//238720//31223 with $2//23872031223 in /home/bob/data.txt file.
+Replace all `occurrence` of string #%$2jh//238720//31223 with $2//23872031223 in /home/bob/data.txt file. `~`
 
 ```bash
 sed -i `s~<FIRST-EXPRESSION>~<SECOND-EXPRESSION>~g`
