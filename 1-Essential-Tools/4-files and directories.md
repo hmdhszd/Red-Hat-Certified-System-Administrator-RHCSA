@@ -77,3 +77,19 @@ show the `exact time` of the `last modified`
 ________________________________________________________________________________________________
 
 
+
+
+
+## `sort -duf`
+
+Sort the contents of /home/bob/values.conf file alphabetically again, eliminate any common values and ignore case.
+
+
+```bash
+[bob@centos-host ~]$ sort -duf /home/bob/values.conf
+```
+
+________________________________________________________________________________________________
+
+
+
