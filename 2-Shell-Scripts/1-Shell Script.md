@@ -156,6 +156,7 @@ always exit with an exit code
 
 ```bash
 if  condition;
+then
   .......
 else
   exit 1
