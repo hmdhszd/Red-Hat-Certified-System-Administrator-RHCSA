@@ -61,7 +61,7 @@ ________________________________________________________________________________
 
  ## `systemctl poweroff`
 
-0 - Power-off target:
+## 0 - `poweroff.target` / `runlevel0.target`:
 
 
 ```bash
@@ -92,7 +92,8 @@ ________________________________________________________________________________
 
  ## `systemctl rescue`
 
-1 - Single user mode
+## 1 - `rescue.target` / `runlevel1.target`: Single user mode
+
 
 in rescue target, more programms will be loaded than the emergency target
 
@@ -128,7 +129,8 @@ ________________________________________________________________________________
 
  ## `systemctl isolate multi-user.target`
 
-2 - Multi-user mode without networking
+## 2 - `multi-user.target` / `runlevel2.target`: Multi-user mode without networking
+
 
 
 ```bash
@@ -154,9 +156,9 @@ multi-user.target
 
 ________________________________________________________________________________________________
 
- ## `systemctl isolate ??????`
+ ## `systemctl isolate multi-user.target`
 
-3 - Multi-user mode with networking ??????????????
+## 3 - `multi-user.target` / `runlevel3.target`: Multi-user mode with networking
 
 
 ```bash
@@ -181,7 +183,7 @@ multi-user.target
 ________________________________________________________________________________________________
 
 
-4 - Not used/User-definable:
+## 4 - Not used/User-definable:
 
 The fourth target is not defined by default. It is available for users to define their own targets.
 
@@ -191,7 +193,7 @@ ________________________________________________________________________________
 
  ## `systemctl isolate graphical.target`
 
-5 - Graphical user interface (GUI) mode with networking
+## 5 - `graphical.target` / `runlevel5.target`: Graphical user interface (GUI) mode with networking
 
 
 ```bash
@@ -218,7 +220,8 @@ ________________________________________________________________________________
 
  ## `systemctl reboot`
 
-6 - Reboot state
+## 6 - `reboot.target` / `runlevel6.target`:
+
 
 ```bash
 sudo systemctl reboot
