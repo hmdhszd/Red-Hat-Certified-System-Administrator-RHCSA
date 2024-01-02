@@ -44,15 +44,15 @@ ________________________________________________________________________________
 
 0 - `Power-off` state
 
-1 - `Single` user mode
+1 - `Single` user mode `without` `networking` (`without` `GUI`)
 
 2 - `Multi`-user mode `without` `networking` (`without` `GUI`)
 
-3 - `Multi`-user mode with `networking`, (`without` `GUI`)
+3 - `Multi`-user mode `with` `networking`, (`without` `GUI`)
 
 4 - Not used/User-definable
 
-5 - `Multi`-user mode with `networking`, (`with` `GUI`)
+5 - `Multi`-user mode `with` `networking`, (`with` `GUI`)
 
 6 - `Reboot` state
 
