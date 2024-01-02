@@ -169,13 +169,27 @@ ________________________________________________________________________________
 ```bash
 [bob@centos-host ~]$ cat my-script.sh
 
-#!/bin/sh
-echo "Script Name: $0"
-echo "First Argument of the script is $1"
-echo "The second Argument is $2"
-echo "The complete list of Arguments is $@"
-echo "Total Number of Arguments: $#"
-echo "The Process ID is $$"
-echo "Exit Code of the script: $?"
+#!/usr/bin/bash
+
+echo "Script Name: ---->  $0"
+echo "First Argument of the script is: ---->  $1"
+echo "The second Argument is: ---->  $2"
+echo "The complete list of Arguments is: ---->  $@"
+echo "Total Number of Arguments: ---->  $#"
+echo "The Process ID is: ---->  $$"
+echo "Exit Code of the script: ---->  $?"
+```
+
+```bash
+[bob@centos-host ~]$ ./my-script.sh This_is_my_first_arg This_is_my_second_arg
+
+Script Name: ---->  ./my-script.sh
+First Argument of the script is: ---->  This_is_my_first_arg
+The second Argument is: ---->  This_is_my_second_arg
+The complete list of Arguments is: ---->  This_is_my_first_arg This_is_my_second_arg
+Total Number of Arguments: ---->  2
+The Process ID is: ---->  1547
+Exit Code of the script: ---->  0
+[bob@centos-host ~]$ cat my-script.sh 
 ```
 
