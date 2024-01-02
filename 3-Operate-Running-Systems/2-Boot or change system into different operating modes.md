@@ -61,25 +61,68 @@ ________________________________________________________________________________
 
  ## `systemctl poweroff`
 
-0 - Power-off state:
+0 - Power-off target:
 
 
 ```bash
 sudo systemctl poweroff
 ```
 
+OR
+
+```bash
+sudo systemctl isolate runlevel0.target
+```
+
+
+Change the default boot target to `poweroff.target` :
+
+```bash
+[bob@centos-host ~]$ sudo systemctl set-default runlevel0.target
+
+Removed /etc/systemd/system/default.target.
+Created symlink /etc/systemd/system/default.target → /usr/lib/systemd/system/poweroff.target.
+```
+
+```bash
+[bob@centos-host ~]$ sudo systemctl get-default 
+poweroff.target
+```
 ________________________________________________________________________________________________
 
  ## `systemctl rescue`
 
 1 - Single user mode
 
+in rescue target, more programms will be loaded than the emergency target
 
 ```bash
 sudo systemctl rescue
 ```
 
-in rescue target, more programms will be loaded than the emergency target
+OR
+
+```bash
+sudo systemctl isolate runlevel1.target
+```
+
+
+Change the default boot target to `rescue.target` :
+
+
+
+```bash
+[bob@centos-host ~]$ sudo systemctl set-default runlevel1.target
+
+Removed /etc/systemd/system/default.target.
+Created symlink /etc/systemd/system/default.target → /usr/lib/systemd/system/rescue.target.
+```
+
+
+```bash
+[bob@centos-host ~]$ sudo systemctl get-default 
+rescue.target
+```
 
 ________________________________________________________________________________________________
 
@@ -92,6 +135,23 @@ ________________________________________________________________________________
 sudo systemctl isolate multi-user.target
 ```
 
+
+
+Change the default boot target to `multi-user.target` :
+
+
+```bash
+[bob@centos-host ~]$ sudo systemctl set-default runlevel2.target
+
+Removed /etc/systemd/system/default.target.
+Created symlink /etc/systemd/system/default.target → /usr/lib/systemd/system/multi-user.target.
+```
+
+```bash
+[bob@centos-host ~]$ sudo systemctl get-default 
+multi-user.target
+```
+
 ________________________________________________________________________________________________
 
  ## `systemctl isolate ??????`
@@ -100,7 +160,22 @@ ________________________________________________________________________________
 
 
 ```bash
-sudo systemctl isolate graphical.target
+sudo systemctl isolate multi-user.target
+```
+
+Change the default boot target to `multi-user.target` :
+
+
+```bash
+[bob@centos-host ~]$ sudo systemctl set-default runlevel3.target
+
+Removed /etc/systemd/system/default.target.
+Created symlink /etc/systemd/system/default.target → /usr/lib/systemd/system/multi-user.target.
+```
+
+```bash
+[bob@centos-host ~]$ sudo systemctl get-default 
+multi-user.target
 ```
 
 ________________________________________________________________________________________________
@@ -123,6 +198,21 @@ ________________________________________________________________________________
 sudo systemctl isolate graphical.target
 ```
 
+Change the default boot target to `graphical.target` :
+
+```bash
+[bob@centos-host ~]$ sudo systemctl set-default runlevel5.target
+
+Removed /etc/systemd/system/default.target.
+Created symlink /etc/systemd/system/default.target → /usr/lib/systemd/system/graphical.target.
+```
+
+
+```bash
+[bob@centos-host ~]$ sudo systemctl get-default 
+graphical.target
+```
+
 ________________________________________________________________________________________________
 
 
@@ -134,6 +224,12 @@ ________________________________________________________________________________
 sudo systemctl reboot
 ```
 
+OR
+
+
+```bash
+sudo systemctl isolate runlevel6.target
+```
 ________________________________________________________________________________________________
 
 ## `systemctl isolate emergency.target`
@@ -151,3 +247,212 @@ To switch to the emergency target, you can use the following command:
 ```
 
 ________________________________________________________________________________________________
+
+
+## `systemctl list-units --type target`
+
+```bash
+[bob@centos-host ~]$ systemctl list-units --type target
+
+UNIT                   LOAD   ACTIVE SUB    DESCRIPTION                
+basic.target           loaded active active Basic System               
+cryptsetup.target      loaded active active Local Encrypted Volumes    
+getty.target           loaded active active Login Prompts              
+local-fs-pre.target    loaded active active Local File Systems (Pre)   
+local-fs.target        loaded active active Local File Systems         
+multi-user.target      loaded active active Multi-User System          
+network-online.target  loaded active active Network is Online          
+network.target         loaded active active Network                    
+nfs-client.target      loaded active active NFS client services        
+nss-user-lookup.target loaded active active User and Group Name Lookups
+paths.target           loaded active active Paths                      
+remote-fs-pre.target   loaded active active Remote File Systems (Pre)  
+remote-fs.target       loaded active active Remote File Systems        
+rpc_pipefs.target      loaded active active rpc_pipefs.target          
+rpcbind.target         loaded active active RPC Port Mapper            
+slices.target          loaded active active Slices                     
+sockets.target         loaded active active Sockets                    
+sshd-keygen.target     loaded active active sshd-keygen.target         
+swap.target            loaded active active Swap                       
+sysinit.target         loaded active active System Initialization      
+timers.target          loaded active active Timers                     
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+```bash
+
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
