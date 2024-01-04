@@ -25,6 +25,15 @@ Mandatory arguments to long options are mandatory for short options too.
 
 ________________________________________________________________________________________________
 
+install man-pages:
+
+```bash
+[bob@centos-host ~]$ yum install man-pages
+```
+
+________________________________________________________________________________________________
+
+
 ## `man`
 
 man command in Linux is used to display the user manual of any command that we can run on the terminal. 
