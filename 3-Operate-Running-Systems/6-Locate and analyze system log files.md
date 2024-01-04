@@ -173,6 +173,8 @@ ________________________________________________________________________________
 
 ## `journalctl -g`
 
+Analyse the `info` priority logs through journalctl that Begins with letter `c`
+
 ```bash
 [bob@centos-host ~]$ sudo journalctl -p err -g '^b'
 ```
