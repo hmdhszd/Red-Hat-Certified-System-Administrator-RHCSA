@@ -80,7 +80,7 @@ ________________________________________________________________________________
 
 ## `swapon /dev/vdb1`
 
-finally, add that partition to the machine
+finally, add that partition to the machine (Temporary)
 
 ```bash
 [bob@centos-host ~]$ sudo swapon /dev/vdb1
@@ -99,6 +99,34 @@ NAME      TYPE       SIZE USED PRIO
 
 this swap will be used until restart of the machine
 
+if we want to add this swap permanently, we should edit `/etc/fstab`:
+
+```bash
+[bob@centos-host ~]$ cat /etc/fstab | grep swap
+
+/dev/vdb2 none swap defaults 0 0
+
+/swapfile none swap defaults 0 0
+
+UUeID="a2551c92-a66e-4b91-a18c-1f98d42b86d1" none swap defaults 0 0
+```
+
+
+```bash
+[bob@centos-host ~]$ mount -a
+```
+
+
+```bash
+[bob@centos-host ~]$ lsblk
+
+NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+vda    253:0    0  11G  0 disk 
+└─vda1 253:1    0  10G  0 part /
+vdb    253:16   0   1G  0 disk 
+├─vdb2 253:18   0  21M  0 part [SWAP]
+└─vdb3 253:19   0  15M  0 part 
+```
 
 ________________________________________________________________________________________________
 
