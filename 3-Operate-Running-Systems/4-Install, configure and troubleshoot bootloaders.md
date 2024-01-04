@@ -1,6 +1,14 @@
+## Install Grub bootloader
 
+in order to go to the boot menu, you can press F8 OR keep shift, during the booting process.
 
-we select "troubleshooting" instead of normal CentOS Install
+we can press `e` to edit the grub settings and press Ctrl+X to reboot with the new settings.
+
+this setting is temporary, if we wanna make it permanent, we can change the `/etc/default/grub`
+
+________________________________________________________________________________________________
+
+OR we select "troubleshooting" instead of normal CentOS Install
 
 ________________________________________________________________________________________________
 
@@ -30,13 +38,15 @@ chroot /mnt/sysroot
 
 ________________________________________________________________________________________________
 
-
+`/boot/grub2/grub.cfg`
 
 On `BIOS-based` machines, issue the following command as root:
 
 ```bash
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
+
+`/boot/efi/EFI/redhat/grub.cfg`
 
 On `UEFI-based` machines, issue the following command as root:
 
@@ -79,24 +89,33 @@ exit
 ________________________________________________________________________________________________
 
 
-________________________________________________________________________________________________
+## change the Grub settings
 
+## `/etc/default/grub`
 
-
-see the grub settings:
 
 ```bash
-/etc/default/grub
+[bob@centos-host ~]$ cat /etc/default/grub
+
+GRUB_TIMEOUT=1
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop"
+GRUB_DISABLE_RECOVERY="true"
+GRUB_ENABLE_BLSCFG=true
 ```
 
 ________________________________________________________________________________________________
 
 
 
+
 change the timeout of the grub:
 
 ```bash
-GRUB_TIMEOUT
+GRUB_TIMEOUT=1
 ```
 
 ________________________________________________________________________________________________
@@ -104,8 +123,76 @@ ________________________________________________________________________________
 
 after changing this file, we should regenerate the config file:
 
+`BIOS-based`:
+
 ```bash
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
+
+`UEFI-based`:
+
+```bash
+grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+```
+
+
+________________________________________________________________________________________________
+
+## `grubby --info ALL`
+
+see current Grub settings:
+
+```bash
+[bob@centos-host ~]$ sudo grubby --info ALL
+index=0
+kernel="/boot/vmlinuz-4.18.0-240.1.1.el8_3.x86_64"
+args="ro no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop $tuned_params"
+root="UUID=a62c5b49-755e-41b0-9d36-de3d95e17232"
+initrd="/boot/initramfs-4.18.0-240.1.1.el8_3.x86_64.img $tuned_initrd"
+title="CentOS Linux (4.18.0-240.1.1.el8_3.x86_64) 8"
+id="99023f8aa5784c9c99a1c16aebb7ffa6-4.18.0-240.1.1.el8_3.x86_64"
+```
+
+________________________________________________________________________________________________
+
+
+change the default kernel:
+
+```bash
+[bob@centos-host ~]$ sudo dnf install grubby
+```
+
+```bash
+[bob@centos-host ~]$ sudo grubby --set-default=/boot/vmlinuz-4.18.0-240.1.1.el8_3.x86_64
+```
+
+________________________________________________________________________________________________
+
+change the default index of the kernel in the boot menu:
+
+```bash
+[bob@centos-host ~]$ sudo grubby --set-default-index=1
+```
+
+________________________________________________________________________________________________
+
+
+```bash
+[bob@centos-host ~]$ man grubby
+```
+
+________________________________________________________________________________________________
+
+
+Possible boot parameters that you can pass into the linux kernel:
+
+```bash
+[bob@centos-host ~]$ man bootparam
+```
+
+```bash
+[bob@centos-host ~]$ man dracut.cmdline
+```
+
 
 ________________________________________________________________________________________________
