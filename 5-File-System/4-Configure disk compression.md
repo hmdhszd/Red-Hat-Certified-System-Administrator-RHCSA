@@ -126,7 +126,7 @@ mkdir /mnt/myvdo/dir{1..10}
 for i in `seq 1 10`; do sudo mkdir $i && sudo cp myData.txt /mnt/myvdo/dir$i; done;
 ```
 
-verify:
+Verify:
 
 
 
@@ -137,16 +137,7 @@ df -h /mnt/myvdo
 ________________________________________________________________________________________________
 
 
-
-
-```bash
-sudo vdostats --human-readable
-```
-
-________________________________________________________________________________________________
-
-
-## in RHEL 9 , VDO is integrated into LVM
+# in RHEL 9 , VDO is integrated into LVM
 
 to create a new VDO volume in RHEL9,  you will treat like LVM and add VDO options to it
 
@@ -157,6 +148,9 @@ to create a new VDO volume in RHEL9,  you will treat like LVM and add VDO option
 ```bash
 pvcreate /dev/vdb
 ``` 
+
+________________________________________________________________________________________________
+
 
 
 ## `2`
@@ -169,18 +163,32 @@ vgcreate vdo_volume /dev/vdb
 ```
 
 
+________________________________________________________________________________________________
+
+
 ## `3`
 
 ## `lvcreate --type vdo`
 
 
 ```bash
-lvcreate --type vdo -n vdo_storage -L 100%FREE -V 10G vdo_volume/vdo_pool1
+lvcreate --type vdo -n vdo_storage -L +100%FREE -V 10G vdo_volume/vdo_pool1
 ```
-00%FREE  --> uses all free space of the Volume Group (VG)
+
+`+100%FREE`  --> uses all free space of the Volume Group (VG)
+
 name --> -n
 
+OR
 
+we can specify the size:
+
+```bash
+lvcreate --type vdo -n vdo_storage -L 1G -V 10G vdo_volume/vdo_pool1
+```
+
+
+________________________________________________________________________________________________
 
 
 ## `4`
@@ -229,6 +237,7 @@ ________________________________________________________________________________
 
 ```bash
 mount -a
+sudo systemctl daemon-reload
 ```
 
 ________________________________________________________________________________________________
@@ -245,6 +254,18 @@ ________________________________________________________________________________
 
 ```bash
 man lvmvdo
+```
+
+________________________________________________________________________________________________
+
+
+
+## `vdostats`
+
+Verify VDO:
+
+```bash
+sudo vdostats --human-readable
 ```
 
 ________________________________________________________________________________________________
