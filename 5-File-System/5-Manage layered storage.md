@@ -130,14 +130,14 @@ ________________________________________________________________________________
 
 
 
-mount
+## mount
 
 ```bash
 [bob@centos-host ~]$ sudo mkdir /mnt/stratis
 ```
 
 
-change the fstab
+change the fstab (`x-systemd.requires=stratisd.service`)
 
 (the options should be memorized)
 
@@ -149,6 +149,7 @@ then
 
 ```bash
 mount -a
+sudo systemctl daemon-reload
 ```
 
 ```bash
