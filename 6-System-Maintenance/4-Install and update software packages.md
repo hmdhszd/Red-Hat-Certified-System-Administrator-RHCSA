@@ -1,6 +1,4 @@
 
-## ``
-
 ## `subscription-manager register --username  --password `
 
 `login` to your subscription
