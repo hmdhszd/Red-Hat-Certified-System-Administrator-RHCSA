@@ -13,7 +13,7 @@ ________________________________________________________________________________
 install VDO
 
 ```bash
-yum install vdo
+yum install vdo kmod-kvdo
 systemctl enable --now vdo.service
 ```
 
