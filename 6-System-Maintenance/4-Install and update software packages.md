@@ -36,6 +36,42 @@ extras-common                  CentOS Stream 8 - Extras common packages
 ```
 
 
+
+
+
+## `yum repolist --all`
+
+show status of all repos (ENABLED & DISABLED)
+
+```bash
+[bob@centos-host ~]$ sudo yum repolist --all
+
+repo id                       repo name                                          status
+appstream                     CentOS Stream 8 - AppStream                        enabled
+appstream-source              CentOS Stream 8 - AppStream - Source               disabled
+baseos                        CentOS Stream 8 - BaseOS                           enabled
+baseos-source                 CentOS Stream 8 - BaseOS - Source                  disabled
+debuginfo                     CentOS Stream 8 - Debuginfo                        disabled
+extras                        CentOS Stream 8 - Extras                           enabled
+extras-common                 CentOS Stream 8 - Extras common packages           enabled
+extras-source                 CentOS Stream 8 - Extras - Source                  disabled
+ha                            CentOS Stream 8 - HighAvailability                 disabled
+ha-source                     CentOS Stream 8 - HighAvailability - Source        disabled
+media-appstream               CentOS Stream 8 - Media - AppStream                disabled
+media-baseos                  CentOS Stream 8 - Media - BaseOS                   disabled
+nfv                           CentOS Stream 8 - NFV                              disabled
+nfv-source                    CentOS Stream 8 - NFV - Source                     disabled
+powertools                    CentOS Stream 8 - PowerTools                       disabled
+powertools-source             CentOS Stream 8 - PowerTools - Source              disabled
+resilientstorage              CentOS Stream 8 - ResilientStorage                 disabled
+resilientstorage-source       CentOS Stream 8 - ResilientStorage - Source        disabled
+rt                            CentOS Stream 8 - RealTime                         disabled
+rt-source                     CentOS Stream 8 - RT - Source                      disabled
+```
+
+________________________________________________________________________________________________
+
+
 ```bash
 [bob@centos-host ~]$ sudo yum repolist --enabled
 ```
@@ -75,42 +111,6 @@ Repo-filename      : /etc/yum.repos.d/CentOS-Stream-AppStream.repo
 ```
 
 ________________________________________________________________________________________________
-
-
-
-
-## `yum repolist --all`
-
-show status of all repos (ENABLED & DISABLED)
-
-```bash
-[bob@centos-host ~]$ sudo yum repolist --all
-
-repo id                       repo name                                          status
-appstream                     CentOS Stream 8 - AppStream                        enabled
-appstream-source              CentOS Stream 8 - AppStream - Source               disabled
-baseos                        CentOS Stream 8 - BaseOS                           enabled
-baseos-source                 CentOS Stream 8 - BaseOS - Source                  disabled
-debuginfo                     CentOS Stream 8 - Debuginfo                        disabled
-extras                        CentOS Stream 8 - Extras                           enabled
-extras-common                 CentOS Stream 8 - Extras common packages           enabled
-extras-source                 CentOS Stream 8 - Extras - Source                  disabled
-ha                            CentOS Stream 8 - HighAvailability                 disabled
-ha-source                     CentOS Stream 8 - HighAvailability - Source        disabled
-media-appstream               CentOS Stream 8 - Media - AppStream                disabled
-media-baseos                  CentOS Stream 8 - Media - BaseOS                   disabled
-nfv                           CentOS Stream 8 - NFV                              disabled
-nfv-source                    CentOS Stream 8 - NFV - Source                     disabled
-powertools                    CentOS Stream 8 - PowerTools                       disabled
-powertools-source             CentOS Stream 8 - PowerTools - Source              disabled
-resilientstorage              CentOS Stream 8 - ResilientStorage                 disabled
-resilientstorage-source       CentOS Stream 8 - ResilientStorage - Source        disabled
-rt                            CentOS Stream 8 - RealTime                         disabled
-rt-source                     CentOS Stream 8 - RT - Source                      disabled
-```
-
-________________________________________________________________________________________________
-
 
 ## `subscription-manager repos --enable`
 
