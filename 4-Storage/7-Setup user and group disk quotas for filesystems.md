@@ -97,20 +97,39 @@ ________________________________________________________________________________
 edquota --user hamid
 ```
 
+
 blocks: the allocated size: 102400 --> 100M
+
+1 block = 1 KiloByte
 
 soft limits / hard limits
 
 0 = no limits
 
- 
+
+each directory/file = 1 inode
+
+to limite the number of files/directories, use inode
 
 ________________________________________________________________________________________________
 
 
-## `quota --user`
+## `edquota --user hamid`
 
-### see the quata of a user
+### to Edit the quata of a user
+
+
+```bash
+edquota --user hamid
+```
+
+
+________________________________________________________________________________________________
+
+
+## `quota --user hamid`
+
+### to Verify the quata of a user
 
 
 ```bash
@@ -123,13 +142,9 @@ grace time : when we pass the soft limit, we have time for deleting the extra da
 ________________________________________________________________________________________________
 
 
-for limiting the number of files and directories, we can limit the number of inodes
-
-________________________________________________________________________________________________
-
 ## `quota --edit-period`
 
-edit the grace period:
+### to Edit the quata of a group
 
 ```bash
 quota --edit-period
@@ -149,12 +164,9 @@ edquota --group adm
 ________________________________________________________________________________________________
 
 
-
-verify the auota of a group:
-
-
 ## `quota --group`
 
+### to Verify the quata of a user
 
 ```bash
 quota --group adm
