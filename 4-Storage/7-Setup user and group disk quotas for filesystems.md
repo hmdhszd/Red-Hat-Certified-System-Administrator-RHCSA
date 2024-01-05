@@ -31,16 +31,18 @@ systemctl reboot
 ________________________________________________________________________________________________
 
 
-enforce quota on `ext4` filesystem needs 2 more commands: (`-cug` = `--create-files --user --group`)
+## enforce quota on `ext4` filesystem needs 2 more commands:
 
 
 
-1- this will create 2 files on the filesystem: `aquata.group` and `aquata.user`
+### 1- this will create 2 files on the filesystem: `aquata.group` and `aquata.user`
 
 in these files, the system `keeps` the `track` of how much data the user or group is using
 
 
 ## `quotacheck -cug /dev/sdb1`
+
+ (`-cug` = `--create-files --user --group`)
 
 ```bash
 quotacheck -cug /dev/sdb1
@@ -60,7 +62,7 @@ quotacheck --create-files --user --group /dev/sdb1
 
 ________________________________________________________________________________________________
 
-2- turn on quata
+### 2- turn on quata
 
 
 ## `quotaon /mybackups`
@@ -70,9 +72,10 @@ quotaon /mybackups
 ```
 
 ________________________________________________________________________________________________
-________________________________________________________________________________________________
 
+# Test Quota:
 
+create a file with 100M size:
 
 ## `fallocate --length 100M`
 
