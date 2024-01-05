@@ -150,6 +150,7 @@ ________________________________________________________________________________
 
 to create a new VDO volume in RHEL9,  you will treat like LVM and add VDO options to it
 
+## `1`
 
 ## `pvcreate`
 
@@ -158,6 +159,8 @@ pvcreate /dev/vdb
 ``` 
 
 
+## `2`
+
 ## `vgcreate`
 
 
@@ -165,15 +168,22 @@ pvcreate /dev/vdb
 vgcreate vdo_volume /dev/vdb
 ```
 
+
+## `3`
+
 ## `lvcreate --type vdo`
 
 
 ```bash
 lvcreate --type vdo -n vdo_storage -L 100%FREE -V 10G vdo_volume/vdo_pool1
 ```
-
+00%FREE  --> uses all free space of the Volume Group (VG)
 name --> -n
 
+
+
+
+## `4`
 
 ## `mkfs.xfs -K`
 
@@ -193,13 +203,14 @@ sudo mkfs.ext4 -E nodiscard /dev/vdo_volume/vdo_storage
 ________________________________________________________________________________________________
 
 
+## `5`
+
 when we use LVM, we do not need special options at fstab for mounting
 
 
 ```bash
 mkdir /mnt/myvdo
 ```
-
 
 
 add mount at startup
