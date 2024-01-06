@@ -85,11 +85,11 @@ Verify the ntp server:
 MS Name/IP address         Stratum Poll Reach LastRx Last sample               
 ===============================================================================
 ^? 192.75.96.196                 0   7     0     -     +0ns[   +0ns] +/-    0ns```
-
+```
 
 ________________________________________________________________________________________________
 
-then we check if the `NTP service: active` is `active` or `inactive`
+then we check if the `NTP` service is `active` or `inactive`
 
 
 
