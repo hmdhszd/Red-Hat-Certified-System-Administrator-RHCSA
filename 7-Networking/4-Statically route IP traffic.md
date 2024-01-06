@@ -1,5 +1,5 @@
 
-## `ip route add`
+## `ip route add via dev`
 
 
 
@@ -45,7 +45,7 @@ ________________________________________________________________________________
 
 
 
-## `ip route add default`
+## `ip route add default via dev`
 
 ```bash
 [bob@centos-host ~]$ sudo ip route add default via 192.168.121.1
