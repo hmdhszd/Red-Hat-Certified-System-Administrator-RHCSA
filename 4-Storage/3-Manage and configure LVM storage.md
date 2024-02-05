@@ -510,7 +510,7 @@ vde                 253:64   0   1G  0 disk
 ### Resize (Extend) the Logical Volume to 2.5G
 
 ```bash
-bob@centos-host ~]$ sudo lvextend --resizefs --size 2.5G /dev/volume1/smalldata
+bob@centos-host ~]$ sudo lvresize --resizefs --size 2.5G /dev/volume1/smalldata
 
   Size of logical volume volume1/smalldata changed from 1.00 GiB (256 extents) to 2.50 GiB (640 extents).
   Logical volume volume1/smalldata successfully resized.
