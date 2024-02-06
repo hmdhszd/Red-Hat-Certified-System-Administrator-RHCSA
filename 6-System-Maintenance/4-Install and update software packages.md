@@ -129,18 +129,18 @@ to enable/disable a repo by subscription-manager
 ________________________________________________________________________________________________
 
 
-## `yum-config-manager repos --enable`
+## `yum-config-manager --enable`
 
 to enable/disable a repo by yum
 
 ```bash
-[bob@centos-host ~]$ sudo yum-config-manager repos --enable appstream-source
+[bob@centos-host ~]$ sudo yum-config-manager --enable appstream-source
 ```
 
-## `yum-config-manager repos --disable`
+## `yum-config-manager --disable`
 
 ```bash
-[bob@centos-host ~]$ sudo yum-config-manager repos --disable appstream-source
+[bob@centos-host ~]$ sudo yum-config-manager --disable appstream-source
 ```
 
 ________________________________________________________________________________________________
