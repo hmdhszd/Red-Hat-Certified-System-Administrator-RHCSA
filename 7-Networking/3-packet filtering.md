@@ -24,6 +24,31 @@ block dmz drop external home internal nm-shared public trusted work
 ________________________________________________________________________________________________
 
 
+## `--get-default-zone`
+
+```bash
+[bob@centos-host ~]$ firewall-cmd --get-default-zone
+
+public
+```
+
+________________________________________________________________________________________________
+
+
+
+
+## `--set-default-zone=`
+
+```bash
+[bob@centos-host ~]$ sudo firewall-cmd --set-default-zone=public
+Warning: ZONE_ALREADY_SET: public
+success
+```
+
+________________________________________________________________________________________________
+
+
+
 ## `--get-active-zones`
 
 ```bash
@@ -63,30 +88,6 @@ public (active)
 
 
 
-
-________________________________________________________________________________________________
-
-
-## `--get-default-zone`
-
-```bash
-[bob@centos-host ~]$ firewall-cmd --get-default-zone
-
-public
-```
-
-________________________________________________________________________________________________
-
-
-
-
-## `--set-default-zone=`
-
-```bash
-[bob@centos-host ~]$ sudo firewall-cmd --set-default-zone=public
-Warning: ZONE_ALREADY_SET: public
-success
-```
 
 ________________________________________________________________________________________________
 
