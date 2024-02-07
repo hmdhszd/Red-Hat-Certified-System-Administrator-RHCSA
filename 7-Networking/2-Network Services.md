@@ -174,6 +174,8 @@ Connection 'my-connection' (74015611-557e-4829-a1b7-70f9be7e509f) successfully a
 
 ## Add a new connection with IP and Gateway
 
+## `nmcli connection add con-name type ifname ip4 gw4`
+
 ```bash
 [bob@centos-host ~]$ sudo nmcli connection add con-name "my-connection-2" type ethernet ifname eth1 ip4 1.2.3.4/24 gw4 8.8.8.8
 Connection 'my-connection-2' (e7833ecb-db54-4720-9d8b-acd4ab411ac5) successfully added.
