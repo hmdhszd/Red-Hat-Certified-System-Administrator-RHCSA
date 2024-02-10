@@ -12,7 +12,7 @@
 ________________________________________________________________________________________________
 
 
-## `skopeo inspect`
+## `skopeo inspect docker://`
 
 ```bash
 skopeo inspect docker://nginx:latest
