@@ -41,6 +41,8 @@ ________________________________________________________________________________
 
 Second, we run the container:
 
+we use :Z for the selinux permissions
+
 ```bash
 podman -d --name container-service -p 1025:8080 -v ~/container_storage:/var/www/html:Z registry.access.redhat.com/rhscl/httpd-24-rhel7
 ```
