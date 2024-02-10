@@ -149,8 +149,7 @@ ________________________________________________________________________________
 ```bash
 [bob@centos-host ~]$ sudo podman ps 
 CONTAINER ID  IMAGE                           COMMAND               CREATED             STATUS                 PORTS                 NAMES
-66a7ccb8bbf9  docker.io/library/nginx:latest  nginx -g daemon o...  About a minute ago  Up About a minute ago  0.0.0.0:1234->80/tcp  website
-1f4b6cdf0730  docker.io/library/nginx:latest  nginx -g daemon o...  5 seconds ago       Up 5 seconds ago       0.0.0.0:800->80/tcp   my-web-server
+66a7ccb8bbf9  docker.io/library/nginx:latest  nginx -g daemon o...  About a minute ago  Up About a minute ago  0.0.0.0:1234->80/tcp  my-web-server
 ```
 
 
