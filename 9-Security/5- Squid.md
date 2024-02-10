@@ -24,10 +24,9 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-## create an ACL inside squid config file:
+# 1- Create ACL:
 
-
-add these lines to the config file
+add acl inside squid config file
 
 ```bash
 acl test-acl src 100.64.0.0/10
@@ -37,9 +36,9 @@ acl test-acl src fc00::/7
 
 ________________________________________________________________________________________________
 
-# add rule:
+# 2- Add rule:
 
-##  `deny` `incoming` `http access` to the IP addresses defined in the `ACL` called test-acl.
+- ##  `deny` `incoming` `http access` to/from the IP/Port defined in the `ACL` called test-acl.
 
 
 ```bash
@@ -50,7 +49,7 @@ ________________________________________________________________________________
 
 
 
-##  `allow` `incoming` `http access` to the IP addresses defined in the `ACL` called test-acl.
+- ##  `allow` `incoming` `http access` to/from the IP/Port defined in the `ACL` called test-acl.
 
 
 ```bash
@@ -60,7 +59,7 @@ http_access allow test-acl
 ________________________________________________________________________________________________
 
 
-## add an ACL and `http access` rule to `block` `facebook.com`.  ( `dstdomain` )
+## add an ACL and `http_access` rule to `block` http traffic to `.facebook.com`.  ( `dstdomain` )
 
 
 ```bash
