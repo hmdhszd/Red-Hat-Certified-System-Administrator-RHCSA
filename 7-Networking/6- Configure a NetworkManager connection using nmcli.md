@@ -91,7 +91,7 @@ ________________________________________________________________________________
 
 ```bash
  nmcli connection up myprofile1
-
+ nmcli connection reload
  nmcli device reapply myprofile1
 ```
 
@@ -120,10 +120,35 @@ RHEL 9 uses /etc/NetworkManager/system-connections/ for NetworkManager profiles,
 
 ________________________________________________________________________________________________
 
-## 
+## Add secondary IPV4 address statically to the connection profile named "myprofile1" in a way that doesn’t compromise your existing settings:
 
+IPV4 – 10.0.0.5/24
 
+________________________________________________________________________________________________
 
+1. Check the active network connection profiles to ensure the current state:
 
+```bash
+nmcli connection show --active
 
+nmcli connection show myprofile1
+```
 
+________________________________________________________________________________________________
+
+2. Configure a secondary IP address on "myprofile1": `+ipv4.addresses`
+
+```bash
+nmcli con mod myprofile1 +ipv4.addresses 10.0.0.5/24
+```
+________________________________________________________________________________________________
+
+3. Apply the changes:
+
+```bash
+ nmcli connection up myprofile1
+ nmcli connection reload
+ nmcli device reapply myprofile1
+```
+
+________________________________________________________________________________________________
