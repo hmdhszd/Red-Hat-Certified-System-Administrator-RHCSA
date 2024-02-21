@@ -20,7 +20,9 @@ ________________________________________________________________________________
 
 1. Create the connection:
 
-# nmcli connection add con-name myprofile1 ifname enp0s3 type ethernet
+```bash
+nmcli connection add con-name myprofile1 ifname enp0s3 type ethernet
+```
 
 ________________________________________________________________________________________________
 
@@ -55,6 +57,8 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 6. Set IPv4 DNS servers:  `ipv4.dns`
+
+dns should be in double quotation 
 
 ```bash
  nmcli connection modify myprofile1 ipv4.dns "8.8.8.8 8.8.4.4"
