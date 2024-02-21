@@ -64,7 +64,7 @@ and add the server ip address:
 
 
 ```bash
-server <IP of Server> iburst
+server 192.75.96.196 iburst
 ```
 
 after changing the configuration, we should restart the Chronyd service:
