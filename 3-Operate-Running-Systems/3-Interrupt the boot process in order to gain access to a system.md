@@ -1,123 +1,50 @@
+# Password reset on RHEL 9
 
-## RedHat 8
 
-when system is booting up, press "e" to edit default kernel lines
 
+1. `Reboot` the system.
 
-________________________________________________________________________________________________
+2. On the GRUB 2 boot screen, use the `down` `arrow key` to select rescue mode.
 
+3. `Press` the `E` key to interrupt the boot process.
 
+4. Go to the end of the line starting with linux by pressing `Ctrl+E`.
 
-password recovery:
+5. Add `rd.break` to the end of the line.
 
-add "re.break" after "quiet"
+6. Press `Ctrl+X` to start the system with the changed parameters.
 
-then press CTRL + X
+7. To remount the file system as writable, run: `# mount -o remount,rw /sysroot`
 
-________________________________________________________________________________________________
+8. Enter the chroot environment: `# chroot /sysroot`
 
+9. Reset the root password: `# passwd`
 
+10. Enable SELinux relabeling: `# touch /.autorelabel`
 
-after that you'll see the break point or emergency mode shell
+11. Press `Ctrl+D` twice to exit the chroot environment and maintenance mode.
 
 
-```bash
-mount -o remount,rw /sysroot
-```
 
+OR
 
-```bash
-chroot /sysroot
-```
+## Method 2:
 
-________________________________________________________________________________________________
+1. `Reboot` the system.
 
+2. On the GRUB 2 boot screen, use the `down` `arrow key` to select rescue mode.
 
+3. `Press` the `E` key to interrupt the boot process.
 
-now we can change root password
+4. Go to the end of the line starting with linux by pressing `Ctrl+E`.
 
-```bash
-passwd root
-```
+5. Add `init=/bin/bash` to the end of the line, and change `ro` to `rw`.
 
-________________________________________________________________________________________________
+6. Press `Ctrl+X` to start the system with the changed parameters.
 
+7. Reset the root password: `# passwd`
 
+8. Enable SELinux relabeling: `# touch /.autorelabel`
 
-set a flag so that SELinux relabels the system as needed on the next boot
-
-```bash
-touch /.autorelabel
-```
-
-________________________________________________________________________________________________
-
-
-
-
-```bash
-exit
-
-reboot
-```
-
-________________________________________________________________________________________________
-
-
-
-## RedHat 9
-
-
-when system is booting up, press "e" to edit default kernel lines
-
-
-________________________________________________________________________________________________
-
-
-
-password recovery:
-
-add "init=/bin/bash" after "quiet"
-
-then press CTRL + X
-
-________________________________________________________________________________________________
-
-
-??
-
-```bash
-mount -o remount,rw /
-```
-
-
-________________________________________________________________________________________________
-
-
-now we can change root password
-
-```bash
-passwd root
-```
-
-________________________________________________________________________________________________
-
-
-
-set a flag so that SELinux relabels the system as needed on the next boot
-
-```bash
-touch /.autorelabel
-```
-
-________________________________________________________________________________________________
-
-then reboot the system:
-
-
-```bash
-exec /sbin/init
-```
-
-________________________________________________________________________________________________
+9. Initialize the system: `# exec /sbin/init`
 
