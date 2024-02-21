@@ -25,6 +25,7 @@
 
 11. Press `Ctrl+D` twice to exit the chroot environment and maintenance mode.
 
+________________________________________________________________________________________________
 
 
 OR
