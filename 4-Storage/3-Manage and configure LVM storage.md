@@ -364,20 +364,6 @@ The filesystem on /dev/mapper/volume1-smalldata is now 390144 (4k) blocks long.
 ________________________________________________________________________________________________
 
 
-
-
-## `lvs`
-
-```bash
-[bob@centos-host ~]$ sudo lvs
-
-  LV        VG      Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
-  smalldata volume1 -wi-a----- 1.00g  
-```
-
-________________________________________________________________________________________________
-
-
 ## `mkfs.xfs`
 
 Create an XFS filesystem on the logical volume
@@ -417,7 +403,8 @@ ________________________________________________________________________________
 
 ## `lvresize --extents --size 100%VG`
 
-resize LV, to 100%
+Extent the Logical Volume (LV) to 100% of the free space of the volume group
+
 
 ```bash
 [bob@centos-host ~]$ sudo lvresize --extents --size 100%VG /dev/volume1/smalldata
