@@ -196,3 +196,37 @@ Possible boot parameters that you can pass into the linux kernel:
 
 
 ________________________________________________________________________________________________
+
+
+
+### On ServerA, ensure that boot messages are displayed, not silenced, for troubleshooting purposes.
+
+
+
+
+- 1: Modify GRUB Configuration File `/etc/default/grub`
+
+
+
+- 2: Locate the "GRUB_CMDLINE_LINUX" line and remove `rhgb quiet`.
+
+
+
+- 3: Generate a new GRUB configuration file based on the current system configuration:
+
+```bash
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+
+- 4: Restart the system for the changes to take effect:
+
+```bash
+reboot
+```
+
+
+
+________________________________________________________________________________________________
+
+
