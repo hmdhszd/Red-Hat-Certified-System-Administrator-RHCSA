@@ -1,5 +1,6 @@
 # Password reset on RHEL 9
 
+## Method 1:
 
 
 1. `Reboot` the system.
