@@ -48,3 +48,23 @@ for managing disks with `GUI`
 
 
 ________________________________________________________________________________________________
+
+
+## `fdisk`
+
+for managing disks in the command line
+
+```bash
+[bob@centos-host ~]$ sudo fdisk /dev/vdb
+```
+n --> new partition
+
+t --> type
+
+  - 8e for Linux LVM
+  - 82 for Linux SWAP
+
+w --> write the changes
+
+________________________________________________________________________________________________
+
