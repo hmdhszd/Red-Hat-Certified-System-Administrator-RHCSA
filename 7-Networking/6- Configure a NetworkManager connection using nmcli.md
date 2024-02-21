@@ -120,9 +120,11 @@ RHEL 9 uses /etc/NetworkManager/system-connections/ for NetworkManager profiles,
 
 ________________________________________________________________________________________________
 
-## Add secondary IPV4 address statically to the connection profile named "myprofile1" in a way that doesn’t compromise your existing settings:
+## Add secondary IPV4 and IPv6 addresses statically to the connection profile named "myprofile1" in a way that doesn’t compromise your existing settings:
 
 IPV4 – 10.0.0.5/24
+
+IPv6 – fd01::121/64
 
 ________________________________________________________________________________________________
 
@@ -136,10 +138,12 @@ nmcli connection show myprofile1
 
 ________________________________________________________________________________________________
 
-2. Configure a secondary IP address on "myprofile1": `+ipv4.addresses`
+2. Configure a secondary IP address on "myprofile1": `+ipv4.addresses` `+ipv6.addresses`
 
 ```bash
 nmcli con mod myprofile1 +ipv4.addresses 10.0.0.5/24
+
+nmcli connection modify myprofile1 +ipv6.addresses fd01::121/64
 ```
 ________________________________________________________________________________________________
 
@@ -152,3 +156,28 @@ ________________________________________________________________________________
 ```
 
 ________________________________________________________________________________________________
+
+#### To confirm if IPv6 is enabled on your system, execute the following command:
+
+```bash
+sudo sysctl -a | grep ipv6.*disable
+```
+
+A value of 0 indicates that IPv6 is active on your system.
+
+
+IF NOT, edit this file : `/etc/sysctl.conf` and put this value:
+
+```bash
+net.ipv6.conf.all.forwarding=1
+```
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+________________________________________________________________________________________________
+
