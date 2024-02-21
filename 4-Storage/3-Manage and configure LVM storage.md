@@ -274,10 +274,10 @@ ________________________________________________________________________________
 
 ## `lvcreate`
 
-Create a Logical Volume (LV)
+Create a Logical Volume (LV) (size = 1G)
 
 ```bash
-bob@centos-host ~]$ sudo lvcreate --name smalldata --size 1.5G volume1
+bob@centos-host ~]$ sudo lvcreate --name smalldata --size 1G volume1
 
   Logical volume "smalldata" created.
 ```
@@ -293,15 +293,42 @@ ________________________________________________________________________________
 [bob@centos-host ~]$ sudo lvs
 
   LV        VG      Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
-  smalldata volume1 -wi-a----- 1.50g 
+  smalldata volume1 -wi-a----- 1g 
 ```
 
 ________________________________________________________________________________________________
 
 
-## `lvresize --resizefs --size`
+## `lvcreate`
 
-Resize Logical Volume
+Create a Logical Volume (LV) (size = 100% of the free space of the volume group)
+
+```bash
+bob@centos-host ~]$ sudo lvcreate --name smalldata --extents 100%FREE volume1
+
+  Logical volume "smalldata" created.
+```
+
+________________________________________________________________________________________________
+
+
+
+## `lvs`
+
+
+```bash
+[root@centos-host bob]# lvs
+
+  LV        VG      Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  smalldata volume1 -wi-a----- 1.99g
+```
+
+________________________________________________________________________________________________
+
+
+## `lvresize --resizefs --size 1G`
+
+Change the  Logical Volume to a new value, ex: 1G
 
 ```bash
 [bob@centos-host ~]$ sudo lvresize --resizefs --size 1G /dev/volume1/smalldata
@@ -311,6 +338,27 @@ Resize Logical Volume
 Do you really want to reduce volume1/smalldata? [y/n]: yes
   Size of logical volume volume1/smalldata changed from 1.50 GiB (384 extents) to 1.00 GiB (256 extents).
   Logical volume volume1/smalldata successfully resized.
+```
+
+________________________________________________________________________________________________
+
+
+
+## `lvextend --resizefs --size +500M`
+
+Extent the Logical Volume and make it bigger, ex: +500M
+
+```bash
+[root@centos-host bob]# lvextend --resizefs --size +500M /dev/volume1/smalldata
+
+fsck from util-linux 2.32.1
+/dev/mapper/volume1-smalldata: clean, 11/65536 files, 12955/262144 blocks
+  Size of logical volume volume1/smalldata changed from 1.00 GiB (256 extents) to <1.49 GiB (381 extents).
+  Logical volume volume1/smalldata successfully resized.
+resize2fs 1.45.6 (20-Mar-2020)
+Resizing the filesystem on /dev/mapper/volume1-smalldata to 390144 (4k) blocks.
+The filesystem on /dev/mapper/volume1-smalldata is now 390144 (4k) blocks long.
+
 ```
 
 ________________________________________________________________________________________________
