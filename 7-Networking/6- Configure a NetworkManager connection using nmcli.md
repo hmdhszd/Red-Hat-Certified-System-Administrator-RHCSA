@@ -1,4 +1,4 @@
-### Configure a NetworkManager connection profile named "myprofile1" for the enp0s3 device with the following static settings:
+## Create a new connection profile named "myprofile1" for the enp0s3 device with the following static settings:
 
 - Static IPv4 Address: 192.168.1.2/24
 
@@ -119,4 +119,11 @@ Notes:
 RHEL 9 uses /etc/NetworkManager/system-connections/ for NetworkManager profiles, not /etc/sysconfig/network-scripts/.
 
 ________________________________________________________________________________________________
+
+## 
+
+
+
+
+
 
