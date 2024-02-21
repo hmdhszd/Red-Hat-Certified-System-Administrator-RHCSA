@@ -455,3 +455,30 @@ Number of days of warning before password expires       : 7
 ```
 
 ________________________________________________________________________________________________
+
+
+### Ensure that a file named "HelloNewUser" is automatically added to the home folders of all new users.
+
+
+
+Explanation
+1. Create a new file called "Congrats" in the `/etc/skel` directory:
+
+```bash
+touch /etc/skel/HelloNewUser
+```
+
+
+2. Verify file permissions (optional):
+
+```bash
+chmod 644 /etc/skel/Congrats
+```
+
+
+
+
+
+
+________________________________________________________________________________________________
+
