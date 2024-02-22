@@ -321,3 +321,78 @@ Finally reboot the system to apply the changes
 
 ________________________________________________________________________________________________
 
+
+
+
+
+### Modify SELinux policy to grant Apache HTTP Server access to files in /var/www/html/mydirectory.
+
+
+1. Identify and Check Boolean:
+
+```bash
+getsebool httpd_read_user_content
+```
+
+
+2. Set Boolean (If it's off):  ( -P --> permanent )
+
+```bash
+setsebool -P httpd_read_user_content 1
+```
+
+
+
+
+3. Verify Directory Context: (confirm the directory's SELinux context allows Apache access)
+
+```bash
+ls -Z /var/www/html/mydirectory
+```
+
+
+
+4. Restart Apache to apply changes:
+
+```bash
+systemctl restart httpd
+```
+
+
+
+5. Verify Access:
+
+Create a test HTML file in mydirectory and access it in a browser to confirm Apache can now read files.
+
+
+
+Key Points:
+
+Enforcing Mode: These steps assume SELinux is in enforcing mode.
+
+Disabling the Setting: Use "$ sudo setsebool -P httpd_read_user_content off".
+
+Finding Booleans:
+
+"$ getsebool -a" lists all booleans.
+
+"$ sudo semanage boolean -l" lists HTTP-related booleans.
+
+Choosing Booleans: Base decisions on specific requirements.
+
+
+
+Additional Considerations:
+
+Context Troubleshooting: If necessary, use "$ sudo restorecon -Rv /var/www/html/mydirectory" to restore the default SELinux context for the directory.
+
+
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
