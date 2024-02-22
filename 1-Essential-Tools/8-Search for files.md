@@ -329,3 +329,15 @@ find the files owned by the user root in the “/usr/bin” and copy the files i
 
 ________________________________________________________________________________________________
 
+
+
+find and delete all empty files in /tmp.
+
+
+
+```bash
+[bob@centos-host ~]$ sudo find /tmp -type f -empty -delete
+```
+
+________________________________________________________________________________________________
+
