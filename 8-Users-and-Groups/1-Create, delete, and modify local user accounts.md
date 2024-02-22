@@ -482,3 +482,29 @@ chmod 644 /etc/skel/Congrats
 
 ________________________________________________________________________________________________
 
+
+
+
+### Enforce `password expiration` after 90 days and a `minimum length` of 8 characters for all user passwords.
+
+
+
+1. In configuration file for login settings (`/etc/login.defs`), Change the value of `PASS_MAX_DAYS` to 90:
+
+
+
+4. In the `/etc/security/pwquality.conf` file, Set the value of `minlen` to 8 :
+
+
+Note:
+
+
+- These changes will only affect newly created or changed passwords. To force immediate expiration of existing passwords, use the chage command: `$ sudo chage -M 0 <username>`
+
+
+
+
+________________________________________________________________________________________________
+
+
+
