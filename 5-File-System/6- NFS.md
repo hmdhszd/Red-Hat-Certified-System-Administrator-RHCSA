@@ -12,7 +12,7 @@ ________________________________________________________________________________
 
 
 
-- 1) Install Required Packages:
+### - 1) Install Required Packages:
 
 ```bash
 yum update -y
@@ -21,7 +21,7 @@ yum install nfs-utils autofs -y
 
 ________________________________________________________________________________________________
 
-- 2) Create User Accounts on ServerA:
+### - 2) Create User Accounts on ServerA:
 
 ```bash
 useradd -M -u 1010 tom
@@ -35,7 +35,7 @@ Ensure UIDs match those on ServerB.
 ________________________________________________________________________________________________
 
 
-- 3) Configure autofs: `/etc/auto.master`
+### - 3) Configure autofs: `/etc/auto.master`
 
 ```bash
 /home /etc/auto.home --timeout=60
@@ -55,7 +55,7 @@ ServerB:/home/& specifies the NFS mount source, with & representing the username
 
 ________________________________________________________________________________________________
 
-- 4) Start and Enable autofs:
+### - 4) Start and Enable autofs:
 
 ```bash
 systemctl enable --now autofs
@@ -63,7 +63,7 @@ systemctl enable --now autofs
 
 ________________________________________________________________________________________________
 
-- 5) Verification:
+### - 5) Verification:
 
 Switch to user accounts and verify successful mounting and permissions:
 
