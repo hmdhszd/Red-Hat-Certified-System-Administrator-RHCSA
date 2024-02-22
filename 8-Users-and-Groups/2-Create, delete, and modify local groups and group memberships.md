@@ -139,3 +139,103 @@ delete a primary group
 ```
 
 ________________________________________________________________________________________________
+
+
+
+
+### Create the following users and groups, configure their permissions for specific directories, and ensure appropriate file ownership for newly created files.
+
+
+
+#### Users:
+
+- amr and biko (members of the "admins" group)
+
+- carlos and david (members of the "developers" group)
+
+
+
+```bash
+groupadd admins
+
+groupadd developers
+```
+
+```bash
+useradd amr
+usermod -aG admins amr
+```
+
+```bash
+useradd biko
+usermod -aG admins biko
+```
+
+```bash
+useradd carlos
+usermod -aG developers carlos
+```
+
+```bash
+useradd david
+usermod -aG developers david
+```
+
+
+
+
+#### Directories:
+
+- /admins (accessible only to owner and admins group members, owned by biko)
+
+- /developers (accessible only to developers group members, owned by carlos)
+
+
+```bash
+mkdir /admins
+
+mkdir /developers
+```
+
+```bash
+chown biko:admins /admins
+
+chmod 770 /admins # Owner and group full access, no access for others
+```
+
+
+```bash
+chown carlos:developers /developers
+
+chmod 770 /developers # Owner and group full access, no access for others
+```
+
+
+
+
+#### File Ownership:
+
+- New files in /developers or /admins should be owned by the respective group owner. (setgid)
+
+- Only file creators should be allowed to delete their files. (sticky bit)
+
+
+
+```bash
+chmod +t,g+s /admins # Set sticky bit and setgid bit
+```
+
+
+
+```bash
+chmod +t,g+s /developers # Set sticky bit and setgid bit
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
