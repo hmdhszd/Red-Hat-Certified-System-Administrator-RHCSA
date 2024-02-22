@@ -305,3 +305,38 @@ atrm 20
 ```
 
 ________________________________________________________________________________________________
+
+
+
+### configure a cron job that writes the message "Hello WeekDays!" to the system log file `/var/log/messages` at noon (12 PM) on weekdays only.
+
+```bash
+crontab -e
+
+00 12 * * 1-5 logger "Hello WeekDays!"
+```
+
+
+
+### configure a cron job that writes the message "Hello WeekEnds!" to the system log file `/var/log/messages` at midnight (12 AM) on WeekEnds only.
+
+```bash
+crontab -e
+
+00 00 * * 6-7 logger "Hello WeekEnds!"
+```
+
+
+
+
+Verify:
+
+```bash
+tail -f /var/log/messages
+```
+
+
+`logger` --> `/var/log/messages`
+
+________________________________________________________________________________________________
+
