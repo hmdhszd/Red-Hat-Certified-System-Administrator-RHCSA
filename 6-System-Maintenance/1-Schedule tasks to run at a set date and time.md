@@ -340,3 +340,41 @@ tail -f /var/log/messages
 
 ________________________________________________________________________________________________
 
+
+
+### Configure the atd service to specifically grant access to the user Adam while denying access to the user Tom.
+
+
+Explanation
+1. Prioritize at.allow for Security:
+
+#### Use the `/etc/at.allow` file to explicitly list those granted access, as it takes precedence over `/etc/at.deny`.
+
+#### This enhances security by defaulting to denial for users not explicitly listed in at.allow.
+
+
+```bash
+echo "Adam" > /etc/at.allow
+echo "Tom" > /etc/at.deny
+
+systemctl reload atd
+```
+
+
+#### Verify Access:
+
+As Adam, try scheduling a job using at:
+
+```bash
+$ at now + 5 minutes
+
+at> echo "This is a test job."
+
+at> <EOT>
+
+As Tom, attempt the same and confirm access is denied.
+```
+
+
+
+________________________________________________________________________________________________
