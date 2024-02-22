@@ -316,3 +316,16 @@ ________________________________________________________________________________
 
 
 
+find the files owned by the user root in the “/usr/bin” and copy the files into the “/find/rootfiles/” directory.
+
+
+
+```bash
+[bob@centos-host ~]$ sudo find /usr/bin/ -type f -user root -exec cp {} /find/rootfiles/ \;
+```
+
+
+
+
+________________________________________________________________________________________________
+
