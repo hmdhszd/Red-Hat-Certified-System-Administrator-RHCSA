@@ -197,7 +197,7 @@ Exit Code of the script: ---->  0
 ________________________________________________________________________________________________
 
 
-Create a script named "/find.sh" that counts the number of regular files matching a specified pattern (provided as the first argument) within the "/home" directory and its subdirectories.
+### Create a script named "/find.sh" that counts the number of regular files matching a specified pattern (provided as the first argument) within the "/home" directory and its subdirectories.
 
 
 
@@ -249,6 +249,41 @@ echo "Found $count matching files in /home and its subdirectories."
 ________________________________________________________________________________________________
 
 
+### Create a script named "/home/XSam.sh" that grants Sam passwordless sudo access.
+
+
+```bash
+touch /home/XSam.sh
+
+chmod +x /home/XSam.sh
+```
+
+
+```bash
+#!/bin/bash
+
+echo "Sam ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/Sam
+
+
+sudo -u Sam sudo -n true 2>/dev/null
+
+if [ $? -eq 0 ];
+        then
+                echo "Sam has passwordless sudo privileges."
+        else
+                echo "Error granting sudo privileges to Sam."
+                exit 1 # Exit with an error code
+fi
+```
+
+The -n flag tells sudo not to prompt for a password.
+
+
+
+
+
+
+________________________________________________________________________________________________
 
 
 
