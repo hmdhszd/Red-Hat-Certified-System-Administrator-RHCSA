@@ -419,3 +419,19 @@ update all packages to the latest version in the repositories
 ```
 
 ________________________________________________________________________________________________
+
+
+## `yum update kernel`
+
+update the kernel
+
+
+```bash
+[bob@centos-host ~]$  sudo yum update -y
+[bob@centos-host ~]$  sudo yum update kernel -y
+[bob@centos-host ~]$  sudo reboot
+```
+
+________________________________________________________________________________________________
+
+
