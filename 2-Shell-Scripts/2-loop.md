@@ -211,6 +211,18 @@ chmod +x /find.sh
 ```bash
 #!/bin/bash
 
+
+# Check if any arguments were provided:
+
+if [[ $# -eq 0 ]];
+        then
+                echo "Error: Please provide at least one argument. (the total number of arguments is ZERO)"
+                exit 1
+fi
+
+
+# Check if the first argument is null:
+
 if [[ -z "$1" ]];
         then
                 echo "Error: Please provide a pattern to search for. ($1 is null)"
