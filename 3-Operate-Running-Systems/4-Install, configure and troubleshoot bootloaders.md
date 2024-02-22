@@ -230,3 +230,31 @@ reboot
 ________________________________________________________________________________________________
 
 
+
+Create a backup of the Master Boot Record (MBR) located on the device "/dev/sda" of ServerA. Store the backup in the file "/backup/mbr.img":
+
+- Block Size: 512 bytes
+
+- Number of Blocks Copied: 1
+
+- Verification: Confirm successful backup creation
+
+
+
+
+```bash
+mkdir -p /backup
+
+dd if=/dev/sda of=/backup/mbr.img bs=512 count=1 status=progress
+```
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
