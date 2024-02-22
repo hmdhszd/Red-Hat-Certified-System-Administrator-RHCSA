@@ -483,7 +483,7 @@ chmod 644 /etc/skel/Congrats
 ________________________________________________________________________________________________
 
 
-
+## `/etc/login.defs`
 
 ### Enforce `password expiration` after 90 days and a `minimum length` of 8 characters for all user passwords.
 
@@ -505,6 +505,31 @@ Note:
 
 
 ________________________________________________________________________________________________
+
+
+## `pwquality.conf`
+
+### Examples of configuration parameters that can be modified in the `pwquality.conf` file include:
+
+`minlen`: Sets the minimum password length.
+
+`ucredit`: Specifies the minimum number of uppercase letters required in a password.
+
+`dcredit`: Specifies the minimum number of digits required in a password.
+
+`ocredit`: Specifies the minimum number of special characters required in a password.
+
+`lcredit`: Specifies the minimum number of lowercase letters required in a password.
+
+`retry`: Specifies the number of times a user can attempt to enter their password before being locked out.
+
+
+
+
+
+
+________________________________________________________________________________________________
+
 
 
 
