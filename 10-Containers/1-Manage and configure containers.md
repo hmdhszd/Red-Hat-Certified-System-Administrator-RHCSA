@@ -184,7 +184,15 @@ setsebool -P container_manage_cgroup on
 ________________________________________________________________________________________________
 
 
+Run a Container with Environment Variables:
 
+
+```bash
+podman run -d --name httpd -p 127.0.0.1:8080:8080 -e HTTPD_USER=test -e HTTPD_PASSWORD=test -v ~/www-data:/var/www/html/:Z localhost/httpd-24
+```
+
+
+________________________________________________________________________________________________
 
 
 
