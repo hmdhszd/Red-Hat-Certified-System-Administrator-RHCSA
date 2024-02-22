@@ -155,3 +155,36 @@ CONTAINER ID  IMAGE                           COMMAND               CREATED     
 
 
 ________________________________________________________________________________________________
+
+
+
+Use podman to search for the official Redis container.
+
+```bash
+podman search redis --filter=is-official
+```
+________________________________________________________________________________________________
+
+Add the tag "myredis" to the "docker.io/library/redis" image.
+
+```bash
+podman tag docker.io/library/redis myredis
+```
+________________________________________________________________________________________________
+
+
+Set the SELinux Boolean value of "container_manage_cgroup" to "on" and ensure persistence across reboots.
+
+```bash
+setsebool -P container_manage_cgroup on
+```
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
