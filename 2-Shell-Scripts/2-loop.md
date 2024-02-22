@@ -193,3 +193,50 @@ Exit Code of the script: ---->  0
 [bob@centos-host ~]$ cat my-script.sh 
 ```
 
+
+________________________________________________________________________________________________
+
+
+Create a script named "/find.sh" that counts the number of regular files matching a specified pattern (provided as the first argument) within the "/home" directory and its subdirectories.
+
+
+
+```bash
+touch /find.sh
+
+chmod +x /find.sh
+```
+
+
+```bash
+#!/bin/bash
+
+if [[ -z "$1" ]];
+        then
+                echo "Error: Please provide a pattern to search for. ($1 is null)"
+                exit 1
+fi
+
+
+
+
+count=$(find /home -type f -name "$1" 2>/dev/null | wc -l) || {
+
+echo "Error: An issue occurred during the file search."
+
+exit 1
+
+}
+
+echo "Found $count matching files in /home and its subdirectories."
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
