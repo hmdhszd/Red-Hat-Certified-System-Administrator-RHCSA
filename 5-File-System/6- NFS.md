@@ -1,4 +1,4 @@
-### Configure ServerA to automatically mount the home directories of users tom and sam from ServerB using NFS.
+# Configure ServerA to automatically mount the home directories of users tom and sam from ServerB using NFS.
 
 - The home directories on ServerB are located at "/home/tom" and "/home/sam," with user IDs 1010 and 1020, respectively.
 
@@ -82,3 +82,53 @@ $ ls -l /home
 
 $ pwd
 ```
+
+
+
+
+________________________________________________________________________________________________
+
+
+# Configure rhel.server.com (the NFS client) to automatically mount the share rhcsa.server.com:/share on the /nfs directory.
+
+
+To display the list of NFS exports on the remote system with the hostname “rhcsa.server.com”, run:
+
+```bash
+showmount -e rhcsa.server.com
+```
+
+
+```bash
+mkdir /nfs
+```
+
+```bash
+vim /etc/fstab
+
+rhcsa.server.com:/share /nfs nfs _netdev 0 0
+```
+
+
+```bash
+mount -a
+
+mount | grep nfs
+
+reboot
+```
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
