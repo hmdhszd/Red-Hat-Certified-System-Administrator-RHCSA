@@ -66,5 +66,11 @@ t --> type
 
 w --> write the changes
 
+
+to notify the kernel of the partition table changes, run `partprobe`:
+
+```bash
+[bob@centos-host ~]$ sudo partprobe
+```
 ________________________________________________________________________________________________
 
