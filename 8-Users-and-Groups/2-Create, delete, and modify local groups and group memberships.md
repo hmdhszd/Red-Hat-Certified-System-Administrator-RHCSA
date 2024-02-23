@@ -246,11 +246,9 @@ mkdir /collaboration
 
 groupadd managers
 
-chgrp managers /collaboration
+chown :managers /collaboration
 
 chmod g+s /collaboration
-
-ls -ld /collaboration
 ```
 
 
