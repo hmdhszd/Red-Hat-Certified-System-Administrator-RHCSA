@@ -194,5 +194,52 @@ podman run -d --name httpd -p 127.0.0.1:8080:8080 -e HTTPD_USER=test -e HTTPD_PA
 
 ________________________________________________________________________________________________
 
+### Configure the following:
+
+- Install container-tools.
+
+- Set up a local image repository in “/var/lib/registry” on port 5000 with Podman.
+
+- Push the httpd container image to the image repository.
+
+
+
+```bash
+yum install container-tools -y
+
+mkdir -p /var/lib/registry
+
+podman run --privileged -d --name registry -p 5000:5000 -v /var/lib/registry:/var/lib/registry:Z registry
+```
+
+
+```bash
+vim /etc/containers/registries.conf
+
+[[registry]]
+
+location="localhost:5000"
+
+insecure=true
+```
+
+
+```bash
+podman search httpd --filter=is-official
+
+podman pull docker.io/library/httpd
+
+podman tag docker.io/library/httpd localhost:5000/httpd
+
+podman push localhost:5000/httpd
+```
+
+Verify:
+```bash
+ls -l /var/lib/registry/docker/registry/v2/repositories/
+```
+
+________________________________________________________________________________________________
+
 
 
