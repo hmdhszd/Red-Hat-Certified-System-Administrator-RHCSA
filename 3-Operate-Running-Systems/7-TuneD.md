@@ -260,3 +260,13 @@ to enable dynamic tuning, we can change this value and restart the service
 
 
 ________________________________________________________________________________________________
+
+
+Optimize the system to run in a virtual machine for the best performance and concurrently tunes it for low power consumption. Low power consumption is the priority.
+
+```bash
+tuned-adm profile virtual-guest powersave
+```
+
+________________________________________________________________________________________________
+
