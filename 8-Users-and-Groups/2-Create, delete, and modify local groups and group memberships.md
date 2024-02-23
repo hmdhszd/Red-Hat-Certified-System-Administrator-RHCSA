@@ -237,5 +237,30 @@ chmod +t,g+s /developers # Set sticky bit and setgid bit
 ________________________________________________________________________________________________
 
 
+### Create a directory named "/collaboration", and configure it so that any files or subdirectories created within that directory are owned by the group "managers".
+
+
+
+```bash
+mkdir /collaboration
+
+groupadd managers
+
+chgrp managers /collaboration
+
+chmod g+s /collaboration
+
+ls -ld /collaboration
+```
+
+
+Note that:
+
+SGID - if set on a file, it allows the file to be executed as the group that owns the file (similar to SUID).
+
+SGID - if set on a directory, any files created in the directory will have their group ownership set to that of the directory owner.
+
+
+________________________________________________________________________________________________
 
 
