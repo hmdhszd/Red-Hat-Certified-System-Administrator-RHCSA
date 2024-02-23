@@ -342,7 +342,7 @@ ________________________________________________________________________________
 
 
 
-### Configure the atd service to specifically grant access to the user Adam while denying access to the user Tom.
+## Configure the atd service to specifically grant access to the user Adam while denying access to the user Tom.
 
 
 Explanation
@@ -375,6 +375,18 @@ at> <EOT>
 As Tom, attempt the same and confirm access is denied.
 ```
 
+
+
+________________________________________________________________________________________________
+
+
+## prevent all users from using the crontab command except tom.
+
+
+
+```bash
+echo tom >> /etc/cron.allow
+```
 
 
 ________________________________________________________________________________________________
