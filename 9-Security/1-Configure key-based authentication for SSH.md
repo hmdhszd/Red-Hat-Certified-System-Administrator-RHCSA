@@ -21,6 +21,16 @@ Port 22
 ________________________________________________________________________________________________
 
 
+to disable password authentication
+
+```bash
+PasswordAuthentication no
+```
+
+________________________________________________________________________________________________
+
+
+
 the maximum number of SSH login attempts
 
 ```bash
