@@ -325,7 +325,7 @@ ________________________________________________________________________________
 
 
 
-### Modify SELinux policy to grant Apache HTTP Server access to files in /var/www/html/mydirectory.
+## Modify SELinux policy to grant Apache HTTP Server access to files in /var/www/html/mydirectory.
 
 
 1. Identify and Check Boolean:
@@ -389,6 +389,24 @@ Context Troubleshooting: If necessary, use "$ sudo restorecon -Rv /var/www/html/
 
 
 
+
+
+________________________________________________________________________________________________
+
+
+## Create a directory hierarchy /V1/V2/V3/, and recursively apply the SELinux context of the /etc directory.
+
+
+
+```bash
+mkdir -p /V1/V2/V3
+
+ls -dZ /etc
+
+semanage fcontext -a -t etc_t " /V1(/.*)?"
+
+restorecon -Rv /V1
+```
 
 
 ________________________________________________________________________________________________
