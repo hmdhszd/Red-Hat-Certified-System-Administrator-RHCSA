@@ -115,3 +115,24 @@ vm.swappiness = 30
 ```
 
 ________________________________________________________________________________________________
+
+
+
+to enable IPv4 and IPv6 packet forwarding:
+
+
+```bash
+echo net.ipv6.conf.all.forwarding=1 > /etc/sysctl.conf
+
+echo net.ipv4.ip_forward=1 > /etc/sysctl.conf
+
+
+sysctl -p
+```
+
+
+
+
+________________________________________________________________________________________________
+
+
