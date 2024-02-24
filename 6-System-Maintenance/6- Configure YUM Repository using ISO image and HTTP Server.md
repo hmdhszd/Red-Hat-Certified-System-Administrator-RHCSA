@@ -98,3 +98,68 @@ yum repolist
 
 yum update
 ```
+
+
+________________________________________________________________________________________________
+
+# Configure a Local Yum/DNF Repository on a Server using an HTTP Server.
+
+
+
+1. Disable the other repositories:
+
+```bash
+mv /etc/yum.repos.d/*.repo /tmp/
+
+yum clean all
+```
+
+2. Create a repository file `/etc/yum.repos.d/rhel9.repo` :
+
+
+```bash
+[LocalRepo_BaseOS]
+
+name=LocalRepo_BaseOS
+
+enabled=1
+
+gpgcheck=0
+
+baseurl=http://192.168.1.12/rhel9_repo/BaseOS
+
+
+
+[LocalRepo_AppStream]
+
+name=LocalRepo_AppStream
+
+enabled=1
+
+gpgcheck=0
+
+baseurl=http://192.168.1.12/rhel9_repo/AppStream/
+```
+
+
+
+
+3. Set file permissions `644` :
+
+```bash
+chmod 644 /etc/yum.repos.d/rhel9.repo
+```
+
+
+4. Verify the repository setup:
+
+```bash
+yum repolist
+
+yum update
+```
+
+
+________________________________________________________________________________________________
+
+
