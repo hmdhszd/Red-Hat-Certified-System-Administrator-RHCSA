@@ -390,3 +390,17 @@ echo tom >> /etc/cron.allow
 
 
 ________________________________________________________________________________________________
+
+## schedule a cron job that prints "Break Time!" Every two hours on weekdays on your current screen.
+
+
+the first pseudo-terminal --> (/dev/pts/0)
+
+```bash
+crontab -e
+
+00 */2 * * 1-5 echo Break Time! > /dev/pts/0
+```
+
+
+________________________________________________________________________________________________
