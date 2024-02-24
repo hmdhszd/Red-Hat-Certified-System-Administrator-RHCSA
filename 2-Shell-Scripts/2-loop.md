@@ -286,4 +286,36 @@ The -n flag tells sudo not to prompt for a password.
 ________________________________________________________________________________________________
 
 
+### Create a script named "/home/sum.sh" that adds 2 numbers.
+
+
+
+```bash
+touch /home/sum.sh
+
+chmod +x /home/sum.sh
+```
+
+
+```bash
+#!/usr/bin/bash
+
+read -p "First_Number:          " First_Number
+read -p "Second_Number:         " Second_Number
+
+(( SUM = First_Number + Second_Number ))
+
+echo $First_Number + $Second_Number = $SUM
+```
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________________________
+
 
