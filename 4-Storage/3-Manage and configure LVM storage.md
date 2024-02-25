@@ -636,7 +636,7 @@ data blocks changed from 655360 to 783360
 ________________________________________________________________________________________________
 
 
-# Using disk /dev/sdb, do the following:
+# Create ThinPool and ThinVolume
 
 ## 1- Create a 5T thin provisioned volume "mythinvol" under the 700M thin pool "mythinpool" in the 800M volume group "myvg".
 
