@@ -737,7 +737,7 @@ vde    253:64   0    1G  0 disk
 
 
 
-#### Create thinly-provisioned logical volume:
+#### Create thinly-provisioned logical volume: `--thin` `--virtualsize`
 
 ```bash
 [root@centos-host bob]# lvcreate --name mythinvol --thin /dev/myvg/mythinpool --virtualsize 5T
