@@ -341,3 +341,16 @@ find and delete all empty files in /tmp.
 
 ________________________________________________________________________________________________
 
+
+
+find the files owned by root and with the SUID bit set in /usr.
+
+
+
+```bash
+[bob@centos-host ~]$ sudo find /usr -uid 0 -perm -4000
+```
+
+
+________________________________________________________________________________________________
+
