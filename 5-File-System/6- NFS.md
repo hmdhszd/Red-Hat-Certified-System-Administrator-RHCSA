@@ -125,10 +125,49 @@ ________________________________________________________________________________
 
 
 
+# AutoFS
+
+Configure autofs to mount the "/home" directory of the remote NFS server at boot time. Ensure that the mount is accessible to all users on the local system.
+
+
+- NFS server's: 192.168.1.100
+
+- exported directory: /nfs/home
 
 
 
+### - 1) Install `nfs-utils` and `autofs`
+
+```bash
+yum install nfs-utils autofs -y
+```
 
 
+### - 2) Edit the `/etc/auto.master` file and add the following line:
+
+```bash
+vi /etc/auto.master
+
+/home /etc/auto.nfs
+```
+
+
+### - 3) Create a new file named `/etc/auto.nfs` and add the following line:
+
+```bash
+vi /etc/auto.nfs
+
+* -fstype=nfs,rw,soft,intr 192.168.1.100:/nfs/home
+```
+
+
+### - 3) Start the service
+
+```bash
+systemctl enable --now autofs
+```
+
+
+________________________________________________________________________________________________
 
 
