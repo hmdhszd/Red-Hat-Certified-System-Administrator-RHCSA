@@ -187,13 +187,37 @@ ________________________________________________________________________________
 
 
 
-Which command makes the shell variable named VARIABLE visible to subshells?
+Make the shell variable named VARIABLE visible to subshells:
 
 ```bash
 export VARIABLE
 ```
 
 ________________________________________________________________________________________________
+
+
+
+Add a new environment variable “VAR” with the value “RHCSA” which will be available for local sessions for all users:
+
+
+Edit the global bash configuration file:
+
+```bash
+vim /etc/bashrc
+
+export VAR="RHCSA"
+```
+
+```bash
+source /etc/bashrc
+
+echo $VAR
+```
+
+
+
+________________________________________________________________________________________________
+
 
 
 
