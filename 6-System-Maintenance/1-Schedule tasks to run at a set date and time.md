@@ -394,7 +394,7 @@ ________________________________________________________________________________
 ## schedule a cron job that prints "Break Time!" Every two hours on weekdays on your current screen.
 
 
-the first pseudo-terminal --> (/dev/pts/0)
+the first pseudo-terminal --> (`/dev/pts/0`)
 
 ```bash
 crontab -e
