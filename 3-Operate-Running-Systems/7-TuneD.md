@@ -270,3 +270,23 @@ tuned-adm profile virtual-guest powersave
 
 ________________________________________________________________________________________________
 
+
+
+
+
+Optimize the system to run in a virtual machine for the throughput performance-based tuning with disabled higher latency STOP states tuned profile.
+
+```bash
+tuned-adm profile virtual-guest accelerator-performance
+```
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
