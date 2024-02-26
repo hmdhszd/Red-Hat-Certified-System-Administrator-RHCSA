@@ -298,7 +298,7 @@ vim /etc/systemd/journald.conf
 #### Change `#Storage=auto` to `Storage=persistent`
 
 
-#### Restart `systemd-journald.service` Service
+#### Restart `systemd-journald.service`
 ```bash
 systemctl restart systemd-journald.service
 ```
