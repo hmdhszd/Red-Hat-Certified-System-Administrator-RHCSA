@@ -815,6 +815,81 @@ Verify:
 ________________________________________________________________________________________________
 
 
+# LVM VDO
 
+
+using /dev/sdc, create a deduplicated and compressed logical volume "myvdo" in "myvg" volume group with the following specifications:
+
+- Type "vdo".
+
+- Name "myvdo".
+
+- "myvdo" physical size is 5GiB.
+
+- "myvdo" logical size is 50GiB.
+
+- Create an xfs file system on "myvdo".
+
+- Mount "myvdo" on "/mydir" permanently at boot.
+
+
+
+#### 1. Install `lvm2` `vdo` `kmod-kvdo`
+
+```bash
+yum install lvm2 vdo kmod-kvdo -y
+```
+
+
+#### 2. Create a partition:
+
+```bash
+fdisk /dev/sdc
+```
+
+type: 8e //Linux LVM
+
+#### 3. Create a PV:
+
+```bash
+pvcreate /dev/sdc1
+```
+
+#### 4. Create a VG:
+
+```bash
+vgcreate myvg /dev/sdc1
+```
+
+#### 4. Create a LV: `lvcreate --name --type vdo --size --virtualsize`
+
+```bash
+lvcreate --name myvdo --type vdo --size 5GiB --virtualsize 50GiB myvg
+```
+
+#### 4. Format the partition:
+
+```bash
+mkfs.xfs /dev/myvg/myvdo
+```
+
+#### 5. Mount:
+
+```bash
+mkdir /mydir
+/dev/myvg/myvdo /mydir xfs defaults 0 0 >> /etc/fstab
+```
+
+```bash
+mount -a
+```
+
+
+
+
+
+
+
+________________________________________________________________________________________________
 
 
