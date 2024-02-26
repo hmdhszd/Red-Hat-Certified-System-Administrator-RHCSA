@@ -278,3 +278,37 @@ WantedBy=multi-user.target
  
  ```
  
+
+
+
+________________________________________________________________________________________________
+
+
+
+# Configure “journald” to persist:
+
+
+
+#### Edit the configuration file for the systemd journal: `/etc/systemd/journald.conf`
+
+```bash
+vim /etc/systemd/journald.conf
+```
+
+#### Change `#Storage=auto` to `Storage=persistent`
+
+```bash
+systemctl restart systemd-journald.service
+```
+
+
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
+
