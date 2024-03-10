@@ -314,7 +314,7 @@ ________________________________________________________________________________
 ### Examples:
 
 
-the user only can use "apt" and "rm" command:
+this user only can use "apt" and "rm" command with sudo:
 
 ```bash
 hamid ALL=(ALL:ALL) /use/bin/apt,/usr/bin/rm
@@ -328,11 +328,11 @@ and if we want to remove asking for password when we use sudo we use `NOPASSWD:`
 (there should be an space between NOPASSWD: and the command)
 
 ```bash
-hamid ALL=(ALL:ALL) NOPASSWD: /use/bin/apt,/usr/bin/rm
+hamid ALL=(ALL:ALL) NOPASSWD: /usr/bin/apt,/usr/bin/rm
 ```
 ________________________________________________________________________________________________
 
-
+## `NOPASSWD:` `PASSWD:`
 run one command with password and another one without password:
 
 ```bash
@@ -341,7 +341,7 @@ hamid	ALL = NOPASSWD: /usr/bin/updatedb, PASSWD: /bin/kill
 ________________________________________________________________________________________________
 
 
-ban a user from running a command:
+`!` `ban` a user from running a command:
 
 ```bash
 hamid ALL=ALL, !/use/bin/apt
@@ -349,15 +349,6 @@ hamid ALL=ALL, !/use/bin/apt
 ________________________________________________________________________________________________
 
 
-
-
-
-
-
-
-
-
-________________________________________________________________________________________________
 
 
 
