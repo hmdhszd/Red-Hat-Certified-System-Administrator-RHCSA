@@ -190,7 +190,6 @@ The complete list of Arguments is: ---->  This_is_my_first_arg This_is_my_second
 Total Number of Arguments: ---->  2
 The Process ID is: ---->  1547
 Exit Code of the script: ---->  0
-[bob@centos-host ~]$ cat my-script.sh 
 ```
 
 
