@@ -303,7 +303,7 @@ Find all files between 5mb and 10mb in the /usr directory
 ________________________________________________________________________________________________
 
 
-Find cats.txt file under bob's home directory and copy it into /opt directory.
+Find cats.txt file under bob's home directory and copy it into /opt directory. `-exec`
 
 
 
@@ -316,7 +316,7 @@ ________________________________________________________________________________
 
 
 
-find the files owned by the user root in the “/usr/bin” and copy the files into the “/find/rootfiles/” directory.
+find the files owned by the user root in the “/usr/bin” and copy the files into the “/find/rootfiles/” directory. `-user`
 
 
 
@@ -331,7 +331,7 @@ ________________________________________________________________________________
 
 
 
-find and delete all empty files in /tmp.
+find and delete all empty files in /tmp. `-empty` `-delete`
 
 
 
@@ -343,7 +343,7 @@ ________________________________________________________________________________
 
 
 
-find the files owned by root and with the SUID bit set in /usr.
+find the files owned by root and with the SUID bit set in /usr.`-uid`
 
 
 
