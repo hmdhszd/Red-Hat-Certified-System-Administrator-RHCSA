@@ -89,6 +89,18 @@ Sort the contents of /home/bob/values.conf file alphabetically again, eliminate 
 [bob@centos-host ~]$ sort -duf /home/bob/values.conf
 ```
 
+```bash
+       -d, --dictionary-order
+              consider only blanks and alphanumeric characters
+
+       -f, --ignore-case
+              fold lower case to upper case characters
+              
+       -u, --unique
+              with -c, check for strict ordering; without -c, output
+              only the first of an equal run
+```
+
 ________________________________________________________________________________________________
 
 
