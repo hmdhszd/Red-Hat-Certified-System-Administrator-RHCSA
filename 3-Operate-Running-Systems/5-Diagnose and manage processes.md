@@ -144,7 +144,7 @@ ________________________________________________________________________________
 
 ## `ps -l`
 
-use `-l` to see nice value
+use `-l` to see `nice` value
 
 ```bash
 [bob@centos-host ~]$ ps -l  | grep bash
@@ -313,15 +313,6 @@ fg 1
 
 ________________________________________________________________________________________________
 
-## `pgrep -a bash`
-
-to see which file and directories a process is using. ex: bash
-
-```bash
-[bob@centos-host ~]$ pgrep -a bash
-
-8401  bash
-```
 
 ## `lsof -p 8401`
 
