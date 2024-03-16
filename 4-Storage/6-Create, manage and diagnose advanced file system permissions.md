@@ -188,7 +188,7 @@ ________________________________________________________________________________
 ## `chattr -i specialfile`
 
 
-###  `remove` `immutable` attribute (`+`)
+###  `remove` `immutable` attribute (`-`)
 
 ```bash
 [bob@centos-host ~]$ sudo chattr -i specialfile
