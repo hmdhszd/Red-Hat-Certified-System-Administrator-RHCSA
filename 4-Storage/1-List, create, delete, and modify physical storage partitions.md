@@ -67,6 +67,8 @@ t --> type
 w --> write the changes
 
 
+## `partprobe`
+
 to notify the kernel of the partition table changes, run `partprobe`:
 
 ```bash
