@@ -1,6 +1,6 @@
 ## `/var/log/cron`
 
-to see cron logs
+to see the `logs` of `cron` and `anacron` and `at`
 
 ```bash
 cat /var/log/cron
