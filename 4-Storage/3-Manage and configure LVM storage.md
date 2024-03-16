@@ -299,7 +299,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________
 
 
-## `lvcreate`
+## `lvcreate --extents 100%FREE`
 
 Create a Logical Volume (LV) (size = 100% of the free space of the volume group)
 
@@ -317,7 +317,7 @@ ________________________________________________________________________________
 
 
 ```bash
-[root@centos-host bob]# lvs
+[root@centos-host bob]$ lvs
 
   LV        VG      Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
   smalldata volume1 -wi-a----- 1.99g
@@ -349,7 +349,7 @@ ________________________________________________________________________________
 Extent the Logical Volume and make it bigger, ex: +500M
 
 ```bash
-[root@centos-host bob]# lvextend --resizefs --size +500M /dev/volume1/smalldata
+[root@centos-host bob]$ lvextend --resizefs --size +500M /dev/volume1/smalldata
 
 fsck from util-linux 2.32.1
 /dev/mapper/volume1-smalldata: clean, 11/65536 files, 12955/262144 blocks
@@ -642,7 +642,7 @@ ________________________________________________________________________________
 
 
 ```bash
-[root@centos-host bob]# lsblk
+[root@centos-host bob]$ lsblk
 
 NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 vda    253:0    0  11G  0 disk 
@@ -658,7 +658,7 @@ vde    253:64   0   1G  0 disk
 #### Format the disk:
 
 ```bash
-[root@centos-host bob]# fdisk /dev/vdb
+[root@centos-host bob]$ fdisk /dev/vdb
 
 Welcome to fdisk (util-linux 2.32.1).
 Changes will remain in memory only, until you decide to write them.
@@ -704,7 +704,7 @@ Syncing disks.
 Verify:
 
 ```bash
-[root@centos-host bob]# lsblk
+[root@centos-host bob]$ lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 vda    253:0    0   11G  0 disk 
 └─vda1 253:1    0   10G  0 part /
@@ -720,19 +720,19 @@ vde    253:64   0    1G  0 disk
 #### Create a PV:
 
 ```bash
-[root@centos-host bob]# pvcreate /dev/vdb1
+[root@centos-host bob]$ pvcreate /dev/vdb1
 ```
 
 #### Create a VG:
 
 ```bash
-[root@centos-host bob]# vgcreate myvg /dev/vdb1
+[root@centos-host bob]$ vgcreate myvg /dev/vdb1
 ```
 
 #### Create a thin pool: `--thinpool`
 
 ```bash
-[root@centos-host bob]# lvcreate --size 700M --thinpool mythinpool myvg
+[root@centos-host bob]$ lvcreate --size 700M --thinpool mythinpool myvg
 ```
 
 
@@ -740,13 +740,13 @@ vde    253:64   0    1G  0 disk
 #### Create thinly-provisioned logical volume: `--thin` `--virtualsize`
 
 ```bash
-[root@centos-host bob]# lvcreate --name mythinvol --thin /dev/myvg/mythinpool --virtualsize 5T
+[root@centos-host bob]$ lvcreate --name mythinvol --thin /dev/myvg/mythinpool --virtualsize 5T
 ```
 
 Verify:
 
 ```bash
-[root@centos-host bob]# lvs
+[root@centos-host bob]$ lvs
   LV         VG   Attr       LSize   Pool       Origin Data%  Meta%  Move Log Cpy%Sync Convert
   mythinpool myvg twi-aotz-- 700.00m                   0.00   10.94                           
   mythinvol  myvg Vwi-a-tz--   5.00t mythinpool        0.00                             
@@ -762,11 +762,11 @@ Verify:
 
 
 ```bash
-[root@centos-host bob]# lvextend /dev/myvg/mythinpool --size +50M
+[root@centos-host bob]$ lvextend /dev/myvg/mythinpool --size +50M
 ```
 
 ```bash
-[root@centos-host bob]# lvs
+[root@centos-host bob]$ lvs
   LV         VG   Attr       LSize   Pool       Origin Data%  Meta%  Move Log Cpy%Sync Convert
   mythinpool myvg twi-aotz-- 752.00m                   0.00   10.94                           
   mythinvol  myvg Vwi-a-tz--   5.00t mythinpool        0.00     
@@ -779,12 +779,12 @@ Verify:
 
 
 ```bash
-[root@centos-host bob]# lvrename /dev/myvg/mythinpool /dev/myvg/mythinpool1
+[root@centos-host bob]$ lvrename /dev/myvg/mythinpool /dev/myvg/mythinpool1
   Renamed "mythinpool" to "mythinpool1" in volume group "myvg"
 ```
 
 ```bash
-[root@centos-host bob]# lvs
+[root@centos-host bob]$ lvs
   LV          VG   Attr       LSize   Pool        Origin Data%  Meta%  Move Log Cpy%Sync Convert
   mythinpool1 myvg twi-aotz-- 752.00m                    0.00   10.94                           
   mythinvol   myvg Vwi-a-tz--   5.00t mythinpool1        0.00                                   
@@ -796,11 +796,11 @@ Verify:
 
 
 ```bash
-[root@centos-host bob]# lvrename /dev/myvg/mythinvol /dev/myvg/mythinvol1
+[root@centos-host bob]$ lvrename /dev/myvg/mythinvol /dev/myvg/mythinvol1
 ```
 
 ```bash
-[root@centos-host bob]# lvs
+[root@centos-host bob]$ lvs
   LV          VG   Attr       LSize   Pool        Origin Data%  Meta%  Move Log Cpy%Sync Convert
   mythinpool1 myvg twi-aotz-- 752.00m                    0.00   10.94                           
   mythinvol1  myvg Vwi-a-tz--   5.00t mythinpool1        0.00            
