@@ -143,6 +143,10 @@ ________________________________________________________________________________
 see current Grub settings:
 
 ```bash
+[bob@centos-host ~]$ sudo dnf install grubby
+```
+
+```bash
 [bob@centos-host ~]$ sudo grubby --info ALL
 index=0
 kernel="/boot/vmlinuz-4.18.0-240.1.1.el8_3.x86_64"
@@ -156,11 +160,8 @@ id="99023f8aa5784c9c99a1c16aebb7ffa6-4.18.0-240.1.1.el8_3.x86_64"
 ________________________________________________________________________________________________
 
 
-change the default kernel:
+### change the default kernel:
 
-```bash
-[bob@centos-host ~]$ sudo dnf install grubby
-```
 
 ```bash
 [bob@centos-host ~]$ sudo grubby --set-default=/boot/vmlinuz-4.18.0-240.1.1.el8_3.x86_64
@@ -168,7 +169,7 @@ change the default kernel:
 
 ________________________________________________________________________________________________
 
-change the default index of the kernel in the boot menu:
+### change the default index of the kernel in the boot menu:
 
 ```bash
 [bob@centos-host ~]$ sudo grubby --set-default-index=1
@@ -231,7 +232,7 @@ ________________________________________________________________________________
 
 
 
-Create a backup of the Master Boot Record (MBR) located on the device "/dev/sda" of ServerA. Store the backup in the file "/backup/mbr.img":
+### Create a backup of the Master Boot Record (MBR) located on the device "/dev/sda" of ServerA. Store the backup in the file "/backup/mbr.img":
 
 - Block Size: 512 bytes
 
