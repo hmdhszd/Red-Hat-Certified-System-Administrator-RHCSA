@@ -44,7 +44,7 @@ ________________________________________________________________________________
 ## `Raid 6`:
  (minimum `4` disks) (`parity`)
  
- 
+ 1TB + 1TB + 1TB + 1TB = 2 TB
  
 if we `lose 2` disk of 4, we can still recover it
 
