@@ -247,7 +247,7 @@ ________________________________________________________________________________
 
 ## `vgreduce`
 
-Revome a PV from a VG
+Remove a PV from a VG
 
 ```bash
 [bob@centos-host ~]$ sudo vgreduce volume1 /dev/vdd
