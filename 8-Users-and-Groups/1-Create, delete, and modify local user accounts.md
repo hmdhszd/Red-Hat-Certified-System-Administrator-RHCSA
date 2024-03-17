@@ -550,3 +550,15 @@ chage -l john
 ________________________________________________________________________________________________
 
 
+### Create a user hamid whose UID is 5000, and he doesn't have access to any interactive shell on the system.
+
+```bash
+useradd -u 5000 -s /sbin/nologin hamid
+```
+
+
+
+________________________________________________________________________________________________
+
+
+
