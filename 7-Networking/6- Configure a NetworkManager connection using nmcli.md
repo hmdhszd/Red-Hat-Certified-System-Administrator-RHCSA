@@ -116,7 +116,7 @@ ________________________________________________________________________________
 
 Notes:
 
-RHEL 9 uses /etc/NetworkManager/system-connections/ for NetworkManager profiles, not /etc/sysconfig/network-scripts/.
+RHEL 9 uses ‍`/etc/NetworkManager/system-connections/‍` for NetworkManager profiles, not `/etc/sysconfig/network-scripts/`.
 
 ________________________________________________________________________________________________
 
@@ -174,10 +174,3 @@ net.ipv6.conf.all.forwarding=1
 
 
 ________________________________________________________________________________________________
-
-
-
-
-
-________________________________________________________________________________________________
-
