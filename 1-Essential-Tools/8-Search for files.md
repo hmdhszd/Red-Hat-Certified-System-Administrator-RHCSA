@@ -315,6 +315,7 @@ Find cats.txt file under bob's home directory and copy it into /opt directory. `
 ________________________________________________________________________________________________
 
 
+## `find -user`
 
 find the files owned by the user root in the “/usr/bin” and copy the files into the “/find/rootfiles/” directory. `-user`
 
@@ -329,6 +330,7 @@ find the files owned by the user root in the “/usr/bin” and copy the files i
 
 ________________________________________________________________________________________________
 
+## `find -empty -delete`
 
 
 find and delete all empty files in /tmp. `-empty` `-delete`
@@ -342,6 +344,7 @@ find and delete all empty files in /tmp. `-empty` `-delete`
 ________________________________________________________________________________________________
 
 
+## `find -uid`
 
 find the files owned by root and with the SUID bit set in /usr.`-uid`
 
