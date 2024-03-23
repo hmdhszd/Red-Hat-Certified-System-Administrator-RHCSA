@@ -68,3 +68,19 @@ extrant archive to other directory
 
 
 ________________________________________________________________________________________________
+
+
+## `tar czfP`
+
+Create a compressed tar archive logs.tar.gz of /var/log/ directory.
+
+
+```bash
+[bob@centos-host ~]$ sudo tar czfP logs.tar.gz /var/log/
+```
+
+________________________________________________________________________________________________
+
+
+
+
