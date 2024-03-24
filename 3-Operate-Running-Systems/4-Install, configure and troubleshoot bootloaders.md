@@ -69,8 +69,9 @@ lsblk
 
 ________________________________________________________________________________________________
 
+## `grub2-install /dev/sda`
 
-install the grub on the disk that has the boot partition:
+`install` the grub on the disk that has the boot partition:
 
 ```bash
 grub2-install /dev/sda
