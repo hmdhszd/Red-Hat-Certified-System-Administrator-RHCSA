@@ -61,8 +61,8 @@ n --> new partition
 
 t --> type
 
-  - 8e for Linux LVM
-  - 82 for Linux SWAP
+  - `8e` for Linux `LVM`
+  - `82` for Linux `SWAP`
 
 w --> write the changes
 
