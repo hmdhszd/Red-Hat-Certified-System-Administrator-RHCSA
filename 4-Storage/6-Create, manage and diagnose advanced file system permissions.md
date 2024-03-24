@@ -114,7 +114,7 @@ ________________________________________________________________________________
 
 
 
-## `setfacl --modify mask:r myfile`
+## `setfacl --modify mask:r-- myfile`
 
 
 
@@ -124,7 +124,7 @@ ________________________________________________________________________________
 
 
 ```bash
-[bob@centos-host ~]$ sudo setfacl --modify mask:r myfile
+[bob@centos-host ~]$ sudo setfacl --modify mask:r-- myfile
 ```
 
 
@@ -146,7 +146,7 @@ total 0
 # owner: bob
 # group: bob
 user::rw-
-user:john:r--
+user:john:rwx                   #effective:r--
 group::r--
 mask::r--
 other::r--
