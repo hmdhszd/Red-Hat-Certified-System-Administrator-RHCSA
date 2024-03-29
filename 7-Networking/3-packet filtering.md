@@ -181,9 +181,9 @@ ________________________________________________________________________________
 
 # Allow incomming connections based on `SOURCE`
 
-IF traffic that is comming from any ip of this network, then filter and process it according to the policy and rules of the trusted zone
+IF traffic that is comming from any ip of this network, then filter and process it according to the policy and rules of the `trusted` zone
 
-## `--add-source= --zone=`
+## `--add-source= --zone=trusted`
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --add-source=1.2.3.4/24 --zone=trusted
@@ -208,6 +208,21 @@ trusted
 ```
 
 ________________________________________________________________________________________________
+
+
+# Block incomming connections based on `SOURCE`
+
+IF traffic that is comming from any ip of this network, then filter and process it according to the policy and rules of the `block` zone
+
+## `--add-source= --zone=block`
+
+```bash
+[bob@centos-host ~]$ sudo firewall-cmd --add-source=1.2.3.4/24 --zone=block
+success
+```
+
+________________________________________________________________________________________________
+
 
 
 
@@ -250,12 +265,13 @@ ________________________________________________________________________________
 
 
 
-# all these rules are not permanent!
+# all these rules are Temporary!
 
+to make all rules permanent:
 
 ## `--runtime-to-permanent`
 
-to make all rules permanent:
+
 
 ```bash
 [bob@centos-host ~]$ sudo firewall-cmd --runtime-to-permanent
@@ -275,3 +291,56 @@ success
 when you user --permanent , it will not be active for the current session! so we should run the command 2 times, without and with --permanent
 
 ________________________________________________________________________________________________
+
+
+
+
+
+
+
+## `--add-interface= --zone=`
+
+## `--change-interface= --zone=`
+
+## `--remove-interface= --zone=`
+
+
+
+### Assign/Change interface to/from a zone
+
+```bash
+[root@centos-host bob]$ firewall-cmd --add-interface=eth1 --zone=trusted 
+Error: ZONE_CONFLICT: 'eth1' already bound to a zone
+
+[root@centos-host bob]$ firewall-cmd --change-interface=eth1 --zone=trusted 
+```
+
+```bash
+[root@centos-host bob]$ firewall-cmd --get-active-zones 
+
+public
+  interfaces: eth0
+trusted
+  interfaces: eth1
+```
+________________________________________________________________________________________________
+
+
+
+
+
+## `--add-icmp-block=echo-request --zone=`
+
+
+
+### Block incomming ICMP (ping)
+
+```bash
+[root@centos-host bob]$ firewall-cmd --add-icmp-block=echo-request --zone=public
+```
+
+
+
+________________________________________________________________________________________________
+
+
