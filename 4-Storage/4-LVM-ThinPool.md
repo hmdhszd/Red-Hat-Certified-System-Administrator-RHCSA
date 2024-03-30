@@ -1,8 +1,9 @@
 
 
-# Create ThinPool and ThinVolume
+# ThinPool and ThinVolume
+________________________________________________________________________________________________
 
-## 1- Create a 5T thin provisioned volume "mythinvol" under the 700M thin pool "mythinpool" in the 800M volume group "myvg".
+#### Create a 5T thin provisioned volume "mythinvol" under the 700M thin pool "mythinpool" in the 800M volume group "myvg".
 
 
 ```bash
@@ -18,8 +19,9 @@ vde    253:64   0   1G  0 disk
 ```
 
 
+________________________________________________________________________________________________
 
-#### Format the disk:
+## 1.  Format the disk:
 
 ```bash
 [root@centos-host bob]$ fdisk /dev/vdb
@@ -81,19 +83,28 @@ vde    253:64   0    1G  0 disk
 
 
 
-#### Create a PV:
+________________________________________________________________________________________________
+
+
+## 2.  Create a PV:
 
 ```bash
 [root@centos-host bob]$ pvcreate /dev/vdb1
 ```
 
-#### Create a VG:
+
+________________________________________________________________________________________________
+
+## 3.  Create a VG:
 
 ```bash
 [root@centos-host bob]$ vgcreate myvg /dev/vdb1
 ```
 
-#### Create a thin pool: `--thinpool`
+
+________________________________________________________________________________________________
+
+## 4.  Create a thin pool: `--thinpool`
 
 ```bash
 [root@centos-host bob]$ lvcreate --size 700M --thinpool mythinpool myvg
@@ -101,7 +112,10 @@ vde    253:64   0    1G  0 disk
 
 
 
-#### Create thinly-provisioned logical volume: `--thin` `--virtualsize`
+
+________________________________________________________________________________________________
+
+## 5.  Create thinly-provisioned logical volume: `--thin` `--virtualsize`
 
 ```bash
 [root@centos-host bob]$ lvcreate --name mythinvol --thin /dev/myvg/mythinpool --virtualsize 5T
@@ -119,10 +133,13 @@ Verify:
 
 
   
+________________________________________________________________________________________________
 
 
 
-## 2- Extend the size of "mythinpool" by 50M.
+
+
+## Extend the size of "mythinpool" by 50M.
 
 
 ```bash
@@ -138,8 +155,11 @@ Verify:
 
 
 
+________________________________________________________________________________________________
 
-## 3- Rename the thin pool from "mythinpool" to "thinpool1".
+
+
+## Rename the thin pool from "mythinpool" to "thinpool1".
 
 
 ```bash
@@ -156,7 +176,10 @@ Verify:
 
 
 
-## 4- Rename the thin provisioned volume from "mythinvol" to "thinvol1".
+________________________________________________________________________________________________
+
+
+## Rename the thin provisioned volume from "mythinvol" to "thinvol1".
 
 
 ```bash
@@ -173,6 +196,8 @@ Verify:
 
 
 
+
+________________________________________________________________________________________________
 
 
 
