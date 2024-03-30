@@ -89,10 +89,11 @@ ________________________________________________________________________________
 
 ```bash
 mkdir /mydir
-/dev/myvg/myvdo /mydir xfs defaults 0 0 >> /etc/fstab
+echo /dev/myvg/myvdo /mydir xfs defaults 0 0 >> /etc/fstab
 ```
 
 ```bash
+partprobe
 mount -a
 ```
 
@@ -100,5 +101,19 @@ mount -a
 
 
 ________________________________________________________________________________________________
+
+
+## `vdostats`
+
+Verify VDO:
+
+```bash
+sudo vdostats --human-readable
+```
+
+
+________________________________________________________________________________________________
+
+
 
 
