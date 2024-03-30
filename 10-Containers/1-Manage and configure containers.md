@@ -22,6 +22,16 @@ docker.io          docker.io/bitnami/nginx                                      
 docker.io          docker.io/bitnami/nginx-ingress-controller                    Bitnami Docker Image for NGINX Ingress Contr...  32                      [OK]
 ```
 
+
+to see the search priority (`/etc/containers/registries.conf`):
+
+```bash
+[root@centos-host bob]$ cat /etc/containers/registries.conf | grep search
+
+unqualified-search-registries = ["registry.fedoraproject.org", "registry.access.redhat.com", "registry.centos.org", "docker.io"]
+
+```
+
 ________________________________________________________________________________________________
 
 
