@@ -38,6 +38,13 @@ ________________________________________________________________________________
 podman pull
 
 ```bash
+[bob@centos-host ~]$ podman login registry.redhat.io
+
+Username: myrhusername
+Password: ***********
+```
+
+```bash
 [bob@centos-host ~]$ podman pull nginx
 
 ✔ docker.io/library/nginx:latest
