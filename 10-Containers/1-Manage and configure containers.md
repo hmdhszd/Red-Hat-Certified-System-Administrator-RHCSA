@@ -215,7 +215,7 @@ ________________________________________________________________________________
 
 - Install container-tools.
 
-- Set up a local image repository in “/var/lib/registry” on port 5000 with Podman.
+- Set up a local image repository in `/var/lib/registry` on port 5000 with Podman.
 
 - Push the httpd container image to the image repository.
 
@@ -238,6 +238,13 @@ vim /etc/containers/registries.conf
 location="localhost:5000"
 
 insecure=true
+```
+
+OR
+
+```bash
+[registries.insecure]
+registries = ["localhost:5000"]
 ```
 
 
