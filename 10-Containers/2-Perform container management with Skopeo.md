@@ -7,6 +7,11 @@
 
 ```bash
 [bob@centos-host ~]$ sudo yum install skopeo -y
+
+[bob@centos-host ~]$ skopeo login registry.redhat.io
+
+Username: myrhusername
+Password: ***********
 ```
 
 ________________________________________________________________________________________________
