@@ -40,6 +40,32 @@ and these files from /etc/skel will be copied to the `home directory` of new use
 .  ..  .bash_logout  .bash_profile  .bashrc
 ```
 
+
+
+#### Ensure that a file named "HelloNewUser" is automatically added to the home folders of all new users:
+
+
+
+Explanation
+1. Create a new file called "Congrats" in the `/etc/skel` directory:
+
+```bash
+touch /etc/skel/HelloNewUser
+```
+
+
+2. Verify file permissions (optional):
+
+```bash
+chmod 644 /etc/skel/Congrats
+```
+
+
+
+
+
+
+
 ________________________________________________________________________________________________
 
 
@@ -456,32 +482,24 @@ Number of days of warning before password expires       : 7
 
 ________________________________________________________________________________________________
 
-
-### Ensure that a file named "HelloNewUser" is automatically added to the home folders of all new users.
-
-
-
-Explanation
-1. Create a new file called "Congrats" in the `/etc/skel` directory:
+Change user password expiry information:
 
 ```bash
-touch /etc/skel/HelloNewUser
+[root@centos-host bob]$ chage jane
+Changing the aging information for jane
+Enter the new value, or press ENTER for the default
+
+        Minimum Password Age [0]: 
+        Maximum Password Age [99999]: 
+        Last Password Change (YYYY-MM-DD) [2024-03-31]: 
+        Password Expiration Warning [7]: 
+        Password Inactive [-1]: 
+        Account Expiration Date (YYYY-MM-DD) [-1]: 2030-03-01
+
 ```
-
-
-2. Verify file permissions (optional):
-
-```bash
-chmod 644 /etc/skel/Congrats
-```
-
-
-
-
 
 
 ________________________________________________________________________________________________
-
 
 ## `/etc/login.defs`
 
@@ -507,9 +525,9 @@ Note:
 ________________________________________________________________________________________________
 
 
-## `pwquality.conf`
+## `/etc/security/pwquality.conf`
 
-### Examples of configuration parameters that can be modified in the `pwquality.conf` file include:
+### Examples of configuration parameters that can be modified in the `/etc/security/pwquality.conf` file include:
 
 `minlen`: Sets the minimum `password` `length`.
 
