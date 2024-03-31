@@ -14,6 +14,30 @@ sudo yum module install container-tools:3.0
 ________________________________________________________________________________________________
 
 
+## `loginctl enable-linger`
+
+First, in order to make sure that the user can lunch the systemd services, we need to enable a login setting for the user 
+ `linger`:
+
+
+```bash
+$ loginctl show-user bob | grep ^Linger
+Linger=no
+
+$ loginctl enable-linger bob
+
+$ loginctl show-user bob | grep ^Linger
+Linger=yes
+```
+
+
+```bash
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+```
+
+________________________________________________________________________________________________
+
+
 ## `~/.config/systemd/user`
 
 running a container, at boot time, as a rootless systemd service
@@ -59,12 +83,6 @@ podman generate systemd --name container_service --files --new
 ```
 
 
-
-
-```bash
-cat ~/.config/systemd/user
-```
-
 ________________________________________________________________________________________________
 
 now we can kill and remove the container,
@@ -76,36 +94,29 @@ podman rm container_service
 
 ________________________________________________________________________________________________
 
-## `loginctl enable-linger`
 
-Next, in order to make sure that the user can lunch the systemd services, we need to enable a login setting for a user called `linger`:
-
+Enable the service, so it will be up in the next startup:
 
 ```bash
-loginctl enable-linger
-```
-
-```bash
-export XDG_RUNTIME_DIR=/run/user/$(id -u)
 systemctl --user daemon-reload
 systemctl --user enable --now container-container_service.service
 ```
 
 ________________________________________________________________________________________________
 
-
 now, we will reboot the system, and the container will be run at startup
 
 ```bash
 reboot
 ```
+________________________________________________________________________________________________
 
+
+Verify:
 
 ```bash
 podman ps -a
 ```
-
-
 
 
 ```bash
