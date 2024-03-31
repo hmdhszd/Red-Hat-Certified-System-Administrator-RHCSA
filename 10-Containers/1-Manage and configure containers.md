@@ -1,9 +1,9 @@
 
 
-install docker
+Install Podman
 
 ```bash
-[bob@centos-host ~]$ dnf install docker
+[root@centos-host ~]$ yum module install container-tools:3.0
 ```
 
 ________________________________________________________________________________________________
