@@ -2,9 +2,9 @@
 ### Create a Containerfile:
 
 ```bash
-RUN microdnf install -y nginx
-
 FROM registry.redhat.io/ubi9/ubi-minimal:9.1.0
+
+RUN microdnf install -y nginx
 
 RUN rm -r /usr/share/nginx/html/*
 
