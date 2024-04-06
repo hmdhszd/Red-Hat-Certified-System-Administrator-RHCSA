@@ -14,7 +14,7 @@ sudo yum module install container-tools:3.0
 ________________________________________________________________________________________________
 
 
-## `loginctl enable-linger`
+## `loginctl enable-linger bob`
 
 First, in order to make sure that the user can lunch the systemd services, we need to enable a login setting for the user 
  `linger`:
