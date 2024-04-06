@@ -210,7 +210,7 @@ ________________________________________________________________________________
 
 
 
-#        `chcon` - change file SELinux security context
+#        `chcon` - change file SELinux security context (Temporarily)
 
 
 Change the SELinux context of /var/index.html file to httpd_sys_content_t
@@ -403,7 +403,7 @@ mkdir -p /V1/V2/V3
 
 ls -dZ /etc
 
-semanage fcontext -a -t etc_t " /V1(/.*)?"
+semanage fcontext -a -t etc_t "/V1(/.*)?"
 
 restorecon -Rv /V1
 ```
