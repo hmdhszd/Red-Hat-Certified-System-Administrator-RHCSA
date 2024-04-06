@@ -211,7 +211,7 @@ podman run -d --name httpd -p 127.0.0.1:8080:8080 -e HTTPD_USER=test -e HTTPD_PA
 
 ________________________________________________________________________________________________
 
-### Configure the following:
+# Configure the following:
 
 - Install container-tools.
 
@@ -229,6 +229,7 @@ mkdir -p /var/lib/registry
 podman run --privileged -d --name registry -p 5000:5000 -v /var/lib/registry:/var/lib/registry:Z registry
 ```
 
+### Container configurations: `/etc/containers/registries.conf`
 
 ```bash
 vim /etc/containers/registries.conf
