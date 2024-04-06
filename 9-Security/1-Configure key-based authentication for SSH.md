@@ -181,7 +181,7 @@ id_rsa  id_rsa.pub
 ________________________________________________________________________________________________
 
 
-## `.ssh/config`
+## `/home/bob/.ssh/config`
 
 ### ssh `client` config file should be `created` `manually`
 
