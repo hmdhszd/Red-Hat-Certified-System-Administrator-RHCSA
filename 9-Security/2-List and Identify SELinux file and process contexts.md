@@ -330,12 +330,19 @@ ________________________________________________________________________________
 
 1. Identify and Check Boolean:
 
+
+## `getsebool -a`
+## `semanage boolean -l`
+
 ```bash
 getsebool httpd_read_user_content
 ```
 
 
 2. Set Boolean (If it's off):  ( -P --> permanent )
+
+
+## `setsebool -P httpd_read_user_content 1`
 
 ```bash
 setsebool -P httpd_read_user_content 1
@@ -372,11 +379,18 @@ Enforcing Mode: These steps assume SELinux is in enforcing mode.
 
 Disabling the Setting: Use "$ sudo setsebool -P httpd_read_user_content off".
 
-Finding Booleans:
+Finding Booleans: (lists all booleans)
 
-"$ getsebool -a" lists all booleans.
+```bash
+getsebool -a"
+```
 
-"$ sudo semanage boolean -l" lists HTTP-related booleans.
+Lists HTTP-related booleans:
+
+```bash
+semanage boolean -l
+```
+
 
 Choosing Booleans: Base decisions on specific requirements.
 
@@ -384,8 +398,11 @@ Choosing Booleans: Base decisions on specific requirements.
 
 Additional Considerations:
 
-Context Troubleshooting: If necessary, use "$ sudo restorecon -Rv /var/www/html/mydirectory" to restore the default SELinux context for the directory.
+Context Troubleshooting: If necessary, use this command to restore the default SELinux context for the directory.
 
+```bash
+sudo restorecon -Rv /var/www/html/mydirectory"
+```
 
 
 
@@ -396,6 +413,9 @@ ________________________________________________________________________________
 
 ## Create a directory hierarchy /V1/V2/V3/, and recursively apply the SELinux context of the /etc directory.
 
+## `semanage fcontext -a -t etc_t "/V1(/.*)?"`
+
+## `restorecon -Rv /V1`
 
 
 ```bash
@@ -413,7 +433,7 @@ ________________________________________________________________________________
 
 ## Make the “httpd_t” domain permissive.
 
-
+## `semanage permissive -a httpd_t`
 
 ```bash
 semanage permissive -a httpd_t
