@@ -210,29 +210,6 @@ ________________________________________________________________________________
 
 
 
-#        `chcon` - change file SELinux security context (Temporarily)
-
-
-Change the SELinux context of /var/index.html file to httpd_sys_content_t
-
-
-
-```bash
-[bob@centos-host ~]$ sudo chcon -t httpd_sys_content_t /var/index.html
-```
-
-
-```bash
-[bob@centos-host ~]$ ls -Z /var/index.html
-
-unconfined_u:object_r:httpd_sys_content_t:s0 /var/index.html
-```
-
-
-________________________________________________________________________________________________
-
-
-
 # Temporarily change SELinux Status
 
 - Use `Permissive` or `0` to put SELinux in permissive mode
@@ -318,6 +295,29 @@ OR
 - SELINUX=disabled
 
 Finally reboot the system to apply the changes
+
+________________________________________________________________________________________________
+
+
+
+#        `chcon` - change file SELinux security context (Temporarily)
+
+
+Change the SELinux context of /var/index.html file to httpd_sys_content_t
+
+
+
+```bash
+[bob@centos-host ~]$ sudo chcon -t httpd_sys_content_t /var/index.html
+```
+
+
+```bash
+[bob@centos-host ~]$ ls -Z /var/index.html
+
+unconfined_u:object_r:httpd_sys_content_t:s0 /var/index.html
+```
+
 
 ________________________________________________________________________________________________
 
