@@ -1,4 +1,6 @@
 
+![alt text](https://i.sstatic.net/Et9HC.gif)
+
 
 the `inode` of each file remembers where each piece of a file is stored in the disk
 
