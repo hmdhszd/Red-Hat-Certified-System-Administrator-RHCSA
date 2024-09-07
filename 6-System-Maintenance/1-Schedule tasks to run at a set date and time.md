@@ -21,7 +21,7 @@ filed			  Meaning			  values
 A			  minute			  0-59
 B			  hour				  0-23
 C			  day of month			  1-31
-D			  month			          1-12 (or names, see below)
+D			  month			          1-12 (or names)
 E			  day of week			  0-7 (0 or 7 is Sunday, or use names)
 ```
 
