@@ -56,7 +56,7 @@ ________________________________________________________________________________
 `decompress`
 
 ```bash
-star -xv file=/home/hamid/archive.star.gz file.txt
+star -xv file=/home/hamid/archive.star.gz
 ```
 
 ________________________________________________________________________________________________
@@ -68,7 +68,7 @@ decompress in a new directory
 use `-C`  OR  `--directory`
 
 ```bash
-star -xv file=/home/hamid/archive.star.gz file.txt -C /tmp
+star -xv file=/home/hamid/archive.star.gz -C /tmp
 ```
 
 ________________________________________________________________________________________________
