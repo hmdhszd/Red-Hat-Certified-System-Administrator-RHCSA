@@ -86,7 +86,7 @@ subscription-manager clean
 
 Note: You might see a "This system is not registered" message.
 
-To avoid it, edit /etc/yum/pluginconf.d/subscription-manager.conf and set enabled=0.
+To avoid it, edit `/etc/yum/pluginconf.d/subscription-manager.conf` and set `enabled=0`.
 
 ________________________________________________________________________________________________
 
