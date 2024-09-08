@@ -1,8 +1,8 @@
 ## Install Grub bootloader
 
-in order to go to the boot menu, you can press F8 OR keep shift, during the booting process.
+in order to go to the boot menu, you can press `F8` OR keep `shift`, during the booting process.
 
-we can press `e` to edit the grub settings and press Ctrl+X to reboot with the new settings.
+we can press `e` to edit the grub settings and press `Ctrl+X` to reboot with the new settings.
 
 this setting is temporary, if we wanna make it permanent, we can change the `/etc/default/grub`
 
