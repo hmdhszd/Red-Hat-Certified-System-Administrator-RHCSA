@@ -25,11 +25,11 @@ ________________________________________________________________________________
 `extract` archive
 
 ```bash
-star -xv file=/home/hamid/archive.star file.txt
+star -xv file=/home/hamid/archive.star
 ```
 
 ```bash
-star -xv file=/home/hamid/archive.star file.txt -c /tmp/
+star -xv file=/home/hamid/archive.star -c /tmp/
 ```
 
 ________________________________________________________________________________________________
