@@ -66,7 +66,7 @@ ________________________________________________________________________________
 
 
 
-## `gunzip --keep`, `bunzip2 --keep`, `unxz --keep`
+## `gzip --keep`, `bzip2 --keep`, `xz --keep`
 
 
 #### by default they remove the original file after zip the file, to keep the original file we can use `-k` OR `--keep` 
