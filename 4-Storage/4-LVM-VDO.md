@@ -65,7 +65,7 @@ OR
 use all of the free spaces of the Volume Group:
 
 ```bash
-lvcreate --name myvdo --type vdo --size +100%FREE --virtualsize 50G myvg
+lvcreate --name myvdo --type vdo --extents +100%FREE --virtualsize 50G myvg
 ```
 ________________________________________________________________________________________________
 
