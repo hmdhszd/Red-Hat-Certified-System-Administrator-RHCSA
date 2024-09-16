@@ -322,10 +322,12 @@ find the files owned by the user root in the “/usr/bin” and copy the files i
 
 
 ```bash
-[bob@centos-host ~]$ sudo find /usr/bin/ -type f -user root -exec cp {} /find/rootfiles/ \;
+[bob@centos-host ~]$ sudo find /usr/bin/ -type f -user root -exec cp -rfp {} /find/rootfiles/ \;
 ```
 
-
+- -r: Copy directories recursively.
+- -f: Force copy by overwriting existing files without prompting.
+- -p: Preserve the file attributes such as timestamps, ownership, and permissions.
 
 
 ________________________________________________________________________________________________
