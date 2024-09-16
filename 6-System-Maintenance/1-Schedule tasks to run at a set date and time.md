@@ -1,11 +1,46 @@
 
 
-`cron` vs `anacron`
+## `cron` vs `anacron`
 
 anacron will run the command if the computer is `turned off`, whenever it's on again. cron don't!
 
 the smallest unit in `anacron` is `DAY`.
 
+
+
+________________________________________________________________________________________________
+
+
+## Edit `/etc/crontab` VS `crontab -e` command
+
+
+Yes, you can use both methods to set up cron jobs in Red Hat Linux, but they are used for different purposes.
+
+1. **Editing `/etc/crontab`:**
+   - This file is the `system-wide` crontab file and can be edited directly to add cron jobs.
+   - It allows you to schedule jobs to be run by `specific` `users`.
+   - Each line in `/etc/crontab` has an additional field specifying the `user` who will run the command. The format is:
+     ```
+     * * * * * user command
+     ```
+   - For example, to run a script every day at midnight as the user `username`, you would add:
+     ```
+     0 0 * * * username /path/to/script.sh
+     ```
+
+2. **Using `crontab -e`:**
+   - This command opens the crontab file for the `current user` in an editor.
+   - The jobs you add here will run as the user who edited the crontab.
+   - This method is useful for setting up personal cron jobs and doesn't require specifying the user in the cron entry.
+   - For example, using `crontab -e` and adding:
+     ```
+     0 0 * * * /path/to/script.sh
+     ```
+     will run `/path/to/script.sh` as the current user every day at midnight.
+
+In summary:
+- Use `/etc/crontab` if you need to set up cron jobs that run under `different user` accounts or need to be `managed at the system level`.
+- Use `crontab -e` for `user-specific` cron jobs that run as the user who created them.
 
 
 ________________________________________________________________________________________________
