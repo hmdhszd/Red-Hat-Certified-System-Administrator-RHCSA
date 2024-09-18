@@ -37,10 +37,7 @@ You may find the exam topics in the [RedHat website](https://www.redhat.com/en/s
 
 | Subtopic                                                    | Link       |
 |--------------------------------------------------------------|------------|
-| Conditionally execute code (use of: if, test, [], etc.)       | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> |
-| Use looping constructs (for, etc.) to process input           | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
-| Process script inputs ($1, $2, etc.)                         | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
-| Process output of shell commands within a script             | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Conditionally execute code (use of: if, test, [], etc.)  <br>  <br> Use looping constructs (for, etc.) to process input  <br>  <br> Process script inputs ($1, $2, etc.) <br>  <br> Process output of shell commands within a script     | [Shell Script 1](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/2-Shell-Scripts/1-Shell%20Script%201.md) <br>  <br>  [Shell Script 2](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/2-Shell-Scripts/2-Shell%20Script%202.md) |
 
 ---
 
