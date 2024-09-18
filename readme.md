@@ -25,7 +25,7 @@ You may find the exam topics in the [RedHat website](https://www.redhat.com/en/s
 | Use input-output redirection (>, >>, \|, 2>, etc.)             | [Link]()   |
 | Use grep and regular expressions to analyze text              | [Link]()   |
 | Access remote systems using SSH                               | [Link]()   |
-| Log in and switch users in multiuser targets                  |  <br> [login to server](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/1-Essential-Tools/1-login%20to%20server.md)  <br>  <br>  <br>   |
+| Log in and switch users in multiuser targets                  |  <br> [login to server](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/1-Essential-Tools/1-login%20to%20server.md){:target="_blank"}  <br>  <br>  <br>   |
 | Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2 | [Link]()   |
 | Create and edit text files                                    | [Link]()   |
 | Create, delete, copy, and move files and directories          | [Link]()   |
