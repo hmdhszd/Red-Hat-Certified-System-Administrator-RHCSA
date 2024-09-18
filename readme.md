@@ -21,17 +21,17 @@ You may find the exam topics in the [RedHat website](https://www.redhat.com/en/s
 
 | Subtopic                                                     | Link       |
 |---------------------------------------------------------------|------------|
-| Access a shell prompt and issue commands with correct syntax  | [Link]() <br>  <br>  <br>  <br>  <br>  <br>    |
-| Use input-output redirection (>, >>, \|, 2>, etc.)             | [Link]()   |
-| Use grep and regular expressions to analyze text              | [Link]()   |
-| Access remote systems using SSH                               | [Link]()   |
-| Log in and switch users in multiuser targets                  |  <br> [login to server](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/1-Essential-Tools/1-login%20to%20server.md){:target="_blank"}  <br>  <br>  <br>   |
+| Access a shell prompt and issue commands with correct syntax  | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Use input-output redirection (>, >>, \|, 2>, etc.)             | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Use grep and regular expressions to analyze text              | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Access remote systems using SSH                               | [Link]()   <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> |
+| Log in and switch users in multiuser targets                  |  <br> [login to server](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/1-Essential-Tools/1-login%20to%20server.md)  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
 | Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2 | [Link]()   |
-| Create and edit text files                                    | [Link]()   |
-| Create, delete, copy, and move files and directories          | [Link]()   |
-| Create hard and soft links                                    | [Link]()   |
-| List, set, and change standard ugo/rwx permissions            | [Link]()   |
-| Locate, read, and use system documentation                    | [Link]()   |
+| Create and edit text files                                    | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> |
+| Create, delete, copy, and move files and directories          | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> |
+| Create hard and soft links                                    | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| List, set, and change standard ugo/rwx permissions            | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Locate, read, and use system documentation                    | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
 
 ---
 
@@ -39,10 +39,10 @@ You may find the exam topics in the [RedHat website](https://www.redhat.com/en/s
 
 | Subtopic                                                    | Link       |
 |--------------------------------------------------------------|------------|
-| Conditionally execute code (use of: if, test, [], etc.)       | [Link]()   |
-| Use looping constructs (for, etc.) to process input           | [Link]()   |
-| Process script inputs ($1, $2, etc.)                         | [Link]()   |
-| Process output of shell commands within a script             | [Link]()   |
+| Conditionally execute code (use of: if, test, [], etc.)       | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> |
+| Use looping constructs (for, etc.) to process input           | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Process script inputs ($1, $2, etc.)                         | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Process output of shell commands within a script             | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
 
 ---
 
