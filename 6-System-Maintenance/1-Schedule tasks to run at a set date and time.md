@@ -155,6 +155,8 @@ ________________________________________________________________________________
 
 ## `/etc/anacrontab`
 
+Anacron is primarily `system-wide`, meaning it is generally used for scheduling tasks that should `run for all users` on the system.
+
 in anacron we don't care when it's run, we just want it to run daily, weekly, monthly...
 
 ```bash
