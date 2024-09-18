@@ -21,17 +21,17 @@ You may find the exam topics in the [RedHat website](https://www.redhat.com/en/s
 
 | Subtopic                                                     | Link       |
 |---------------------------------------------------------------|------------|
-| Access a shell prompt and issue commands with correct syntax  | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Access a shell prompt and issue commands with correct syntax  | [login to server](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/1-Essential-Tools/1-login%20to%20server.md)  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
 | Use input-output redirection (>, >>, \|, 2>, etc.)             | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
 | Use grep and regular expressions to analyze text              | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
 | Access remote systems using SSH                               | [Link]()   <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> |
-| Log in and switch users in multiuser targets                  |  <br> [login to server](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/1-Essential-Tools/1-login%20to%20server.md)  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Log in and switch users in multiuser targets                  | [Log in and switch users in multiuser targets](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/1-Essential-Tools/2-Log%20in%20and%20switch%20users%20in%20multiuser%20targets.md) <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
 | Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2 | [Link]()   |
 | Create and edit text files                                    | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> |
 | Create, delete, copy, and move files and directories          | [Link]()  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> |
 | Create hard and soft links                                    | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
 | List, set, and change standard ugo/rwx permissions            | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
-| Locate, read, and use system documentation                    | [Link]() <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
+| Locate, read, and use system documentation                    | [system documentation](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/1-Essential-Tools/3-system%20documentation.md) <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  |
 
 ---
 
