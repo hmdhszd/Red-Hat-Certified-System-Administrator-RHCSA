@@ -1,8 +1,8 @@
-# RHCSA Exam Objectives
+# Red Hat Certified System Administrator (RHCSA) - EX200
 
 Welcome to the **RHCSA Exam Preparation Guide**! This document will help you organize and keep track of the key topics needed to prepare for the Red Hat Certified System Administrator (RHCSA) exam.
 
-You can find the exam topics [here](https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam?section=objectives).
+You may find the exam topics in the [RedHat website](https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam?section=objectives).
 
 1. [Understand and use essential tools](#1-understand-and-use-essential-tools)
 2. [Create simple shell scripts](#2-create-simple-shell-scripts)
@@ -21,11 +21,11 @@ You can find the exam topics [here](https://www.redhat.com/en/services/training/
 
 | Subtopic                                                     | Link       |
 |---------------------------------------------------------------|------------|
-| Access a shell prompt and issue commands with correct syntax  | [Link]()   |
+| Access a shell prompt and issue commands with correct syntax  | [Link]() <br>  <br>  <br>  <br>  <br>  <br>    |
 | Use input-output redirection (>, >>, \|, 2>, etc.)             | [Link]()   |
 | Use grep and regular expressions to analyze text              | [Link]()   |
 | Access remote systems using SSH                               | [Link]()   |
-| Log in and switch users in multiuser targets                  | [Link]()   |
+| Log in and switch users in multiuser targets                  |  <br> [login to server](https://github.com/hmdhszd/Red-Hat-Certified-System-Administrator-RHCSA/blob/main/1-Essential-Tools/1-login%20to%20server.md)  <br>  <br>  <br>   |
 | Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2 | [Link]()   |
 | Create and edit text files                                    | [Link]()   |
 | Create, delete, copy, and move files and directories          | [Link]()   |
