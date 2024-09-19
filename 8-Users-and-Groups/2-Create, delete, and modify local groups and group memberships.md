@@ -215,20 +215,20 @@ chmod 770 /developers # Owner and group full access, no access for others
 
 #### File Ownership:
 
-- New files in /developers or /admins should be owned by the respective group owner. (setgid)
+- `New` files in /developers or /admins should be owned by the respective group owner. (setgid)
 
 - Only file creators should be allowed to delete their files. (sticky bit)
 
 
 
 ```bash
-chmod +t,g+s /admins # Set sticky bit and setgid bit
+chmod o+t,g+s /admins # Set sticky bit and setgid bit
 ```
 
 
 
 ```bash
-chmod +t,g+s /developers # Set sticky bit and setgid bit
+chmod o+t,g+s /developers # Set sticky bit and setgid bit
 ```
 
 
@@ -237,7 +237,7 @@ chmod +t,g+s /developers # Set sticky bit and setgid bit
 ________________________________________________________________________________________________
 
 
-### Create a directory named "/collaboration", and configure it so that any files or subdirectories created within that directory are owned by the group "managers".
+### Create a directory named "/collaboration", and configure it so that any files or subdirectories `created` within that directory are owned by the group "managers".
 
 
 
