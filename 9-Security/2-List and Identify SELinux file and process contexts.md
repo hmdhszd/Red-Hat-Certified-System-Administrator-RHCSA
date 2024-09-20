@@ -670,6 +670,238 @@ A new service is being installed, but it is not working due to SELinux. Your tas
 
 
 
+---
+
+### 1. **Set enforcing and permissive modes for SELinux**
+
+#### Sample Question:
+You are troubleshooting a web application and need to switch SELinux into **permissive mode** to allow all operations but log any violations. After troubleshooting, you need to switch back to **enforcing mode**.
+
+#### Solution:
+1. Check the current mode:
+   ```bash
+   sestatus
+   ```
+
+2. Temporarily set SELinux to **permissive mode** (no enforcement, logs violations):
+   ```bash
+   sudo setenforce 0
+   ```
+
+3. Verify that SELinux is now in permissive mode:
+   ```bash
+   sestatus
+   ```
+
+4. Once troubleshooting is complete, switch SELinux back to **enforcing mode**:
+   ```bash
+   sudo setenforce 1
+   ```
+
+5. Verify the switch back to enforcing mode:
+   ```bash
+   sestatus
+   ```
+
+> **Note**: To change the SELinux mode **permanently**, edit the `/etc/selinux/config` file:
+```bash
+sudo vi /etc/selinux/config
+```
+Set the `SELINUX` directive to `enforcing` or `permissive` as needed.
+
+---
+
+### 2. **List and identify SELinux file and process contexts**
+
+#### Sample Question:
+You are asked to check the SELinux context of the `sshd` service and its configuration file `/etc/ssh/sshd_config`.
+
+#### Solution:
+1. List the **SELinux context** for the `sshd` process:
+   ```bash
+   ps -eZ | grep sshd
+   ```
+   Example output:
+   ```
+   system_u:system_r:sshd_t:s0   1234 ? 00:00:00 sshd
+   ```
+
+2. View the **SELinux context** of the `/etc/ssh/sshd_config` file:
+   ```bash
+   ls -Z /etc/ssh/sshd_config
+   ```
+   Expected output:
+   ```
+   -rw-r--r--. root root system_u:object_r:sshd_config_t:s0 /etc/ssh/sshd_config
+   ```
+
+> **Note**: The file’s context contains the type, which in this case is `sshd_config_t`, used to ensure only specific services can access it.
+
+---
+
+### 3. **Restore default file contexts**
+
+#### Sample Question:
+You copied a file named `index.html` into `/var/www/html/`, but it isn’t being served by Apache. The problem might be an incorrect SELinux context. Restore the default context for this file.
+
+#### Solution:
+1. Verify the current context of the file:
+   ```bash
+   ls -Z /var/www/html/index.html
+   ```
+   Example output (incorrect context):
+   ```
+   -rw-r--r--. root root unconfined_u:object_r:default_t:s0 /var/www/html/index.html
+   ```
+
+2. Use `restorecon` to restore the default context:
+   ```bash
+   sudo restorecon -v /var/www/html/index.html
+   ```
+
+3. Verify that the correct context (`httpd_sys_content_t`) has been applied:
+   ```bash
+   ls -Z /var/www/html/index.html
+   ```
+   Correct output:
+   ```
+   -rw-r--r--. root root unconfined_u:object_r:httpd_sys_content_t:s0 /var/www/html/index.html
+   ```
+
+> **Note**: The `restorecon` command is used to **reset SELinux file contexts** to their defaults based on pre-defined rules.
+
+---
+
+### 4. **Manage SELinux port labels**
+
+#### Sample Question:
+You need to configure Apache to listen on port **8080** instead of the default port **80**. Update the SELinux port label to allow Apache to use this new port.
+
+#### Solution:
+1. Check which ports are currently allowed for Apache:
+   ```bash
+   sudo semanage port -l | grep http_port_t
+   ```
+   Example output:
+   ```
+   http_port_t    tcp    80, 443
+   ```
+
+2. Add port **8080** to the allowed list for the Apache service (`httpd`):
+   ```bash
+   sudo semanage port -a -t http_port_t -p tcp 8080
+   ```
+
+3. Verify the new port label has been applied:
+   ```bash
+   sudo semanage port -l | grep http_port_t
+   ```
+   Expected output:
+   ```
+   http_port_t    tcp    80, 443, 8080
+   ```
+
+4. Restart Apache to apply the changes (if required):
+   ```bash
+   sudo systemctl restart httpd
+   ```
+
+> **Note**: The `semanage port` command is used to **manage SELinux port labels**, which associate services with specific ports.
+
+---
+
+### 5. **Use boolean settings to modify system SELinux settings**
+
+#### Sample Question 1:
+You need to configure Apache (`httpd`) to allow access to files in user home directories. Modify the necessary SELinux Boolean to allow this.
+
+#### Solution:
+1. Check the current status of the `httpd_enable_homedirs` Boolean:
+   ```bash
+   getsebool httpd_enable_homedirs
+   ```
+
+2. Enable the Boolean to allow Apache to serve content from user home directories:
+   ```bash
+   sudo setsebool -P httpd_enable_homedirs on
+   ```
+
+3. Verify the change:
+   ```bash
+   getsebool httpd_enable_homedirs
+   ```
+   Expected output:
+   ```
+   httpd_enable_homedirs --> on
+   ```
+
+#### Sample Question 2:
+You are setting up a service that needs to make network connections. Allow Apache (`httpd`) to connect to external network services by adjusting the appropriate SELinux Boolean.
+
+#### Solution:
+1. Check the current status of the `httpd_can_network_connect` Boolean:
+   ```bash
+   getsebool httpd_can_network_connect
+   ```
+
+2. Enable the Boolean to allow network connections:
+   ```bash
+   sudo setsebool -P httpd_can_network_connect on
+   ```
+
+3. Verify the change:
+   ```bash
+   getsebool httpd_can_network_connect
+   ```
+   Expected output:
+   ```
+   httpd_can_network_connect --> on
+   ```
+
+> **Note**: SELinux Booleans are toggled using `setsebool`, and the `-P` option makes the change **persistent across reboots**.
+
+---
+
+### 6. **Diagnose and address routine SELinux policy violations**
+
+#### Sample Question:
+An application running on your system is failing, and you suspect SELinux is blocking it. Investigate the SELinux logs and take action to resolve the issue.
+
+#### Solution:
+1. Check the SELinux audit logs for any **recent denials**:
+   ```bash
+   sudo ausearch -m avc -ts recent
+   ```
+
+2. Identify the specific denial. Example output:
+   ```
+   type=AVC msg=audit(1622123456.123:100): avc:  denied  { write } for pid=1234 comm="myapp" name="datafile" dev="sda1" ino=5678 scontext=system_u:system_r:myapp_t:s0 tcontext=unconfined_u:object_r:default_t:s0 tclass=file
+   ```
+
+3. In this case, the file has the wrong context (`default_t`). Fix it by restoring the default context:
+   ```bash
+   sudo restorecon -v /path/to/datafile
+   ```
+
+4. If you see that the issue is related to a Boolean, adjust the appropriate Boolean setting using `setsebool` as shown earlier.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
