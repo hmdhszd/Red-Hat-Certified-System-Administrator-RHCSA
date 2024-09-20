@@ -221,5 +221,18 @@ ________________________________________________________________________________
 
 
 
+Write a script that creates a user examuser with a home directory /home/examuser and adds the user to a group called examgroup. The password for the user should be set to P@ssw0rd123.
+
+Answer:
+
+```bash
+#!/bin/bash
+groupadd examgroup
+useradd -m -d /home/examuser -G examgroup examuser
+echo "P@ssw0rd123" | passwd --stdin examuser
+echo "User and group created."
+```
+
+________________________________________________________________________________________________
 
 
