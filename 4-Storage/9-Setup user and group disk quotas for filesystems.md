@@ -111,6 +111,14 @@ Disk quota is a way to **limit the amount of disk space** and the number of inod
 7. **Set Grace Periods (Optional):**
    You can set the grace period for soft limits using `edquota -t` to set a grace period for all users.
 
+You will see an output like this, allowing you to modify the grace period:
+
+
+   ```bash
+   Grace period before enforcing soft limits for users:
+   Time units may be: days, hours, minutes, or seconds
+   /dev/mapper/rhel-data: block grace period: 7 days, inode grace period: 7 days
+   ```
 
 8. **Test Quota (Optional):**
 
