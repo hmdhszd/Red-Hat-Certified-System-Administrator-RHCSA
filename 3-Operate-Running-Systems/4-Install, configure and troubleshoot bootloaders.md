@@ -1,4 +1,3 @@
-The **Red Hat Certified System Administrator (RHCSA)** exam tests candidates on essential Linux system administration tasks. One of the topics covered in the exam involves the **boot loader** and managing system boot processes.
 
 ### What is a Boot Loader?
 A **boot loader** is software responsible for loading the Linux kernel into memory and starting the operating system when the system boots up. For Red Hat-based systems (such as RHEL), **GRUB2 (GRand Unified Bootloader)** is the default boot loader. It allows users to select between multiple kernels or operating systems (if installed).
