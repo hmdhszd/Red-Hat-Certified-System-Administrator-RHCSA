@@ -156,8 +156,14 @@ fallocate --length 100M /mybackups/hamid/100Mfile
      Filesystem     blocks   soft   hard    inodes   soft   hard
      /dev/sda2        0       500000  600000   0     200     250
    ```
-
-6. Verify quota settings:
+   
+   blocks: This is the disk space in 1K blocks (500000 = 500MB, 600000 = 600MB).
+   
+   soft: The user will receive warnings when they exceed this limit.
+   
+   hard: The user cannot exceed this limit.
+   
+7. Verify quota settings:
    ```bash
    quota alice
    ```
