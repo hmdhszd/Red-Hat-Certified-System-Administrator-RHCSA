@@ -441,3 +441,175 @@ crontab -e
 
 
 ________________________________________________________________________________________________
+
+
+
+
+
+Here are some **additional example tasks** from the **"Scheduling and Managing Tasks"** topic:
+
+---
+
+### 1. **Schedule a cron job for user backup**
+- **Task:** Create a cron job for the user `james` that runs every Friday at 6:00 PM and executes the `/usr/local/bin/backup.sh` script.
+  - **Steps:**
+    1. Edit the user-specific crontab for `james`:
+       ```bash
+       sudo crontab -u james -e
+       ```
+    2. Add the following entry to schedule the job:
+       ```
+       0 18 * * 5 /usr/local/bin/backup.sh
+       ```
+
+---
+
+### 2. **Create a one-time `at` job**
+- **Task:** Create a one-time `at` job that runs the script `/usr/local/bin/cleanup.sh` at 9:00 PM today.
+  - **Steps:**
+    1. Use the `at` command to schedule the job:
+       ```bash
+       echo "/usr/local/bin/cleanup.sh" | at 9:00 PM
+       ```
+
+---
+
+### 3. **Schedule a cron job using a script**
+- **Task:** Create a shell script `/usr/local/bin/run-script.sh` that outputs the current date and time to `/var/log/time.log` and set up a cron job to run this script every day at 4:30 AM.
+  - **Steps:**
+    1. Create the script:
+       ```bash
+       echo 'date >> /var/log/time.log' > /usr/local/bin/run-script.sh
+       chmod +x /usr/local/bin/run-script.sh
+       ```
+    2. Edit the crontab:
+       ```bash
+       crontab -e
+       ```
+    3. Add the following entry:
+       ```
+       30 4 * * * /usr/local/bin/run-script.sh
+       ```
+
+---
+
+### 4. **Create a systemd service and timer for weekly cleanup**
+- **Task:** Create a systemd service and timer that runs `/usr/local/bin/weekly-cleanup.sh` every Monday at 2:00 AM.
+  - **Steps:**
+    1. Create the service file `/etc/systemd/system/weekly-cleanup.service`:
+       ```bash
+       [Unit]
+       Description=Weekly Cleanup
+
+       [Service]
+       ExecStart=/usr/local/bin/weekly-cleanup.sh
+       ```
+    2. Create the timer file `/etc/systemd/system/weekly-cleanup.timer`:
+       ```bash
+       [Unit]
+       Description=Runs weekly cleanup every Monday at 2:00 AM
+
+       [Timer]
+       OnCalendar=Mon 02:00
+       Persistent=true
+
+       [Install]
+       WantedBy=timers.target
+       ```
+    3. Enable and start the timer:
+       ```bash
+       systemctl enable --now weekly-cleanup.timer
+       ```
+
+---
+
+### 5. **Modify an existing cron job**
+- **Task:** A cron job currently runs the `/usr/local/bin/report.sh` script every day at 6:00 AM. Modify this job so that it runs every 2 days at the same time.
+  - **Steps:**
+    1. Edit the crontab:
+       ```bash
+       crontab -e
+       ```
+    2. Modify the entry for the script:
+       ```
+       0 6 */2 * * /usr/local/bin/report.sh
+       ```
+
+---
+
+### 6. **Remove an existing systemd timer**
+- **Task:** Disable and remove a systemd timer called `hourly-cleanup.timer` that runs the `/usr/local/bin/hourly-cleanup.sh` script every hour.
+  - **Steps:**
+    1. Stop and disable the timer:
+       ```bash
+       systemctl stop hourly-cleanup.timer
+       systemctl disable hourly-cleanup.timer
+       ```
+    2. Remove the timer and service files:
+       ```bash
+       rm /etc/systemd/system/hourly-cleanup.timer
+       rm /etc/systemd/system/hourly-cleanup.service
+       ```
+    3. Reload systemd to apply the changes:
+       ```bash
+       systemctl daemon-reload
+       ```
+
+---
+
+### 7. **Create a systemd timer to send system stats**
+- **Task:** Create a systemd timer that runs the `/usr/local/bin/sysstats.sh` script every day at 7:30 PM, which sends system statistics to a remote server.
+  - **Steps:**
+    1. Create the service file `/etc/systemd/system/sysstats.service`:
+       ```bash
+       [Unit]
+       Description=Send system statistics
+
+       [Service]
+       ExecStart=/usr/local/bin/sysstats.sh
+       ```
+    2. Create the timer file `/etc/systemd/system/sysstats.timer`:
+       ```bash
+       [Unit]
+       Description=Run sysstats script daily at 7:30 PM
+
+       [Timer]
+       OnCalendar=19:30
+       Persistent=true
+
+       [Install]
+       WantedBy=timers.target
+       ```
+    3. Enable and start the timer:
+       ```bash
+       systemctl enable --now sysstats.timer
+       ```
+
+---
+
+### 8. **Run a job using anacron**
+- **Task:** Schedule a job using **anacron** to run a script `/usr/local/bin/monthly-maintenance.sh` once a month, ensuring that if the system is off, the job will run the next time the system starts.
+  - **Steps:**
+    1. Edit the `/etc/anacrontab` file and add an entry:
+       ```
+       30      10      monthly-maintenance   /usr/local/bin/monthly-maintenance.sh
+       ```
+       This entry means: Run the script **30 days** after the last run (if missed) with a **10-minute delay** after system startup.
+
+---
+
+### Summary of Key Topics and Skills for "Scheduling and Managing Tasks"
+
+- **Cron jobs**: Know how to schedule tasks using cron syntax for both system-wide and user-specific cron jobs.
+- **at jobs**: Understand how to schedule one-time jobs using `at`.
+- **systemd timers**: Be able to create, enable, and manage systemd timer units to automate tasks in a modern `systemd` environment.
+- **anacron**: Schedule periodic jobs that run even if the system was off during their regular execution time.
+
+These practice tasks cover **critical scheduling topics** in the RHCSA exam. Make sure you're comfortable with creating, modifying, and managing scheduled tasks using these different tools. Hands-on practice with all these scheduling tools will ensure you're prepared for the exam and for real-world system administration scenarios.
+
+
+
+
+
+
+________________________________________________________________________________________________
