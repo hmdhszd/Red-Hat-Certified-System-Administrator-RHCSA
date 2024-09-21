@@ -71,24 +71,24 @@ Disk quota is a way to **limit the amount of disk space** and the number of inod
 
 3. **Reboot OR Remount the Filesystem:**
 
-```bash
-systemctl reboot 
-```
-OR
-
-```bash
-sudo mount -o remount /
-```
-
-
-5. **Turn On Quotas:**
-
-```bash
-quotaon -v /mybackups
-```
+   ```bash
+   systemctl reboot 
+   ```
+   OR
+   
+   ```bash
+   sudo mount -o remount /
+   ```
 
 
-6. **Set Quotas for a User:**
+4. **Turn On Quotas:**
+
+   ```bash
+   quotaon -v /mybackups
+   ```
+
+
+5. **Set Quotas for a User:**
    To set quotas for a specific user (e.g., `john`), use the following command:
    ```bash
    sudo edquota john
@@ -102,17 +102,17 @@ quotaon -v /mybackups
      /dev/sda1          0     1000   1500       0       0       0
    ```
 
-7. **Check the Quota Usage:**
+6. **Check the Quota Usage:**
    Use the `quota` command to check the user’s quota usage:
    ```bash
    quota john
    ```
 
-8. **Set Grace Periods (Optional):**
+7. **Set Grace Periods (Optional):**
    You can set the grace period for soft limits using `edquota -t` to set a grace period for all users.
 
 
-9. **Test Quota (Optional):**
+8. **Test Quota (Optional):**
 
 ```bash
 fallocate --length 100M /mybackups/hamid/100Mfile
