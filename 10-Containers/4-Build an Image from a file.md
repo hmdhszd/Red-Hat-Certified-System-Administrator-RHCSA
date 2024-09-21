@@ -6,6 +6,16 @@
 ```Dockerfile
 FROM registry.redhat.io/ubi8/ubi
 
+RUN dnf -y install nginx
+
+EXPOSE 80
+
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+```
+
+```Dockerfile
+FROM registry.redhat.io/ubi8/ubi
+
 RUN dnf -y install httpd
 
 EXPOSE 80
@@ -14,7 +24,7 @@ CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 ```
 
 
-```bash
+```Dockerfile
 FROM registry.redhat.io/ubi9/ubi-minimal:9.1.0
 
 RUN microdnf install -y nginx
