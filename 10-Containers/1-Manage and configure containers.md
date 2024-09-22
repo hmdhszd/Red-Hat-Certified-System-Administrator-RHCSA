@@ -7,7 +7,7 @@ Install Podman
 ```
 OR
 ```bash
-[root@Server1 ~]# yum group install "Container Management"
+[root@Server1 ~]$ yum group install "Container Management"
 ```
 ________________________________________________________________________________________________
 
