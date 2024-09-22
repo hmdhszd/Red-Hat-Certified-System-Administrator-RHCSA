@@ -5,7 +5,10 @@ Install Podman
 ```bash
 [root@centos-host ~]$ yum module install container-tools:3.0
 ```
-
+OR
+```bash
+[root@Server1 ~]# yum group install "Container Management"
+```
 ________________________________________________________________________________________________
 
 
