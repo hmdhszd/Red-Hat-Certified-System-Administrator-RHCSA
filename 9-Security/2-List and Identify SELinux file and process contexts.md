@@ -166,107 +166,16 @@ sudo getsebool httpd_can_network_connect
 
 ### Example RHCSA Exam Tasks Involving SELinux
 
-Here are common tasks you may encounter in the exam:
-
-1. **Task**: You are asked to troubleshoot why a web server isn’t able to access a file in `/var/www/html`.
+### **1. troubleshoot why a web server**
+ You are asked to troubleshoot why a web server isn’t able to access a file in `/var/www/html`.
    - **Solution**: Check file permissions, and then check the SELinux context using `ls -Z`. If the context is wrong, fix it using `restorecon` or `chcon`.
 
-2. **Task**: You are instructed to allow an Apache web server to connect to a backend database server over the network.
+### **2. allow an Apache web server to connect to a backend database**
+You are instructed to allow an Apache web server to connect to a backend database server over the network.
    - **Solution**: Enable the `httpd_can_network_connect` Boolean:
      ```bash
      sudo setsebool -P httpd_can_network_connect on
      ```
-
-3. **Task**: Temporarily switch SELinux to permissive mode for troubleshooting.
-   - **Solution**:
-     ```bash
-     sudo setenforce 0
-     ```
-
----
-
-### Conclusion
-
-SELinux is an important part of the RHCSA exam, and mastering the basic commands and concepts will help you secure higher marks. Focus on understanding:
-- SELinux modes (enforcing, permissive, disabled)
-- Viewing and modifying file/process contexts
-- Using `restorecon`, `chcon`, `setsebool`, and related commands to solve typical system administration tasks.
-
-Let me know if you'd like to go deeper into specific commands or more complex examples!
-
-
-
-
-
-
-
-Here are **realistic RHCSA exam-style sample questions** for each important part of SELinux. These questions are designed to simulate what you may encounter in the exam.
-
----
-
-### **1. SELinux Modes: Enforcing, Permissive, Disabled**
-
-#### Sample Question:
-Your task is to temporarily change the SELinux mode to permissive to troubleshoot an issue, and then return it to enforcing mode afterward.
-
-#### Solution:
-1. Check current SELinux mode:
-   ```bash
-   sestatus
-   ```
-2. Set SELinux to permissive mode (temporary change):
-   ```bash
-   sudo setenforce 0
-   ```
-3. Verify the change:
-   ```bash
-   sestatus
-   ```
-4. After troubleshooting, switch back to enforcing mode:
-   ```bash
-   sudo setenforce 1
-   ```
-5. Confirm that SELinux is back to enforcing mode:
-   ```bash
-   sestatus
-   ```
-
-#### Notes:
-- **Temporary changes** only last until a reboot. 
-- You can modify the mode permanently by editing `/etc/selinux/config`.
-
----
-
-### **2. Viewing SELinux Contexts (Files and Processes)**
-
-#### Sample Question:
-A new HTML file, `/var/www/html/home.html`, has been created for your Apache web server, but the web server is unable to serve this file. Verify the file's SELinux context and correct any issues if necessary.
-
-#### Solution:
-1. Check the SELinux context of the file:
-   ```bash
-   ls -Z /var/www/html/home.html
-   ```
-   You might see:
-   ```
-   -rw-r--r--. root root unconfined_u:object_r:default_t:s0 home.html
-   ```
-   The type `default_t` indicates the wrong context.
-
-2. Reset the correct context using `restorecon`:
-   ```bash
-   sudo restorecon -v /var/www/html/home.html
-   ```
-
-3. Verify that the context is correct now (it should be `httpd_sys_content_t`):
-   ```bash
-   ls -Z /var/www/html/home.html
-   ```
-   Correct output:
-   ```
-   -rw-r--r--. root root unconfined_u:object_r:httpd_sys_content_t:s0 home.html
-   ```
-
 ---
 
 ### **3. Fixing SELinux Contexts Using `restorecon`**
