@@ -75,6 +75,7 @@ To allow NFS traffic through the firewall, add the required services:
 ```bash
 sudo firewall-cmd --permanent --add-service=nfs
 sudo firewall-cmd --permanent --add-service=rpc-bind
+sudo firewall-cmd --permanent --add-service=mountd
 sudo firewall-cmd --reload
 ```
 
