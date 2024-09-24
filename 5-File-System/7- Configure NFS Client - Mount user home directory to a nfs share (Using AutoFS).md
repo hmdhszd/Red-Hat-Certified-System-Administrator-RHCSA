@@ -54,19 +54,38 @@ sudo systemctl enable autofs
 ```
 
 ### Step 5: Test autofs
-Autofs will mount the directories on demand. To test this, simply switch to user `tom` or `sam`, or try to access their home directories:
+
+on the Client Side:
 
 ```bash
-ls /home/tom
+[root@NFSClient ~]# su - sam
+[sam@NFSClient ~]$ touch /home/sam/testfile
+[sam@NFSClient ~]$ exit
 ```
 
-Autofs should automatically mount the NFS share when you access `/home/tom`. You can also check the mounted filesystems:
 
 ```bash
-df -h
+[root@NFSClient ~]# su - bob
+[sam@NFSClient ~]$ touch /home/bob/testfile
+[sam@NFSClient ~]$ exit
 ```
 
-You should see that `/home/tom` is mounted only when accessed.
+on the Server Side:
+
+```bash
+[root@NFSServer ~]# ll /home/tom/
+total 0
+-rw-r--r--. 1 1010 1010 0 Sep 24 10:25 testfile
+[root@NFSServer ~]#
+[root@NFSServer ~]#
+[root@NFSServer ~]# ll /home/sam/
+total 0
+-rw-r--r--. 1 1020 1020 0 Sep 24 10:25 testfile
+```
+
+
+---
+
 
 ### Summary of Autofs vs `/etc/fstab`:
 
