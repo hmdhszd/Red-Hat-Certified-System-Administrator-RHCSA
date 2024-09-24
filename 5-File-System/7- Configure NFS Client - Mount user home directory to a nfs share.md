@@ -175,12 +175,13 @@ on the Server Side:
 
 ```bash
 [root@NFSServer ~]# ll /home/tom/
-total 0
+
 -rw-r--r--. 1 1010 1010 0 Sep 24 10:25 testfile
-[root@NFSServer ~]#
-[root@NFSServer ~]#
+
+
+
 [root@NFSServer ~]# ll /home/sam/
-total 0
+
 -rw-r--r--. 1 1020 1020 0 Sep 24 10:25 testfile
 ```
 
