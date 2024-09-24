@@ -23,7 +23,7 @@ sudo vi /etc/auto.master
 
 Add the following line to the end of the file:
 ```
-/home /etc/auto.home
+/home /etc/auto.home --timeout=600
 ```
 
 This tells autofs to use `/etc/auto.home` to manage mounts under `/home`.
@@ -53,34 +53,50 @@ sudo systemctl start autofs
 sudo systemctl enable autofs
 ```
 
+
+### Step 5: Create users `tom` and `sam` on the NFSClient
+Since these directories are home directories for `tom` and `sam`, you need to create the users with the appropriate user IDs (UIDs) on the NFSClient.
+
+```bash
+sudo useradd -u 1010 tom
+sudo useradd -u 1020 sam
+```
+
+
 ### Step 5: Test autofs
 
 on the Client Side:
 
 ```bash
-[root@NFSClient ~]# su - sam
-[sam@NFSClient ~]$ touch /home/sam/testfile
-[sam@NFSClient ~]$ exit
+[sam@NFSClient ~]$ df -h | grep home
+192.168.2.26:/home/tom   17G  4.7G   13G  28% /home/tom
+192.168.2.26:/home/sam   17G  4.7G   13G  28% /home/sam
+```
+
+```bash
+[root@NFSClient ~]# su - tom
+[tom@NFSClient ~]$ echo "Hello from tom in NFSClient" > tom_hello.txt
+[tom@NFSClient ~]$ exit
 ```
 
 
 ```bash
-[root@NFSClient ~]# su - bob
-[sam@NFSClient ~]$ touch /home/bob/testfile
+[root@NFSClient ~]# su - sam
+[sam@NFSClient ~]$ echo "Hello from sam in NFSClient" > sam_hello.txt
 [sam@NFSClient ~]$ exit
 ```
 
 on the Server Side:
 
 ```bash
-[root@NFSServer ~]# ll /home/tom/
-total 0
--rw-r--r--. 1 1010 1010 0 Sep 24 10:25 testfile
-[root@NFSServer ~]#
-[root@NFSServer ~]#
-[root@NFSServer ~]# ll /home/sam/
-total 0
--rw-r--r--. 1 1020 1020 0 Sep 24 10:25 testfile
+[root@NFSServer ~]# cat /home/sam/sam_hello.txt
+
+Hello from sam in NFSClient
+
+
+[root@NFSServer ~]# cat /home/tom/tom_hello.txt
+
+Hello from tom in NFSClient
 ```
 
 
