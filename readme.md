@@ -1,8 +1,10 @@
 # Red Hat Certified System Administrator (RHCSA) - EX200
 
-Welcome to the **RHCSA Exam Preparation Guide**! This document will help you organize and keep track of the key topics needed to prepare for the Red Hat Certified System Administrator (RHCSA) exam.
+Welcome to the **RHCSA Exam Preparation Guide**!
 
-You may find the exam topics in the [RedHat website](https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam?section=objectives).
+This document will help you organize and keep track of the key topics needed to prepare for the Red Hat Certified System Administrator (RHCSA) exam.
+
+You may find the exam objectives in the [RedHat website](https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam?section=objectives).
 
 1. [Understand and use essential tools](#1-understand-and-use-essential-tools)
 2. [Create simple shell scripts](#2-create-simple-shell-scripts)
