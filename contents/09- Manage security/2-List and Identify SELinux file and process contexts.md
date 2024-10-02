@@ -796,14 +796,10 @@ semanage permissive -a httpd_t
 ________________________________________________________________________________________________
 
 
-# to persistently set the bootloader to boot with selinux=0:
-#
-#    grubby --update-kernel ALL --args selinux=0
-#
-# To revert back to SELinux enabled:
-#
-#    grubby --update-kernel ALL --remove-args selinux
-#
+to persistently set the bootloader to boot with selinux=0:
+   grubby --update-kernel ALL --args selinux=0
+To revert back to SELinux enabled:
+   grubby --update-kernel ALL --remove-args selinux
 
 
 ________________________________________________________________________________________________
