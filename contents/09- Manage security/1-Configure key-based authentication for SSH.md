@@ -12,7 +12,7 @@
 ________________________________________________________________________________________________
 
 
-the port number that the sshd expect ssh connections
+the port number that the sshd expect ssh connections  (on the server side)
 
 ```bash
 Port 22
@@ -22,7 +22,7 @@ ________________________________________________________________________________
 
 
 
-the maximum number of SSH login attempts
+the maximum number of SSH login attempts (on the server side)
 
 ```bash
 MaxAuthTries 5
@@ -31,10 +31,10 @@ MaxAuthTries 5
 ________________________________________________________________________________________________
 
 
-## `AddressFamily`
+## `AddressFamily` 
 
 
-ipv4 or ipv6 or any
+ipv4 or ipv6 or any  (on the server and client side)
 
 
 for `ipv4`      -->      `inet`
@@ -54,7 +54,7 @@ ________________________________________________________________________________
 ## `ListenAddress`
 
 
-who can ssh to this server (default 0.0.0.0 = any)
+who can ssh to this server (default 0.0.0.0 = any)  (on the server side)
 
 ```bash
 #ListenAddress 0.0.0.0
@@ -66,7 +66,7 @@ ________________________________________________________________________________
 ## `PermitRootLogin`
 
 
-enable / disable login with root user
+enable / disable login with root user  (on the server side)
 
 ```bash
 PermitRootLogin yes
@@ -78,7 +78,7 @@ ________________________________________________________________________________
 ## `PasswordAuthentication`
 
 
-login with `password` or only `ssh key`
+login with `password` or only `ssh key`  (on the server side)
 
 ```bash
 PasswordAuthentication yes
@@ -101,7 +101,7 @@ ________________________________________________________________________________
 
 ## `X11Forwarding`
 
-`X11 forwarding` is a feature in the SSH (Secure Shell) protocol that allows graphical applications running on a remote server to be displayed on a local machine.
+`X11 forwarding` is a feature in the SSH (Secure Shell) protocol that allows graphical applications running on a remote server to be displayed on a local machine.  (on the server side)
 
 It enables users to run `GUI-based` `applications` on a `remote server` and have their graphical output redirected to their local machine.
 
