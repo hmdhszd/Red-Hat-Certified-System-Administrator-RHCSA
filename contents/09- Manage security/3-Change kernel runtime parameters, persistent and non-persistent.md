@@ -422,9 +422,9 @@ every line that starts with "vm." is related to virtual memory
 every line that starts with "fs." is related to file system
 
 
-`1`   -->   `Disable`
+`0`   -->   `Disable`
 
-`0`   -->   `Enable`
+`1`   -->   `Enable`
 
 
 
