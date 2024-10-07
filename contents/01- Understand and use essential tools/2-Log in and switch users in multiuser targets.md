@@ -317,7 +317,7 @@ ________________________________________________________________________________
 this user only can use "apt" and "rm" command with sudo:
 
 ```bash
-hamid ALL=(ALL:ALL) /use/bin/apt,/usr/bin/rm
+hamid ALL=(ALL:ALL) /usr/bin/apt,/usr/bin/rm
 ```
 ________________________________________________________________________________________________
 
