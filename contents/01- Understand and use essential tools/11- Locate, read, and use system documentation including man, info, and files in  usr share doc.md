@@ -7,7 +7,7 @@ The RHCSA exam topic **"Locate, read, and use system documentation including man
 2. **Info pages**: An alternative and often more detailed documentation system.
 3. **`/usr/share/doc`**: A directory containing additional documentation, including configuration examples, licenses, and more.
 4. **`apropos` and `whatis`**: Useful commands for finding relevant man pages when you don’t know the exact command.
-5. **`help`** and `--help`**: For quick reference on built-in shell commands or program options.
+5. **`help`** and **`--help`**: For quick reference on built-in shell commands or program options.
 
 ---
 
