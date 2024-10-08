@@ -128,7 +128,7 @@ from -20 to 19
 
 lower   -->   less nice   -->   higher priority
 
-Default nice level assigned to a process when it started using the nice command   -->   10
+Default nice level assigned to a process when it started using the nice command   -->   0
 
 ________________________________________________________________________________________________
 
