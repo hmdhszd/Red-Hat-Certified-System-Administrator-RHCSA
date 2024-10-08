@@ -254,7 +254,7 @@ ________________________________________________________________________________
 
 
 
-## `GUID` (`2`)
+## `SGID` (`2`)
 
 when it is set on a file it means that whenever the file is executed, it's going to be executed with the GroupID of the owner of the file instead of the GroupID of the person who is running that file
 
@@ -263,7 +263,7 @@ when it is set on a file it means that whenever the file is executed, it's going
 ________________________________________________________________________________________________
 
 
-### set GUID
+### set SGID
 
 ```bash
 [bob@centos-host ~]$ chmod g+s myfile
@@ -319,24 +319,38 @@ because the group it has not the permission to execute
 ________________________________________________________________________________________________
 
 
-## `find . -perm /4000`
+## `find . -perm /6000`
 
-### find files with SUID and GUID set
+### find files with SUID and SGID set
+To find files with the **SUID (Set User ID)** and **SGID (Set Group ID)** bits set in Linux, you can use the `find` command with the appropriate options:
 
+### Find Files with SUID Bit Set:
 ```bash
-[bob@centos-host ~]$ find . -perm /4000
-./myfile
+find / -perm /4000 -type f 2>/dev/null
 ```
+- `/` specifies the root directory to start searching from.
+- `-perm /4000` looks for files with the SUID bit set.
+- `-type f` limits the search to regular files.
+- `2>/dev/null` suppresses error messages (e.g., "Permission denied").
 
+### Find Files with SGID Bit Set:
 ```bash
-[bob@centos-host ~]$ find . -perm /2000
-./myNewFile
+find / -perm /2000 -type f 2>/dev/null
 ```
+- `-perm /2000` looks for files with the SGID bit set.
+
+### Find Files with Both SUID and SGID Bits Set:
+```bash
+find / -perm /6000 -type f 2>/dev/null
+```
+- `-perm /6000` looks for files with both the SUID and SGID bits set.
+
+These commands help identify files that could pose a security risk if misconfigured, as they allow privilege escalation for users.
 
 ________________________________________________________________________________________________
 
 
-### set both GUID and SUID on a file (`6`)
+### set both SGID and SUID on a file (`6`)
 
 ```bash
 [bob@centos-host ~]$ touch fileWithBothPermissions
@@ -418,7 +432,7 @@ ________________________________________________________________________________
 
 
 
-add SUID, GUID, StickyBit to a directory:
+add SUID, SGID, StickyBit to a directory:
 
 ```bash
 [bob@centos-host ~]$ chmod u+s,g+s,o+t /home/bob/datadir
