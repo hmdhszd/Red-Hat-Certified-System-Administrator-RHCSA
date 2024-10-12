@@ -107,7 +107,7 @@ ________________________________________________________________________________
 ## 4.  Create a thin pool: `--thinpool`
 
 ```bash
-[root@centos-host bob]$ lvcreate --size 700M --thinpool mythinpool myvg
+[root@centos-host bob]$  lvcreate --name mythinpool --type thin-pool --size 700M myvg
 ```
 
 
