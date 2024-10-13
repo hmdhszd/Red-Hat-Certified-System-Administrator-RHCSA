@@ -219,3 +219,28 @@ ________________________________________________________________________________
 ```
 
 ________________________________________________________________________________________________
+
+
+
+---
+
+### **Example RHCSA Exam-Like Scenario**
+
+**Scenario**: You are asked to configure the `/project` directory so that:
+1. User `alice` has read and write access.
+2. The group `managers` has read access.
+3. Any new files created inside `/project` should automatically have read access for `bob`.
+
+**Solution**:
+
+```bash
+setfacl -m u:alice:rw /project
+setfacl -m g:managers:r /project
+setfacl -m d:u:bob:r /project
+```
+
+1. **`u:alice:rw`** grants read and write to `alice`.
+2. **`g:managers:r`** grants read access to the `managers` group.
+3. **`d:u:bob:r`** sets a default ACL that applies read permission to `bob` for all new files.
+
+---
