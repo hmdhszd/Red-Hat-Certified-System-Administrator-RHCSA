@@ -208,9 +208,7 @@ All changes made to user privileges via the **`/etc/sudoers`** file or by modify
 ---
 
 ### Summary of Skills for RHCSA Exam on Configuring Superuser Access:
-1. **Grant
-
- `sudo` access** by adding users to the `wheel` group using `usermod -aG wheel`.
+1. **Grant `sudo` access** by adding users to the `wheel` group using `usermod -aG wheel`.
 2. **Edit the `/etc/sudoers` file** using `visudo` to securely configure specific `sudo` privileges.
 3. **Grant passwordless `sudo` access** to users by adding `NOPASSWD` in `/etc/sudoers`.
 4. **Restrict `sudo` access** to specific commands by modifying the `/etc/sudoers` file.
