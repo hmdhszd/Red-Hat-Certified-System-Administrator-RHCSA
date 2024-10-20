@@ -1,4 +1,4 @@
-### **RHCSA Exam Topic: Configure a Local Yum/DNF Repository on a Server from an ISO File (RHEL 9)**
+### **RHCSA Exam Topic: Configure a Local Yum/DNF Repository on a Server from an ISO Image (RHEL 9)**
 
 In the **RHCSA exam**, one task you may encounter is to configure a **local Yum/DNF repository** using an ISO file. This is useful when your system doesn't have internet access, and you need to install software packages from a local source. In this case, you would mount an ISO file, make the mount persistent, and configure the repository to pull packages from the ISO.
 
