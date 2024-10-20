@@ -230,9 +230,7 @@ By default, changes made using **`nmcli`**, **`nmtui`**, or by editing the conne
 
 3. **Verify the connection status**:
    ```bash
-  
-
- nmcli con show eth0
+   nmcli con show eth0
    ```
 
 **Explanation**:
