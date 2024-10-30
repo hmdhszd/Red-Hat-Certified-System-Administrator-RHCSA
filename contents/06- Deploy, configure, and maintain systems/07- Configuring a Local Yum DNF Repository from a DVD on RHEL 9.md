@@ -67,10 +67,11 @@ You can easily add the DVD as a repository using the `dnf config-manager --add-r
 1. Use the following command to create a repository configuration:
 
    ```bash
-   dnf config-manager --add-repo=file:///media/dvd
+   dnf config-manager --add-repo=file:///media/dvd/AppStream
+   dnf config-manager --add-repo=file:///media/dvd/BaseOS
    ```
 
-   This command creates a new repository configuration file under `/etc/yum.repos.d/` that points to the mounted DVD at `/media/dvd`.
+   This command creates two new repositories configuration file under `/etc/yum.repos.d/` that points to the mounted DVD at `/media/dvd`.
 
 ---
 
@@ -80,7 +81,7 @@ Since you are using a local DVD repository, you may want to disable GPG checking
 
 1. **Edit the repo file** that was created in `/etc/yum.repos.d/`.
 
-   The file will be named something like `/etc/yum.repos.d/media_dvd.repo`.
+   The file will be named something like `/etc/yum.repos.d/dvd_AppStream_.repo`.
 
 2. **Open the file** in a text editor:
    
