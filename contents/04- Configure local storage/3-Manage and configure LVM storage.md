@@ -633,3 +633,48 @@ data blocks changed from 655360 to 783360
 
 ________________________________________________________________________________________________
 
+
+
+Question:15 Create a logical volume
+Create a new logical volume as required:
+
+Name the logical volume as database, belongs to datastore of the volume group, size is 60 PE.
+Expansion size of each volume in volume group datastore is 16MB.
+Use ext3 to format this new logical volume, this logical volume should automatically mount to /mnt/database.
+Answer:15 Create a logical volume
+1. Create a disk partition
+[root@node2 ~]# fdisk /dev/vdb
+
+2. Create a physical group (pv)
+[root@node2 ~]# pvcreate /dev/vdb4
+   Physical volume "/dev/vdb4" successfully created.
+
+3. Create a volume group (vg)
+[root@node2 ~]# vgcreate qagroup -s 16M /dev/vdb4
+# -s Extended block (PE) size of the physical volume on the volume group
+   Volume group "qagroup" successfully created
+
+4. Create a logical volume (lv)
+[root@node2 ~]# lvcreate -n qa -l 60 /dev/qagroup
+   Logical volume "qa" created.
+
+5. Formatting
+[root@node2 ~]# mkfs.ext3 /dev/qagroup/qa
+
+6. View UUID
+[root@node2 ~]# blkid /dev/qagroup/qa
+/dev/qagroup/qa: UUID="5ad7f2df-9749-4a46-adb6-853f3805d795" SEC_TYPE="ext2" TYPE="ext3"
+
+7. Create /mnt/qa directory
+[root@node2 ~]# mkdir /mnt/qa
+
+8. Make a permanent mount
+[root@node2 ~]# vim /etc/fstab
+UUID="5ad7f2df-9749-4a46-adb6-853f3805d795" /mnt/qa ext3 defaults 0 0
+
+9. load
+[root@node2 ~]# mount -a # Load all devices set in the file /etc/fstab
+
+10.
+[root@node2 ~]# df -h
+/dev/mapper/qagroup-qa 929M 1.2M 880M 1% /mnt/qa
