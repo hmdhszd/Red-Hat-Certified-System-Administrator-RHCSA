@@ -3,7 +3,7 @@
 Install Podman
 
 ```bash
-[root@centos-host ~]$ yum module install container-tools:3.0
+[root@centos-host ~]$ yum install container-tools:3.0
 ```
 OR
 ```bash
