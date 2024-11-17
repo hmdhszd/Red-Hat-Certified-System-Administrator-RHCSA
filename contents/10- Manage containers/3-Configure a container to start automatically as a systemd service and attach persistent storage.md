@@ -2,13 +2,9 @@
 
 change the module stream for the container-tools to 3.0 in order to update the podman
 
-```bash
-sudo yum module reset container-tools
-```
-
 
 ```bash
-sudo yum module install container-tools:3.0 
+sudo yum install container-tools
 ```
 
 ________________________________________________________________________________________________
