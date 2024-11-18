@@ -633,48 +633,124 @@ data blocks changed from 655360 to 783360
 
 ________________________________________________________________________________________________
 
+### **Updated Scenario-Based Question**
+
+You are tasked with creating and managing a logical volume for a project using LVM. Follow the steps below to accomplish the task:
+
+1. Format two partitions (`/dev/sdb1` and `/dev/sdb2`), each 1 GB in size, with the `lvm` partition type.
+2. Create two physical volumes on `/dev/sdb1` and `/dev/sdb2`.
+3. Create a volume group named `myvg` using the two physical volumes with a PE size of 32 MB.
+4. Create a logical volume named `mylv` in `myvg` with an initial size of **10 extents**.
+5. Format the logical volume with the `xfs` filesystem.
+6. Mount the logical volume persistently under `/mylvdir`.
+7. Create a file named `testfile` inside `/mylvdir` to confirm the volume is functional.
+8. Resize the logical volume to add **10 extents**, ensuring the filesystem is resized automatically.
+9. Finally, extend the logical volume to use **all remaining free space** in the volume group, resizing the filesystem accordingly.
+
+---
+
+### **Solution**
+
+#### **Step 1: Format Partitions with the `lvm` Type**
+1. Open the partitioning tool to format `/dev/sdb`:
+   ```bash
+   fdisk /dev/sdb
+   ```
+2. Create two 1 GB partitions (`/dev/sdb1` and `/dev/sdb2`):
+   - Press `n` to create a new partition.
+   - Select the partition size (`+1G` for each).
+   - Change the partition type to `lvm`:
+     - Press `t`, then enter `8e` for the `lvm` type.
+   - Repeat for the second partition.
+3. Write changes and exit:
+   ```bash
+   w
+   ```
+4. Verify the partitions:
+   ```bash
+   lsblk
+   ```
+
+#### **Step 2: Create Physical Volumes**
+```bash
+pvcreate /dev/sdb1 /dev/sdb2
+```
+
+#### **Step 3: Create Volume Group**
+```bash
+vgcreate -s 32M myvg /dev/sdb1 /dev/sdb2
+```
+
+#### **Step 4: Create Logical Volume**
+```bash
+lvcreate --name mylv --extents 10 myvg
+```
+
+#### **Step 5: Format the Logical Volume**
+```bash
+mkfs.xfs /dev/myvg/mylv
+```
+
+#### **Step 6: Mount the Logical Volume**
+1. Create the mount directory:
+   ```bash
+   mkdir /mylvdir
+   ```
+2. Mount the logical volume:
+   ```bash
+   mount /dev/myvg/mylv /mylvdir
+   ```
+3. Add an entry in `/etc/fstab` for persistent mounting:
+   ```bash
+   echo '/dev/myvg/mylv /mylvdir xfs defaults 0 0' >> /etc/fstab
+   ```
+
+#### **Step 7: Create Test File**
+```bash
+touch /mylvdir/testfile
+```
+
+#### **Step 8: Resize the Logical Volume**
+1. Add 10 extents to the logical volume:
+   ```bash
+   lvresize --resizefs --extents +10 /dev/myvg/mylv
+   ```
+   This command automatically extends the logical volume and resizes the filesystem.
+
+#### **Step 9: Use All Remaining Free Space**
+1. Extend the logical volume to use all free space:
+   ```bash
+   lvresize --resizefs --extents 100%FREE /dev/myvg/mylv
+   ```
+   This ensures the logical volume and filesystem utilize all remaining space in the volume group.
+
+---
+
+### **Verification**
+
+1. Verify the logical volume size:
+   ```bash
+   lvs
+   ```
+   Output should show the updated size after each resize.
+
+2. Check the mount point and filesystem:
+   ```bash
+   df -h /mylvdir
+   ```
+   Output should confirm the increased filesystem size.
+
+3. Ensure `testfile` is still present:
+   ```bash
+   ls /mylvdir/
+   ```
+   Output:
+   ```bash
+   testfile
+   ```
+
+---
+
+This updated scenario now includes the step to format `/dev/sdb1` and `/dev/sdb2` as `lvm` partitions, ensuring it reflects a complete RHCSA-style task.
 
 
-Question:15 Create a logical volume
-Create a new logical volume as required:
-
-Name the logical volume as database, belongs to datastore of the volume group, size is 60 PE.
-Expansion size of each volume in volume group datastore is 16MB.
-Use ext3 to format this new logical volume, this logical volume should automatically mount to /mnt/database.
-Answer:15 Create a logical volume
-1. Create a disk partition
-[root@node2 ~]# fdisk /dev/vdb
-
-2. Create a physical group (pv)
-[root@node2 ~]# pvcreate /dev/vdb4
-   Physical volume "/dev/vdb4" successfully created.
-
-3. Create a volume group (vg)
-[root@node2 ~]# vgcreate qagroup -s 16M /dev/vdb4
-# -s Extended block (PE) size of the physical volume on the volume group
-   Volume group "qagroup" successfully created
-
-4. Create a logical volume (lv)
-[root@node2 ~]# lvcreate -n qa -l 60 /dev/qagroup
-   Logical volume "qa" created.
-
-5. Formatting
-[root@node2 ~]# mkfs.ext3 /dev/qagroup/qa
-
-6. View UUID
-[root@node2 ~]# blkid /dev/qagroup/qa
-/dev/qagroup/qa: UUID="5ad7f2df-9749-4a46-adb6-853f3805d795" SEC_TYPE="ext2" TYPE="ext3"
-
-7. Create /mnt/qa directory
-[root@node2 ~]# mkdir /mnt/qa
-
-8. Make a permanent mount
-[root@node2 ~]# vim /etc/fstab
-UUID="5ad7f2df-9749-4a46-adb6-853f3805d795" /mnt/qa ext3 defaults 0 0
-
-9. load
-[root@node2 ~]# mount -a # Load all devices set in the file /etc/fstab
-
-10.
-[root@node2 ~]# df -h
-/dev/mapper/qagroup-qa 929M 1.2M 880M 1% /mnt/qa
