@@ -1,4 +1,4 @@
-## 01- Access a shell prompt and issue commands with correct syntax.md
+## 01- Access a shell prompt and issue commands with correct syntax:
 
 The topic **"Access a shell prompt and issue commands with correct syntax"** is foundational to the RHCSA (Red Hat Certified System Administrator) exam and is likely the first step in most exam tasks. This objective tests your ability to interact with the shell effectively, execute commands correctly, and use basic Linux command-line tools. Let's break down what this might involve at an RHCSA exam level and what you need to know to be successful.
 
