@@ -1,3 +1,5 @@
+## 02- Use input-output redirection.md
+
 The topic **"Use input-output redirection (>, >>, |, 2>, etc.)"** is an essential skill for Linux command-line proficiency, and mastering it is necessary for the RHCSA exam. It involves directing the output of commands to files, sending input from files or other commands, and handling errors effectively. Below is an explanation of what you need to know at the RHCSA level and examples of how these redirections work, aligned with the exam requirements.
 
 
