@@ -1,3 +1,5 @@
+## 01- Conditionally execute code use of if, test, [], etc:
+
 The RHCSA exam topic **"Conditionally execute code (use of: if, test, [], etc.) in shell script"** is essential because scripting is a key part of system administration. You’ll need to demonstrate how to execute commands conditionally using shell scripting constructs like **`if`**, **`test`**, and the **`[]`** syntax. This is typically used to control the flow of a script based on conditions such as file existence, string comparison, and numerical tests.
 
 ---
