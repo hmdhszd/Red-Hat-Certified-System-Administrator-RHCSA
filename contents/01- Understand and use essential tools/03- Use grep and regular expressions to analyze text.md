@@ -1,4 +1,4 @@
-## 03- Use grep and regular expressions to analyze text.md
+## 03- Use grep and regular expressions to analyze text:
 
 The topic **"Use grep and regular expressions to analyze text"** is crucial for the RHCSA exam. It involves the ability to search for and filter text patterns in files or command outputs using the `grep` command combined with **regular expressions (regex)**. Proficiency in these skills allows you to extract relevant information from system logs, configuration files, and command output, which is essential for system administration tasks.
 
