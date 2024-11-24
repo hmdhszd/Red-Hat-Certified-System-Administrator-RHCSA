@@ -86,3 +86,17 @@ ________________________________________________________________________________
 
 it only shows the matching item, not the whole line
 
+
+
+________________________________________________________________________________________________
+
+
+Finds all lines in the file /usr/share/xml/iso-codes/iso_639_3.xml that contain the string ng.
+Put a copy of all these lines in the file /root/list in their original order.
+/root/list must not contain empty lines, and all lines must be exact copies of the original lines in /usr/share/xml/iso-codes/iso_639_3.xml.
+
+
+grep 'ng' /usr/share/xml/iso-codes/iso_639_3.xml | grep -v '^$' > /root/list
+
+
+________________________________________________________________________________________________
