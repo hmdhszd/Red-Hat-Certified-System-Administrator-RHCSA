@@ -351,5 +351,42 @@ ________________________________________________________________________________
 
 
 
+To create three users (Derek, Tom, and Kenny) who belong to the `instructors` group, while preventing Tom from accessing a shell and setting his account to expire in 10 days, you can follow these steps:
 
+1. Create the `instructors` group if it doesn't already exist.
+2. Add the users to the group.
+3. Set up Tom's user account with a shell restriction and expiration date.
+
+Here's how to do it using command-line commands:
+
+### 1. Create the `instructors` group
+```bash
+sudo groupadd instructors
+```
+
+### 2. Create Derek and Kenny with default shell access and add them to the `instructors` group
+```bash
+sudo useradd -m -G instructors Derek
+sudo useradd -m -G instructors Kenny
+```
+
+### 3. Create Tom without shell access and with an account expiration date
+```bash
+sudo useradd -m -G instructors -s /sbin/nologin Tom
+sudo chage -E $(date -d "+10 days" +%Y-%m-%d) Tom
+```
+
+### Breakdown:
+- `-m` creates a home directory for the user.
+- `-G instructors` adds the user to the `instructors` group.
+- `-s /sbin/nologin` sets Tom's shell to `/sbin/nologin`, preventing him from accessing a shell.
+- `chage -E $(date -d "+10 days" +%Y-%m-%d)` sets the account expiration date to 10 days from now.
+
+You can verify the changes using:
+
+```bash
+sudo chage -l Tom  # Check Tom's account expiration details
+```
+
+This will show Tom's account expiration date and confirm that it is correctly set.
 
