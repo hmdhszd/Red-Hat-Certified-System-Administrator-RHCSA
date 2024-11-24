@@ -232,3 +232,4 @@ fi
 3. **Check return codes** of commands to determine success or failure.
 4. **Combine multiple conditions** in scripts for practical, real-world tasks.
 5. Understand and use the **standard file tests** like `-e`, `-f`, `-d`, `-r`, and more.
+
