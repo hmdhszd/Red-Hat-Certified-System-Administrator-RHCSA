@@ -262,3 +262,96 @@ SGID - if set on a directory, any files created in the directory will have their
 ________________________________________________________________________________________________
 
 
+
+To create a shared directory where two groups have full access (read, write, and execute) but cannot delete files, you can use Linux filesystem permissions with the **sticky bit** and **group ownership**. Here's how to achieve this:
+
+### Step 1: Create the shared directory
+
+1. **Create the directory** that you want to share between the groups:
+   ```bash
+   sudo mkdir /shared_directory
+   ```
+
+### Step 2: Create the two groups
+
+1. **Create the groups** if they don't already exist:
+   ```bash
+   sudo groupadd group1
+   sudo groupadd group2
+   ```
+
+2. **Add users to the groups** (replace `user1`, `user2`, etc., with actual usernames):
+   ```bash
+   sudo usermod -aG group1 user1
+   sudo usermod -aG group2 user2
+   ```
+
+### Step 3: Set the group ownership of the directory
+
+1. **Change the group ownership** of the shared directory to one of the groups (e.g., `group1`). You can assign both groups by setting the **SGID** later:
+   ```bash
+   sudo chown :group1 /shared_directory
+   ```
+
+2. **Ensure both groups can access the directory** by adjusting the permissions:
+   ```bash
+   sudo chmod 770 /shared_directory
+   ```
+
+   This command gives read, write, and execute permissions to both the owner and the group, and no access to others.
+
+### Step 4: Set the SGID and Sticky Bit
+
+1. **Set the SGID (Set Group ID)** on the directory so that all new files and subdirectories inherit the group ownership of the directory:
+   ```bash
+   sudo chmod g+s /shared_directory
+   ```
+
+2. **Set the sticky bit** to prevent users from deleting or renaming files they do not own:
+   ```bash
+   sudo chmod +t /shared_directory
+   ```
+
+### Step 5: Modify ACLs (Access Control Lists)
+
+1. **Set ACLs to give full access to both groups**, ensuring they have read, write, and execute access:
+   ```bash
+   sudo setfacl -m g:group1:rwx /shared_directory
+   sudo setfacl -m g:group2:rwx /shared_directory
+   ```
+
+2. **Ensure all files inherit the same permissions** by setting default ACLs:
+   ```bash
+   sudo setfacl -d -m g:group1:rwx /shared_directory
+   sudo setfacl -d -m g:group2:rwx /shared_directory
+   ```
+
+### Step 6: Verify the setup
+
+1. **Check the permissions** on the directory to ensure everything is set up correctly:
+   ```bash
+   ls -ld /shared_directory
+   getfacl /shared_directory
+   ```
+
+### How This Works
+
+- **SGID** ensures that any file created in the directory will have the same group ownership as the directory itself (in this case, `group1`).
+- **Sticky bit** (`+t`) prevents users from deleting or renaming files they do not own, even if they have write access to the directory. This allows both groups to write files, but users can only delete their own files.
+- **ACLs** provide fine-grained control to ensure both `group1` and `group2` have full read, write, and execute permissions.
+
+### Example Permissions
+
+After setting up, the directory `/shared_directory` will have permissions like this:
+
+```
+drwxrws-t 2 root group1 4096 Nov 22 10:00 /shared_directory
+```
+
+This indicates:
+- `rwxrws-t`: The directory has full access for the owner and group, with the SGID (`s`) and sticky bit (`t`) set.
+- Both `group1` and `group2` can fully access the directory, but they cannot delete files they do not own.
+
+This setup ensures that the two groups can collaborate, write files, but cannot delete each other's files.
+
+
