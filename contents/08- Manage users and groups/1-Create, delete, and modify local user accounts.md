@@ -579,4 +579,36 @@ useradd -u 5000 -s /sbin/nologin hamid
 ________________________________________________________________________________________________
 
 
+To create a user named `bob` and restrict this user to only changing their password (without performing any other actions), follow these steps:
 
+1. **Create the user `bob`:**
+   ```bash
+   sudo useradd bob
+   ```
+
+2. **Set the user's shell to `/usr/bin/passwd`** so that the user can only run the `passwd` command to change their password. This is done by setting their shell to the `passwd` command.
+
+   ```bash
+   sudo usermod -s /usr/bin/passwd bob
+   ```
+
+   This effectively limits the user's actions because every time `bob` logs in, they will be automatically directed to the password change command (`passwd`), preventing them from executing any other commands.
+
+3. **Optionally, set a password for `bob`:**
+   ```bash
+   sudo passwd bob
+   ```
+
+### Verification:
+
+To verify the configuration, you can check the user's shell by running:
+```bash
+getent passwd bob
+```
+
+You should see output similar to:
+```bash
+bob:x:1001:1001::/home/bob:/usr/bin/passwd
+```
+
+This setup ensures that `bob` can log in only to change their password and cannot access any other functionality of the shell.
