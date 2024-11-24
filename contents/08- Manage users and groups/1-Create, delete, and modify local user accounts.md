@@ -612,3 +612,28 @@ bob:x:1001:1001::/home/bob:/usr/bin/passwd
 ```
 
 This setup ensures that `bob` can log in only to change their password and cannot access any other functionality of the shell.
+
+
+
+
+________________________________________________________________________________________________
+
+
+2. Set the First UID for New Users to 2000
+
+
+
+sudo vi /etc/login.defs
+
+
+UID_MIN      2000
+
+
+
+
+
+________________________________________________________________________________________________
+
+
+
+
