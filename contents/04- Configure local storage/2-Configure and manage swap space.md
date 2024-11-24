@@ -242,4 +242,88 @@ sudo swapon /swapfile
 ________________________________________________________________________________________________
 
 
+To create two swap areas as described, one on a partition (`/dev/sdc3`) and another on a logical volume (`/dev/vgfs/swapvol`), and add them to the `/etc/fstab` for persistence, follow these steps:
+
+### 1. Create and configure the swap partition on `/dev/sdc3`:
+
+#### a. Create the partition:
+If the partition `/dev/sdc3` does not already exist, use `fdisk` or `parted` to create it:
+```bash
+sudo fdisk /dev/sdc
+```
+In the `fdisk` interactive mode:
+- Press `n` to create a new partition.
+- Select the partition number (3 in this case).
+- Set the size to `+40M`.
+- Change the partition type to Linux swap (`82`) using the `t` command.
+- Save changes and exit with `w`.
+
+#### b. Set up the swap area:
+```bash
+sudo mkswap /dev/sdc3
+```
+
+#### c. Get the UUID for the partition:
+```bash
+sudo blkid /dev/sdc3
+```
+Take note of the UUID from the output.
+
+### 2. Create and configure the swap logical volume (`swapvol` in `vgfs`):
+
+#### a. Create the logical volume:
+```bash
+sudo lvcreate -L 140M -n swapvol vgfs
+```
+
+#### b. Set up the swap area:
+```bash
+sudo mkswap /dev/vgfs/swapvol
+```
+
+### 3. Edit `/etc/fstab` to make the swap areas persistent:
+
+Open `/etc/fstab` in your preferred editor:
+```bash
+sudo nano /etc/fstab
+```
+
+Add the following lines to the file:
+
+```bash
+UUID=<uuid-of-sdc3> none swap defaults,pri=1 0 0
+/dev/vgfs/swapvol none swap defaults,pri=2 0 0
+```
+
+Replace `<uuid-of-sdc3>` with the actual UUID you got from the `blkid` command.
+
+### 4. Activate the swap areas:
+
+```bash
+sudo swapon -a
+```
+
+### 5. Verify the swap is active:
+
+To check that both swap areas are activated and functioning correctly, use:
+
+```bash
+sudo swapon --show
+```
+
+You should see both `/dev/sdc3` and `/dev/vgfs/swapvol` listed with their respective priorities.
+
+### 6. Validate swap configuration:
+
+Use `free` or `swapon` to confirm the swap configuration:
+
+```bash
+free -h
+```
+
+This command shows the total available swap space. You should see the swap size reflecting the two areas you've created.
+
+By following these steps, you will have configured two swap areas (one on the partition and another on the logical volume), made them persistent through the `/etc/fstab` file, and ensured they are active with the appropriate priorities.
+
+
 
