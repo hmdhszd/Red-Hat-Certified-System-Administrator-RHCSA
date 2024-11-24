@@ -161,3 +161,37 @@ binutils                                libatomic_ops        perl-IO-Socket-SSL
 ```
 
 ________________________________________________________________________________________________
+
+
+
+
+Here's what `man -k` and `man -wk` do:
+
+### `man -k`
+- `man -k <keyword>` searches the **whatis database** for manual pages containing the specified `<keyword>` in their name or description. It returns a list of matching commands or topics along with a brief description.
+- The `whatis database` is typically built using the `makewhatis` or `mandb` commands and contains summaries of man pages.
+  
+For example:
+```bash
+man -k password
+```
+This will list all manual page entries that contain the word "password" in their name or description.
+
+### `man -wk`
+- `man -w` displays the **file path** to the manual page for a given command, rather than the content of the man page.
+- `man -k` searches for manual pages based on a keyword in the description.
+
+When you combine them as `man -wk <keyword>`, the command doesn't work as expected because `-w` (which gives paths) and `-k` (which searches for descriptions) don't combine logically.
+
+- `man -w <command>`: Shows the path to the manual page file for the specified command.
+  
+For example:
+```bash
+man -w ls
+```
+This will return the file path to the `ls` manual page, something like `/usr/share/man/man1/ls.1.gz`.
+
+### Summary:
+- `man -k <keyword>`: Searches for manual pages related to the keyword.
+- `man -w <command>`: Returns the file path to the manual page for the command.
+- `man -wk <keyword>`: **Not a valid combination** because `-w` and `-k` have conflicting purposes.
