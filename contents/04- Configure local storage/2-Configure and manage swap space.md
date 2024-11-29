@@ -221,19 +221,16 @@ ________________________________________________________________________________
 
 
 ```bash
-sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 oflag=append conv=notrunc
-```
-
-
-```bash
 sudo swapoff /swapfile
 ```
 
+```bash
+sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 oflag=append conv=notrunc
+```
 
 ```bash
 sudo mkswap /swapfile
 ```
-
 
 ```bash
 sudo swapon /swapfile
