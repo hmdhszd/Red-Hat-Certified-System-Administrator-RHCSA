@@ -245,9 +245,7 @@ Troubleshoot why SSH access is failing for `examuser` on the remote server `192.
 
 ---
 
-### **Summary of Key SSH Skills for RHCSA
-
-:**
+### **Summary of Key SSH Skills for RHCSA:**
 1. **Basic SSH login** using password-based and key-based authentication.
 2. **Configure SSH for secure access**, including disabling password-based authentication.
 3. **File transfer** using `scp`.
